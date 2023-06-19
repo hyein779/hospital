@@ -20,10 +20,10 @@ a:hover{
 }
 .page-main{
 	background:#FFFFFF;
-	min-height:1000px;
 }
 .content-main{
 	padding:10px 20px;
+	height:1000px;
 }
 
 /* 공통 정렬
@@ -99,6 +99,26 @@ ul{
 	background:black;
 	color:white;
 }
+/* lnb */
+#lnb { position:relative; padding-top:33px; float:left; width:218px;}
+#lnb h2.lnbTitle { padding:10px 28px 23px 0; text-align:right; font-size:26px; font-weight:bold; color:#267376; background:url(/asan/images/common/bg_lnbTitleBar.gif) 159px 1px no-repeat;}
+#lnb ul.depth1 > li { display:block; padding-right:29px; text-align:right; padding-top:17px; height:32px; line-height:1; font-size:18px; color:#333; font-weight:bold; border-top:1px solid #d6d6d6;}
+#lnb ul.depth1 > li > a { display:block; padding-right:29px; text-align:right; padding-top:17px; height:32px; line-height:1; font-size:18px; color:#333; font-weight:bold; border-bottom:1px solid #d6d6d6;}
+#lnb ul.depth1 > li:first-child > a {padding-top:17px;height:32px}
+/* #lnb ul.depth1 > li > a:hover,
+#lnb ul.depth1 > li > a:focus, */
+#lnb ul.depth1 > li.current > a { color:#fff; text-decoration:none; padding-top:17px;height:32 px; background:#0e787c; border-bottom:1px solid #0e787c;}
+#lnb ul.depth1 > li > .depth2 { display:none; padding:20px 29px 22px 0; border-top:1px solid #d6d6d6; background:#f2f2f2; border-bottom:1px solid #d6d6d6;}
+#lnb ul.depth1 > li > .show { display:block;}
+#lnb ul.depth1 > li > .depth2 > li > a { display:block; text-align:right; line-height:32px; font-size:15px; color:#333; font-weight:bold;}
+#lnb ul.depth1 > li > .depth2 > li > a:hover,
+#lnb ul.depth1 > li > .depth2 > li > a:focus,
+#lnb ul.depth1 > li > .depth2 > li.current > a { color:#0e787c; text-decoration:underline;}
+
+#lnb .lnbTelBox { padding:17px 0 17px 31px; margin:40px 15px 0; border:1px solid #ddd;}
+#lnb .lnbTelBox li{ font-weight:bold; font-size:15px; }
+#lnb .lnbTelBox .lnbTelText { margin-top:3px; font-size:24px; line-height:25px;}
+
 
 /* footer : 공통하단 */
 #footer {
