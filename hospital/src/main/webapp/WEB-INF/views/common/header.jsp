@@ -5,8 +5,16 @@
 	<h1 class="align-center"><a href="${pageContext.request.contextPath}/main/main.do">쌍용 정형외과</a></h1>
 </div>
 <div class="textright">
-		<span><a href="#">로그인</a></span>
-		<span><a href="#">회원가입</a></span>
+		<c:if test="${!empty user_num}">
+		<li class="menu-logout">
+			[<span>${user_id}</span>]
+			<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
+		</li>
+		</c:if>
+		<c:if test="${empty user_num}">
+			<span><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></span>
+			<span><a href="${pageContext.request.contextPath}/member/registerUserForm.do">회원가입</a></span>
+		</c:if>
 		<span><a href="#">오시는길</a></span>
 </div>
 <div id="main_nav">
