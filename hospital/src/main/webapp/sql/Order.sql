@@ -22,7 +22,7 @@ create table order_detail(
 	item_price number not null, --상품가격fk
 	item_total number not null, --결제금액
 	order_quantity number not null, --재고
-	order_num not number null, --주문번호
+	order_num not null, --주문번호
 	constraint order_detail_pk primary key (detail_num),
 	constraint order_detail_fk foreign key (item_num) references item (item_num),
 	constraint order_detail_fk2 foreign key (item_name) references item (item_name),
