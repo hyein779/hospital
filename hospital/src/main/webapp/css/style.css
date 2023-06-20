@@ -23,7 +23,7 @@ a:hover{
 }
 .content-main{
 	padding:0;
-	height:1000px;
+	height:auto;
 }
 
 /* 공통 정렬
@@ -114,6 +114,7 @@ ul{
 	width:225px;
 	border-left: 1px solid #d6d6d6;
 	border-right: 1px solid #d6d6d6;
+	float:left;  
 	}
 #lnb h2.lnbTitle {
 	padding-left:35px; 
@@ -151,6 +152,7 @@ ul{
 #footer {
    background-color: #6496BA;
    text-align: center;
+   clear:both;
 }
 #footer h1 {
    padding: 60px 0 35px;
