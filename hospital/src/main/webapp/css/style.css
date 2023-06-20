@@ -23,7 +23,7 @@ a:hover{
 }
 .content-main{
 	padding:0;
-	height:1000px;
+	height:auto;
 }
 
 /* 공통 정렬
@@ -152,7 +152,7 @@ ul{
 #footer {
    background-color: #6496BA;
    text-align: center;
-   bottom:0;
+   clear:both;
 }
 #footer h1 {
    padding: 60px 0 35px;
