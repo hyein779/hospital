@@ -152,6 +152,7 @@ ul{
 #footer {
    background-color: #6496BA;
    text-align: center;
+   bottom:0;
 }
 #footer h1 {
    padding: 60px 0 35px;
