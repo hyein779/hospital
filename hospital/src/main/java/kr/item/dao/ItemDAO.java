@@ -43,7 +43,7 @@ public class ItemDAO {
 	}
 	
 	// 관리자/사용자 - 전체 상품 갯수 / 검색 상품 갯수
-	public int getItemCount(String keyfield, String keyword, int status) throws Exception{
+	public int getItemCount(String keyfield, String keyword, int item_status) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -60,7 +60,7 @@ public class ItemDAO {
 			sql = "SELECT COUNT(*) item WHERE item_status > ? " + sub_sql;
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, status);
+			pstmt.setInt(1, item_status);
 			if (keyword != null && !"".equals(keyword)) {
 				pstmt.setString(2, "%"+keyword+"%");
 			}
@@ -79,7 +79,7 @@ public class ItemDAO {
 	}
 	
 	// 관리자/사용자 - 전체 상품 목록 / 검색 상품 목록
-	public List<ItemVO> getListItem(int start, int end, String keyfield, String keyword, int status) throws Exception{
+	public List<ItemVO> getListItem(int start, int end, String keyfield, String keyword, int item_status) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -99,7 +99,7 @@ public class ItemDAO {
 			sql = "SELECT * FROM (SELECT a. *, rownum rnum FROM (SELECT * FROM item WHERE item_status > ? " + sub_sql + " ORDER BY item_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(++cnt, status);
+			pstmt.setInt(++cnt, item_status);
 			if (keyword != null && !"".equals(keyword)) {
 				pstmt.setString(++cnt, "%"+keyword+"%");
 			}
