@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.main-photo{
+	background:url("/../images/병원외관.jpg");
+	bottom:top;
+}
+.content-main{
+	text-align:center;
+}
+.table-main{
+	margin-left:auto;
+	margin-right:auto;
+}
+p{
+	width:600px;
+	margin:0 auto;
+}
+.content-main-title{
+	padding:5px 0;
+}
+.content-sub-title1{
+	padding:10px 0;
+	background-color:#effbff;
+}
+.content-main-p{
+	padding:0px 0px 20px 0px;
+}
+.content-sub-title2{
+	padding:10px 0;
+}

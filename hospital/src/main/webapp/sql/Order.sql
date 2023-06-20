@@ -1,10 +1,10 @@
 -- 주문정보
 create table zorder(
-	
 	order_num number, --주문번호
 	item_name varchar2(600) not null, --대표상품명
 	order_total number(9) not null, --총구매금액
 	payment number(1) not null, --결제방식
+	status number(1) default 1 not null,
 	receive_name varchar2(30) not null, --받는사람
 	receive_post varchar2(5) not null, --우편번호
 	receive_address1 varchar2(90) not null, --주소
@@ -22,7 +22,7 @@ create sequence zorder_seq;
 
 -- 주문상세정보
 create table zorder_detail(
-	detail_num number not null, --주문상세번호pk
+	detail_num number, --주문상세번호pk
 	item_num number not null, --상품번호fk
 	item_name varchar2(12) not null, --상품명fk
 	item_price number not null, --상품가격fk
