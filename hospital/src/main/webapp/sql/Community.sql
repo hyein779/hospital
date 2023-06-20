@@ -5,7 +5,7 @@ create table community(
  comu_date date default sysdate not null,
  comu_modifydate date,
  comu_title varchar2(150) not null,
- comu_content clob(900) not null,
+ comu_content clob not null,
  mem_num number not null,
  constraint community_pk primary key (comu_num),
  constraint community_fk foreign key (mem_num) references member (mem_num)
@@ -13,15 +13,15 @@ create table community(
 create sequence community_seq;
 
 -- 추천
-create table like(
- like_num number,
+create table fav(
+ fav_num number,
  comu_num number not null,
  mem_num number not null,
- constraint like_pk primary key (like_num),
- constraint like_fk1 foreign key (comu_num) references community
- constraint like_fk2 foreign key (mem_num) references member (mem_num)
+ constraint fav_pk primary key (fav_num),
+ constraint fav_fk1 foreign key (comu_num) references community (comu_num),
+ constraint fav_fk2 foreign key (mem_num) references member (mem_num)
 );
-create sequence like_seq;
+create sequence fav_seq;
 
 -- 댓글
 create table reply(
@@ -33,6 +33,6 @@ create table reply(
  comu_num number not null,
  mem_num number not null,
  constraint reply_pk primary key (re_num),
- constraint reply_fk foreign key ()
+ constraint reply_fk foreign key (mem_num) references member (mem_num)
 );
 create sequence reply_seq;
