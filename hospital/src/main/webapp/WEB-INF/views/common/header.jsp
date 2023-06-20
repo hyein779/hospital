@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
 <div id="main_logo">
 	<h1 class="align-center"><a href="${pageContext.request.contextPath}/main/main.do">쌍용 정형외과</a></h1>
