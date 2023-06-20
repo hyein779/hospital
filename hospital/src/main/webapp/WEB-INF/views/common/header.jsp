@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
 <div id="main_logo">
 	<h1 class="align-center"><a href="${pageContext.request.contextPath}/main/main.do">쌍용 정형외과</a></h1>
@@ -11,10 +12,14 @@
 			<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a>
 		</li>
 		</c:if>
+		<c:if test="${!empty user_num && user_auth == 9}">
+			<span><a href="#">관리자 페이지</a></span>
+		</c:if>
 		<c:if test="${empty user_num}">
 			<span><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></span>
 			<span><a href="${pageContext.request.contextPath}/member/registerUserForm.do">회원가입</a></span>
 		</c:if>
+		
 		<span><a href="#">오시는길</a></span>
 </div>
 <div id="main_nav">
@@ -38,7 +43,7 @@
 					</li>
 					
 					<li class = "outer-menu-item">
-						<span class="menu-title"><a href="#">예약</a></span>
+						<span class="menu-title"><a href="${pageContext.request.contextPath}/reservation/select.do">예약</a></span>
 						<ul class="inner-menu">
 							<li class="inner-menu-item"><a href="#">진료 예약</a></li>
 							<li class="inner-menu-item"><a href="#">치료 예약</a></li>

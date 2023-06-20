@@ -6,6 +6,7 @@ create table community(
  comu_modifydate date,
  comu_title varchar2(150) not null,
  comu_content clob not null,
+ comu_hit number(9) default 0 not null,
  mem_num number not null,
  constraint community_pk primary key (comu_num),
  constraint community_fk foreign key (mem_num) references member (mem_num)
