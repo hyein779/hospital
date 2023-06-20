@@ -84,7 +84,7 @@
 				</ul>
 				<div class="align-center">
 					<input type="submit" value="등록">
-					<input type="button" value="목록" onclick="location.href='list.do'">
+					<input type="button" value="목록" onclick="location.href='item_list.do'">
 				</div>
 			</form>
 		</div>
