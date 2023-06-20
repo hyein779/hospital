@@ -13,4 +13,4 @@ public class selectAction implements Action{
 		return "/WEB-INF/views/reservation/select.jsp";
 	}
 
-}
+}     
