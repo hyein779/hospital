@@ -59,19 +59,19 @@
 					<li>
 						<label>상품 표시 여부</label>
 						<input type="radio" name="status" value="1" id="status1">미표시
-						<input type="radio" name="status" value="2" id="status2">표시
+						<input type="radio" name="status" value="2" id="status1">표시
 					</li>
 					<li>
-						<label for="item_name">상품명</label>
+						<label for="name">상품명</label>
 						<input type="text" name="name" id="name" maxlength="15">
 					</li>
 					<li>
 						<label for="price">가격</label>
-						<input type="number" name="price" id="price" min="1" maxlength="99999999">
+						<input type="number" name="price" id="price" min="1" max="99999999">
 					</li>
 					<li>
 						<label for="quantity">수량</label>
-						<input type="number" name="quantity" id="quantity" min="0" maxlength="9999">
+						<input type="number" name="quantity" id="quantity" min="0" max="9999">
 					</li>
 					<li>
 						<label for="photo">상품 사진</label>
