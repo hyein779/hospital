@@ -42,6 +42,7 @@ public class AdminWriteAction implements Action{
 		ItemDAO dao = ItemDAO.getInstance();
 		dao.insertItem(item);
 		
+		response.addHeader("Refresh", "2;url=list.do");
 		request.setAttribute("accessMsg", "성공적으로 등록되었습니다.");
 		request.setAttribute("accessUrl", "list.do");
 		
