@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div id="lnb" tabindex="0">
-
 	<!-- 의료진/진료과  -->
 	
 	<h2 class="lnbTitle">MY page</h2>
