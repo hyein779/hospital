@@ -17,6 +17,7 @@ create table member_detail(
  mem_address2 varchar2(90) not null,
  mem_photo varchar2(150),
  mem_date date default sysdate not null,
+ mem_modifydate date,
  mem_visited date,
  constraint member_detail_pk primary key (mem_num),
  constraint member_detail_fk foreign key(mem_num) references member(mem_num)

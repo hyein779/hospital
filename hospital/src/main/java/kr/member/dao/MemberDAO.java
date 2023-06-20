@@ -110,8 +110,73 @@ public MemberVO checkMember(String id) throws Exception{
 		}
 		return member;
 	}
-	// 회원 상세 정보 
+//회원 상세 정보
+	public MemberVO getMember(int mem_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVO member = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT * FROM member m JOIN member_detail d ON m.mem_num=d.mem_num WHERE m.mem_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				member = new MemberVO();
+				member.setMem_num(rs.getInt("mem_num"));
+				member.setId(rs.getString("mem_id"));
+				member.setAuth(rs.getInt("mem_auth"));
+				member.setName(rs.getString("mem_name"));
+				member.setCode(rs.getString("mem_public"));
+				member.setPhone(rs.getString("mem_phone"));
+				member.setEmail(rs.getString("mem_email"));
+				member.setZipcode(rs.getString("mem_zipcode"));
+				member.setAddress1(rs.getString("mem_address1"));
+				member.setAddress2(rs.getString("mem_address2"));
+				member.setPhoto(rs.getString("mem_photo"));
+				member.setDate(rs.getDate("mem_date"));
+				member.setVisited(rs.getDate("mem_visited"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return member;
+	}
 	// 회원 정보 수정
+		public void updateMember(MemberVO member)throws Exception{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			String sql = null;
+			try {
+				// 커넥션풀로부터 커넥션 할당
+				conn = DBUtil.getConnection();
+				// SQL문 작성
+				sql = "UPDATE member_detail SET mem_name=?,mem_phone=?,mem_email=?,mem_zipcode=?,"
+						+ "mem_address1=?,mem_address2=?,mem_modifydate=SYSDATE WHERE mem_num=?";
+				// PreparedStatement 객체 생성
+				pstmt = conn.prepareStatement(sql);
+				// ?에 데이터 바인딩
+				pstmt.setString(1, member.getName());
+				pstmt.setString(2, member.getPhone());
+				pstmt.setString(3, member.getEmail());
+				pstmt.setString(4, member.getZipcode());
+				pstmt.setString(5, member.getAddress1());
+				pstmt.setString(6, member.getAddress2());
+				pstmt.setInt(7, member.getMem_num());
+				// SQL문 실행
+				pstmt.executeUpdate();
+			}catch(Exception e) {
+				throw new Exception(e);
+			}finally {
+				// 자원정리
+				DBUtil.executeClose(null, pstmt, conn);
+			}
+		}
 	// 비밀번호 수정
 	// 프로필 사진 수정
 }
