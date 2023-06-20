@@ -17,9 +17,6 @@
 			<div>
 				<h4>보조기 목록</h4>
 			</div>
-			<div>
-				<input type="button" value="상품 등록" onclick="location.href='writeForm.do'">
-			</div>
 			<hr width="100%" size="1" noshade="noshade">
 			<div class="image-space">
 				<c:forEach var="item" items="${itemList}">
