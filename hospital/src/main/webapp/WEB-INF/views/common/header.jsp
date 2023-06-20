@@ -63,7 +63,7 @@
 					<li class = "outer-menu-item">
 						<span class="menu-title"><a href="#">보조기</a></span>
 						<ul class="inner-menu">
-							<li class="inner-menu-item"><a href="#">보조기</a></li>
+							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/item/item_list.do">보조기</a></li>
 							<li class="inner-menu-item"><a href="#">장바구니</a></li>
 						</ul>
 					</li>											
