@@ -9,7 +9,7 @@
 			<li id="10102" >
 				<a href="#"  onclick="#">내 정보</a></li>
 			<li id="10103" >
-				<a href="#"  onclick="#">회원정보 수정</a></li>
+				<a href="${pageContext.request.contextPath}/member/modifyUserForm.do">회원정보 수정</a></li>
 			<li id="10104" >
 				<a href="#"  onclick="#">비밀번호 변경</a></li>
 			<li id="10105" >

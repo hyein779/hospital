@@ -15,6 +15,9 @@
 		<c:if test="${!empty user_num && user_auth == 9}">
 			<span><a href="${pageContext.request.contextPath}/member/adminUserForm.do">관리자 페이지</a></span>
 		</c:if>
+		<c:if test="${!empty user_num && user_auth == 2}">
+			<span><a href="${pageContext.request.contextPath}/member/myPage.do">MY페이지</a></span>
+		</c:if>
 		<c:if test="${empty user_num}">
 			<span><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></span>
 			<span><a href="${pageContext.request.contextPath}/member/registerUserForm.do">회원가입</a></span>
