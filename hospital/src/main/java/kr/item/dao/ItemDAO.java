@@ -24,7 +24,7 @@ public class ItemDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "INSERT INTO (item_num, item_name, item_price, item_quantity, item_photo, item_detail, item_status) VALUES (item_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO item (item_num, item_name, item_price, item_quantity, item_photo, item_detail, item_status) VALUES (item_seq.nextval, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, item.getItem_name());
@@ -38,7 +38,7 @@ public class ItemDAO {
 		} catch(Exception e) {
 			throw new Exception(e);
 		} finally {
-			DBUtil.getConnection();
+			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
 	

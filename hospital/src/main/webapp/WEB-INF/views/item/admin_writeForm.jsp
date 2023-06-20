@@ -58,28 +58,28 @@
 				<ul>
 					<li>
 						<label>상품 표시 여부</label>
-						<input type="radio" name="status" value="1" id="status1">미표시
-						<input type="radio" name="status" value="2" id="status1">표시
+						<input type="radio" name="item_status" value="1" id="status1">미표시
+						<input type="radio" name="item_status" value="2" id="status1">표시
 					</li>
 					<li>
 						<label for="name">상품명</label>
-						<input type="text" name="name" id="name" maxlength="15">
+						<input type="text" name="item_name" id="name" maxlength="15">
 					</li>
 					<li>
 						<label for="price">가격</label>
-						<input type="number" name="price" id="price" min="1" max="99999999">
+						<input type="number" name="item_price" id="price" min="1" max="99999999">
 					</li>
 					<li>
 						<label for="quantity">수량</label>
-						<input type="number" name="quantity" id="quantity" min="0" max="9999">
+						<input type="number" name="item_quantity" id="quantity" min="0" max="9999">
 					</li>
 					<li>
 						<label for="photo">상품 사진</label>
-						<input type="file" name="photo" id="photo" accept="image/gif,image/png,image/jpeg">
+						<input type="file" name="item_photo" id="photo" accept="image/gif,image/png,image/jpeg">
 					</li>
 					<li>
 						<label for="detail">상품 설명</label>
-						<textarea rows="5" cols="30" name="detail" id="detail"></textarea>
+						<textarea rows="5" cols="30" name="item_detail" id="detail"></textarea>
 					</li>
 				</ul>
 				<div class="align-center">
