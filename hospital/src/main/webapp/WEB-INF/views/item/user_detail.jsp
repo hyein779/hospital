@@ -22,19 +22,19 @@
 				return;
 			}
 			
-			if (Number($('#item_quantity').val()) < $('#order_quantity').val()){ // 형변환은 둘 중 하나만
+			if (Number($('#item_quantity').val()) < $('#order_quantity').val()){ 
 				alert('수량이 부족합니다.');
 				$('#order_quantity').val('');
 				$('#item_total_txt').text('총 주문 금액: 0원');
 				return;
 			}
 			
-			// 총 주문 금액 표시
+			// 총 주문 금액
 			let total  = $('#item_price').val() * $('#order_quantity').val();
-			$('#item_total_txt').text('총 주문 금액: ' + total.toLocaleString() + '원'); // 숫자 세 자리 쉼표 처리
+			$('#item_total_txt').text('총 주문 금액: ' + total.toLocaleString() + '원'); 
 		});
 		
-		// 장바구니에 상품을 담기 위한 이벤트 처리
+		// 장바구니에 상품 담기
 		$('#item_cart').submit(function(event){
 			// 기본 이벤트 제거
 			event.preventDefault();
