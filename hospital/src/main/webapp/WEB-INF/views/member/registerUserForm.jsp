@@ -9,6 +9,54 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		// 0:중복체크 미실시, id 중복
+		// 1:id 미중복
+		let idChecked = 0;
+	
+		// 아이디 중복 체크
+		$('#id_check').click(function(){
+			if(!/^[A-Za-z0-9]{4,12}$/.test($('#id').val())){
+				alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
+				$('#id').val('');
+				$('#id').focus();
+				return false;
+			}
+			
+			// 서버와의 통신
+			$.ajax({
+				url:'checkDuplicatedId.do',
+				type:'post',
+				data:{id:$('#id').val()},
+				dataType:'json',
+				success:function(param){
+					if(param.result == 'idNotFound'){
+						// id 미중복
+						idChecked = 1;
+						$('#message_id').css('color','#000000').text('등록 가능 ID');
+					}else if(param.result == 'idDuplicated'){
+						//id중복
+						idChecked = 0;
+						$('#message_id').css('color','red').text('중복된 ID');
+						$('#id').val('').focus(); //중복된 아이디 삭제하고 focus줌
+					}else{
+						idChecked = 0;
+						alert('아이디 중복 체크 오류 발생');
+					}
+				},
+				error:function(){
+					idChecked = 0;
+					alert('네트워크 오류 발생');
+				}
+			});
+			
+		});// end of click
+		
+		// 아이디 중복 안내 메시지 초기화 및 아이디
+		// 중복 값 초기화
+		$('#register_form #id').keydown(function(){
+			idChecked = 0;
+			$('#message_id').text('');
+		});//end of keydown
 		// 회원 정보 등록 유효성 체크
 		$('#register_form').submit(function(){
 			let items = document.querySelectorAll('input[type="text"],input[type="password"],input[type="email"]');
@@ -24,6 +72,10 @@
 					alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
 					$('#id').val('');
 					$('#id').focus();
+					return false;
+				}
+				if(items[i].id == 'id' && idChecked == 0){
+					alert('아이디 중복 체크 필수');
 					return false;
 				}
 			}
@@ -42,6 +94,9 @@
 					<li>
 						<label for="id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
+						<input type="button" value="id중복체크" id="id_check">
+						<span id="message_id"></span>
+						<div class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</div>
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
