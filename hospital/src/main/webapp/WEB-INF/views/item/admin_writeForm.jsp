@@ -7,6 +7,46 @@
 <title>보조기 상품 등록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#write_form').submit(function(){
+			if ($('input[type=radio]:checked').length < 1){
+				alert('상품표시 여부를 지정하세요');
+				return false;
+			}		
+			
+			if ($('#name').val().trim() == ''){
+				alert('상품을 입력하세요');
+				$('#name').val('').focus();
+				return false;
+			}
+			
+			if ($('#price').val() == ''){
+				alert('가격을 입력하세요');
+				$('#price').focus();
+				return false;
+			}
+			
+			if ($('#quantity').val() == ''){
+				alert('수량을 입력하세요');
+				$('#quantity').focus();
+				return false;
+			}
+			
+			if ($('#photo').val() == ''){
+				alert('상품사진을 선택하세요');
+				$('#photo').focus();
+				return false;
+			}
+			
+			if ($('#detail').val().trim() == ''){
+				alert('상품 설명을 입력하세요');
+				$('#detail').val().focus();
+				return false;
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="page-main">
