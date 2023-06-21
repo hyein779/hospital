@@ -108,7 +108,8 @@
 							<li>
 								<span id="item_total_txt">총 주문 금액 : 0원</span>
 							</li>
-							<li>
+							<li class="align-right">
+								<input type="button" value="주문" onclick="location.href='#'">
 								<input type="submit" value="장바구니에 담기">
 							</li>
 							</c:if>
