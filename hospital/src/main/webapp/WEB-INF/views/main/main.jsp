@@ -15,7 +15,7 @@
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
-	
+	 
 	<!-- content 시작 -->
 	<div id="main-image">
 		<img src="../images/병원외관.jpg" >
