@@ -27,9 +27,9 @@ public class WriteAction implements Action{
 			request.setCharacterEncoding("utf-8");
 			
 			CartVO cart = new CartVO();
+			cart.setMem_num(user_num);
 			cart.setItem_num(Integer.parseInt(request.getParameter("item_num")));
 			cart.setItem_count(Integer.parseInt(request.getParameter("item_count")));
-			cart.setMem_num(user_num);
 			
 			CartDAO dao = CartDAO.getInstance();
 			dao.insertCart(cart);
