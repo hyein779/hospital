@@ -16,7 +16,6 @@ public class MemberVO {
 	private String address2; //상세주소
 	private String photo; //프로필 사진
 	private Date date; //가입일
-	private Date modify_date;//회원정보 수정일
 	private Date visited; //최근진료일
 	
 	// 비밀번호 일치 여부 체크
@@ -130,14 +129,6 @@ public class MemberVO {
 
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	
-	public Date getModify_date() {
-		return modify_date;
-	}
-
-	public void setModify_date(Date modify_date) {
-		this.modify_date = modify_date;
 	}
 
 	public Date getVisited() {

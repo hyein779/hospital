@@ -71,12 +71,12 @@
 						</ul>
 					</li>											
 					<li class = "outer-menu-item">
-						<span class="menu-title"><a href="${pageContext.request.contextPath}/volunteer/volList.do">자원봉사</a></span>
+						<span class="menu-title"><a href="#">자원봉사</a></span>
 						<ul class="inner-menu">
 							<li class="inner-menu-item"><a href="#">봉사자 모집</a></li>
 							<li class="inner-menu-item"><a href="#">자원봉사 지원</a></li>
 						</ul>
-					</li> 
+					</li>
 				</ul>
 			</div>
 		</nav>

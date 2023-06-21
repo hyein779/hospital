@@ -1,6 +1,39 @@
 @charset "UTF-8";
-
-#content-main h3.subtitle{
+.content-main h3.subtitle{
+   font-size:30px;
+   margin-top:20px;
+}
+/* 치료 예약 */
+.care {
+	width:300px;
+	height:500px;
+	background-color:#E6F4F1;
 	float:left;
-	font-size:30px;
-}    
+
+	margin-right:50px;
+}
+.care h4 {
+	font-size:25px;
+	text-align:center;
+	padding-top:10px;
+}
+.care p {
+	text-align:center;
+	padding-bottom:10px;
+}
+/* 진료 예약 */
+.therapy {
+	width:300px;
+	height:500px;
+	background-color:#E6F4F1;
+	float:left;
+}
+.therapy h4{
+	font-size:25px;
+	text-align:center;
+	padding-top:10px;
+}
+.therapy p{
+	text-align:center;
+	padding-bottom:10px;
+}
