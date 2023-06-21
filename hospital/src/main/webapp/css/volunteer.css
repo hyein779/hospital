@@ -1,6 +1,15 @@
 @charset "UTF-8";
 
 /*봉사 모집*/
+.content-main{
+	padding:10px 20px;
+}
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
 .content-main h3.subtitle{
    float:left;
    font-size:30px;
@@ -8,7 +17,7 @@
    margin-top:20px;
    padding-bottom:30px;
    margin-bottom:30px;
-   width:800px;
+   width:1000px;
 }  
 .content-sub{
 	margin:30px;
@@ -19,8 +28,8 @@
 	border:2px solid #6496BA;
 	background-color:#fff;
 	text-align:center;
-	margin-left:390px;	
-	width:1000px;
+	margin-left:150px;	
+	width:700px;
 	float:left;
 }
 .volcontent{
