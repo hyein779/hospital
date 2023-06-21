@@ -140,6 +140,7 @@ public class MemberDAO {
 				member.setAddress2(rs.getString("mem_address2"));
 				member.setPhoto(rs.getString("mem_photo"));
 				member.setDate(rs.getDate("mem_date"));
+				member.setModify_date(rs.getDate("mem_modifyDate"));
 				member.setVisited(rs.getDate("mem_visited"));
 			}
 		} catch (Exception e) {
