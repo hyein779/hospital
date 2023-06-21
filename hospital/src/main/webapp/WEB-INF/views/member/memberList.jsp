@@ -28,7 +28,7 @@
 	<!-- 내용 시작 -->
 	<div class="content-main">
 		<h2 class="logreg">회원관리</h2>
-		<!-- 검색창 시작  -->
+		<!-- 검색창 시작 -->
 		<form id="search_form" action="memberList.do" method="get">
 			<ul class="search">
 				<li>
@@ -63,19 +63,12 @@
 				<th>주소</th>
 				<th>최근진료일</th>
 				<th>등급</th>
-				<th>수정/삭제</th>
+				<th>수정 / 삭제</th>
 			</tr>
 			<c:forEach var="member" items="${list}">
 			<tr>
 				<td>${member.mem_num}</td>
-				<td>
-					<c:if test="${member.auth >0}">
-						<a href="detailUserForm.do?mem_num=${member.mem_num}">${member.id}</a>
-					</c:if>
-					<c:if test="${member.auth==0}">
-						${member.id}
-					</c:if>
-				</td>
+				<td>${member.id}</td>
 				<td>${member.name}</td>
 				<td>${member.phone}</td>
 				<td>${member.address1} ${member.address2}</td>
@@ -88,7 +81,12 @@
 					<c:if test="${member.auth == 2}">일반</c:if>
 					<c:if test="${member.auth == 9}">관리</c:if>
 				</td>
-				<td><a>수정</a> / <a>삭제</a></td>
+				<c:if test="${member.auth > 0}">
+					<td><a href="detailUserForm.do?mem_num=${member.mem_num}">수정</a> / <a>삭제</a></td>
+				</c:if>
+				<c:if test="${member.auth == 0}">
+					<td>X</td>
+				</c:if>
 			</tr>
 			</c:forEach>
 		</table>

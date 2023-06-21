@@ -46,7 +46,13 @@ ul.search li{
 }
 /*테이블*/
 table{
+	margin-left: 250px;
 	text-align: center;
 	width: 80%;
+	height: 100px;
 	padding: 5px;
+}
+th{
+	background-color: #effbff;
+	font-size: 15px;
 }
