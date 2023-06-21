@@ -55,4 +55,4 @@ public class AdminListAction implements Action{
 		return "/WEB-INF/views/order/admin_list.jsp";
 	}
 
-}1
+}

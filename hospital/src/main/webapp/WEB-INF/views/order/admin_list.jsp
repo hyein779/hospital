@@ -9,4 +9,4 @@
 <body>
 	<h2>주문내역</h2>
 </body>
-</html>1
+</html>
