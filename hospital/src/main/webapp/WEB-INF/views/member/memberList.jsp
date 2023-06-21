@@ -28,7 +28,7 @@
 	<!-- 내용 시작 -->
 	<div class="content-main">
 		<h2 class="logreg">회원관리</h2>
-		<!-- 검색창 시작 -->
+		<!-- 검색창 시작  -->
 		<form id="search_form" action="memberList.do" method="get">
 			<ul class="search">
 				<li>

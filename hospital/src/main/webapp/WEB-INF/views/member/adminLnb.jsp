@@ -5,12 +5,12 @@
 	
 	<h2 class="lnbTitle">관리자 페이지</h2>
 	<ul class="depth1">
-		<li id="10101"><a href="${pageContext.request.contextPath}/member/myPage.do">회원관리</a></li>
+		<li id="10101"><a href="${pageContext.request.contextPath}/member/memberList.do">회원관리</a></li>
 		
 		<li id="10106">예약 관리</li>
 		<ul class="depth2">
 			<li id="10107" >
-				<a href="#"  onclick="#">진료 예약 관리</a></li>
+				<a href="#">진료 예약 관리</a></li>
 			<li id="10108" >
 				<a href="#"  onclick="#">치료 예약 관리</a></li>
 		</ul>
