@@ -32,7 +32,7 @@ public class CartDAO {
 			pstmt.setInt(2, cart.getItem_num());
 			pstmt.setInt(3, cart.getItem_count());
 			
-			pstmt.executeUpdate();
+			pstmt.executeUpdate(); 
 		} catch(Exception e) {
 			throw new Exception(e);
 		} finally {
