@@ -106,6 +106,12 @@ ul{
 	background:#E6F4F1;
 	color:black;
 }
+/* 메인화면
+----------------------*/
+#main-image{
+	text-align:center;
+}
+
 
 /* lnb 
 ----------------------*/

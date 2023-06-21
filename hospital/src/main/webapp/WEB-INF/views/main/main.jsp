@@ -17,9 +17,11 @@
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
-		<div class="content-main">
-	
-		<img src="../images/병원외관.jpg">
+	<div id="main-image">
+		<img src="../images/병원외관.jpg" >
+	</div>
+	<div class="content-main">
+
 	<div class="content-main-title">
 		<h1 class="content-main-title">쌍용 정형외과</h1>
 		<p>정형외과는 자세의 유지와 신체 운동에 관계되는 척추, 사지의 뼈, 관절, 근육 및 힘줄, 인대 등의 근골격계 질환을 진료하고 치료합니다.
