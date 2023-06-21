@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>보조기</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
 </head>
 <body>
 	<div class="page-main">
@@ -21,7 +22,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<div>
-				<h4>보조기 목록</h4>
+				<h2>보조기 목록</h2>
 			</div>
 			<hr width="100%" size="1" noshade="noshade">
 			<div class="image-space">
