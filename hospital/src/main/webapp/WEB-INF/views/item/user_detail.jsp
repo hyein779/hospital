@@ -98,7 +98,7 @@
 						<input type="hidden" name="item_quantity" value="${item.item_quantity}" id="item_quantity">
 						<ul>
 							<li>가격 : <b><fmt:formatNumber value="${item.item_price}"/>원</b></li>
-							<li>재고 : <span><fmt:formatNumber value="${item.item_quantity}"/>원</span></li>
+							<li>재고 : <span><fmt:formatNumber value="${item.item_quantity}"/>개</span></li>
 							<c:if test="${item.item_quantity > 0}">
 							<li>
 								<label for="order_quantity">구매 수량</label>
