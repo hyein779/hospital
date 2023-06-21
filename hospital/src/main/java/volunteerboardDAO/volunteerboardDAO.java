@@ -16,7 +16,7 @@ public class volunteerboardDAO {
 	public static volunteerboardDAO getInstance() {
 		return instance;
 	}
-	private volunteerboardDAO() {}
+	private volunteerboardDAO() {} 
 	
 	//글 등록
 	public void insertBoard(volunteerboardVO board)throws Exception{

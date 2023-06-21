@@ -28,8 +28,8 @@
 			}
 		});   
 	});
-</script>
-</head>
+</script> 
+</head> 
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>

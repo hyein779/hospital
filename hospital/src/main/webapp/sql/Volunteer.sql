@@ -4,7 +4,7 @@ CREATE TABLE volunteer(
 	volun_content clob not null,
 	volun_date date not null,
 	volun_max number not null,
-	volun_type number not null,
+	volun_type number not null, 
 	
 	constraint volunteer_pk primary key (volun_num)
 );

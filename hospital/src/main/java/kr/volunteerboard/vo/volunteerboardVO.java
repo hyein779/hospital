@@ -15,7 +15,7 @@ public class volunteerboardVO {//게시글 관리 VO
 		return id;
 	}
 	public void setId(String id) {
-		this.id = id;
+		this.id = id; 
 	}
 	public int getBoard_num() {
 		return board_num;

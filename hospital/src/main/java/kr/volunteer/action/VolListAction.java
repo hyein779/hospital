@@ -26,7 +26,7 @@ public class VolListAction implements Action{
 		
 		List<volunteerboardVO> list = null;
 		if(count>0) {
-			list = dao.getListBoard(page.getStartRow(), page.getEndRow(), keyfield, keyword);
+			list = dao.getListBoard(page.getStartRow(), page.getEndRow(), keyfield, keyword); 
 		}
 		
 		request.setAttribute("count", count);

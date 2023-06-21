@@ -29,13 +29,13 @@
 	background-color:#fff;
 	text-align:center;
 	margin-left:150px;	
-	width:700px;
+	width:700px; 
 	float:left;
 }
 .volcontent{
 	color:#6496BA;
 	font-size:40px;
-}
+} 
 .volcontent-sub{
 	font-size:25px;
 }

@@ -21,7 +21,7 @@ public class VolWriteAction implements Action{
 		if(user_num == null) {
 			return "redirect:/member/loginForm.do";
 		}
-		
+		 
 		MultipartRequest multi = FileUtil.createFile(request);
 		
 		volunteerboardVO board = new volunteerboardVO();
