@@ -34,10 +34,12 @@
 </head>
 <body>
 	<div class="page-main">
-		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h2>비밀번호 수정</h2>
+			<h1 class="logreg">비밀번호 변경</h1>
+			<hr size="1" noshade="noshade" width="60%">
 			<form id="password_form" action="modifyPassword.do" method="post">
 				<ul>
 					<li>

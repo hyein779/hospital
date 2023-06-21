@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberStyle.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -74,6 +75,7 @@
 					$('#id').focus();
 					return false;
 				}
+				if
 				if(items[i].id == 'id' && idChecked == 0){
 					alert('아이디 중복 체크 필수');
 					return false;
@@ -88,15 +90,16 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h2>회원가입</h2>
+			<h1 class="logreg">회원가입</h1>
+			<hr size="1" noshade="noshade" width="60%">
 			<form id="register_form" action="registerUser.do" method="post">
 				<ul>
 					<li>
 						<label for="id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
 						<input type="button" value="id중복체크" id="id_check">
-						<span id="message_id"></span>
-						<div class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</div>
+						<span id="message_id"></span><br>
+						<span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span>
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>

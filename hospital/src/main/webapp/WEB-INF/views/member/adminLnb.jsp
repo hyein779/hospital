@@ -5,7 +5,7 @@
 	
 	<h2 class="lnbTitle">관리자 페이지</h2>
 	<ul class="depth1">
-		<li id="10101"><a href="#">회원관리</a></li>
+		<li id="10101"><a href="${pageContext.request.contextPath}/member/myPage.do">회원관리</a></li>
 		<!-- <ul class="depth2">
 			<li id="10102" >
 				<a href="#"  onclick="#">내 정보</a></li>
@@ -28,7 +28,7 @@
 		<li id="10109" >상품 관리</li>
 		<ul class="depth2">
 			<li id="10110" >
-				<a>href="${pageContext.request.contextPath}/item/list.do">상품 목록 관리</a></li>
+				<a href="${pageContext.request.contextPath}/item/list.do">상품 목록 관리</a></li>
 			<li id="10110" >
 			<a href="#"  onclick="#">회원 구매 관리</a></li>
 		</ul>
