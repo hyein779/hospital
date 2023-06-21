@@ -21,6 +21,11 @@ public class ModifyUserAction implements Action{
 		// 로그인 된 경우
 		// 전송된 데이터 인코딩 처리
 		request.setCharacterEncoding("utf-8");
+		//비밀번호확인
+		String passwd = request.getParameter("passwd");
+		//현재 로그인 한 아이디
+		String user_id = (String)session.getAttribute("user_id");
+		
 		// 자바빈(VO)을 생성하고 전송된 데이터를 자바빈에 저장
 		MemberVO member = new MemberVO();
 		member.setMem_num(user_num);//회원번호
@@ -32,8 +37,14 @@ public class ModifyUserAction implements Action{
 		member.setAddress2(request.getParameter("address2"));
 		
 		MemberDAO dao = MemberDAO.getInstance();
-		dao.updateMember(member);
 		
+		MemberVO check_pw = dao.checkMember(user_id);
+		boolean check = false;
+		check = check_pw.isCheckesPassword(passwd);
+		if(check) {
+			dao.updateMember(member);
+		}
+		request.setAttribute("check", check);
 		// JSP 경로 반환
 		return "/WEB-INF/views/member/modifyUser.jsp";
 	}

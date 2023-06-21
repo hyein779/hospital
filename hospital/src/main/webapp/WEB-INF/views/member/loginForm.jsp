@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/memberStyle.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -29,7 +30,8 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h2>로그인</h2>
+		<h1 class="logreg">로그인</h1>
+		<hr size="1" noshade="noshade" width="60%">
 		<form id="login_form" action="login.do" method="post">
 			<ul>
 				<li>

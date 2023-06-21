@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#login_form #id,#login_form #passwd{
+	width: 200px;
+}
+.content-main{
+	padding: 10px 20px;
+}
+form{
+	width: 600px;
+	margin: 0 auto;
+	padding: 10px 10px 10px 30px;
+}
+label{
+	width: 130px;
+	float: left; /*태그를 왼쪽에 정렬*/
+}
+
+form ul li{
+	clear: both;
+}
+
+ul{
+	list-style: none;
+}
+.logreg{
+	margin-left: 300px;
+}
+.form-notice{
+	color: red;
+	font-size: small;
+}
