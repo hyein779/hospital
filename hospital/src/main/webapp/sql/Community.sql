@@ -10,7 +10,7 @@ create table notice(
  constraint notice_pk primary key (notice_num),
  constraint notice_fk foreign key (mem_num) references member (mem_num)
 );
-create sequence notice_seq;
+create sequence notice_seq; 
 
 -- 문의사항
 create table community(
