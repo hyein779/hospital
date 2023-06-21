@@ -8,7 +8,7 @@
 		<li id="10101"><a href="${pageContext.request.contextPath}/member/myPage.do">회원관리</a></li>
 		<!-- <ul class="depth2">
 			<li id="10102" >
-				<a href="#"  onclick="#">내 정보</a></li>
+				<a href="">내 정보</a></li>
 			<li id="10103" >
 				<a href="#"  onclick="#">회원정보 수정</a></li>
 			<li id="10104" >
