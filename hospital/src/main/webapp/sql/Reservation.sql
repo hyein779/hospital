@@ -11,4 +11,5 @@ CREATE TABLE reservation(
 	constraint reservation_pk primary key (res_num),
 	constraint reservation_fk foreign key (mem_num) references member (mem_num)
 );
+
 CREATE sequence reservation_seq;
