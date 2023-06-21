@@ -12,10 +12,10 @@
 <body>
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<c:if test=${!empty user_num && user_auth == 2}>
+		<c:if test="${!empty user_num && user_auth == 2}">
 		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
 		</c:if>
-		<c:if test=${!empty user_num && user_auth == 9}>
+		<c:if test="${!empty user_num && user_auth == 9}">
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		</c:if>
 		<!-- 내용 시작 -->
