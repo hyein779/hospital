@@ -41,7 +41,7 @@ public class volunteerboardDAO {
 		}
 		
 	}
-	
+	  
 	//글 목록
 	public List<volunteerboardVO> getListBoard(int start, int end, String keyfield, String keyword)throws Exception{
 		Connection conn = null;

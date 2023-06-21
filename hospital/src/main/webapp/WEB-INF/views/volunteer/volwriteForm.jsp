@@ -26,7 +26,7 @@
 				$('#reg_date').val('').focus();
 				return false;
 			}
-		});
+		});   
 	});
 </script>
 </head>

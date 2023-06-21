@@ -30,7 +30,7 @@ public class volunteerboardVO {//게시글 관리 VO
 		this.title = title;
 	}
 	public String getContent() {
-		return content;
+		return content;  
 	}
 	public void setContent(String content) {
 		this.content = content;

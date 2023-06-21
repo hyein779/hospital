@@ -35,6 +35,6 @@ public class VolListAction implements Action{
 		
 		
 		return "/WEB-INF/views/volunteer/list.jsp";
-	}
+	} 
 
 }

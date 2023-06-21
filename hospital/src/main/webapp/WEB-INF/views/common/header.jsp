@@ -76,7 +76,7 @@
 							<li class="inner-menu-item"><a href="#">봉사자 모집</a></li>
 							<li class="inner-menu-item"><a href="#">자원봉사 지원</a></li>
 						</ul>
-					</li>
+					</li> 
 				</ul>
 			</div>
 		</nav>
