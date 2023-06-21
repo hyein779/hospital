@@ -22,8 +22,9 @@ a:hover{
 	background:#FFFFFF;
 }
 .content-main{
-	padding:0 280px 0 280px;
+	padding:0 120px 0 280px;
 	height:auto;
+
 	
 }
 
@@ -100,7 +101,7 @@ ul{
 	display:block;
 	padding:10px 10px;
 	color:black;
-	text-align:center;
+	text-align:center; 
 }
 .inner-menu-item > a:hover{
 	background:#E6F4F1;
@@ -112,6 +113,10 @@ ul{
 	text-align:center;
 }
 
+.content-lnbx{
+	padding:0 120px;
+	height:auto;
+}
 
 /* lnb 
 ----------------------*/
