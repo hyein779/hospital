@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class OrderVO {
 	private int order_num; //주문번호
-	private String item_name; //대표상품명
+	private String order_name; //대표상품명
 	private int order_total; //총구매금액
 	private int payment; //지불방식
 	private int status; //배송상태
@@ -17,8 +17,7 @@ public class OrderVO {
 	private Date modify_date;
 	private String notice; //메시지
 	private int mem_num;
-	//넣어야 할지 보류중
-	//private String id;
+	private String id;
 	
 	public int getOrder_num() {
 		return order_num;
@@ -26,11 +25,11 @@ public class OrderVO {
 	public void setOrder_num(int order_num) {
 		this.order_num = order_num;
 	}
-	public String getItem_name() {
-		return item_name;
+	public String getOrder_name() {
+		return order_name;
 	}
-	public void setItem_name(String item_name) {
-		this.item_name = item_name;
+	public void setOrder_name(String item_name) {
+		this.order_name = item_name;
 	}
 	public int getOrder_total() {
 		return order_total;
@@ -103,6 +102,12 @@ public class OrderVO {
 	}
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }

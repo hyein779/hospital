@@ -1,7 +1,7 @@
 -- 주문정보
 create table zorder(
 	order_num number, --주문번호
-	item_name varchar2(600) not null, --대표상품명
+	order_name varchar2(600) not null, --대표상품명
 	order_total number(9) not null, --총구매금액
 	payment number(1) not null, --결제방식
 	status number(1) default 1 not null,
@@ -24,7 +24,7 @@ create sequence zorder_seq;
 create table zorder_detail(
 	detail_num number, --주문상세번호pk
 	item_num number not null, --상품번호fk
-	item_name varchar2(12) not null, --상품명fk
+	order_name varchar2(12) not null, --상품명fk
 	item_price number not null, --상품가격fk
 	item_total number not null, --결제금액
 	order_quantity number not null, --재고
