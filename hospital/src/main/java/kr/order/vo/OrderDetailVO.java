@@ -53,4 +53,4 @@ public class OrderDetailVO {
 		this.order_num = order_num;
 	}
 	
-}
+}1

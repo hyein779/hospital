@@ -105,4 +105,4 @@ public class OrderVO {
 		this.mem_num = mem_num;
 	}
 	
-}
+}1
