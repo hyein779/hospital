@@ -1,7 +1,20 @@
--- 커뮤니티
+-- 공지사항
+create table notice(
+ notice_num number,
+ notice_date date default sysdate not null,
+ notice_modifydate date,
+ notice_title varchar2(150) not null,
+ notice_content clob not null,
+ notice_hit number(9) default 0 not null,
+ mem_num number not null,
+ constraint notice_pk primary key (notice_num),
+ constraint notice_fk foreign key (mem_num) references member (mem_num)
+);
+create sequence notice_seq; 
+
+-- 문의사항
 create table community(
  comu_num number,
- comu_auth number not null, -- 종류(1:공지사항,2:문의사항3:리뷰)
  comu_date date default sysdate not null,
  comu_modifydate date,
  comu_title varchar2(150) not null,
@@ -12,6 +25,21 @@ create table community(
  constraint community_fk foreign key (mem_num) references member (mem_num)
 );
 create sequence community_seq;
+
+-- 리뷰
+create table review(
+ rev_num number,
+ rev_date date default sysdate not null,
+ rev_modifydate date,
+ rev_title varchar2(150) not null,
+ rev_content clob not null,
+ rev_hit number(9) default 0 not null,
+ rev_filename varchar2(150),
+ mem_num number not null,
+ constraint review_pk primary key (rev_num),
+ constraint review_fk foreign key (mem_num) references member (mem_num)
+);
+create sequence review_seq;
 
 -- 추천
 create table fav(
