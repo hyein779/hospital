@@ -9,7 +9,6 @@ import kr.member.dao.MemberDAO;
 import kr.member.vo.MemberVO;
 
 public class MyPageAction implements Action{
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
