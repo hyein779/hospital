@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>상품 정보</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -87,7 +88,7 @@
 			</div>
 			</c:if>
 			<c:if test="${item.item_status == 2}">
-			<h3 class="align-center">${item.item_name}</h3>
+			<h3>${item.item_name}</h3>
 				<div class="item-image">
 					<img src="${pageContext.request.contextPath}/upload/${item.item_photo}" width="400">
 				</div>
