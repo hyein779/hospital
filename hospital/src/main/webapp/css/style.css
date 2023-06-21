@@ -3,8 +3,8 @@
 /* 전체 레이아웃
 ------------------*/
 body{
-	width:100%;
-	margin:0 auto;
+	width:1519px;
+	margin:0 auto; 
 }
 a:link{
 	text-decoration:none;
@@ -24,7 +24,7 @@ a:hover{
 .content-main{
 	padding:0 280px 0 280px;
 	height:auto;
-	
+	min-height:550px;
 }
 
 /* 공통 정렬
