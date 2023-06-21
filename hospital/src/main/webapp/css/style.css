@@ -22,8 +22,9 @@ a:hover{
 	background:#FFFFFF;
 }
 .content-main{
-	padding:0 280px 0 280px;
+	padding:0 120px 0 280px;
 	height:auto;
+
 	
 }
 
@@ -112,6 +113,10 @@ ul{
 	text-align:center;
 }
 
+.content-lnbx{
+	padding:0 120px;
+	height:auto;
+}
 
 /* lnb 
 ----------------------*/

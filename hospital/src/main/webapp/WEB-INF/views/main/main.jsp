@@ -20,7 +20,7 @@
 	<div id="main-image">
 		<img src="../images/병원외관.jpg" >
 	</div>
-	<div class="content-main">
+	<div class="content-lnbx">
 
 	<div class="content-main-title">
 		<h1 class="content-main-title">쌍용 정형외과</h1>
