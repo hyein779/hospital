@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
@@ -93,7 +93,7 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h2 class="logreg">회원가입</h2>
+			<h1 class="logreg">회원가입</h1>
 			<hr size="1" noshade="noshade" width="60%">
 			<form id="register_form" action="registerUser.do" method="post">
 				<ul>
@@ -102,7 +102,7 @@
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
 						<input type="button" value="id중복체크" id="id_check">
 						<span id="message_id"></span><br>
-						<span id="form-notice" class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span>
+						<span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span>
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
