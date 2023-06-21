@@ -3,7 +3,7 @@
 /* 전체 레이아웃
 ------------------*/
 body{
-	width:100%;
+	width:1704px;
 	margin:0 auto;
 }
 a:link{
@@ -24,7 +24,7 @@ a:hover{
 .content-main{
 	padding:0 280px 0 280px;
 	height:auto;
-	
+	min-height:550px;
 }
 
 /* 공통 정렬

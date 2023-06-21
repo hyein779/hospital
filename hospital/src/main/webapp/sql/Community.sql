@@ -6,25 +6,23 @@ create table notice(
  notice_title varchar2(150) not null,
  notice_content clob not null,
  notice_hit number(9) default 0 not null,
- mem_num number not null,
- constraint notice_pk primary key (notice_num),
- constraint notice_fk foreign key (mem_num) references member (mem_num)
+ constraint notice_pk primary key (notice_num)
 );
 create sequence notice_seq; 
 
 -- 문의사항
-create table community(
- comu_num number,
- comu_date date default sysdate not null,
- comu_modifydate date,
- comu_title varchar2(150) not null,
- comu_content clob not null,
- comu_hit number(9) default 0 not null,
+create table ask(
+ ask_num number,
+ ask_date date default sysdate not null,
+ ask_modifydate date,
+ ask_title varchar2(150) not null,
+ ask_content clob not null,
+ ask_hit number(9) default 0 not null,
  mem_num number not null,
- constraint community_pk primary key (comu_num),
- constraint community_fk foreign key (mem_num) references member (mem_num)
+ constraint ask_pk primary key (ask_num),
+ constraint ask_fk foreign key (mem_num) references member (mem_num)
 );
-create sequence community_seq;
+create sequence ask_seq;
 
 -- 리뷰
 create table review(
@@ -44,10 +42,10 @@ create sequence review_seq;
 -- 추천
 create table fav(
  fav_num number,
- comu_num number not null,
+ rev_num number not null,
  mem_num number not null,
  constraint fav_pk primary key (fav_num),
- constraint fav_fk1 foreign key (comu_num) references community (comu_num),
+ constraint fav_fk1 foreign key (rev_num) references review (rev_num),
  constraint fav_fk2 foreign key (mem_num) references member (mem_num)
 );
 create sequence fav_seq;
