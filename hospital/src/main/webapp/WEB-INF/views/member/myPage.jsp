@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>나의 정보</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -17,7 +18,7 @@
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div>
-		<h2>나의정보</h2>
+		<h2 class="logreg">나의정보</h2>
 		<div class="mypage-div">
 			<ul>
 				<li>이름 | ${member.name}</li>
