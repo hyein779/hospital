@@ -54,10 +54,12 @@ public class ItemDAO {
 		try {
 			conn = DBUtil.getConnection();
 			
-			if (keyfield.equals("1")) sub_sql += "AND item_name LIKE ?";
-			if (keyfield.equals("2")) sub_sql += "AND item_detail LIKE ?";
+			if (keyword != null && !"".equals(keyword)) {
+				if (keyfield.equals("1")) sub_sql += "AND item_name LIKE ?";
+				if (keyfield.equals("2")) sub_sql += "AND item_detail LIKE ?";
+			}
 			
-			sql = "SELECT COUNT(*) item WHERE item_status > ? " + sub_sql;
+			sql = "SELECT COUNT(*) FROM item WHERE item_status > ? " + sub_sql;
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, item_status);
