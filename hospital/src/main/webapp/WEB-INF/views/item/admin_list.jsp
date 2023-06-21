@@ -82,7 +82,7 @@
 			<div class="align-center">${page}</div>
 		</c:if>
 		<!-- 내용 끝 -->
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	</div>
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
