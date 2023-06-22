@@ -27,10 +27,12 @@
 </head>
 <body>
 	<div class="page-main">
-		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h2>회원정보수정</h2>
+			<h1 class="logreg">회원정보 수정</h1>
+			<hr size="1" noshade="noshade" width="60%">
 			<form id="modify_form" action="modifyUser.do" method="post">
 				<ul>
 					<li>
@@ -65,7 +67,7 @@
 				</ul>
 				<div class="align-center">
 					<input type="submit" value="수정">
-					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+					<input type="button" value="MY페이지" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
 				</div>
 			</form>
 		</div>

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/*봉사 모집*/
+.content-main{
+	padding:10px 20px;
+}
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+.content-main h3.subtitle{
+   float:left;
+   font-size:30px;
+   padding-left: 70px;
+   margin-top:20px;
+   padding-bottom:30px;
+   margin-bottom:30px;
+   width:1000px;
+}  
+.content-sub{
+	margin:30px;
+	padding:28px 28px 33px;
+	font-size:1.24rem;
+	font-weight:500;
+	line-height:1.6;
+	border:2px solid #6496BA;
+	background-color:#fff;
+	text-align:center;
+	margin-left:150px;	
+	width:700px; 
+	float:left;
+}
+.volcontent{
+	color:#6496BA;
+	font-size:40px;
+} 
+.volcontent-sub{
+	font-size:25px;
+}
+
+
+

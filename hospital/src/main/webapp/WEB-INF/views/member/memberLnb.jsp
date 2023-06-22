@@ -11,9 +11,9 @@
 			<li id="10103" >
 				<a href="${pageContext.request.contextPath}/member/modifyUserForm.do">회원정보 수정</a></li>
 			<li id="10104" >
-				<a href="#"  onclick="#">비밀번호 변경</a></li>
+				<a href="${pageContext.request.contextPath}/member/modifyPasswordForm.do">비밀번호 변경</a></li>
 			<li id="10105" >
-				<a href="#"  onclick="#">회원 탈퇴</a></li>
+				<a href="${pageContext.request.contextPath}/member/deleteUserForm.do">회원 탈퇴</a></li>
 		</ul>
 		
 		<li id="10106" >My 병원 예약 정보</li>

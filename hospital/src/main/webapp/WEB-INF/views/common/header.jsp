@@ -13,7 +13,7 @@
 		</li>
 		</c:if>
 		<c:if test="${!empty user_num && user_auth == 9}">
-			<span><a href="${pageContext.request.contextPath}/member/adminUserForm.do">관리자 페이지</a></span>
+			<span><a href="${pageContext.request.contextPath}/member/memberList.do">관리자 페이지</a></span>
 		</c:if>
 		<c:if test="${!empty user_num && user_auth == 2}">
 			<span><a href="${pageContext.request.contextPath}/member/myPage.do">MY페이지</a></span>
@@ -67,16 +67,21 @@
 						<span class="menu-title"><a href="#">보조기</a></span>
 						<ul class="inner-menu">
 							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/item/item_list.do">보조기</a></li>
-							<li class="inner-menu-item"><a href="#">장바구니</a></li>
+							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/cart/list.do">장바구니</a></li>
 						</ul>
 					</li>											
 					<li class = "outer-menu-item">
-						<span class="menu-title"><a href="#">자원봉사</a></span>
+						<span class="menu-title"><a href="${pageContext.request.contextPath}/volunteer/volList.do">자원봉사</a></span>
 						<ul class="inner-menu">
 							<li class="inner-menu-item"><a href="#">봉사자 모집</a></li>
 							<li class="inner-menu-item"><a href="#">자원봉사 지원</a></li>
 						</ul>
-					</li>
+					</li> 
+					<c:if test="${!empty user_num && user_auth == 9}">
+						<li class = "outer-menu-item">
+							<span class="menu-title"><a href="${pageContext.request.contextPath}/order/list.do">주문관리</a></span>
+						</li>	
+					</c:if>
 				</ul>
 			</div>
 		</nav>

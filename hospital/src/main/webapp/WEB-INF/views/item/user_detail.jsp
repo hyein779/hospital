@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>상품 정보</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -87,7 +88,7 @@
 			</div>
 			</c:if>
 			<c:if test="${item.item_status == 2}">
-			<h3 class="align-center">${item.item_name}</h3>
+			<h3>${item.item_name}</h3>
 				<div class="item-image">
 					<img src="${pageContext.request.contextPath}/upload/${item.item_photo}" width="400">
 				</div>
@@ -98,7 +99,7 @@
 						<input type="hidden" name="item_quantity" value="${item.item_quantity}" id="item_quantity">
 						<ul>
 							<li>가격 : <b><fmt:formatNumber value="${item.item_price}"/>원</b></li>
-							<li>재고 : <span><fmt:formatNumber value="${item.item_quantity}"/>원</span></li>
+							<li>재고 : <span><fmt:formatNumber value="${item.item_quantity}"/>개</span></li>
 							<c:if test="${item.item_quantity > 0}">
 							<li>
 								<label for="order_quantity">구매 수량</label>
@@ -107,7 +108,8 @@
 							<li>
 								<span id="item_total_txt">총 주문 금액 : 0원</span>
 							</li>
-							<li>
+							<li class="align-right">
+								<input type="button" value="주문" onclick="location.href='#'">
 								<input type="submit" value="장바구니에 담기">
 							</li>
 							</c:if>

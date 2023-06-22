@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+
+#login_form #id,#login_form #passwd{
+	width: 200px;
+}
+.content-main{
+	padding: 10px 20px;
+}
+form{
+	width: 600px;
+	margin: 0 auto;
+	padding: 10px 10px 10px 30px;
+}
+label{
+	width: 130px;
+	float: left; /*태그를 왼쪽에 정렬 */
+}
+
+ul{
+	list-style: none;
+}
+.logreg{
+	margin-left: 300px;
+}
+.form-notice{
+	color: red;
+	font-size: small;
+}
+/*검색창*/
+form#search_form{
+	border: none;
+}
+ul.search{
+	width: 340px;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+ul.search li{
+	margin: 0 0 9px 0;
+	padding: 0;
+	display: inline;
+}
+.list-space{
+	margin-bottom: 10px;
+}
+/*테이블*/
+table{
+	margin-left: 250px;
+	text-align: center;
+	width: 80%;
+	height: 100px;
+	padding: 5px;
+}
+th{
+	background-color: #effbff;
+	font-size: 15px;
+}

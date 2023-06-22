@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/* 커뮤니티 목록
+------------------*/
+.content-main h3.subtitle{
+   font-size:30px;
+   margin-top:20px;
+}
+
+form#search_form{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+ul.search{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:flex;
+}
+ul.search li{
+	margin-bottom:10px;
+}
+input#keyword, select#keyfield{
+	height:32px;
+	font-size:14px;
+}
+input#search{
+	height:32px;
+	margin-left:5px;
+	font-size:14px;
+	cursor:pointer;
+	background-color:#6496BA;
+	border:none;
+	color:#fff;
+}
+input#write{
+	padding:5px 10px;
+	font-size:14px;
+	background-color:#333;
+  	color:#fff;
+  	border:none;
+ 	cursor:pointer;
+ 	border-radius:5px;
+}
+#write[disabled] {
+  opacity:0.5;
+  cursor:default;
+}
+
+.list-space{
+	margin:15px 0;
+}
+table{
+	width:100%;
+	border:1px solid #eaeaea;
+	border-collapse:collapse;
+	margin-bottom:20px;
+	margin-top:10px;
+}
+th, td{
+  padding:10px;
+  text-align:center;
+}
+th{
+  background-color:#dedede;
+  font-weight:bold;
+  border-bottom:1px solid #f9f9f9;
+}
+td{
+  border-bottom:1px solid #ccc;
+}
+tr:nth-child(even){
+  background-color:#f9f9f9;
+}
+tr:hover{
+  background-color:#EFFBFF;
+}
+
+
+/* 커뮤니티 글쓰기
+------------------*/
+#noticeWrite_form label{
+  display:block;
+  font-weight:bold;
+  margin:15px 0 5px 0;
+}
+#noticeWrite_form input[type="text"]{
+  width:500px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#noticeWrite_form textarea{
+  width:1000px;
+  height:300px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#noticeWrite_form input[type="submit"], #noticeWrite_form input[type="button"]{
+  padding:8px 20px;
+  background-color:#333;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  margin-right:10px;
+  margin-bottom:30px;
+  font-size:14px;
+}
+
+#noticeWrite_form input[type="button"]{
+  background-color:#ccc;
+}
+
+#noticeWrite_form input[type="submit"]:hover, #noticeWrite_form input[type="button"]:hover{
+  background-color:#6496BA;
+}
+
+

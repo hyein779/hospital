@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* 상품 목록
+---------------*/
+.image-space .horizontal-area{
+	margin:4px 20px 16px 20px;
+	padding:5px;
+	width:210px;
+	height:270px;
+	float:left;
+	overflow:hidden;
+	text-align:center;
+}
+.image-space .horizontal-area img{
+	width:245px;
+	height:225px;
+}
+.image-space .float-clear{
+	clear:both;
+}
+

@@ -8,14 +8,21 @@
 <meta charset="UTF-8">
 <title>보조기</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
 </head>
 <body>
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+		<c:if test="${!empty user_num && user_auth == 2}">
+		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
+		</c:if>
+		<c:if test="${!empty user_num && user_auth == 9}">
+		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
+		</c:if>
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<div>
-				<h4>보조기 목록</h4>
+				<h2>보조기 목록</h2>
 			</div>
 			<hr width="100%" size="1" noshade="noshade">
 			<div class="image-space">
@@ -33,6 +40,7 @@
 			</div>
 		</div>
 		<!-- 내용 끝 -->
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	</div>
 </body>
 </html>

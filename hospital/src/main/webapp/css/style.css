@@ -3,8 +3,8 @@
 /* 전체 레이아웃
 ------------------*/
 body{
-	width:100%;
-	margin:0 auto;
+	width:1519px;
+	margin:0 auto; 
 }
 a:link{
 	text-decoration:none;
@@ -22,8 +22,10 @@ a:hover{
 	background:#FFFFFF;
 }
 .content-main{
-	padding:0;
+	padding:0 120px 0 280px;
 	height:auto;
+
+	
 }
 
 /* 공통 정렬
@@ -53,7 +55,7 @@ ul{
 	text-align:right;
 }
 .outer-menu{
-	width: 1000px;
+	width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -99,11 +101,21 @@ ul{
 	display:block;
 	padding:10px 10px;
 	color:black;
-	text-align:center;
+	text-align:center; 
 }
 .inner-menu-item > a:hover{
 	background:#E6F4F1;
 	color:black;
+}
+/* 메인화면
+----------------------*/
+#main-image{
+	text-align:center;
+}
+
+.content-lnbx{
+	padding:0 120px;
+	height:auto;
 }
 
 /* lnb 
