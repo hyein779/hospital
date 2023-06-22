@@ -9,11 +9,36 @@
 <title>장바구니</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 장바구니 삭제 이벤트
+		$('.cart-del').on('click', function(){
+			$.ajax({
+				url:'deleteCart.do',
+				type:'post',
+				data:{cart_num:$(this).attr('data-cartnum')},
+				dataType:'json',
+				success:function(param){
+					if (param.result == 'logout'){
+						alert('로그인 후 사용하십시오');
+					} else if (param.result == 'success'){
+						alert('선택한 상품을 삭제했습니다')
+					} else {
+						alert('장바구니 상품 삭제 오류');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<jsp:include page="/WEB-INF/views/common/lnb.jsp"/>
+		<jsp:include page="/WEB-INF/views/item/lnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h2>장바구니</h2>
@@ -29,6 +54,8 @@
 						<th>상품명</th>
 						<th>수량</th>
 						<th>상품 가격</th>
+						<th>합계</th>
+						<th></th>
 					</tr>
 					<c:forEach var="cart" items="${list}">
 						<tr>
@@ -48,6 +75,12 @@
 							</td>
 							<td class="align-center">
 								<fmt:formatNumber value="${cart.itemVO.item_price}"/>원
+							</td>
+							<td class="align-center">
+								<fmt:formatNumber value="${cart.sub_total}"/>원
+							</td>
+							<td class="align-center">
+								<input type="button" value="X" class="cart-del" data-cartnum="${cart.cart_num}">
 							</td>
 						</tr>
 					</c:forEach>

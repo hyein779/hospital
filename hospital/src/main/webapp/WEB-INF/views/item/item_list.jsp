@@ -13,7 +13,7 @@
 <body>
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-		<c:if test="${!empty user_num && user_auth == 2}">
+		<c:if test="${user_auth != 9}">
 		<jsp:include page="lnb.jsp"/>
 		</c:if>
 		<c:if test="${!empty user_num && user_auth == 9}">
