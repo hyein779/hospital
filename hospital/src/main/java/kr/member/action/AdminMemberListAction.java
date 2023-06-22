@@ -49,6 +49,6 @@ public class AdminMemberListAction implements Action{
 		request.setAttribute("page", page.getPage());
 		
 		// JSP 경로 반환
-		return "/WEB-INF/views/member/memberList.jsp";
+		return "/WEB-INF/views/member/adminMemberList.jsp";
 	}
 }
