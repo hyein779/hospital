@@ -50,6 +50,32 @@
 			<input type="button" value="글쓰기" id="write" onclick="location.href='noticeWriteForm.do'"
 			<c:if test="${empty user_num || user_auth != 9}">disabled="disabled"</c:if>> <!-- 로그인 안되어 있을 때 글쓰기 버튼 비활성화 -->
 		</div>
+		
+		<c:if test="${count == 0}">
+		<div class="result-display">
+			표시할 게시물이 없습니다.
+		</div>
+		</c:if>
+		<c:if test="${count > 0}">
+		<table>
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>작성일</th>
+				<th>조회</th>
+			</tr>
+			<c:forEach var="notice" items="${list}">
+			<tr>
+				<td>${notice.notice_num}</td>
+				<td><a href="noticeDetail.do?notice_num=${notice.notice_num}">${notice.notice_title}</a></td>
+				<td>${notice.notice_date}</td>
+				<td>${notice.notice_hit}</td>
+			</tr>
+			</c:forEach>
+		</table>
+		<div class="align-center">${page}</div>
+		</c:if>
+		
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

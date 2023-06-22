@@ -46,7 +46,7 @@
 			</ul>
 			<div class="align-right">
 				<input type="submit" value="등록">
-				<input type="button" value="목록" onclick="location.href='noticeList.do'">
+				<input type="button" value="취소" onclick="location.href='noticeList.do'">
 			</div>
 		</form>
 	</div>
