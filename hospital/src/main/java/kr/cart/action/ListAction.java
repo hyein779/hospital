@@ -32,7 +32,7 @@ public class ListAction implements Action{
 		request.setAttribute("all_total", all_total);
 		request.setAttribute("list", list);
 		
-		return "WEB-INF/views/cart/list.jsp";
+		return "/WEB-INF/views/cart/list.jsp";
 	}
 
 }
