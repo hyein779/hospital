@@ -47,6 +47,10 @@
 			</ul>
 		</form>
 		<!-- 검색창 끝 -->
+		<div class="list-space align-right">
+			<input type="button" value="목록" onclick="location.href='memberList.do'"> 
+			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '">  
+		</div>
 		<hr size="1" noshade="noshade" width="80%">
 		<c:if test="${count == 0}">
 		<div class="result-display">
@@ -97,10 +101,7 @@
 		<hr size="1" noshade="noshade" width="80%">
 		<div class="align-center">${page}</div>
 		</c:if>
-		<div class="list-space align-right">
-			<input type="button" value="목록" onclick="location.href='memberList.do'"> 
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '">  
-		</div>
+		
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
