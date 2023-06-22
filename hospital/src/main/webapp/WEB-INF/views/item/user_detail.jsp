@@ -103,7 +103,7 @@
 							<c:if test="${item.item_quantity > 0}">
 							<li>
 								<label for="order_quantity">구매 수량</label>
-								<input type="number" name="order_quantity" min="1" max="${item.item_quantity}" autocomplete="off" id="order_quantity" class="quantity-width">
+								<input type="number" name="item_count" min="1" max="${item.item_quantity}" autocomplete="off" id="order_quantity" class="quantity-width">
 							</li>
 							<li>
 								<span id="item_total_txt">총 주문 금액 : 0원</span>
