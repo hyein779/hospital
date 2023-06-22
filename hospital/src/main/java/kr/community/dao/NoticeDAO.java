@@ -73,7 +73,8 @@ public class NoticeDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "SELECT * FROM notice ORDER BY notice_num DESC WHERE rownum>=? AND rownum<=?";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM notice "
+				+ "ORDER BY notice_num DESC)a) WHERE rnum>=? AND rnum<=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
