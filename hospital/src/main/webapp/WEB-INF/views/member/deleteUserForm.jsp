@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>회원탈퇴</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-
 		// 회원탈퇴 유효성 체크
 		$('#delete_form').submit(function(){
 			let items = document.querySelectorAll('input[type="text"],input[type="email"],input[type="password"]');
@@ -39,7 +39,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h1 class="logreg">회원탈퇴</h1>
-			<hr size="1" noshade="noshade" width="60%">
+			<hr size="1" noshade="noshade" width="80%">
 			<form id="delete_form" action="deleteUser.do" method="post">
 				<ul>
 					<li>
@@ -67,5 +67,6 @@
 		</div>
 		<!-- 내용 끝 -->
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
