@@ -24,8 +24,7 @@ a:hover{
 .content-main{
 	padding:0 120px 0 280px;
 	height:auto;
-
-	
+	min-height:350px;
 }
 
 /* 공통 정렬
