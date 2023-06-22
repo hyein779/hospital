@@ -40,7 +40,7 @@
 							</td>
 							<td class="align-center">
 								<c:if test="${cart.itemVO.item_status == 1 or cart.itemVO.item_quantity < cart.item_count}">[판매 중지]</c:if>
-								<c:if test="${cart.itemVO.item_status != 1 or cart.itemVO.item_quantity > cart.item_count}">
+								<c:if test="${cart.itemVO.item_status != 1 and cart.itemVO.item_quantity >= cart.item_count}">
 									<input type="number" name="item_count" min="1" max="${cart.itemVO.item_quantity}" autocomplete="off" value="${cart.item_count}">
 									<br>
 									<input type="button" value="변경" class="cart-modify" data-cartnum="${cart.cart_num}" data-itemnum="${cart.item_num}">
