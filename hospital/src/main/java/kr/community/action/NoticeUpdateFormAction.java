@@ -8,7 +8,7 @@ import kr.community.dao.NoticeDAO;
 import kr.community.vo.NoticeVO;
 import kr.controller.Action;
 
-public class NoticeWriteAction implements Action{
+public class NoticeUpdateFormAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -25,17 +25,13 @@ public class NoticeWriteAction implements Action{
 		}
 		
 		// 관리자로 로그인한 경우
-		request.setCharacterEncoding("utf-8");
-		
-		NoticeVO notice = new NoticeVO();
-		notice.setNotice_title(request.getParameter("notice_title"));
-		notice.setNotice_content(request.getParameter("notice_content"));
-		
+		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		NoticeDAO dao = NoticeDAO.getInstance();
-		dao.insertNotice(notice);
+		NoticeVO notice = dao.getNotice(notice_num);
 		
-		// JSP 경로 반환
-		return "/WEB-INF/views/community/noticeWrite.jsp";
+		request.setAttribute("notice", notice);
+		
+		return "/WEB-INF/views/community/noticeUpdateForm.jsp";
 	}
 
 }

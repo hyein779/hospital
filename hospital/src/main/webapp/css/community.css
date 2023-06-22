@@ -147,6 +147,25 @@ tr:hover{
 }
 
 
-
+/* 커뮤니티 글수정
+------------------*/
+#update_form label{
+  display:block;
+  font-weight:bold;
+  margin:15px 0 5px 0;
+}
+#update_form input[type="text"]{
+  width:500px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#update_form textarea{
+  width:1000px;
+  height:300px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
  
 

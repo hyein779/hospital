@@ -16,7 +16,7 @@
 	<jsp:include page="lnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h2>공지사항</h2>
+		<h3 class="subtitle">공지사항</h3>
 		<div id="detail">
 			<ul class="detail-info">
 				<li><b>${notice.notice_title}</b></li>
@@ -29,10 +29,11 @@
 			
 			<ul class="detail-sub">
 				<li>
-					<c:if test="${!empty notice.notice_modifydate}"> <!-- 수정한 날짜가 있는 경우 -->
-					최근 수정일 ${notice.notice_modifydate}
-					</c:if>
 					작성일 ${notice.notice_date}
+					<c:if test="${!empty notice.notice_modifydate}"> <!-- 수정한 날짜가 있는 경우 -->
+					(수정일 ${notice.notice_modifydate})
+					</c:if>
+					<input type="button" value="목록" onclick="location.href='noticeList.do'" class="submit">
 					<!-- 관리자만 수정, 삭제가 가능 -->
 					<c:if test="${user_auth == 9}">
 					<input type="button" value="수정" onclick="location.href='noticeUpdateForm.do?notice_num=${notice.notice_num}'" class="submit">

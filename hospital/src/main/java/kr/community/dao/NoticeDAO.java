@@ -8,6 +8,7 @@ import java.util.List;
 
 import kr.community.vo.NoticeVO;
 import kr.util.DBUtil;
+import kr.util.StringUtil;
 
 public class NoticeDAO {
 	// 싱글턴 패턴
@@ -85,7 +86,7 @@ public class NoticeDAO {
 			while(rs.next()) {
 				NoticeVO notice = new NoticeVO();
 				notice.setNotice_num(rs.getInt("notice_num"));
-				notice.setNotice_title(rs.getString("notice_title"));
+				notice.setNotice_title(StringUtil.useNoHtml(rs.getString("notice_title")));
 				notice.setNotice_hit(rs.getInt("notice_hit"));
 				notice.setNotice_date(rs.getDate("notice_date"));
 				
@@ -132,6 +133,62 @@ public class NoticeDAO {
 	}
 	
 	// 조회수 증가
+	public void updateReadCount(int notice_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "UPDATE notice SET notice_hit=notice_hit+1 WHERE notice_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notice_num);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
 	// 글 수정
+	public void updateNotice(NoticeVO notice) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "UPDATE notice SET notice_title=?,notice_content=?,notice_modifydate=SYSDATE WHERE notice_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, notice.getNotice_title());
+			pstmt.setString(2, notice.getNotice_content());
+			pstmt.setInt(3, notice.getNotice_num());
+			
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
 	// 글 삭제
+	public void deleteNotice(int notice_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			conn = DBUtil.getConnection();
+			sql = "DELETE FROM notice WHERE notice_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notice_num);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			conn.rollback();
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
 }
