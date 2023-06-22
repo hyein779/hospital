@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>상품 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -27,7 +28,7 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h2>상품 목록</h2>
+			<h1 class="logreg">상품 목록</h1>
 			<!-- 검색창 시작 -->
 			<form id="search-form" action="list.do" method="get">
 				<ul class="search">
@@ -38,7 +39,7 @@
 						</select>
 					</li>
 					<li>
-						<input type="search" size="16" name="keyword" id="keyword" value="${param.keyword}">
+						<input type="search" size="25" name="keyword" id="keyword" value="${param.keyword}">
 					</li>
 					<li>
 						<input type="submit" value="검색">
@@ -51,7 +52,7 @@
 				<input type="button" value="목록" onclick="location.href='item_list.do'">
 				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
-		</div>
+		
 		<c:if test="${count == 0}">
 			<div class="result-display">
 				표시할 상품이 없습니다.
@@ -79,8 +80,10 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
 			<div class="align-center">${page}</div>
 		</c:if>
+		</div>
 		<!-- 내용 끝 -->
 		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	</div>

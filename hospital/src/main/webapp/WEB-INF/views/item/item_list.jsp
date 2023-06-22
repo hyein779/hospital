@@ -22,7 +22,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<div>
-				<h2>보조기 목록</h2>
+				<h1>보조기 목록</h1>
 			</div>
 			<hr width="100%" size="1" noshade="noshade">
 			<div class="image-space">

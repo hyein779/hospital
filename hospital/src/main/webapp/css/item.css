@@ -18,4 +18,36 @@
 .image-space .float-clear{
 	clear:both;
 }
+/*검색창*/
+form#search_form{
+	border: none;
+}
+ul.search{
+	width: 340px;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+ul.search li{
+	margin: 0 0 9px 0;
+	padding: 0;
+	display: inline;
+}
+.list-space{
+	margin-bottom: 10px;
+	margin-right: 50px;
+}
 
+/*테이블*/
+table{
+	margin-left: 250px;
+	text-align: center;
+	width: 80%;
+	height: 200px;
+	/* padding: 5px; */
+}
+th{
+	background-color: #effbff;
+	font-size: 15px;
+	height: 30px;
+}
