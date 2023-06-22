@@ -101,6 +101,36 @@ public class NoticeDAO {
 	}
 	
 	// 글 상세
+	public NoticeVO getNotice(int notice_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		NoticeVO notice = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT * FROM notice WHERE notice_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, notice_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				notice = new NoticeVO();
+				notice.setNotice_num(rs.getInt("notice_num"));
+				notice.setNotice_title(rs.getString("notice_title"));
+				notice.setNotice_content(rs.getString("notice_content"));
+				notice.setNotice_hit(rs.getInt("notice_hit"));
+				notice.setNotice_date(rs.getDate("notice_date"));
+				notice.setNotice_modifydate(rs.getDate("notice_modifydate"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return notice;
+	}
+	
 	// 조회수 증가
 	// 글 수정
 	// 글 삭제
