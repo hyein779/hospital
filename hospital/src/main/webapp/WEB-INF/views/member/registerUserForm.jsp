@@ -79,6 +79,10 @@
 					alert('주민번호를 올바르게 입력하세요(ex.000000-0000000)');
 					return false;
 				}
+				if(!/^\d{11}$/.test($('#phone').val())){
+					alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
+					return false;
+				}
 				if(items[i].id == 'id' && idChecked == 0){
 					alert('아이디 중복 체크 필수');
 					return false;
