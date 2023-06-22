@@ -16,7 +16,7 @@ public class NoticeDetailAction implements Action{
 		NoticeDAO dao = NoticeDAO.getInstance(); 
 		NoticeVO notice = dao.getNotice(notice_num);
 		
-		request.setAttribute("notice", notice);
+		request.setAttribute("notice", notice); 
 		
 		return "/WEB-INF/views/community/noticeDetail.jsp";
 	}
