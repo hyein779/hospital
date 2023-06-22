@@ -21,10 +21,10 @@
 		</c:if>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<div>
+			<div class="page-title">
 				<h1>보조기 목록</h1>
 			</div>
-			<hr width="100%" size="1" noshade="noshade">
+			<hr class="border-line" width="100%" size="3px" noshade="noshade">
 			<div class="image-space">
 				<c:forEach var="item" items="${itemList}">
 				<div class="horizontal-area">
@@ -36,7 +36,7 @@
 					</a>
 				</div>
 				</c:forEach>
-				<div class="float-clear"></div>
+				<div class="float-clear align-center">${page}</div>
 			</div>
 		</div>
 		<!-- 내용 끝 -->

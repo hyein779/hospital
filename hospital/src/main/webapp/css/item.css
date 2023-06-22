@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+/* 상품 페이지 형식
+---------------*/
+.page-title{
+	margin: 20px 30px;
+}
+
+.border-line{
+	color:#d6d6d6;
+}
 /* 상품 목록
 ---------------*/
 .image-space .horizontal-area{
