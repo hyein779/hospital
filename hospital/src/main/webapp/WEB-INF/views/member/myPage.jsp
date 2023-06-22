@@ -17,7 +17,7 @@
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div>
-		<h2 class="logreg">나의정보</h2>
+		<h1 class="logreg">나의정보</h1>
 		<hr size="1" noshade="noshade" width="80%">
 		<div class="mypage-div">
 			<table>
@@ -44,7 +44,7 @@
 				<tr>
 					<td>전화번호</td>
 					<td> | </td>
-					<td>${fn:substring(member.phone,0,3)}-${fn:substring(member.phone,3,6)}-${fn:substring(member.phone,6,9)}</td>
+					<td>${fn:substring(member.phone,0,3)}-${fn:substring(member.phone,3,7)}-${fn:substring(member.phone,7,11)}</td>
 				</tr>
 				<tr>
 					<td>이메일</td>

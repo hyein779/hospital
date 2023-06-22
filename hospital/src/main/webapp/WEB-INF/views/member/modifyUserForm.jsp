@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>회원 정보 수정</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -31,8 +32,8 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">회원정보 수정</h1>
-			<hr size="1" noshade="noshade" width="60%">
+			<h1 class="logreg">회원정보수정</h1>
+			<hr size="1" noshade="noshade" width="80%">
 			<form id="modify_form" action="modifyUser.do" method="post">
 				<ul>
 					<li>
@@ -171,5 +172,6 @@
 </script>
 		<!-- 우편번호 검색 끝 -->
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
