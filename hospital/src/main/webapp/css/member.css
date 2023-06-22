@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
 
-#login_form #id,#login_form #passwd{
-	width: 200px;
-}
 .content-main{
 	padding: 10px 20px;
 }
@@ -14,13 +11,14 @@ form{
 }
 label{
 	width: 130px;
-	float: left; /*태그를 왼쪽에 정렬 */
+	float: left; /*태그를 왼쪽에 정렬*/
 }
 
 ul{
 	list-style: none;
 }
 .logreg{
+	margin-top: 30px;
 	margin-left: 300px;
 }
 .form-notice{
@@ -44,6 +42,22 @@ ul.search li{
 }
 .list-space{
 	margin-bottom: 10px;
+}
+/*텍스트박스?*/
+input{
+	margin-top: 6px;
+}
+input[type="text"],input[type="password"],input[type="email"]{
+	width: 300px;
+}
+#register_form input[id="id"]{
+	width: 223px;
+}
+input[id="zipcode"]{
+	width: 205px;
+}
+input[type="number"]{
+	width: 100px;
 }
 /*테이블*/
 table{
