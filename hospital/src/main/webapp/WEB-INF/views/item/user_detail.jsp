@@ -24,7 +24,7 @@
 			}
 			
 			if (Number($('#item_quantity').val()) < $('#order_quantity').val()){ 
-				alert('수량이 부족합니다.');
+				alert('수량이 부족합니다');
 				$('#order_quantity').val('');
 				$('#item_total_txt').text('총 주문 금액: 0원');
 				return;
@@ -57,10 +57,10 @@
 					if (param.result == 'logout'){
 						alert('로그인 후 사용하세요');
 					} else if (param.result == 'success'){
-						alert('장바구니에 담았습니다.');
+						alert('장바구니에 담았습니다');
 						location.href = '../cart/list.do';
 					} else if (param.result == 'over_quantity'){
-						alert('기존에 주문한 상품입니다. 개수를 추가하면 재고가 부족합니다.');
+						alert('기존에 주문한 상품입니다. 재고 부족으로 상품을 더 추가할 수 없습니다');
 					} else {
 						alert('장바구니 담기 오류');
 					}
