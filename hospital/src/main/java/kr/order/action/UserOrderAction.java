@@ -106,7 +106,7 @@ public class UserOrderAction implements Action{
 		orderDao.insertOrder(order, orderDetailList);
 		
 		//refresh 정보를 응답 헤더에 추가
-		response.addHeader("Refresh", "2;url=../main/main.do");
+		response.addHeader("Refresh", "/main/main.do");
 		request.setAttribute("accessMsg", "주문이 완료되었습니다.");
 		request.setAttribute("accessUrl", request.getContextPath()+"/main/main.do");
 		

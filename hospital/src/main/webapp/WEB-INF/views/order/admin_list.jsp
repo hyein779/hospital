@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인</title>
+<title>주문 목록_admin_list</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
@@ -36,7 +36,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
 	<div class="content-main">
-	<h2>주문 목록_admin_list</h2>
+	<h2>주문 목록</h2>
 	<!-- content 시작 -->
 	<form>
 		<ul class="search">
@@ -66,7 +66,7 @@
 					<th>결제금액</th>
 					<th>주문날짜</th>
 					<th>상태</th>
-					<th>상세보기</th>
+					<th></th>
 				</tr>
 			<c:forEach var="order" items="${list}">
 				<tr>
@@ -81,7 +81,10 @@
 						<c:if test="${order.status == 4}">배송완료</c:if>
 						<c:if test="${order.status == 5}">주문취소</c:if>
 					</td>
-					<td><a href="modifyForm.do?order_num=${order.order_num}">상세</a></td>
+					<td>
+						<a href="listForm.do?order_num=${order.order_num}">상세</a>
+						<a href="modifyForm.do?order_num=${order.order_num}">수정</a>
+					</td>
 				</tr>
 			</c:forEach>
 			</table>

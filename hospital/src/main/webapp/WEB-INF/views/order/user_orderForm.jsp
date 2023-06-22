@@ -25,12 +25,12 @@
 			        items[i].focus();
 			        return false;
 		        }
+		        
+		    	if($('input[type=checkbox]:checked').length<1){
+		     		alert('결제 수단을 선택하세요.');
+		     		return false;
+		     	}
 	     	}//end of for
-	      	
-	     	if($('input[type=checkbox]:checked').length<1){
-	     		alert('결제 수단을 선택하세요.');
-	     		return false;
-	     	}
 	     	
   		});//end of submit
 	})//end of function	
@@ -107,6 +107,7 @@
 					<label>결제 수단</label>
 					<input type="checkbox" name="payment" id="payment1" value="1">계좌이체
 					<input type="checkbox" name="payment" id="payment2" value="2">카드결제
+
 				</li>
 				<li>
 					<label for="notice">메모</label>
