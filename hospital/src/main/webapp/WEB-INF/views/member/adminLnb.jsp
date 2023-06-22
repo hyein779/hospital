@@ -5,7 +5,7 @@
 	
 	<h2 class="lnbTitle">관리자 페이지</h2>
 	<ul class="depth1">
-		<li id="10101"><a href="${pageContext.request.contextPath}/member/memberList.do">회원관리</a></li>
+		<li id="10101"><a href="${pageContext.request.contextPath}/member/adminMemberList.do">회원관리</a></li>
 		
 		<li id="10106">예약 관리</li>
 		<ul class="depth2">
