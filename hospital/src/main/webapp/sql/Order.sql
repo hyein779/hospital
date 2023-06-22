@@ -24,7 +24,7 @@ create sequence zorder_seq;
 create table zorder_detail(
 	detail_num number, --주문상세번호pk
 	item_num number not null, --상품번호fk
-	order_name varchar2(12) not null, --상품명fk
+	order_name varchar2(30) not null, --상품명fk
 	item_price number not null, --상품가격fk
 	item_total number not null, --결제금액
 	order_quantity number not null, --재고

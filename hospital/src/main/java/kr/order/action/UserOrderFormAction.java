@@ -27,13 +27,15 @@ public class UserOrderFormAction implements Action{
 		}
 		
 		
-		 CartDAO dao = CartDAO.getInstance(); int all_total =
-		 dao.getTotalByMem_num(user_num); if(all_total <= 0) {
-		 request.setAttribute("notice_msg", "정상적인 주문이 아니거나 상품의 수량이 부족합니다.");
-		 request.setAttribute("notice_url",
-		 request.getContextPath()+"/item/itemList.do");
-		 
-		 return "/WEB-INF/views/common/alert_singleView.jsp"; }
+		 CartDAO dao = CartDAO.getInstance(); 
+		 int all_total = dao.getTotalByMem_num(user_num); 
+		 if(all_total <= 0) {
+			 request.setAttribute("notice_msg", "정상적인 주문이 아니거나 상품의 수량이 부족합니다.");
+			 request.setAttribute("notice_url",
+			 request.getContextPath()+"/item/itemList.do");
+			 
+			 return "/WEB-INF/views/common/alert_singleView.jsp"; 
+		 }
 		 
 
 		//장바구니에 담겨있는 상품 정보 호출
@@ -55,7 +57,8 @@ public class UserOrderFormAction implements Action{
 		}//end of for 
 		 
 		 
-		 //조건 통과 request.setAttribute("list", cartList);
+		 //조건 통과 
+		 request.setAttribute("list", cartList);
 		 request.setAttribute("all_total", all_total);
 		 
 		return "/WEB-INF/views/order/user_orderForm.jsp";

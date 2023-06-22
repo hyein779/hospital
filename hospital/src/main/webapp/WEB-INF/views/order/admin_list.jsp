@@ -9,20 +9,41 @@
 <title>메인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#search_form').on('submit',function(){
+			if($('#keyword').val().trim()==''){
+				alert('검색어를 입력하세요.');
+				$('#keyword').val('').focus();
+				return false;
+			}
+			//주문번호는 숫자로 체크
+			if($('#keyfield').val() == 1 && isNaN($('#keyword').val())){
+				alert('주문번호는 숫자만 입력하세요.');
+				$('#keyword').val('').focus();
+				return false;
+			}
+		});
+	})
+</script>
 </head>
 <body>
+<!-- 관리자 : 주문목록 -->
 <div class="page-main">
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
-	<h2>주문 목록</h2>
+	<div class="content-main">
+	<h2>주문 목록_admin_list</h2>
 	<!-- content 시작 -->
-		<ul>
+	<form>
+		<ul class="search">
 			<li>
 				<select>
 					<option value="1" <c:if test="${param.keyfield == 1}"></c:if>>주문번호</option>
-					<option value="1" <c:if test="${param.keyfield == 2}"></c:if>>ID</option>
-					<option value="1" <c:if test="${param.keyfield == 3}"></c:if>>상품명</option>
+					<option value="1" <c:if test="${param.keyfield == 2}"></c:if>>상품명</option>
 				</select>
 			</li>
 			<li>
@@ -32,63 +53,44 @@
 				<input type="submit" value="조회">
 			</li>
 		</ul>
-		<input type="button" value="홈으로"
-		   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
-		   <% int count = 1; %>
-		<c:if test="${count > 0}">
-			<div>주문내역이 없습니다.</div>
-		</c:if>
-		<c:if test="${count == 0}">
-			<span><a href="#">주문내역 상세보기</a></span>
+	</form>
+ 			<c:if test="${count == 0}">
+			<div>표시할 주문 내역이 없습니다.</div>
+ 			</c:if>
+ 			<c:if test="${count > 0}">
 			<hr>
 			<table>
-					<tr>
-						<!-- <td width="100">상품명</td> -->
-						<td rowspan="6"><img src="../images/목질환.png" width="200" height="200"></td>
-						<td>상품명</td>
-					</tr>
-					<tr>
-						<td>주문번호</td>
-					</tr>
-					<tr>
-						<td>ID</td>
-					</tr>
-					<tr>
-						<td>결제금액</td>
-					</tr>
-					<tr>
-						<td>주문날짜</td>
-					</tr>
-					
-					<tr>
-						<td>상태</td>
-					</tr>	
+				<tr>
+					<th>상품명</th>
+					<th>주문번호</th>
+					<th>결제금액</th>
+					<th>주문날짜</th>
+					<th>상태</th>
+					<th>상세보기</th>
+				</tr>
+			<c:forEach var="order" items="${list}">
+				<tr>
+					<td>${order.order_name}</td>
+					<td><a href="modifyForm.do?order_num=${order.order_num}">${order.order_num}</a></td>
+					<td><fmt:formatNumber value="${order.order_total}"/>원</td>
+					<td>${order.reg_date}</td>
+					<td>
+						<c:if test="${order.status == 1}">배송대기</c:if>
+						<c:if test="${order.status == 2}">배송준비중</c:if>
+						<c:if test="${order.status == 3}">배송중</c:if>
+						<c:if test="${order.status == 4}">배송완료</c:if>
+						<c:if test="${order.status == 5}">주문취소</c:if>
+					</td>
+					<td><a href="modifyForm.do?order_num=${order.order_num}">상세</a></td>
+				</tr>
+			</c:forEach>
 			</table>
-			<!-- 
-				출력이 가능하면 위 테이블에 넣어보기
-				여러번 반복할려면 어떻게 해야할까
-			 -->
-			<%-- <c:forEach var="order" items="${list}">
-			</c:forEach> --%>
-				<table>
-					<tr>
-						<td>${order.item_name}</td>
-						<td><a href="modifyForm.do?order_num=${order.order_num}">${order.order_num}</a></td>
-						<td>${order.id}</td>
-						<td><fmt:formatNumber value="${order.order_total}"/>원</td>
-						<td>${order.reg_date}</td>
-						<td>
-							<c:if test="${order.status == 1}">배송대기</c:if>
-							<c:if test="${order.status == 2}">배송준비중</c:if>
-							<c:if test="${order.status == 3}">배송중</c:if>
-							<c:if test="${order.status == 4}">배송완료</c:if>
-							<c:if test="${order.status == 5}">주문취소</c:if>
-						</td>
-					</tr>
-				</table>
 			<hr>
-			<div>${page}</div>
+			<input type="button" class="right" value="홈으로"
+		  		   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			<div class="align-center">${page}</div>
 		</c:if>
+	</div>		
 	<!-- content 끝 -->
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
