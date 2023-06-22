@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 목록</title>
+<title>상품 목록 관리</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
@@ -28,7 +28,7 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">상품 목록</h1>
+			<h1 class="logreg">상품 목록 관리</h1>
 			<!-- 검색창 시작 -->
 			<form id="search-form" action="list.do" method="get">
 				<ul class="search">
@@ -52,7 +52,7 @@
 				<input type="button" value="목록" onclick="location.href='item_list.do'">
 				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
-		
+		<hr size="1" noshade="noshade" width="80%">
 		<c:if test="${count == 0}">
 			<div class="result-display">
 				표시할 상품이 없습니다.
@@ -80,7 +80,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			
+			<hr size="1" noshade="noshade" width="80%">
 			<div class="align-center">${page}</div>
 		</c:if>
 		</div>
