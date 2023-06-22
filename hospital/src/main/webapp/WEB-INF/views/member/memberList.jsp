@@ -75,6 +75,9 @@
 				<c:if test="${member.visited==null}">
 					<td>없음</td>
 				</c:if>
+				<c:if test="${member.visited != null}">
+					<td>${member.visited}</td>
+				</c:if>
 				<td>
 					<c:if test="${member.auth == 0}">탈퇴</c:if>
 					<c:if test="${member.auth == 1}">정지</c:if>
@@ -82,7 +85,8 @@
 					<c:if test="${member.auth == 9}">관리</c:if>
 				</td>
 				<c:if test="${member.auth > 0}">
-					<td><a href="detailUserForm.do?mem_num=${member.mem_num}">수정</a> / <a>삭제</a></td>
+					<td><a href="adminDetailUserForm.do?mem_num=${member.mem_num}">수정</a>
+					 / <a href="adminDeleteUserForm.do?mem_num=${member.mem_num}">삭제</a></td>
 				</c:if>
 				<c:if test="${member.auth == 0}">
 					<td>X</td>
