@@ -39,7 +39,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h2 class="logreg">${member.id} 회원탈퇴(관리자 전용)</h2>
-			<hr size="1" noshade="noshade" width="900px">
+			<hr size="1" noshade="noshade" width="80%">
 			<form id="delete_form" action="adminDeleteUser.do" method="post">
 				<input type="hidden" name="mem_num" value="${member.mem_num}">
 				<ul>

@@ -7,13 +7,15 @@
 <meta charset="UTF-8">
 <title>회원정보(관리자 전용)</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 </head>
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h2>${member.id}의 회원정보(관리자 전용)</h2>
+		<h2 class="logreg">${member.id}의 회원정보(관리자 전용)</h2>
+		<hr size="1" noshade="noshade" width="80%">
 		<form action="adminDetailUser.do" method="post" id="detail_form">
 			<input type="hidden" name="mem_num" value="${member.mem_num}">
 			<ul>
@@ -31,13 +33,6 @@
 					</c:if>
 				</li>
 			</ul>
-			<div class="align-center">
-				<c:if test="${member.auth != 9}">
-					<input type="submit" value="수정">
-					<%-- 삭제는 보류..<input type="button" value="삭제" onclick="location.href='adminDeleteUserForm.do?mem_num=${member.mem_num}'"> --%>
-				</c:if>
-					<input type="button" value="목록" onclick="location.href='adminMemberList.do'">
-			</div>
 			<ul>
 				<li>
 					<label>이름</label>${member.name}
@@ -56,7 +51,15 @@
 				</li>
 			</ul>
 		</form>
+		<div class="align-center">
+			<c:if test="${member.auth != 9}">
+				<input type="submit" value="수정">
+				<%-- 삭제는 보류..<input type="button" value="삭제" onclick="location.href='adminDeleteUserForm.do?mem_num=${member.mem_num}'"> --%>
+			</c:if>
+				<input type="button" value="목록" onclick="location.href='adminMemberList.do'">
+		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- 내용 끝 -->
 </div>
 </body>
