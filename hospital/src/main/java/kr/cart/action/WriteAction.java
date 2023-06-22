@@ -12,6 +12,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 import kr.cart.dao.CartDAO;
 import kr.cart.vo.CartVO;
 import kr.controller.Action;
+import kr.item.dao.ItemDAO;
+import kr.item.vo.ItemVO;
 
 public class WriteAction implements Action{
 
@@ -32,8 +34,26 @@ public class WriteAction implements Action{
 			cart.setItem_count(Integer.parseInt(request.getParameter("item_count")));
 			
 			CartDAO dao = CartDAO.getInstance();
-			dao.insertCart(cart);
-			mapAjax.put("result", "success");
+			CartVO db_cart = dao.getCart(cart);
+			if (db_cart == null) { // 기존에 장바구니에 담긴 상품 없음
+				dao.insertCart(cart);
+				mapAjax.put("result", "success");
+			} else { // 장바구니에 담긴 동일 상품 존재
+				// 재고 수량 구하기
+				ItemDAO itemDao = ItemDAO.getInstance();
+				ItemVO item = itemDao.getItem(db_cart.getItem_num());
+				
+				// 구매 수량 합산
+				int total_quantity = db_cart.getItem_count() + cart.getItem_count();
+				
+				if (item.getItem_quantity() < total_quantity) {
+					mapAjax.put("result", "over_quantity");
+				} else {
+					cart.setItem_count(total_quantity);
+					dao.upcateCartByItem_num(cart);
+					mapAjax.put("result", "success");
+				}
+			}
 		}
 		
 		ObjectMapper mapper = new ObjectMapper();
