@@ -13,7 +13,7 @@ public class NoticeDetailAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 글번호
 		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
-		NoticeDAO dao = NoticeDAO.getInstance();
+		NoticeDAO dao = NoticeDAO.getInstance(); 
 		NoticeVO notice = dao.getNotice(notice_num);
 		
 		request.setAttribute("notice", notice);
