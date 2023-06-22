@@ -42,6 +42,7 @@ ul.search li{
 }
 .list-space{
 	margin-bottom: 10px;
+	margin-right: 50px;
 }
 /*텍스트박스?*/
 input{
@@ -64,10 +65,11 @@ table{
 	margin-left: 250px;
 	text-align: center;
 	width: 80%;
-	height: 100px;
-	padding: 5px;
+	height: 200px;
+	/* padding: 5px; */
 }
 th{
 	background-color: #effbff;
 	font-size: 15px;
+	height: 30px;
 }
