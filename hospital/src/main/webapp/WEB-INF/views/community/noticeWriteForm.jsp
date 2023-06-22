@@ -32,8 +32,8 @@
 	<jsp:include page="lnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h3 class="subtitle">커뮤니티 글쓰기</h3>
-		<form id="noticeWrite_form" action="noticeWrite.do" method="post">
+		<h3 class="subtitle">공지사항 글쓰기</h3>
+		<form id="write_form" action="noticeWrite.do" method="post">
 			<ul>
 				<li>
 					<label for="notice_title">제목</label>
@@ -41,12 +41,12 @@
 				</li>
 				<li>
 					<label for="notice_content">내용</label>
-					<textarea rows="5" cols="100" name="notice_content" id="notice_content" maxlength="50"></textarea>
+					<textarea rows="5" cols="100" name="notice_content" id="notice_content" maxlength="3000"></textarea>
 				</li>
 			</ul>
 			<div class="align-right">
-				<input type="submit" value="등록">
-				<input type="button" value="취소" onclick="location.href='noticeList.do'">
+				<input type="submit" value="등록" class="submit">
+				<input type="button" value="취소" onclick="location.href='noticeList.do'" class="home">
 			</div>
 		</form>
 	</div>

@@ -79,25 +79,25 @@ tr:hover{
 
 /* 커뮤니티 글쓰기
 ------------------*/
-#noticeWrite_form label{
+#write_form label{
   display:block;
   font-weight:bold;
   margin:15px 0 5px 0;
 }
-#noticeWrite_form input[type="text"]{
+#write_form input[type="text"]{
   width:500px;
   padding:10px;
   border:1px solid #ccc;
   border-radius:5px;
 }
-#noticeWrite_form textarea{
+#write_form textarea{
   width:1000px;
   height:300px;
   padding:10px;
   border:1px solid #ccc;
   border-radius:5px;
 }
-#noticeWrite_form input[type="submit"], #noticeWrite_form input[type="button"]{
+.submit, .home{
   padding:8px 20px;
   background-color:#333;
   color:#fff;
@@ -108,13 +108,45 @@ tr:hover{
   margin-bottom:30px;
   font-size:14px;
 }
-
-#noticeWrite_form input[type="button"]{
+.home{
   background-color:#ccc;
 }
-
-#noticeWrite_form input[type="submit"]:hover, #noticeWrite_form input[type="button"]:hover{
+.submit:hover, .home:hover{
   background-color:#6496BA;
 }
 
+
+/* 커뮤니티 글상세
+------------------*/
+#detail{
+	margin:25px 30px;
+}
+.detail-info {
+   font-size:15px;
+   padding:8px;
+   background:#d6d6d6;
+   margin-top:40px;
+}
+.detail-info li{
+	display:inline;
+	margin-right:15px;
+}
+.detail-info li b{
+	font-size:20px;
+}
+ #detail p {
+   font-size:16px;
+   line-height:1.8;
+   margin:20px 0;
+   padding:0 20px
+}
+.detail-sub{
+	padding:20px 0 0 0;
+	text-align:right;
+	margin:0;
+}
+
+
+
+ 
 
