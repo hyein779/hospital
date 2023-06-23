@@ -75,18 +75,28 @@
 					$('#id').focus();
 					return false;
 				}
-				if(!/^\d{6}-\d{7}$/.test($('#code').val())){
-					alert('주민번호를 올바르게 입력하세요(ex.000000-0000000)');
-					return false;
-				}
-				if(!/^\d{11}$/.test($('#phone').val())){
-					alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
-					return false;
-				}
 				if(items[i].id == 'id' && idChecked == 0){
 					alert('아이디 중복 체크 필수');
 					return false;
 				}
+				if($('#passwd').val()!=$('#cpasswd').val()){
+					alert('새비밀번호와 새비밀번호확인이 불일치합니다.');
+					$('#passwd').val('').focus();
+					$('#cpasswd').val('');
+					return false;
+				}
+			}
+			if(!/^\d{6}-\d{7}$/.test($('#code').val())){
+				alert('주민번호를 올바르게 입력하세요(ex.000000-0000000)');
+				$('#code').val('');
+				$('#code').focus();
+				return false;
+			}
+			if(!/^\d{11}$/.test($('#phone').val())){
+				alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
+				$('#phone').val('');
+				$('#phone').focus();
+				return false;
 			}
 		});
 	});
@@ -97,20 +107,24 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">회원가입</h1>
-			<hr size="1" noshade="noshade" width="60%">
+			<h1 class="logreg-e">회원가입</h1>
+			<hr size="1" noshade="noshade" width="40%">
 			<form id="register_form" action="registerUser.do" method="post">
 				<ul>
 					<li>
 						<label for="id">아이디</label>
-						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
+						<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
 						<input type="button" value="id중복체크" id="id_check">
 						<span id="message_id"></span><br>
-						<span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span>
+						<!-- <span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span> -->
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
-						<input type="password" name="passwd" id="passwd" maxlength="12">
+						<input type="password" name="passwd" id="passwd" maxlength="12" placeholder=" 비밀번호를 입력해주세요">
+					</li>
+					<li>
+						<label for="cpasswd">비밀번호 확인</label>
+						<input type="password" name="cpasswd" id="cpasswd" maxlength="12" placeholder=" 비밀번호를 한번 더 입력해주세요">
 					</li>
 					<li>
 						<label for="name">이름</label>
@@ -142,7 +156,7 @@
 						<input type="text" name="address2" id="address2" maxlength="30">
 					</li>
 				</ul>
-				<div class="align-center">
+				<div class="align-center"> 
 					<input type="submit" value="등록">
 					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 				</div>

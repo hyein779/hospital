@@ -46,33 +46,33 @@
 		<!-- 내용 시작 -->
 		<div class="product-main">
 			<h3 class="form-title">상품 수정</h3>
-			<form action="modify.do" method="post" enctype="multipart/form-data" id="write_form" class="modify-form interval">
+			<form action="modify.do" method="post" enctype="multipart/form-data" id="write_form" class="product-form interval">
 				<ul>
-					<li class="modify-content">
-						<label class="modify-label">상품 표시 여부</label>
+					<li class="product-content">
+						<label class="product-label">상품 표시 여부</label>
 						<input type="radio" name="item_status" value="1" id="status1" <c:if test="${item.item_status == 1}">checked</c:if>>미표시
 						<input type="radio" name="item_status" value="2" id="status2" <c:if test="${item.item_status == 2}">checked</c:if>>표시
 					</li>
-					<li class="modify-content">
-						<label for="name" class="modify-label">상품명</label>
+					<li class="product-content">
+						<label for="name" class="product-label">상품명</label>
 						<input type="text" name="item_name" id="name" maxlength="15" value="${item.item_name}">
 					</li>
-					<li class="modify-content">
-						<label for="price" class="modify-label">가격</label>
+					<li class="product-ontent">
+						<label for="price" class="product-label">가격</label>
 						<input type="number" name="item_price" id="price" min="1" max="99999999" value="${item.item_price}">
 					</li>
-					<li class="modify-content">
-						<label for="quantity" class="modify-label">수량</label>
+					<li class="product-content">
+						<label for="quantity" class="product-label">수량</label>
 						<input type="number" name="item_quantity" id="quantity" min="0" max="9999" value="${item.item_quantity}">
 					</li>
-					<li class="modify-content">
-						<label for="photo" class="modify-label">상품 사진</label>
+					<li class="product-content">
+						<label for="photo" class="product-label">상품 사진</label>
 						<img src="${pageContext.request.contextPath}/upload/${item.item_photo}" data-img="${item.item_photo}" width="50" height="50">
 						<br>
 						<input type="file" name="item_photo" id="photo" class="form-file" accept="image/gif,image/png,image/jpeg">
 					</li>
-					<li class="modify-content">
-						<label for="detail" class="modify-label">상품 설명</label>
+					<li class="product-content">
+						<label for="detail" class="product-label">상품 설명</label>
 						<textarea rows="10" cols="60" name="item_detail" id="detail">${item.item_detail}</textarea>
 					</li>
 				</ul>

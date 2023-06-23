@@ -30,22 +30,23 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h1 class="logreg">로그인</h1>
-		<hr size="1" noshade="noshade" width="60%">
+		<h1 class="logreg-e">로그인</h1>
+		<hr size="1" noshade="noshade" width="40%">
 		<form id="login_form" action="login.do" method="post">
-			<ul>
+			<ul >
 				<li>
-					<label for="id">아이디</label>
-					<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
+					<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
 				</li>
 				<li>
-					<label for="passwd">비밀번호</label>
-					<input type="password" name="passwd" id="passwd" maxlength="12">
+					<input type="password" name="passwd" id="passwd" maxlength="12" placeholder=" 비밀번호를 입력해주세요">
+				</li>
+				<li><a href="${pageContext.request.contextPath}/member/registerUserForm.do" id="regigo">회원가입</a></li>
+				<li>
+					<input type="submit" value="로그인" class="loginbtn">
 				</li>
 			</ul>
 			<div class="align-center">
-				<input type="submit" value="로그인">
-				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				
 			</div>
 		</form>
 	</div>
