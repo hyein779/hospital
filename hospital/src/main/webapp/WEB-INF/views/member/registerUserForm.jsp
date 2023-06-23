@@ -142,7 +142,7 @@
 						<input type="text" name="address2" id="address2" maxlength="30">
 					</li>
 				</ul>
-				<div class="align-center">
+				<div class="align-center"> 
 					<input type="submit" value="등록">
 					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 				</div>
