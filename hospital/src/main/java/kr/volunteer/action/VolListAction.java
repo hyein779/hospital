@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.controller.Action;
 import kr.util.PageUtil;
 import kr.volunteerboard.vo.volunteerboardVO;
-import volunteerboardDAO.volunteerboardDAO;
+import kr.volunteerboardDAO.volunteerboardDAO;
 
 public class VolListAction implements Action{
 
@@ -22,7 +22,7 @@ public class VolListAction implements Action{
 		
 		volunteerboardDAO dao = volunteerboardDAO.getInstance();
 		int count = dao.getBoardCount(keyfield,keyword);		
-		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,20,10,"list.do");
+		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,10,10,"list.do");
 		
 		List<volunteerboardVO> list = null;
 		if(count>0) {
@@ -31,7 +31,7 @@ public class VolListAction implements Action{
 		
 		request.setAttribute("count", count);
 		request.setAttribute("list", list);
-		request.setAttribute("page", page);
+		request.setAttribute("page", page.getPage());
 		
 		
 		return "/WEB-INF/views/volunteer/list.jsp";

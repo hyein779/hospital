@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/volunteer.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -36,10 +37,8 @@
 	<!-- 내용 시작 -->
 	<div class="content-main">
 		<jsp:include page="/WEB-INF/views/volunteer/lnb.jsp"/>
-		<h2>봉사게시판 글쓰기</h2>
-		<form id="volwrite_form" action="volWrite.do"
-		        method="post" 
-		       enctype="multipart/form-data">
+		<h2 class="subtitle">봉사게시판 글쓰기</h2>
+		<form id="volwrite_form" class="volwrite_form" action="volWrite.do" method="post">
 			<ul>
 				<li>
 					<label for="title">제목</label>
@@ -64,6 +63,7 @@
 		</form>
 	</div>
 	<!-- 내용 끝 -->
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </div>
 </body>
 </html>

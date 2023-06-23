@@ -1,14 +1,13 @@
 @charset "UTF-8";
 
 /*봉사 모집*/
-.content-main{
-	padding:10px 20px;
-}
+
 .align-center{
 	text-align:center;
 }
 .align-right{
 	text-align:right;
+	
 }
 .content-main h3.subtitle{
    float:left;
@@ -17,8 +16,9 @@
    margin-top:20px;
    padding-bottom:30px;
    margin-bottom:30px;
-   width:1000px;
+   width:1200px;
 }  
+
 .content-sub{
 	margin:30px;
 	padding:28px 28px 33px;
@@ -29,8 +29,13 @@
 	background-color:#fff;
 	text-align:center;
 	margin-left:150px;	
-	width:700px; 
+	margin-right:300px;
+	width:800px; 
 	float:left;
+	display:felx;
+	align-items:center;
+	justify-content:center;
+	margin-bottom:40px;
 }
 .volcontent{
 	color:#6496BA;
@@ -39,6 +44,85 @@
 .volcontent-sub{
 	font-size:25px;
 }
+.result-display{
+	width:400px;
+	height:200px;
+	margin: 50px auto;
+	border: 1px solid #000;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
+form{
+	width:600px;
+	margin:0 auto;
+	padding:10px 10px 10px 30px;
+}
 
+lable{
+	width:130px;
+	float:left;
+}
+ul{
+	list-style:none;
+}
+input{
+	margin-top:4px;
+}
+input[type="text"]{
+	width:310px;
+	padding:1px 2px;
+}
 
+table{
+	width:100%;
+	border:1px solid #eaeaea;
+	border-collapse:collapse;
+	margin-bottom:20px;
+	margin-top:10px;
+}
+th, td{
+  padding:10px;
+  text-align:center;
+}
+th{
+  background-color:#dedede;
+  font-weight:bold;
+  border-bottom:1px solid #f9f9f9;
+}
+td{
+  border-bottom:1px solid #ccc;
+}
+tr:nth-child(even){
+  background-color:#f9f9f9;
+}
+tr:hover{
+  background-color:#EFFBFF;
+}
+
+form#search_form{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+ul.search{
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:flex;
+}
+
+input#keyword, select#keyfield{
+	height:32px;
+	font-size:14px;
+}
+input#search{
+	height:32px;
+	margin-left:5px;
+	font-size:14px;
+	cursor:pointer;
+	background-color:#6496BA;
+	border:none;
+	color:#fff;
+}
 

@@ -4,14 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.oreilly.servlet.MultipartRequest;
-
 import kr.controller.Action;
-import kr.util.FileUtil;
 import kr.volunteerboard.vo.volunteerboardVO;
 import kr.volunteerboardDAO.volunteerboardDAO;
 
-public class VolWriteAction implements Action{
+public class VolUpdateAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -23,24 +20,26 @@ public class VolWriteAction implements Action{
 		}
 		
 		Integer user_auth = (Integer)session.getAttribute("user_auth");
-		if(user_auth < 9) { // 관리자로 로그인하지 않은 경우
-			return "/WEB-INF/views/common/volunteer.jsp";
+		if(user_auth != 9) { // 관리자로 로그인하지 않은 경우
+			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
-		// 관리자로 로그인한 경우
+		//관리자로 로그인한 경우
 		request.setCharacterEncoding("utf-8");
 		
+		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		
+		volunteerboardDAO dao = volunteerboardDAO.getInstance();
+		
 		volunteerboardVO board = new volunteerboardVO();
+		board.setBoard_num(board_num);
 		board.setTitle(request.getParameter("title"));
 		board.setContent(request.getParameter("content"));
 		board.setReg_date(request.getParameter("reg_date"));
-		board.setMem_num(user_num);
 		
-		volunteerboardDAO dao = volunteerboardDAO.getInstance();
-		dao.insertBoard(board);
+		dao.updateBoard(board);
 		
-		return "/WEB-INF/views/volunteer/volwrite.jsp";
+		return "redirect:/volunteer/volDetail.do?board_num="+board_num;
 	}
 
 }
-    
