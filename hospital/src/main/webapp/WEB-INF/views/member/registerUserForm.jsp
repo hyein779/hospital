@@ -103,14 +103,14 @@
 				<ul>
 					<li>
 						<label for="id">아이디</label>
-						<input type="text" name="id" id="id" maxlength="12" autocomplete="off">
+						<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
 						<input type="button" value="id중복체크" id="id_check">
 						<span id="message_id"></span><br>
 						<!-- <span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span> -->
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
-						<input type="password" name="passwd" id="passwd" maxlength="12">
+						<input type="password" name="passwd" id="passwd" maxlength="12" placeholder=" 비밀번호를 입력해주세요">
 					</li>
 					<li>
 						<label for="name">이름</label>

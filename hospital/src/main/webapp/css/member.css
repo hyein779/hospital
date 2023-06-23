@@ -12,6 +12,7 @@ form{
 label{
 	width: 130px;
 	float: left; /*태그를 왼쪽에 정렬*/
+	margin-top: 10px;
 }
 
 ul{
@@ -67,7 +68,7 @@ input[type="text"],input[type="password"],input[type="email"]{
 	margin-top: 10px;
 	margin-bottom: 5px;
 }
-#register_form input[id="id"],input[id="passwd"]{
+#register_form input[id="id"],#register_form input[id="passwd"]{
 	width: 223px;
 }
 .loginbtn{
