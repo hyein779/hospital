@@ -42,7 +42,6 @@ public class OrderDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) { 
-				//seq이기에 하나의 값만 가져온다.
 				order_num = rs.getInt(1);
 			}			
 			
@@ -139,9 +138,8 @@ public class OrderDAO {
 			conn = DBUtil.getConnection();
 			
 			if(keyword != null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) sub_sql += "WHERE order_num =?"; //같은경우
-				else if(keyfield.equals("2")) sub_sql += "WHERE id LIKE ?"; //포함된단어
-				else if(keyfield.equals("3")) sub_sql += "WHERE order_name LIKE ?"; //포함된단어
+				if(keyfield.equals("1")) sub_sql += "WHERE order_num =?";
+				else if(keyfield.equals("2")) sub_sql += "WHERE order_name LIKE ?";
 			}
 			
 			sql = "SELECT COUNT(*) FROM zorder o JOIN member m ON o.mem_num=m.mem_num "
@@ -151,7 +149,7 @@ public class OrderDAO {
 				if(keyfield.equals("1")) {
 					pstmt.setString(1, keyword);
 				}else {
-					pstmt.setString(1, "%"+keyword+"%"); //LIKE를 사용했기에 좌우에 가변인자를 추가해야한다.
+					pstmt.setString(1, "%"+keyword+"%");
 				}
 			}
 			//SQL문 실행
@@ -182,9 +180,8 @@ public class OrderDAO {
 		try {
 			conn = DBUtil.getConnection();
 			 if(keyword != null && !"".equals(keyword)) {
-				 if(keyfield.equals("1")) sub_sql += "WHERE order_num=?"; //같은경우
-				 else if(keyfield.equals("2")) sub_sql += "WHERE id LIKE ?"; //포함된단어
-				 else if (keyfield.equals("3")) sub_sql += "WHERE order_name LIKE ?"; //대표상품명이
+				 if(keyfield.equals("1")) sub_sql += "WHERE order_num=?";
+				 else if (keyfield.equals("2")) sub_sql += "WHERE order_name LIKE ?";
 			 }
 			 
 			 sql = "SELECT * FROM (SELECT a.*, rownum rnum "
@@ -233,8 +230,107 @@ public class OrderDAO {
 		return list;
 	}
 	//9. 사용자 - 전체주문개수/검색주문개수
-
+	public int getOrderCountByMem_num(String keyfield, String keyword,
+									  int mem_num) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String sub_sql = "";
+		int count = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "AND order_num=?";
+				else if(keyfield.equals("2")) sub_sql += "AND item_name LIKE ?";
+			}
+			
+			sql = "SELECT COUNT(*) FROM zorder WHERE mem_num=?" + sub_sql;
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) {
+					pstmt.setString(2, keyword);
+				}else if(keyfield.equals("2")) {
+					pstmt.setString(2, "%"+keyword+"%");
+				}
+			}
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return count;
+	}
 	//10. 사용자 - 전체주문목록/검색주문목록
+	public List<OrderVO> getListOrderByMem_num(int start, int end,
+											   String keyfield,
+											   String keyword,
+											   int mem_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<OrderVO> list = null;
+		String sql = null;
+		String sub_sql = "";
+		int cnt = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "AND order_num=?";
+				else if(keyfield.equals("2")) sub_sql += "AND item_name LIKE ?";
+			}
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM "
+				+ "(SELECT * FROM zorder WHERE mem_num=? "
+				+ sub_sql + " ORDER BY order_num DESC)a) WHERE rnum>=? AND rnum<=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(++cnt, mem_num);
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) {
+					pstmt.setString(++cnt, keyword);
+				}else if(keyfield.equals("2")) {
+					pstmt.setString(++cnt, "%"+keyword+"%");
+				}
+			}	
+			pstmt.setInt(++cnt, start);
+			pstmt.setInt(++cnt, end);
+			
+			rs = pstmt.executeQuery();
+			list = new ArrayList<OrderVO>();
+			while(rs.next()) {
+				OrderVO order = new OrderVO();
+				order.setOrder_num(rs.getInt("order_num"));
+				order.setOrder_name(rs.getString("order_name"));
+				order.setOrder_total(rs.getInt("order_total"));
+				order.setPayment(rs.getInt("payment"));
+				order.setStatus(rs.getInt("status"));
+				order.setReceive_name(rs.getString("receive_name"));
+				order.setReceive_post(rs.getString("receive_post"));
+				order.setReceive_address1(rs.getString("receive_address1"));
+				order.setReceive_address2(rs.getString("receive_address2"));
+				order.setReceive_phone(rs.getString("receive_phone"));
+				order.setNotice(rs.getString("notice"));
+				order.setReg_date(rs.getDate("reg_date"));
+				order.setMem_num(rs.getInt("mem_num"));	
+				
+				list.add(order);
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
 
 	//5. 개별상품목록
 	public List<OrderDetailVO> getListOrderDetail(int order_num) throws Exception{
@@ -357,11 +453,9 @@ public class OrderDAO {
 			
 			OrderVO db_order = getOrder(order.getOrder_num()); //화면전송데이터=DB저장데이터
 			if(order.getStatus() == 1 && db_order.getStatus() == 1) {
-				sub_sql += "receive_name=?,receive_post=?,receive_address1=?,"
-						+ "receive_address2=?,receive_phone=?,notice=?,";
+				sub_sql += "receive_name=?,receive_post=?,receive_address1=?,receive_address2=?,receive_phone=?,notice=?,";
 			}
-			sql = "UPDATE zorder SET status=?," + sub_sql 
-				+ "modify_date=SYSDATE WHERE order_num=?";
+			sql = "UPDATE zorder SET status=?," + sub_sql + "modify_date=SYSDATE WHERE order_num=?";
 			pstmt = conn.prepareStatement(sql);
 			//데이터바인딩
 			pstmt.setInt(++cnt, order.getStatus());
@@ -382,8 +476,7 @@ public class OrderDAO {
 				//주문번호에 해당하는 상품정보 구하기
 				List<OrderDetailVO> detailList = getListOrderDetail(order.getOrder_num());
 				
-				sql = "UPDATE zitem SET item_quantity=item_quantity+? "
-					+ "WHERE item_num=?";
+				sql = "UPDATE item SET item_quantity=item_quantity+? WHERE item_num=?";
 				pstmt2 = conn.prepareStatement(sql);
 				for(int i=0; i<detailList.size(); i++) {
 					OrderDetailVO detail = detailList.get(i);
@@ -409,5 +502,43 @@ public class OrderDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	//사용자주문취소
+	//11.사용자주문취소
+	public void updateOrderCancel(int order_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			conn.setAutoCommit(false);
+			sql = "UPDATE zorder SET status=5, modify_date=SYSDATE WHERE order_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, order_num);
+			pstmt.executeUpdate();
+			
+			//주문번호에 해당하는 상품정보 구하기
+			List<OrderDetailVO> detailList = getListOrderDetail(order_num);
+			sql = "UPDATE item SET item_quantity=item_quantity+? WHERE item_num=?";
+			pstmt2 = conn.prepareStatement(sql);
+			for(int i=0; i<detailList.size(); i++) {
+				OrderDetailVO detail = detailList.get(i);
+				pstmt2.setInt(1, detail.getOrder_quantity());
+				pstmt2.setInt(2, detail.getItem_num());
+				pstmt2.addBatch();
+				
+				if(i%1000 == 0) {
+					pstmt2.executeBatch();
+				}
+			}
+			pstmt2.executeBatch();
+			conn.commit();
+		}catch(Exception e) {
+			conn.rollback();
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt2, null);
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
 }
