@@ -8,6 +8,7 @@ import java.util.List;
 
 import kr.community.vo.AskVO;
 import kr.community.vo.NoticeVO;
+import kr.community.vo.ReplyVO;
 import kr.util.DBUtil;
 
 public class AskDAO {
@@ -231,6 +232,25 @@ public class AskDAO {
 	}
 	
 	// 댓글 등록
+	public void insertReply(ReplyVO reply) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "INSERT INTO reply (re_num,re_content,ask_num) VALUES (reply_seq.nextval,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, reply.getRe_content());
+			pstmt.setInt(2, reply.getAsk_num());
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}	
+	}
+	
 	// 댓글 개수
 	// 댓글 목록
 	// 댓글 상세(댓글 수정, 삭제 시 작성자 회원번호 체크 용도로 사용)
