@@ -7,7 +7,7 @@
 form{
 	width: 600px;
 	margin: 0 auto;
-	padding: 10px 10px 10px 30px;
+	padding: 10px 10px 10px 10px;
 }
 label{
 	width: 130px;
@@ -20,6 +20,10 @@ ul{
 .logreg{
 	margin-top: 30px;
 	margin-left: 300px;
+}
+.logreg-e{
+	margin-top: 30px;
+	margin-left: 670px;
 }
 .form-notice{
 	color: red;
@@ -50,9 +54,39 @@ input{
 }
 input[type="text"],input[type="password"],input[type="email"]{
 	width: 300px;
+	height: 30px;
+	border: 1px solid #dee2e6;
+	font-size: 13px; 
+	border-radius: 5px;
 }
-#register_form input[id="id"]{
+/*로그인/회원가입*/
+#login_form input[id="id"],#login_form input[id="passwd"]{
+	width: 300px;
+	height: 50px;
+	margin-left: 100px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+#register_form input[id="id"],input[id="passwd"]{
 	width: 223px;
+}
+.loginbtn{
+	border: 0;
+	background-color: #6496BA;
+	border: 1px solid #6496BA;
+	width: 305px;
+	height: 50px;
+	border-radius: 5px;
+	margin-top: 10px;
+	color: #ffffff;
+	font-size: 20px;
+	margin-left: 100px;
+}
+#regigo{
+	color: #b0b2b5;
+	margin-left: 345px;
+	font-size: 15px;
+	
 }
 input[id="zipcode"]{
 	width: 205px;
@@ -72,4 +106,7 @@ th{
 	background-color: #effbff;
 	font-size: 15px;
 	height: 30px;
+}
+.itemtable{
+	border-width: 1px;
 }
