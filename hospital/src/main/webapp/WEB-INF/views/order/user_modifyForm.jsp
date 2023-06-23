@@ -7,6 +7,41 @@
 <head>
 <meta charset="UTF-8">
 <title>[이용자]구매내역_user_modifyForm</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
+<c:if test="${order.status < 2}">
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//유효성 체크
+		('#order_modify').submit(function(){
+			let items = document.querySelectorAll('input[type="text"]');
+			
+			if($('#input[type=radio]:checked').val() == 1){ 
+				for(let i=0; i<items.length; i++){
+					if(items[i].value.trim()==''){
+						let label = document.querySelector('label[for="'+items[i].id+'"]');
+						alert(label.textContent + ' 항목 필수 입력');
+						items[i].value = '';
+						items[i].focus();
+						return false;
+					}
+				}//end of for
+			}//end of if
+		})//end of submit
+		
+		let origin_status = ${order.status};
+		$('input[type=radio]').click(function(){
+			if(origin_status == 1 && $('input[type=radio]:checked').val() != 1){
+				$('.modify-hidden').hide();
+			}else{
+				$('.modify-hidden').show();
+			}
+		});//end of click
+	});
+</script>
+</c:if>
 </head>
 <body>
 <div class="page-main">
@@ -25,7 +60,7 @@
 			</tr>
 		<c:forEach var="detail" items="${detailList}">
 			<tr>
-				<td>${detail.item_name}</td>
+				<td>${detail.order_name}</td>
 				<td class="align-center">
 					<fmt:formatNumber value="${detail.order_quantity}"/>
 				</td>
@@ -55,7 +90,7 @@
 					<span id="delivery_text">*배송대기일 경우만 배송관련 정보를 수정할 수 있습니다.</span>
 				</li>
 					<li>
-						<label for="receive_name">받는 사람</label>
+						<label for="receive_name">받는사람</label>
 						<input type="text" name="receive_name" id="receive_name"
 							   maxlength="10" value="${order.receive_name}">
 					</li>
@@ -77,7 +112,7 @@
 							   maxlength="30" value="${order.receive_address1}">
 					</li>
 					<li>
-						<label for="receive_address2">상세 주소</label>
+						<label for="receive_address2">상세주소</label>
 						<input type="text" name="receive_address2" id="address2"
 							   maxlength="30" value="${order.receive_address2}">
 					</li>
@@ -106,17 +141,17 @@
 						${order.receive_address1}
 					</li>					
 					<li>
-						<label>나머지 주소</label>
+						<label>상세주소</label>
 						${order.receive_address2}
 					</li>					
 					<li>
-						<label>남기실 말씀</label>
+						<label>메모</label>
 						${order.notice}
 					</li>					
 				</c:if>					
 					<li>
 						<label>결제 수단</label>
-						<c:if test="${order.payment == 1}">통장입금</c:if>
+						<c:if test="${order.payment == 1}">계좌이체</c:if>
 						<c:if test="${order.payment == 2}">카드결제</c:if>
 					</li>
 					<li>
@@ -130,8 +165,8 @@
 			</ul>
 		<div class="align-center">
 			<c:if test="${order.status < 2}">			
-				<input type="submit" value="수정">
-				<input type="button" value="주문 취소" id="order_cancel">
+				<input type="submit" value="주문수정">
+				<input type="button" value="주문취소" id="order_cancel">
 				
 				<script>
 					let order_cancel = document.getElementById('order_cancel');

@@ -77,12 +77,12 @@
 		<form id ="order_form" action="order.do" method="post">
 			<ul>
 				<li>
-					<label for="receive_name">받는 사람</label>
+					<label for="receive_name">받는사람</label>
 					<input type="text" name="receive_name" id="receive_name"
 						   maxlength="10">
 				</li>
 				<li>
-					<label for="receive_phone">전화 번호</label>
+					<label for="receive_phone">전화번호</label>
 					<input type="text" name="receive_phone" id="receive_phone"
 						   maxlength="15">
 				</li>
