@@ -159,6 +159,27 @@ ul{
 	text-align:left;
 }
 
+/* notice 오류 메시지
+---------------*/
+.content-main h3.subtitle{
+	font-size:30px;
+	margin:20px 0 30px 55px;
+}
+.result-display{
+	width:1000px;
+	height:400px;
+	margin:40px auto;
+	border:2px solid #d6d6d6;
+	border-radius:5px;
+	display:flex;
+	align-items:center;/*세로 정렬*/
+	justify-content:center;/*가로 정렬*/
+}
+.message{
+	font-size:20px;
+	font-weight:bold;
+}
+
 /* footer : 공통하단 */
 #footer {
    background-color: #6496BA;
