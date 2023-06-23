@@ -85,7 +85,7 @@
 		</c:if>
 		</div>
 		<!-- 내용 끝 -->
-		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>  
 	</div>
 </body>
 </html>
