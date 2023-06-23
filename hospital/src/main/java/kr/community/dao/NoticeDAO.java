@@ -49,8 +49,16 @@ public class NoticeDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "SELECT COUNT(*) FROM notice";
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "WHERE notice_title LIKE ?";
+				else if(keyfield.equals("2")) sub_sql += "WHERE notice_content LIKE ?";
+			}
+			
+			sql = "SELECT COUNT(*) FROM notice " + sub_sql;
 			pstmt = conn.prepareStatement(sql);
+			if(keyword != null && !"".equals(keyword)) {
+				pstmt.setString(1, "%" + keyword + "%");
+			}
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt(1);
@@ -71,14 +79,24 @@ public class NoticeDAO {
 		List<NoticeVO> list = null;
 		String sql = null;
 		String sub_sql = "";
+		int cnt = 0;
 		
 		try {
 			conn = DBUtil.getConnection();
+			
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "WHERE notice_title LIKE ?";
+				else if(keyfield.equals("2")) sub_sql += "WHERE notice_content LIKE ?";
+			}
+			
 			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM notice "
-				+ "ORDER BY notice_num DESC)a) WHERE rnum>=? AND rnum<=?";
+				+ sub_sql + " ORDER BY notice_num DESC)a) WHERE rnum>=? AND rnum<=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
+			if(keyword != null && !"".equals(keyword)) {
+				pstmt.setString(++cnt, "%" + keyword + "%");
+			}
+			pstmt.setInt(++cnt, start);
+			pstmt.setInt(++cnt, end);
 			
 			// SQL문 실행
 			rs = pstmt.executeQuery();

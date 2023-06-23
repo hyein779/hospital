@@ -29,7 +29,7 @@
 	<div class="content-main">
 		<h3 class="subtitle">문의사항</h3>
 		<!-- 검색창 시작 -->
-		<form id="search_form" action="noticeList.do" method="get">
+		<form id="search_form" action="askList.do" method="get">
 			<ul class="search">
 				<li>
 					<select name="keyfield" id="keyfield">
@@ -62,6 +62,7 @@
 			<tr>
 				<th>글번호</th>
 				<th>제목</th>
+				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회</th>
 			</tr>
@@ -69,6 +70,7 @@
 			<tr>
 				<td>${ask.ask_num}</td>
 				<td><a href="askDetail.do?ask_num=${ask.ask_num}">${ask.ask_title}</a></td>
+				<td>${ask.id}</td>
 				<td>${ask.ask_date}</td>
 				<td>${ask.ask_hit}</td>
 			</tr>
