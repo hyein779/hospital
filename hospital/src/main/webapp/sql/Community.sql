@@ -22,7 +22,7 @@ create table ask(
  constraint ask_pk primary key (ask_num),
  constraint ask_fk foreign key (mem_num) references member (mem_num)
 );
-create sequence community_seq;
+create sequence ask_seq;
 
 -- 리뷰
 create table review(
