@@ -48,9 +48,8 @@
 					<li class = "outer-menu-item">
 						<span class="menu-title"><a href="${pageContext.request.contextPath}/reservation/select.do">예약</a></span>
 						<ul class="inner-menu">
-							<li class="inner-menu-item"><a href="#">진료 예약</a></li>
-							<li class="inner-menu-item"><a href="#">치료 예약</a></li>
-							<li class="inner-menu-item"><a href="#">예약 관리</a></li>
+							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/reservation/care.do">진료 예약</a></li>
+							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/reservation/therapy.do">치료 예약</a></li>
 						</ul>
 					</li>										
 
