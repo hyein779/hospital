@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import kr.community.dao.NoticeDAO;
 import kr.community.vo.NoticeVO;
 import kr.controller.Action;
+import kr.util.StringUtil;
 
 public class NoticeUpdateFormAction implements Action{
 
@@ -28,6 +29,9 @@ public class NoticeUpdateFormAction implements Action{
 		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		NoticeDAO dao = NoticeDAO.getInstance();
 		NoticeVO notice = dao.getNotice(notice_num);
+		
+		// 큰 따옴표 처리(수정폼의 input태그에서 오동작)
+		notice.setNotice_title(StringUtil.parseQuot(notice.getNotice_title()));
 		
 		request.setAttribute("notice", notice);
 		

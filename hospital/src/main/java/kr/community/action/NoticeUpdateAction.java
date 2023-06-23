@@ -30,8 +30,6 @@ public class NoticeUpdateAction implements Action{
 		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		
 		NoticeDAO dao = NoticeDAO.getInstance();
-		// 수정 전 데이터 반환
-		/* NoticeVO db_notice = dao.getNotice(notice_num); */
 		
 		NoticeVO notice = new NoticeVO();
 		notice.setNotice_num(notice_num);
