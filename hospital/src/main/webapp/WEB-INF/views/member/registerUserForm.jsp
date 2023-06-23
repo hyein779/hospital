@@ -128,7 +128,7 @@
 					</li>
 					<li>
 						<label for="name">이름</label>
-						<input type="text" name="name" id="name" maxlength="10">
+						<input type="text" name="name" id="name" maxlength="10" placeholder=" 이름을 입력해주세요">
 					</li>
 					<li>
 						<label for="code">주민번호</label>

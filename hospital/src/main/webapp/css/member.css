@@ -67,9 +67,12 @@ input[type="text"],input[type="password"],input[type="email"]{
 	margin-left: 100px;
 	margin-top: 10px;
 	margin-bottom: 5px;
+	font-size: 15px;
 }
 #register_form input[id="id"],#register_form input[id="passwd"]{
 	width: 223px;
+	height: 30px;
+	margin-bottom: 5px;
 }
 .loginbtn{
 	border: 0;
@@ -91,9 +94,13 @@ input[type="text"],input[type="password"],input[type="email"]{
 }
 input[id="zipcode"]{
 	width: 205px;
+	height: 30px;
+	margin-bottom: 5px;
 }
 input[type="number"]{
 	width: 100px;
+	height: 30px;
+	margin-bottom: 5px;
 }
 /*테이블*/
 table{
