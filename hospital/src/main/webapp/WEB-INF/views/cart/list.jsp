@@ -119,7 +119,7 @@
 								<c:if test="${cart.itemVO.item_status != 1 and cart.itemVO.item_quantity >= cart.item_count}">
 									<input type="number" name="item_count" min="1" max="${cart.itemVO.item_quantity}" autocomplete="off" value="${cart.item_count}">
 									<br>
-									<input type="button" value="변경" class="cart-modify" data-cartnum="${cart.cart_num}" data-itemnum="${cart.item_num}">
+									<input type="button" value="변경" class="cart-modify modify-button" data-cartnum="${cart.cart_num}" data-itemnum="${cart.item_num}">
 								</c:if>
 							</td>
 							<td class="align-center">
@@ -129,7 +129,7 @@
 								<fmt:formatNumber value="${cart.sub_total}"/>원
 							</td>
 							<td class="align-center">
-								<input type="button" value="X" class="cart-del" data-cartnum="${cart.cart_num}">
+								<input type="button" value="X" class="cart-del delete-button" data-cartnum="${cart.cart_num}">
 							</td>
 						</tr>
 					</c:forEach>
