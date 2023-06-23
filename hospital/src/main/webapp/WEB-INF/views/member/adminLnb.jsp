@@ -20,13 +20,13 @@
 			<li id="10110" >
 				<a href="${pageContext.request.contextPath}/item/list.do">상품목록 관리</a></li>
 			<li id="10110" >
-			<a href="#"  onclick="#">회원 구매 관리</a></li>
+			<a href="${pageContext.request.contextPath}/order/list.do">회원 구매 관리</a></li>
 		</ul>
 			
 		<li id="10111" >봉사 관리</li>
 		<ul class="depth2">
 			<li id="10112" >
-			<a href="#"  onclick="#">목록</a></li>
+			<a href="#"  onclick="#">봉사 목록</a></li>
 		</ul>
 	</ul>
 		
