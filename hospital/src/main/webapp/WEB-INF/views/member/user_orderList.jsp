@@ -76,8 +76,7 @@
 									test="${order.status == 3}">배송중</c:if> <c:if
 									test="${order.status == 4}">배송완료</c:if> <c:if
 									test="${order.status == 5}">주문취소</c:if></td>
-							<td><a href="#">상세</a>
-								<a href="">수정</a></td> 
+							<td><a href="${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}">상세보기</a></td> 
 						</tr>
 					</c:forEach>
 				</table>
