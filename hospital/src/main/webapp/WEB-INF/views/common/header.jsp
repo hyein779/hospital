@@ -58,7 +58,7 @@
 						<span class="menu-title"><a href="#">커뮤니티</a></span>
 						<ul class="inner-menu">
 							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/community/noticeList.do">공지사항</a></li>
-							<li class="inner-menu-item"><a href="#">문의사항</a></li>
+							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/community/askList.do">문의사항</a></li>
 							<li class="inner-menu-item"><a href="#">리뷰</a></li>
 						</ul>
 					</li>						
