@@ -50,6 +50,12 @@
 				</td>
 			</tr>
 		</table>
+		<div>
+			<input type="button" value="목록" 
+				   onclick="location.href='list.do'">
+			<input type="button" value="홈으로" 
+				   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+		</div>
 		
 		<!-- 상품 수정 내역 -->
 	</div>	
