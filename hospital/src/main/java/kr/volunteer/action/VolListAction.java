@@ -33,7 +33,7 @@ public class VolListAction implements Action{
 		request.setAttribute("list", list);
 		request.setAttribute("page", page.getPage());
 		
-		
+		 
 		return "/WEB-INF/views/volunteer/list.jsp";
 	} 
 

@@ -3,4 +3,4 @@
 <script>
 	alert('글 등록 완료');
 	location.href="volList.do";
-</script>   
+</script>    

@@ -23,7 +23,7 @@ public class VolUpdateFormAction implements Action{
 		if(user_auth != 9) {//관리자가 아닌경우
 			return "/WEB-INF/views/common/notice.jsp";
 		}
-		   
+		    
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		volunteerboardDAO dao = volunteerboardDAO.getInstance();

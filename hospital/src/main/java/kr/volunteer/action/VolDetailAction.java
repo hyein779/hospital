@@ -24,7 +24,7 @@ public class VolDetailAction implements Action{
 		board.setContent(StringUtil.useBrNoHtml(board.getContent()));
 		
 		request.setAttribute("board", board);
-		
+		 
 		return "/WEB-INF/views/volunteer/voldetail.jsp";
 	}
 

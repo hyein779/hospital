@@ -242,7 +242,7 @@ public class volunteerboardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
+		 
 		try {
 			conn = DBUtil.getConnection();
 			sql = "DELETE FROM volunteerboard WHERE board_num=?";

@@ -42,7 +42,7 @@
 						let choice = confirm('삭제하겠습니까?');
 						if(choice){//choice==true일떄
 							location.replace('volDelete.do?board_num=${board.board_num}');
-						}
+						} 
 					}
 				</script>
 				</c:if>

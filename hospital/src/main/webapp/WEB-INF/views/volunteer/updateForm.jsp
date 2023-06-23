@@ -17,7 +17,7 @@
 				$('#title').val('').focus();
 				return false;
 			}	
-			
+			 
 			if($('#content').val().trim()==''){
 				alert('내용을 입력하세요');
 				$('#content').val('').focus();
