@@ -9,6 +9,10 @@
 .border-line{
 	color:#d6d6d6;
 }
+.product-main{
+	padding:0 120px 0 280px;
+	height:auto;
+}
 /* 상품 목록
 ---------------*/
 .image-space .horizontal-area{

@@ -20,11 +20,11 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		</c:if>
 		<!-- 내용 시작 -->
-		<div class="content-main">
+		<div class="product-main">
 			<div class="page-title">
 				<h1>보조기 목록</h1>
 			</div>
-			<hr class="border-line" width="100%" size="3px" noshade="noshade">
+			<hr class="border-line" width="100%" size="2px" noshade="noshade">
 			<div class="image-space">
 				<c:forEach var="item" items="${itemList}">
 				<div class="horizontal-area">
