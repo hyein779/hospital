@@ -87,11 +87,13 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		</c:if>
 		<!-- 내용 시작 -->
-		<div class="content-main">
-			<h2>장바구니</h2>
+		<div class="product-main">
+			<h3 class="subtitle">장바구니</h3>
 			<c:if test="${empty list}">
-			<div class="result-display">
-				장바구니에 담은 상품이 없습니다.
+			<div class="result-display message">
+				<img src="../images/cart.jpg" width="250" height="250">
+				<br>
+				<span>장바구니에 담은 상품이 없습니다.</span>	
 			</div>
 			</c:if>
 			<c:if test="${!empty list}">
