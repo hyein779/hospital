@@ -20,7 +20,7 @@
 			}
 			if($('#notice_content').val().trim()==''){
 				alert('내용을 입력하세요');
-				$('#notice_content').val().focus();
+				$('#notice_content').val('').focus();
 				return false;
 			}
 		});
