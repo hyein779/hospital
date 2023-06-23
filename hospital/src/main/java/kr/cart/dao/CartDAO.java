@@ -155,7 +155,7 @@ public class CartDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "UPDATE cart SET item_count = ? WHERE cart_nun = ?";
+			sql = "UPDATE cart SET item_count = ? WHERE cart_num = ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, cart.getItem_count());
