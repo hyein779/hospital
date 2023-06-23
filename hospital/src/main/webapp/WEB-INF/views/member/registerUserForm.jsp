@@ -114,7 +114,7 @@
 					<li>
 						<label for="id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
-						<input type="button" value="id중복체크" id="id_check">
+						<input type="button" value="id중복체크" id="id_check" class="zipbtn">
 						<span id="message_id"></span><br>
 						<!-- <span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span> -->
 					</li>
@@ -132,28 +132,28 @@
 					</li>
 					<li>
 						<label for="code">주민번호</label>
-						<input type="text" name="code" id="code" maxlength="14">
+						<input type="text" name="code" id="code" maxlength="14" placeholder=" ex.000000-0000000">
 					</li>										
 					<li>
 						<label for="phone">전화번호</label>
-						<input type="text" name="phone" id="phone" maxlength="15">
+						<input type="text" name="phone" id="phone" maxlength="15" placeholder=" ex.01012345678">
 					</li>					
 					<li>
 						<label for="email">이메일</label>
-						<input type="email" name="email" id="email" maxlength="50">
+						<input type="email" name="email" id="email" maxlength="50" placeholder=" 이메일을 입력해주세요">
 					</li>
 					<li>
 						<label for="zipcode">우편번호</label>
-						<input type="text" name="zipcode" id="zipcode" maxlength="5">
-						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()">
+						<input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder=" 우편번호를 입력해주세요">
+						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()" class="zipbtn">
 					</li>
 					<li>
 						<label for="address1">주소</label>
-						<input type="text" name="address1" id="address1" maxlength="30">
+						<input type="text" name="address1" id="address1" maxlength="30" placeholder=" 주소를 입력해주세요">
 					</li>
 					<li>
 						<label for="address2">나머지 주소</label>
-						<input type="text" name="address2" id="address2" maxlength="30">
+						<input type="text" name="address2" id="address2" maxlength="30" placeholder=" 상세주소를 입력해주세요">
 					</li>
 				</ul>
 				<div class="align-center"> 
