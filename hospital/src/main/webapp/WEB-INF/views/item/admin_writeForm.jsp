@@ -56,7 +56,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-main align-center">
 			<h2>상품 등록</h2>
-			<form action="write.do" method="post" enctype="multipart/form-data" id="write_form">
+			<form action="write.do" method="post" enctype="multipart/form-data" id="write_form" class="interval">
 				<ul>
 					<li>
 						<label>상품 표시 여부</label>

@@ -21,10 +21,8 @@
 		</c:if>
 		<!-- 내용 시작 -->
 		<div class="product-main">
-			<div class="page-title">
-				<h1>보조기 목록</h1>
-			</div>
-			<hr class="border-line" width="100%" size="2px" noshade="noshade">
+			<h3 class="subtitle">보조기 목록</h3>
+			<hr class="border-line" width="100%" size="2px" noshade="noshade" color="#6496BA">
 			<div class="image-space">
 				<c:forEach var="item" items="${itemList}">
 				<div class="horizontal-area">

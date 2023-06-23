@@ -15,7 +15,9 @@ public class ItemListAction implements Action{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 신규 상품 데이터 처리
 		ItemDAO itemDao = ItemDAO.getInstance();                 // status
-		List<ItemVO> itemList = itemDao.getListItem(1, 5, null, null, 1);
+		List<ItemVO> itemList = itemDao.getListItem(1, 8, null, null, 1);
+		
+		// 페이지 처리
 				
 		request.setAttribute("itemList", itemList);
 		
