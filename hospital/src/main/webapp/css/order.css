@@ -2,7 +2,43 @@
 h2{
 	text-align:left;
 }
-.right{
+.order-hr{
+	width:80%;
+}
+.order-table{
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+}
+.order-table-button{
+	margin-right:5px;
+	text-align:center;
+}
+.admin-item{
+	background-color:#b2b5ae;
+}
+.admin-subitem{
+	
+	text-align:center;
+	/* width:100px; */
+}
+.order-button{
+	float:right;
+}
+ul.search{
+	/* 검색 가운데 정렬 */
+	width:340px;
+	list-style:none;
+	padding:0;
+	margin:0 auto;
+}
+ul.search li{
+	/* 검색 가로 정렬 */
+	padding:0;
+	display:inline;
+}
+
+/* .right{	
 	float:right;
 }
 table{
@@ -13,8 +49,4 @@ ul.search{
 	list-style:none;
 	padding:0;
 	margin:0 auto;
-}
-ul.search li{
-	padding:0;
-	display:inline;
-}
+} */

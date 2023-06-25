@@ -19,18 +19,18 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
 	<!-- content 시작 -->
-	<div class="content-main">
+	<div class="content-Inbx">
 	<h2>주문 상세 정보</h2>
 		<!-- 상품 상세 내역 -->
 		<table>
-			<tr>
+			<tr class="admin-item">
 				<td>상품명</td>
 				<td>수량</td>	
 				<td>상품가격</td>
 				<td>합계</td>
 			</tr>
 		<c:forEach var="detail" items="${detailList}">
-			<tr>
+			<tr class="admin-subitem">
 				<td class="align-center">${detail.order_name}</td>
 				<td class="align-center">
 					<fmt:formatNumber value="${detail.order_quantity}"/>
@@ -50,7 +50,7 @@
 				</td>
 			</tr>
 		</table>
-		<div>
+		<div class="order-button">
 			<input type="button" value="목록" 
 				   onclick="location.href='list.do'">
 			<input type="button" value="홈으로" 

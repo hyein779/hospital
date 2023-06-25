@@ -37,7 +37,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
 	
-	<div class="content-main">
+	<div class="content-lnbx">
 	<h2>주문 목록</h2>
 	<!-- content 시작 -->
 	<form id="search_form" method="get">
@@ -45,7 +45,8 @@
 			<li>
 				<select name="keyfield" id="keyfield">
 					<option value="1" <c:if test="${param.keyfield == 1}"></c:if>>주문번호</option>
-					<option value="2" <c:if test="${param.keyfield == 2}"></c:if>>상품명</option>
+					<option value="2" <c:if test="${param.keyfield == 2}"></c:if>>주문자ID</option>
+					<option value="3" <c:if test="${param.keyfield == 3}"></c:if>>상품명</option>
 				</select>
 			</li>
 			<li>
@@ -61,20 +62,23 @@
 				<div>표시할 주문 내역이 없습니다.</div>
  			</c:if>
  			<c:if test="${count > 0}">
-			<hr>
-			<table>
-				<tr>
-					<th>상품명</th>
+ 			<br>
+			<hr class="order-hr">
+			<br>
+			<table class="order-table">
+				<tr class="admin-item">
 					<th>주문번호</th>
+					<th>주문자ID</th>
+					<th>상품명</th>
 					<th>결제금액</th>
 					<th>주문날짜</th>
 					<th>상태</th>
-					<th></th>
 				</tr>
 			<c:forEach var="order" items="${list}">
-				<tr>
-					<td>${order.order_name}</td>
+				<tr class="admin-subitem">
 					<td>${order.order_num}</td>
+					<td>${order.id}</td>
+					<td>${order.order_name}</td>
 					<td><fmt:formatNumber value="${order.order_total}"/>원</td>
 					<td>${order.reg_date}</td>
 					<td>
@@ -84,16 +88,18 @@
 						<c:if test="${order.status == 4}">배송완료</c:if>
 						<c:if test="${order.status == 5}">주문취소</c:if>
 					</td>
-					<td>
-						<a href="listForm.do?order_num=${order.order_num}">상세</a>
-						<a href="modifyForm.do?order_num=${order.order_num}">수정</a>
+					<td class="order-table-button">
+						<input type="button" value="주문상세" 
+							   onclick="location.href='listForm.do?order_num=${order.order_num}'">
+						<input type="button" value="주문변경" 
+							   onclick="location.href='modifyForm.do?order_num=${order.order_num}'">
 					</td>
 				</tr>
 			</c:forEach>
 			</table>
-			<hr>
-			<input type="button" class="right" value="홈으로"
-		  		   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+ 			<br>
+			<hr class="order-hr">
+			<br>
 			<div class="align-center">${page}</div>
 		</c:if>
 	</div>		

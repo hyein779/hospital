@@ -51,7 +51,7 @@ public class UserOrderAction implements Action{
 		if(cartList.size()==1) { //상품이 하나인 경우
 			order_name = cartList.get(0).getItemVO().getItem_name();
 		}else {
-			order_name = cartList.get(0).getItemVO().getItem_name() + "외 " + (cartList.size()-1) + "건";
+			order_name = cartList.get(0).getItemVO().getItem_name() + " 외 " + (cartList.size()-1) + "건";
 		}
 		
 		//개별 상품 정보 담기
@@ -71,8 +71,6 @@ public class UserOrderAction implements Action{
 			}
 			
 			if(item.getItem_quantity() < cart.getItem_count()) {
-				//cart 테이블에는 없는데... 하
-				
 				//상품 재고 수량 부족
 				request.setAttribute("notice_msg", "["+item.getItem_name()+"]재고수량 부족으로 주문불가");
 				request.setAttribute("notice_url", 
