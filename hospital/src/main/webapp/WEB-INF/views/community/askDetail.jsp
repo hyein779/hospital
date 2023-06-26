@@ -55,33 +55,33 @@
 			</ul>
 		</div>
 		<!-- 댓글 시작 -->
-		
-		<div id="reply_div">
+		<c:if test="${user_auth==9}">
+		<div class="reply_div">
 			<span class="re-title">댓글 작성</span>
 			<form id="re_form">
 				<input type="hidden" name="ask_num" value="${ask.ask_num}" id="ask_num">
-				<textarea rows="3" cols="50" name="re_content" id="re_content" class="rep-content" placeholder="댓글을 남겨보세요"
-				<c:if test="${user_auth != 9}">disabled="disabled"</c:if>></textarea>
-				<c:if test="${user_auth == 9}">
+				<textarea rows="3" cols="50" name="re_content" id="re_content" class="rep-content" placeholder="댓글을 입력하세요"></textarea>
 				<div id="re_first">
 					<span class="letter-count">500/500</span>
 				</div>
 				<div id="re_second" class="align-right">
 					<input type="submit" value="전송" class="reply_submit">
 				</div>
-				</c:if>
 			</form>
 		</div>
-		<!-- 댓글 목록 출력 시작 -->
-		<div id="output"></div>
-		<div class="paging-button" style="display:none;">
-			<input type="button" value="다음글 보기">
-		</div>
-		<!-- 댓글 목록 출력 끝 -->
-		<!-- 댓글 끝 -->
+		</c:if>
+	<!-- 댓글 목록 출력 시작 -->
+	<input type="hidden" name="ask_num" value="${ask.ask_num}" id="ask_num">
+	<div id="output"></div>
+	<div class="paging-button" style="display:none;">
+		<input type="button" value="다음글 보기">
 	</div>
-	<!-- 내용 끝 -->
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	<!-- 댓글 목록 출력 끝 -->
+	<!-- 댓글 끝 -->
+	</div>
+</div>
+<!-- 내용 끝 -->
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </div>
 </body>
 </html>
