@@ -31,8 +31,7 @@ create table review(
  rev_modifydate date,
  rev_title varchar2(150) not null,
  rev_content clob not null,
- rev_hit number(9) default 0 not null,
- rev_filename varchar2(150),
+ rev_type number not null, -- 0:목, 1:허리, 2:어깨, 3:기타
  mem_num number not null,
  constraint review_pk primary key (rev_num),
  constraint review_fk foreign key (mem_num) references member (mem_num)
@@ -57,9 +56,7 @@ create table reply(
  re_date date default sysdate not null,
  re_modifydate date,
  ask_num number not null,
- mem_num number not null,
  constraint reply_pk primary key (re_num),
- constraint reply_fk1 foreign key (ask_num) references ask (ask_num),
- constraint reply_fk2 foreign key (mem_num) references member (mem_num)
+ constraint reply_fk foreign key (ask_num) references ask (ask_num)
 );
 create sequence reply_seq;

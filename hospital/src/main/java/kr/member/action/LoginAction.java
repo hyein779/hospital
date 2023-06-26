@@ -35,6 +35,13 @@ public class LoginAction implements Action{
 			session.setAttribute("user_id", member.getId());
 			session.setAttribute("user_auth", member.getAuth());
 			session.setAttribute("user_photo", member.getPhoto());
+			
+			String page_url = request.getParameter("page_url");
+			
+			if(page_url!=null && !"".equals(page_url)) {
+				return "redirect:"+page_url;
+			}
+			
 			// 인증성공시 호출
 			return "redirect:/main/main.do";
 		}

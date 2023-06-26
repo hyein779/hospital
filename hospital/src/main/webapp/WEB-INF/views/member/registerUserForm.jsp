@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,11 +34,14 @@
 					if(param.result == 'idNotFound'){
 						// id 미중복
 						idChecked = 1;
-						$('#message_id').css('color','#000000').text('등록 가능 ID');
+						alert('등록 가능 ID');
+						$('#id_check').attr('disabled',true).css('color','#E6E6E6').css('border','1px solid #E6E6E6');
+						
 					}else if(param.result == 'idDuplicated'){
 						//id중복
 						idChecked = 0;
-						$('#message_id').css('color','red').text('중복된 ID');
+						alert('중복된 ID');
+						/* $('#message_id').css('color','red').text('중복된 ID'); */
 						$('#id').val('').focus(); //중복된 아이디 삭제하고 focus줌
 					}else{
 						idChecked = 0;
@@ -56,6 +60,7 @@
 		// 중복 값 초기화
 		$('#register_form #id').keydown(function(){
 			idChecked = 0;
+			$('#id_check').attr('disabled',false).css('color','#6496BA').css('border','1px solid #6496BA');
 			$('#message_id').text('');
 		});//end of keydown
 		// 회원 정보 등록 유효성 체크
@@ -108,13 +113,13 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h1 class="logreg-e">회원가입</h1>
-			<hr size="1" noshade="noshade" width="40%">
+			<hr size="1" noshade="noshade" width="50%">
 			<form id="register_form" action="registerUser.do" method="post">
 				<ul>
 					<li>
 						<label for="id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
-						<input type="button" value="id중복체크" id="id_check">
+						<input type="button" value="id중복체크" id="id_check" class="zipbtn">
 						<span id="message_id"></span><br>
 						<!-- <span class="form-notice">*영문 또는 숫자(4자~12자)를 입력하세요</span> -->
 					</li>
@@ -128,37 +133,37 @@
 					</li>
 					<li>
 						<label for="name">이름</label>
-						<input type="text" name="name" id="name" maxlength="10">
+						<input type="text" name="name" id="name" maxlength="10" placeholder=" 이름을 입력해주세요">
 					</li>
 					<li>
 						<label for="code">주민번호</label>
-						<input type="text" name="code" id="code" maxlength="14">
+						<input type="text" name="code" id="code" maxlength="14" placeholder=" ex.000000-0000000">
 					</li>										
 					<li>
 						<label for="phone">전화번호</label>
-						<input type="text" name="phone" id="phone" maxlength="15">
+						<input type="text" name="phone" id="phone" maxlength="15" placeholder=" ex.01012345678">
 					</li>					
 					<li>
 						<label for="email">이메일</label>
-						<input type="email" name="email" id="email" maxlength="50">
+						<input type="email" name="email" id="email" maxlength="50" placeholder=" 이메일을 입력해주세요">
 					</li>
 					<li>
 						<label for="zipcode">우편번호</label>
-						<input type="text" name="zipcode" id="zipcode" maxlength="5">
-						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()">
+						<input type="text" name="zipcode" id="zipcode" maxlength="5" placeholder=" 우편번호를 입력해주세요">
+						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()" class="zipbtn">
 					</li>
 					<li>
 						<label for="address1">주소</label>
-						<input type="text" name="address1" id="address1" maxlength="30">
+						<input type="text" name="address1" id="address1" maxlength="30" placeholder=" 주소를 입력해주세요">
 					</li>
 					<li>
 						<label for="address2">나머지 주소</label>
-						<input type="text" name="address2" id="address2" maxlength="30">
+						<input type="text" name="address2" id="address2" maxlength="30" placeholder=" 상세주소를 입력해주세요">
 					</li>
 				</ul>
-				<div class="align-center"> 
-					<input type="submit" value="등록">
-					<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				<div class="align-center"> <br>
+					<input type="submit" value="등록" class="regibtn"><br><br>
+					<span>이미 아이디가 있으신가요? <a href="${pageContext.request.contextPath}/member/loginForm.do"><b><ins>로그인</ins></b></a></span>
 				</div>
 			</form>
 		</div>

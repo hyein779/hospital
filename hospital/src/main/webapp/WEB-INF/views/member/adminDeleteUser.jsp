@@ -8,21 +8,22 @@
 <meta charset="UTF-8">
 <title>회원탈퇴</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 </head>
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h2>회원탈퇴 완료</h2>
 		<div class="result-display">
 			<div class="align-center">
 				회원탈퇴가 완료되었습니다.<p>
-				<input type="button" value="회원목록으로" onclick="location.href='${pageContext.request.contextPath}/member/adminMemberList.do'">
+				<input type="button" value="회원목록으로" class="combtn" onclick="location.href='${pageContext.request.contextPath}/member/adminMemberList.do'">
 			</div>
 		</div>
 	</div>
 	<!-- 내용 끝 -->
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </div>
 </body>
 </html>

@@ -22,6 +22,11 @@
 				$('#content').val('').focus();
 				return false;
 			}
+			if($('#quantity').val().trim()==''){
+				alert('모집인원을 입력하세요!');
+				$('#quantity').val('').focus();
+				return false;
+			}
 			if($('#reg_date').val().trim()==''){
 				alert('모집기간을 입력하세요!');
 				$('#reg_date').val('').focus();
@@ -49,6 +54,11 @@
 					<label for="content">내용</label>
 					<textarea rows="5" cols="30" name="content"
 					      id="content" maxlength="50"></textarea>
+				</li>
+				<li>
+					<label for="quantity">모집인원</label>
+					<input type="number" name="quantity"
+					      id="quantity" maxlength="10">
 				</li>
 				<li>
 					<label for="reg_date">모집기간</label>

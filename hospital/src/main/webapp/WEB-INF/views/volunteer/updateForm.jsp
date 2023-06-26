@@ -23,6 +23,12 @@
 				$('#content').val('').focus();
 				return false;
 			}
+			
+			if($('#quantity').val().trim()==''){
+				alert('모집인원을 입력하세요');
+				$('#quantity').val('').focus();
+				return false;
+			}
 		});
 	});
 </script>
@@ -46,6 +52,10 @@
 					<label for="content">내용</label>
 					<textarea rows="6" cols="30" name="content" id="content" maxlength="50">${board.content}</textarea>
 				</li>
+				<li>
+					<label for="quantity">모집인원</label>
+					<input type="number" name="quantity" id="quantity" maxlength="10" value="${board.quantity}">
+				</li>
 			</ul>
 			<div class="align-center">
 				<input type="submit" value="수정">
@@ -53,6 +63,7 @@
 			</div>
 		</form>
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </div>
 </body>
 </html>

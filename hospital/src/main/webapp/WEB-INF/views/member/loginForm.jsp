@@ -33,6 +33,7 @@
 		<h1 class="logreg-e">로그인</h1>
 		<hr size="1" noshade="noshade" width="40%">
 		<form id="login_form" action="login.do" method="post">
+			<input type="hidden" name="page_url" value="${page_url}">
 			<ul >
 				<li>
 					<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">

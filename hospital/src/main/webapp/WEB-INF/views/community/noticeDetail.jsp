@@ -38,19 +38,20 @@
 					<c:if test="${user_auth == 9}">
 					<input type="button" value="수정" onclick="location.href='noticeUpdateForm.do?notice_num=${notice.notice_num}'" class="submit">
 					<input type="button" value="삭제" id="delete_btn" class="submit">
-		 
-				<script type="text/javascript">
-					let delete_btn = document.getElementById('delete_btn');
-					// 이벤트 연결
-					delete_btn.onclick=function(){
-						let choice = confirm('삭제하시겠습니까?');
-						if(choice){
-							location.replace('noticeDelete.do?notice_num=${notice.notice_num}');
-						}
-					};
-				</script>
-				</c:if>
-			</li>
+		 	
+					<script type="text/javascript">
+						let delete_btn = document.getElementById('delete_btn');
+						// 이벤트 연결
+						delete_btn.onclick=function(){
+							let choice = confirm('삭제하시겠습니까?');
+							if(choice){
+								location.replace('noticeDelete.do?notice_num=${notice.notice_num}');
+							}
+						};
+					</script>
+					</c:if>
+				</li>
+			</ul>
 		</div>
 	</div>
 	<!-- 내용 끝 -->
