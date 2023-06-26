@@ -15,7 +15,7 @@ public class MyPageAction implements Action{
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		if(user_num==null) {//로그인이 되지 않은 경우
-			return "redirect:/member/loginForm.do";
+			return "redirect:/member/loginForm.do?page_url=/member/myPage.do";
 		}
 		MemberDAO dao = MemberDAO.getInstance();
 		MemberVO member = dao.getMember(user_num);

@@ -18,7 +18,7 @@ public class UserItemListAction implements Action{
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		if(user_num == null) {//로그인 되지 않은 경우
-			return "redirect:/member/loginForm.do";
+			return "redirect:/member/loginForm.do?page_url=/member/itemList.do";
 		}
 		//로그인이 된 경우
 		String pageNum = request.getParameter("pageNum");
