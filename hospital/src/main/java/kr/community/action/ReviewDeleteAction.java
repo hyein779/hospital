@@ -4,11 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.community.dao.AskDAO;
-import kr.community.vo.AskVO;
+import kr.community.dao.ReviewDAO;
+import kr.community.vo.ReviewVO;
 import kr.controller.Action;
 
-public class AskDeleteAction implements Action{
+public class ReviewDeleteAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -19,11 +19,11 @@ public class AskDeleteAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		// 로그인 된 경우
-		int ask_num = Integer.parseInt(request.getParameter("ask_num"));
-		AskDAO dao = AskDAO.getInstance();
-		AskVO db_ask = dao.getAsk(ask_num);
+		int rev_num = Integer.parseInt(request.getParameter("rev_num"));
+		ReviewDAO dao = ReviewDAO.getInstance();
+		ReviewVO db_review = dao.getReview(rev_num);
 		// 로그인한 회원번호와 작성자 회원번호 일치 여부 체크
-		if(user_num != db_ask.getMem_num()) {
+		if(user_num != db_review.getMem_num()) {
 			// 로그인한 회원번호와 작성자 회원번호가 불일치하면서 관리자가 아닌 경우
 			if(user_auth != 9) {
 				return "/WEB-INF/views/common/notice.jsp";
@@ -31,8 +31,9 @@ public class AskDeleteAction implements Action{
 		}
 		
 		// 로그인한 회원번호와 작성자 회원번호가 일치하거나 관리자인 경우
-		dao.deleteAsk(ask_num);
+		dao.deleteReview(rev_num);
 		
-		return"redirect:/community/askList.do";
+		return"redirect:/community/reviewList.do";
 	}
+
 }

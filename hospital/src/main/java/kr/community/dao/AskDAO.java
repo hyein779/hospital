@@ -10,6 +10,8 @@ import kr.community.vo.AskVO;
 import kr.community.vo.NoticeVO;
 import kr.community.vo.ReplyVO;
 import kr.util.DBUtil;
+import kr.util.DurationFromNow;
+import kr.util.StringUtil;
 
 public class AskDAO {
 	// 싱글턴 패턴
@@ -212,6 +214,10 @@ public class AskDAO {
 			conn.setAutoCommit(false);
 			
 			// 댓글 삭제
+			sql= "DELETE FROM reply WHERE ask_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ask_num);
+			pstmt.executeUpdate();
 			
 			// 부모글 삭제
 			sql = "DELETE FROM ask WHERE ask_num=?";
@@ -230,6 +236,7 @@ public class AskDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
+	
 	
 	// 댓글 등록
 	public void insertReply(ReplyVO reply) throws Exception{
@@ -252,10 +259,88 @@ public class AskDAO {
 	}
 	
 	// 댓글 개수
+	public int getReplyCount(int ask_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int count = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT COUNT(*) FROM reply WHERE ask_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ask_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return count;
+	}
+	
 	// 댓글 목록
-	// 댓글 상세(댓글 수정, 삭제 시 작성자 회원번호 체크 용도로 사용)
+	public List<ReplyVO> getReplyList(int start,int end,int ask_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<ReplyVO> list = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			// SQL문 작성
+			sql = "SELECT * FROM (SELECT a.*,rownum rnum FROM (SELECT * FROM reply "
+				+ "WHERE ask_num=? ORDER BY re_num DESC)a)"
+				+ "WHERE rnum >= ? AND rnum <= ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ask_num);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			// SQL문 실행
+			rs = pstmt.executeQuery();
+			list = new ArrayList<ReplyVO>();
+			while(rs.next()) {
+				ReplyVO reply = new ReplyVO();
+				reply.setRe_num(rs.getInt("re_num"));
+				reply.setRe_date(rs.getString("re_date"));
+				if(rs.getString("re_modifydate")!=null) {
+					reply.setRe_modifydate(rs.getString("re_modifyDate"));
+				}
+				reply.setRe_content(StringUtil.useBrNoHtml(rs.getString("re_content")));
+				reply.setAsk_num(rs.getInt("ask_num"));
+				
+				list.add(reply);
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
 	// 댓글 수정
 	// 댓글 삭제
-	
-	
+	public void deleteReply(int re_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "DELETE FROM reply WHERE re_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, re_num);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
 }
