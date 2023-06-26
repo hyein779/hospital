@@ -296,7 +296,7 @@ public class MemberDAO {
 		int cnt = 0;
 
 		try {
-			// 커넥션풀로부터 커넥션 할당
+			// 커넥션풀로부터 커넥션 할당 
 			conn = DBUtil.getConnection();
 
 			if (keyword != null && !"".equals(keyword)) {
