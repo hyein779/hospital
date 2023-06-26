@@ -39,7 +39,7 @@ public class AdminListAction implements Action{
 		//페이지 처리
 		PageUtil page = new PageUtil(keyfield, keyword,
 									 Integer.parseInt(pageNum),
-									 count,20,10,"list.do");
+									 count,10,10,"list.do");
 		
 		List<OrderVO> list = null;
 		if(count > 0) {

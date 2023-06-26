@@ -3,8 +3,8 @@
 /* 전체 레이아웃
 ------------------*/
 body{
-	width:1519px;
-	margin:0 auto; 
+	min-width:1519px;
+	margin:0 auto;
 }
 a:link{
 	text-decoration:none;
@@ -25,7 +25,7 @@ a:hover{
 	padding:0 120px 0 280px;
 	height:auto;
 	min-height:350px;
-}
+}	
 
 /* 공통 정렬
 ------------------*/
@@ -114,7 +114,7 @@ ul{
 
 .content-lnbx{
 	padding:0 120px;
-	height:auto;
+	min-height:550px;
 }
 
 /* lnb 
@@ -197,6 +197,3 @@ ul{
    font-style: normal;
    word-break: keep-all;
 }
-
-
-

@@ -33,7 +33,7 @@ public class UserOrderListAction implements Action{
 		
 		PageUtil page = new PageUtil(keyfield, keyword,
 									 Integer.parseInt(pageNum),
-									 count,20,10,"orderList.do");
+									 count,10,10,"orderList.do");
 		List<OrderVO> list = null;
 		if(count > 0) {
 			list = dao.getListOrderByMem_num(page.getStartRow(),

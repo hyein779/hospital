@@ -41,6 +41,9 @@ input[id="zipcode"]{
 modify-hidden li label{
 	width:100px;
 }
+.order_label{
+	width:200px;
+}
 /* 테이블 맨 윗줄 */
 .admin-item{
 	background-color:#b2b5ae;
