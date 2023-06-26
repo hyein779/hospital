@@ -12,11 +12,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<div>
+<div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- 내용 시작 -->
-	<div>
+	<div class="content-main">
 		<h1 class="logreg">나의정보</h1>
 		<hr size="1" noshade="noshade" width="80%">
 		<div class="mypage-div">
