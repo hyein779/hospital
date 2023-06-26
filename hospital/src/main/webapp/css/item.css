@@ -88,13 +88,16 @@ table{
 	margin-left:250px;
 	text-align:center;
 	width:80%;
-	height:200px;
+	/* height:200px; */
 	/* padding: 5px; */
 }
 th{
 	background-color: #effbff;
 	font-size:15px;
 	height:30px;
+}
+td {
+	height: 30px
 }
 /*기본틀*/
 .content-main{
