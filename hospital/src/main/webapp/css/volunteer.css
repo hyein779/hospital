@@ -9,6 +9,10 @@
 	text-align:right;
 	
 }
+.content-main2{
+	height:auto;
+	min-height:350px;
+}
 .content-main h3.subtitle{
    float:left;
    font-size:30px;
@@ -55,7 +59,7 @@
 }
 form{
 	width:600px;
-	margin:0 auto;
+	/*margin:0 300px;*/
 	padding:10px 10px 10px 30px;
 }
 
@@ -125,6 +129,101 @@ input#search{
 	border:none;
 	color:#fff;
 }
+
+/* 글 작성 */
+#volwrite_form label{
+  display:block;
+  font-weight:bold;
+  margin:15px 0 5px 0;
+}
+#volwrite_form input[type="text"]{
+  width:500px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#volwrite_form input[type="number"]{
+  width:500px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#volwrite_form textarea{
+  width:800px;
+  height:300px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+.submit, .home{
+  padding:8px 20px;
+  background-color:#333;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  margin-right:10px;
+  margin-bottom:30px;
+  font-size:14px;
+}
+.home{
+  background-color:#ccc;
+}
+.submit:hover, .home:hover{
+  background-color:#6496BA;
+}
+
+
+/* 글 상세 */
+#detail{
+	margin:25px 30px;
+}
+.detail-info {
+   font-size:15px;
+   padding:8px;
+   background:#d6d6d6;
+   margin-top:40px;
+}
+.detail-info li{
+	display:inline;
+	margin-right:15px;
+}
+.detail-info li b{
+	font-size:20px;
+}
+#detail p {
+   font-size:16px;
+   line-height:1.8;
+   margin:20px 0;
+   padding:0 20px
+}
+.detail-sub{
+	padding:20px 0 0 0;
+	text-align:right;
+	margin:0;
+}
+
+
+/* 글 수정 */
+#update_form label{
+  display:block;
+  font-weight:bold;
+  margin:15px 0 5px 0;
+}
+#update_form input[type="text"]{
+  width:500px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+#update_form textarea{
+  width:800px;
+  height:300px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
 
 /*봉사지원*/
 .apptitle{

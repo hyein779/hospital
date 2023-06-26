@@ -39,9 +39,10 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/volunteer/lnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<jsp:include page="/WEB-INF/views/volunteer/lnb.jsp"/>
+		
 		<h2 class="subtitle">봉사게시판 글쓰기</h2>
 		<form id="volwrite_form" class="volwrite_form" action="volWrite.do" method="post">
 			<ul>
@@ -66,9 +67,9 @@
 				</li>
 			</ul> 
 			<div class="align-center">
-				<input type="submit" value="등록">
+				<input type="submit" value="등록" class="submit">
 				<input type="button" value="목록"
-				   onclick="location.href='volList.do'">
+				   onclick="location.href='volList.do'" class="home">
 			</div>      
 		</form>
 	</div>

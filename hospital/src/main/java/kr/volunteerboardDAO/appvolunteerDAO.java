@@ -22,14 +22,18 @@ public class appvolunteerDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "INSERT INTO appvolunteer (app_num,name,address,phone,content,mem_num) VALUES (appvolunteer_seq.nextval,"
-					+ "?,?,?,?,?)";
+			sql = "INSERT INTO appvolunteer (app_num,board_num,name,address,phone,content,app_quantity,mem_num) VALUES (appvolunteer_seq.nextval,"
+					+ "?,?,?,?,?,?,?)";
+			
+			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, app.getName());
-			pstmt.setString(2, app.getAddress());
-			pstmt.setString(3, app.getPhone());
-			pstmt.setString(4, app.getContent());
-			pstmt.setInt(5, app.getMem_num());
+			pstmt.setInt(1, app.getBoard_num());
+			pstmt.setString(2, app.getName());
+			pstmt.setString(3, app.getAddress());
+			pstmt.setString(4, app.getPhone());
+			pstmt.setString(5, app.getContent());
+			pstmt.setInt(6,app.getApp_quantity());
+			pstmt.setInt(7, app.getMem_num());
 			
 			pstmt.executeUpdate();
 			

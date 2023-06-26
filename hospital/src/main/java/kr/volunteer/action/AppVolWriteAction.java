@@ -1,5 +1,8 @@
 package kr.volunteer.action;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,6 +15,7 @@ public class AppVolWriteAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		
@@ -19,13 +23,16 @@ public class AppVolWriteAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		
+		
 		request.setCharacterEncoding("utf-8");
 		
 		appvolunteerVO app = new appvolunteerVO();
+		app.setBoard_num(Integer.parseInt(request.getParameter("board_num")));
 		app.setName(request.getParameter("name"));
 		app.setAddress(request.getParameter("address"));
 		app.setPhone(request.getParameter("phone"));
 		app.setContent(request.getParameter("content"));
+		app.setApp_quantity(Integer.parseInt(request.getParameter("quantity")));
 		app.setMem_num(user_num);
 		
 		appvolunteerDAO dao = appvolunteerDAO.getInstance();
