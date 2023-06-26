@@ -18,8 +18,7 @@
 		// 아이디 중복 체크
 		$('#id_check').click(function(){
 			if(!/^[A-Za-z0-9]{4,12}$/.test($('#id').val())){
-				$('#form_notice').css('color','red').text('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
-				/* alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요'); */
+				alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
 				$('#id').val('');
 				$('#id').focus();
 				return false;
@@ -76,8 +75,7 @@
 					return false;
 				}
 				if(items[i].id=='id' && !/^[A-Za-z0-9]{4,12}$/.test($('#id').val())){
-					$('#form_notice').css('color','red').text('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
-					/* alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요'); */
+					alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
 					$('#id').val('');
 					$('#id').focus();
 					return false;
@@ -122,8 +120,6 @@
 						<label for="id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
 						<input type="button" value="id중복체크" id="id_check" class="zipbtn">
-						<!-- <span id="message_id"></span><br> -->
-						<span id="form_notice"></span>
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>
