@@ -22,6 +22,7 @@ public class VolDetailAction implements Action{
 		
 		board.setTitle(StringUtil.useNoHtml(board.getTitle()));
 		board.setContent(StringUtil.useBrNoHtml(board.getContent()));
+		board.setQuantity(board.getQuantity());
 		
 		request.setAttribute("board", board);
 		 

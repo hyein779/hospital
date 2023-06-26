@@ -7,8 +7,6 @@
 		<li id="10101">모집 / 지원</li>
 		<ul class="depth2">
 			<li id="10102" >
-				<a href="#"  onclick="#">봉사자모집</a></li>
-			<li id="10103" >
-				<a href="#"  onclick="#">자원봉사지원</a></li>
+				<a href="#"  onclick="${pageContext.request.contextPath}/volunteer/volList.do">봉사자모집</a></li>
 		</ul>
 </div>   

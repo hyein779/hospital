@@ -59,7 +59,7 @@ form{
 	padding:10px 10px 10px 30px;
 }
 
-lable{
+label{
 	width:130px;
 	float:left;
 }
@@ -124,5 +124,27 @@ input#search{
 	background-color:#6496BA;
 	border:none;
 	color:#fff;
+}
+
+/*봉사지원*/
+.apptitle{
+	font-size:40px;
+}
+form.appvolform{
+	float:left;
+	margin:10px;
+}
+form.appvolform div{
+	float:left;
+	width:130px;
+}
+form.appvolform .div1{
+	float:left;
+}
+form.appvolform .div2{
+	float:right;
+}
+form.appvolform .div2 input[type="button"]{
+	float:right;
 }
 

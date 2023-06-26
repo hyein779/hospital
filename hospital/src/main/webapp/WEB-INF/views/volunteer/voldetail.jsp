@@ -23,9 +23,11 @@
 				조회 : ${board.hit}
 			</li>
 		</ul>
-		<hr size="1" noshade="noshade" width="100%">
-		<p>${board.content}></p>
-		<hr size="1" noshade="noshade" width="100%">
+		<hr size="2" noshade="noshade" width="100%">
+		<p>${board.content},  모집인원 : ${board.quantity} </p>
+		<hr size="2" noshade="noshade" width="100%">
+		<p>모집 기간 : ${board.reg_date}</p> 
+		<hr size="2" noshade="noshade" width="100%">
 		<ul class="detail-sub">
 		<li>
 				<c:if test="${!empty board.modify_date}">
@@ -45,6 +47,9 @@
 						} 
 					}
 				</script>
+				</c:if>
+				<c:if test="${user_auth < 9}">
+				<input type="button" value="지원하기" onclick="location.href='appVolForm.do'">
 				</c:if>
 			</li>
 		</ul>
