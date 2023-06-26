@@ -22,11 +22,11 @@ public class AdminDeleteOrderAction implements Action{
 		}
 		int order_num = Integer.parseInt(request.getParameter("order_num"));
 		OrderDAO dao = OrderDAO.getInstance();
-		dao.deleteOrder(order_num);
-		
+		dao.deleteOrder(order_num);   
+        
 		request.setAttribute("notice_msg", "정상적으로 주문 정보를 삭제했습니다.");
 		request.setAttribute("notice_url", request.getContextPath()+"/order/list.do");
-		
+        
 		return "/WEB-INF/views/common/alert_singleView.jsp";
 	}
 

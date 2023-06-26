@@ -30,15 +30,7 @@
 				}//end of for
 			}//end of if
 		})//end of submit
-		
-		let origin_status = ${order.status};
-		$('input[type=radio]').click(function(){
-			if(origin_status == 1 && $('input[type=radio]:checked').val() != 1){
-				$('.modify-hidden').hide();
-			}else{
-				$('.modify-hidden').show();
-			}
-		});//end of click
+
 	});
 </script>
 </c:if>
@@ -49,79 +41,104 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
 	<!-- content 시작 -->
-	<div class="content-main">
-		<h2>주문내역</h2>
-		<table>
-			<tr>
+	<div class="content-lnbx">
+		<h2 class="order-h2">주문내역</h2>
+		<br>
+		<hr class="order-hr">
+		<br>
+		<table class="order-table">
+			<tr class="admin-item">
 				<th>상품명</th>
 				<th>수량</th>
 				<th>상품가격</th>
 				<th>합계</th>
 			</tr>
-		<c:forEach var="detail" items="${detailList}">
-			<tr>
-				<td>${detail.order_name}</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${detail.order_quantity}"/>
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${detail.item_price}"/>원
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${detail.item_total}"/>원
-				</td>
-			</tr>
-		</c:forEach>
-			<tr>
+			<c:forEach var="detail" items="${detailList}">
+				<tr>
+					<td>${detail.order_name}</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${detail.order_quantity}"/>
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${detail.item_price}"/>원
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${detail.item_total}"/>원
+					</td>
+				</tr>
+			</c:forEach>
+			<tr><td><br></td></tr>
+			<tr class="color-red">
 				<td colspan="3" class="align-right"><b>총 구매 금액</b></td>
 				<td class="align-center">
 					<fmt:formatNumber value="${order.order_total}"/>원
 				</td>
 			</tr>
 		</table>
-		<form id = "order_modify" action="orderModify.do" method="post">
+		<br>
+		<hr class="order-hr">
+		<br>
+		<form id = "order_modify" action="orderModify.do" method="post" class="order-modifyform">
 			<input type="hidden" name="order_num" value="${order.order_num}">
 			<input type="hidden" name="status" value="${order.status}">
-			<ul>
+			<ul class="order-modifyform-item">
 				<!-- status가 2일때 정보를 변경할 수  있음. -->
 				<c:if test="${order.status < 2}">
 				<!-- 사용하기 편하게 하기 위한 추가 문구 -->
-				<li>
-					<span id="delivery_text">*배송대기일 경우만 배송관련 정보를 수정할 수 있습니다.</span>
-				</li>
-					<li>
-						<label for="receive_name">받는사람</label>
-						<input type="text" name="receive_name" id="receive_name"
-							   maxlength="10" value="${order.receive_name}">
-					</li>
-					<li>
-						<label for="receive_phone">전화번호</label>
+				<li class="delivery_text">* 배송대기인 경우에만 배송정보를 수정하실 있습니다. *</li>
+				<br>
+				<table class="order-modifytable">
+					<tr>
+						<td>
+							<label for="receive_name">받는사람</label></td>
+						<td>						
+							<input type="text" name="receive_name" id="receive_name"
+								   maxlength="10" value="${order.receive_name}">
+					    </td>
+					</tr>
+					<tr>
+						<td>
+							<label for="receive_phone">전화번호</label></td>
+						<td>
 						<input type="text" name="receive_phone" id="receive_phone"
-							   maxlength="15" value="${order.receive_phone}">
-					</li>
-					<li>
-						<label for="zipcode">우편번호</label>
+							   maxlength="15" value="${order.receive_phone}">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="zipcode">우편번호</label>
+						<td>
 						<input type="text" name="receive_post" id="zipcode"
-							   maxlength="5" value="${order.receive_post}">
+						   maxlength="5" value="${order.receive_post}">
 						<input type="button" value="우편번호 찾기" 
-						       onclick="execDaumPostcode()">						   
-					</li>
-					<li>
-						<label for="receive_address1">주소</label>
+					       onclick="execDaumPostcode()">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="receive_address1">주소</label>
+						<td>
 						<input type="text" name="receive_address1" id="address1"
-							   maxlength="30" value="${order.receive_address1}">
-					</li>
-					<li>
-						<label for="receive_address2">상세주소</label>
-						<input type="text" name="receive_address2" id="address2"
-							   maxlength="30" value="${order.receive_address2}">
-					</li>
-					<li>
-						<label for="notice">메모
-						</label>
-						<textarea rows="5" cols="30" name="notice" id="notice"
-					          maxlength="1300">${order.notice}</textarea>
-					</li>
+						  	   maxlength="30" value="${order.receive_address1}">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="receive_address2">상세주소</label>
+						<td>
+						<input type="text" name="receive_address2" id="receive_address2"
+					 		   maxlength="30" value="${order.receive_address2}">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="notice">메모</label>
+						<td>
+						<textarea rows="5" cols="42" name="notice" id="notice"
+			        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
+						</td>
+					</tr>
+				</table>				
 				</c:if>
 				<c:if test="${order.status >= 2}">
 					<li>
@@ -150,17 +167,21 @@
 					</li>					
 				</c:if>					
 					<li>
-						<label>결제 수단</label>
-						<c:if test="${order.payment == 1}">계좌이체</c:if>
-						<c:if test="${order.payment == 2}">카드결제</c:if>
+						<label>결제수단</label>
+						<span class="color-red">
+							<c:if test="${order.payment == 1}">계좌이체</c:if>
+							<c:if test="${order.payment == 2}">카드결제</c:if>
+						</span>
 					</li>
 					<li>
 						<label>배송상태</label>
-						<c:if test="${order.status == 1}">배송대기</c:if>
-						<c:if test="${order.status == 2}">배송준비중</c:if>
-						<c:if test="${order.status == 3}">배송중</c:if>
-						<c:if test="${order.status == 4}">배송완료</c:if>
-						<c:if test="${order.status == 5}">주문취소</c:if>
+						<span class="color-red">
+							<c:if test="${order.status == 1}">배송대기</c:if>
+							<c:if test="${order.status == 2}">배송준비중</c:if>
+							<c:if test="${order.status == 3}">배송중</c:if>
+							<c:if test="${order.status == 4}">배송완료</c:if>
+							<c:if test="${order.status == 5}">주문취소</c:if>
+						</span>
 					</li>
 			</ul>
 		<div class="align-center">

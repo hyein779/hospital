@@ -37,9 +37,9 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
 	
-	<div class="content-lnbx">
-	<h2>주문 목록</h2>
 	<!-- content 시작 -->
+	<div class="content-lnbx">
+	<h2 class="order-h2">주문 목록</h2>
 	<form id="search_form" method="get">
 		<ul class="search">
 			<li>
@@ -58,13 +58,13 @@
 			</li>
 		</ul>
 	</form>
- 			<c:if test="${count == 0}">
-				<div>표시할 주문 내역이 없습니다.</div>
- 			</c:if>
- 			<c:if test="${count > 0}">
  			<br>
 			<hr class="order-hr">
 			<br>
+ 			<c:if test="${count == 0}">
+				<div>주문내역이 없습니다.</div>
+ 			</c:if>
+ 			<c:if test="${count > 0}">
 			<table class="order-table">
 				<tr class="admin-item">
 					<th>주문번호</th>
@@ -73,6 +73,7 @@
 					<th>결제금액</th>
 					<th>주문날짜</th>
 					<th>상태</th>
+					<th>&nbsp;</th>
 				</tr>
 			<c:forEach var="order" items="${list}">
 				<tr class="admin-subitem">
