@@ -100,7 +100,7 @@
 			<form id="cart_order" action="${pageContext.request.contextPath}/order/orderForm.do" method="post">
 				<table class="cart-table">
 					<tr>
-						<th><input type="checkbox" name="check"></th>
+						<th><input type="checkbox" name="check" checked="checked"></th>
 						<th>상품명</th>
 						<th>수량</th>
 						<th>가격</th>
@@ -110,7 +110,7 @@
 					</tr>
 					<c:forEach var="cart" items="${list}">
 						<tr>
-							<td><input type="checkbox" name="check"></td>
+							<td><input type="checkbox" name="check" checked="checked"></td>
 							<td>
 								<a href="${pageContext.request.contextPath}/item/detail.do?item_num=${cart.item_num}">
 									<img src="${pageContext.request.contextPath}/upload/${cart.itemVO.item_photo}" width="80">

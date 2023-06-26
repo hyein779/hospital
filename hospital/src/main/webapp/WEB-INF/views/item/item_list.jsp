@@ -22,7 +22,6 @@
 		<!-- 내용 시작 -->
 		<div class="product-main">
 			<h3 class="subtitle">보조기 목록</h3>
-			<hr class="border-line" width="100%" size="2px" noshade="noshade" color="#6496BA">
 			<div class="image-space">
 				<c:forEach var="item" items="${itemList}">
 				<div class="horizontal-area">
@@ -34,8 +33,8 @@
 					</a>
 				</div>
 				</c:forEach>
-				<div class="float-clear align-center">${page}</div>
 			</div>
+			<div class="float-clear align-center">${page}</div>
 		</div>
 		<!-- 내용 끝 -->
 		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
