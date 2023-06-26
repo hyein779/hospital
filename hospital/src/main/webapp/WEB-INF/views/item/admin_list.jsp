@@ -33,7 +33,7 @@
 			<form id="search-form" action="list.do" method="get">
 				<ul class="search">
 					<li>
-						<select name="keyfield">
+						<select name="keyfield" id="keyfield">
 							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>상품명</option>
 							<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>내용</option>
 						</select>
@@ -42,15 +42,15 @@
 						<input type="search" size="25" name="keyword" id="keyword" value="${param.keyword}">
 					</li>
 					<li>
-						<input type="submit" value="검색">
+						<input type="submit" value="검색" id="search">
 					</li>
 				</ul>
 			</form>
 			<!-- 검색창 끝 -->
 			<div class="list-space align-right">
-				<input type="button" value="상품 등록" onclick="location.href='writeForm.do'">
-				<input type="button" value="판매 목록" onclick="location.href='item_list.do'">
-				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				<input type="button" value="상품 등록" class="btn" onclick="location.href='writeForm.do'">
+				<input type="button" value="판매 목록" class="btn" onclick="location.href='item_list.do'">
+				<input type="button" value="홈으로" class="btn" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
 		<hr size="1" noshade="noshade" width="80%">
 		<c:if test="${count == 0}">

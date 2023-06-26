@@ -38,7 +38,7 @@ public class AdminMemberListAction implements Action{
 		int count = dao.getMemberCountByAdmin(keyfield, keyword);
 		
 		//페이지 처리
-		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,5,10,"adminMemberList.do");
+		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,6,10,"adminMemberList.do");
 		List<MemberVO> list = null;
 		if(count > 0) {
 			list = dao.getListMemberByAdmin(page.getStartRow(), page.getEndRow(), keyfield, keyword);

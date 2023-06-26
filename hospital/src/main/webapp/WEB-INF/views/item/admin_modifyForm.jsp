@@ -68,7 +68,7 @@
 					</li>
 					<li class="product-content">
 						<label for="photo" class="product-label">상품 사진</label>
-						<img src="${pageContext.request.contextPath}/upload/${item.item_photo}" data-img="${item.item_photo}" width="50" height="50">
+						<img src="${pageContext.request.contextPath}/upload/${item.item_photo}" data-img="${item.item_photo}" width="100" height="100">
 						<br>
 						<input type="file" name="item_photo" id="photo" class="form-file" accept="image/gif,image/png,image/jpeg">
 					</li>
@@ -78,9 +78,9 @@
 					</li>
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="수정">
-					<input type="button" value="삭제" onclick="location.href='delete.do?item_num=${item.item_num}'" id="item-cancel">
-					<input type="button" value="목록" onclick="location.href='list.do'">
+					<input type="submit" value="수정" class="form-btn">
+					<input type="button" value="삭제" onclick="location.href='delete.do?item_num=${item.item_num}'" id="item-cancel" class="form-btn">
+					<input type="button" value="목록" onclick="location.href='list.do'" class="form-btn">
 					<script type="text/javascript">
 						let item_cancel = document.getElementById('item-cancel');
 						item_cancel.onclick = function(){
@@ -94,6 +94,7 @@
 			</form>
 		</div>
 		<!-- 내용 끝 -->
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	</div>
 </body>
 </html>
