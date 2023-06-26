@@ -36,6 +36,7 @@ public class VolUpdateAction implements Action{
 		board.setTitle(request.getParameter("title"));
 		board.setContent(request.getParameter("content"));
 		board.setReg_date(request.getParameter("reg_date"));
+		board.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 		
 		dao.updateBoard(board);
 		

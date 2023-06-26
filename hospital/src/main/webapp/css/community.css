@@ -231,7 +231,7 @@ li.review-image{
 
 
 
-#reply_div{
+.reply_div{
 	margin:20px;
 	padding:10px;
 	border:1px solid #ccc;
@@ -261,6 +261,21 @@ li.review-image{
 	font-size:14px;
 	border:none;
 	outline-color:#6496bab8;
+}
+
+.rep-content-mo{
+	width:98%;
+	height:40px;
+	resize:none;
+	margin:20px 0;
+	padding:10px;
+	font-size:14px;
+	border-color:#6496BA;
+	border-radius:5px;
+}
+
+.rep-content-mo:focus{
+	outline:none;
 }
 
 #re_first, #re_second{

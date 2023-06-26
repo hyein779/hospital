@@ -11,6 +11,7 @@
 }
 .product-main{
 	padding:0 120px 0 280px;
+	margin:0 0 35px 0;
 	height:auto;
 }
 /* 상품 목록
@@ -31,6 +32,16 @@
 .image-space .float-clear{
 	clear:both;
 }
+.btn{
+	background-color:#333;
+	color:#fff;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:14px;
+	padding:5px 10px;
+	margin:3px 0;
+}
 /*검색창*/
 form#search_form{
 	border:none;
@@ -40,6 +51,7 @@ ul.search{
 	list-style:none;
 	padding:0;
 	margin:0 auto;
+	display:flex;
 }
 ul.search li{
 	margin:0 0 9px 0;
@@ -50,19 +62,42 @@ ul.search li{
 	margin-bottom:10px;
 	margin-right:50px;
 }
+select#keyfield{
+	height:32px;
+	font-size:14px;
+}
+input#keyword{
+	height:32px;
+	font-size:14px;
+	width:350px;
+}
+input#search{
+	color:#fff;
+	background-color:#6496BA;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	height:32px;
+	font-size:14px;
+	margin-left:8px;
+	padding:6px 12px 8px 12px;
+}
 
 /*테이블*/
 table{
 	margin-left:250px;
 	text-align:center;
 	width:80%;
-	height:200px;
+	/* height:200px; */
 	/* padding: 5px; */
 }
 th{
 	background-color: #effbff;
 	font-size:15px;
 	height:30px;
+}
+td {
+	height: 30px
 }
 /*기본틀*/
 .content-main{
@@ -117,10 +152,24 @@ ul{
 }
 .form-file{
 	padding-left:250px;
+	margin-top:3px;
+}
+.form-btn{
+	background-color:#333;
+	color:#fff;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:14px;
+	padding:5px 15px;
+	margin:3px 3px;
 }
 
 /* 장바구니
 ---------------*/
+#cart_order{
+	width:1000px;
+}
 .result-display{
 	width:1000px;
 	height:400px;
@@ -130,6 +179,55 @@ ul{
 	display:flex;
 	align-items:center;/*세로 정렬*/
 	justify-content:center;/*가로 정렬*/
+}
+.cart > form > table tr { 
+	border-bottom:1px solid #d3d3d3 ;
+}
+.cart > form > table td { 
+	padding:10px 0;
+}
+.cart > form > table td > a > span { 
+	vertical-align:super;
+}
+.cart > form > input[name=delete] {
+    border-color: #bdbdbd;
+    border-bottom-color: #828282;
+    background: #fafafa;
+    padding: 6px 11px;
+    border-width: 1px;
+    margin-top: 8px;
+}
+.cart-table{
+	width: 100%;
+    border-bottom:1px solid #d3d3d3;
+    border-collapse:collapse;
+    border-spacing:0;
+    margin-left:0;
+}
+.cart > form > .total {
+    float: right;
+    width: 360px;
+    padding: 18px;
+    margin-top: 12px;
+    border: 1px solid #d3d3d3;
+    box-sizing: border-box;
+}
+.cart > form > .total > span{
+	color: #0d0d0d;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cart > form > .total > input[type=submit] {
+    font-size: 20px;
+    border:none;
+    border-radius:3px;
+    border-width: 1px;
+    background-image: -webkit-linear-gradient(#1c79b8, #147dc4);
+    color: #fff;
+    cursor:pointer;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding:3px 5px;
 }
 .message{
 	font-size:20px;
@@ -146,5 +244,12 @@ ul{
 	padding:3px 5px;
 }
 .modify-button{
+	color:#fff;
+	background-color:#6496BA;
+	border:none;
 	border-radius:5px;
-}
+	cursor:pointer;
+	height:25px;
+	padding:2px 8px 10px 8px;
+	margin-top:5px;
+} 

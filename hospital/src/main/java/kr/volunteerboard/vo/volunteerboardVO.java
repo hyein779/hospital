@@ -6,6 +6,7 @@ public class volunteerboardVO {//게시글 관리 VO
 	private int board_num;// 글 번호
 	private String title;//글 제목
 	private String content;//내용
+	private int quantity;//지원자 정원
 	private int hit;//조회수
 	private String reg_date;//모집일
 	private Date modify_date;//수정일
@@ -35,6 +36,13 @@ public class volunteerboardVO {//게시글 관리 VO
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public int getQuantity() {
+		return quantity;  
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 	public int getHit() {
 		return hit;
 	}

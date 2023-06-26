@@ -42,79 +42,104 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
 	<!-- content 시작 -->
-	<div class="content-main">
-		<h2>상품 주문</h2>
-		<table>
-			<tr>
+	<div class="content-lnbx">
+		<h2 class="order-h2">상품 주문</h2>
+		<table class="order-table">
+			<tr class="admin-item">
 				<th>상품명</th>
 				<th>수량</th>
 				<th>상품가격</th>
 				<th>합계</th>
 			</tr>
-		<c:forEach var="cart" items="${list}">
-			<tr>	
-				<td>
-					${cart.itemVO.item_name}
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${cart.item_count}"/>
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${cart.itemVO.item_price}"/>원
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${cart.sub_total}"/>원
-				</td>				
-			</tr>
-		</c:forEach>
-			<tr>
+			<c:forEach var="cart" items="${list}">
+				<tr>	
+					<td>
+						${cart.itemVO.item_name}
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${cart.item_count}"/>
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${cart.itemVO.item_price}"/>원
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${cart.sub_total}"/>원
+					</td>				
+				</tr>
+			</c:forEach>
+			<tr><td><br></td></tr>
+			<tr class="color-red">
 				<td colspan="3" class="align-right"><b>총 구매 금액</b></td>
 				<td class="align-center">
 					<fmt:formatNumber value="${all_total}"/>원
 				</td>
 			</tr>
 		</table>
-		<form id ="order_form" action="order.do" method="post">
-			<ul>
-				<li>
-					<label for="receive_name">받는 사람</label>
-					<input type="text" name="receive_name" id="receive_name"
-						   maxlength="10">
-				</li>
-				<li>
-					<label for="receive_phone">전화 번호</label>
-					<input type="text" name="receive_phone" id="receive_phone"
-						   maxlength="15">
-				</li>
-				<li>
-					<label for="zipcode">우편번호</label>	
-					<input type="text" name="receive_post" id="zipcode"
-						   maxlength="5">
-					<input type="button" value="우편번호 찾기" 
-					       onclick="execDaumPostcode()">						   
-				</li>
-				<li>
-					<label for="receive_address1">주소</label>
-					<input type="text" name="receive_address1" id="receive_address1"
-						   maxlength="30">
-				</li>
-				<li>
-					<label for="receive_address2">상세주소</label>
-					<input type="text" name="receive_address2" id="receive_address2"
-						   maxlength="30">
-				</li>
-				<li>
-					<label>결제 수단</label>
-					<input type="checkbox" name="payment" id="payment1" value="1">계좌이체
-					<input type="checkbox" name="payment" id="payment2" value="2">카드결제
-
-				</li>
-				<li>
-					<label for="notice">메모</label>
-					<textarea rows="5" cols="30" name="notice" id="notice"
-					          maxlength="1300"></textarea>
-				</li>
-			</ul>
+		<br>
+		<hr class="order-hr">
+		<form id ="order_form" action="order.do" method="post" class="order-modifyform">
+			<h4 class="delivery_text">* 배송정보 입력란 *</h4>
+				<table class="order-modifytable">
+					<tr>
+						<td>
+							<label for="receive_name">받는사람</label></td>
+						<td>						
+							<input type="text" name="receive_name" id="receive_name"
+								   maxlength="10" value="${order.receive_name}">
+					    </td>
+					</tr>
+					<tr>
+						<td>
+							<label for="receive_phone">전화번호</label></td>
+						<td>
+						<input type="text" name="receive_phone" id="receive_phone"
+							   maxlength="15" value="${order.receive_phone}">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="zipcode">우편번호</label></td>
+						<td>
+						<input type="text" name="receive_post" id="zipcode"
+						   maxlength="5" value="${order.receive_post}">
+						<input type="button" value="우편번호 찾기" 
+					       onclick="execDaumPostcode()">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="receive_address1">주소</label></td>
+						<td>
+						<input type="text" name="receive_address1" id="address1"
+						  	   maxlength="30" value="${order.receive_address1}">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="receive_address2">상세주소</label></td>
+						<td>
+						<input type="text" name="receive_address2" id="receive_address2"
+					 		   maxlength="30" value="${order.receive_address2}">						
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>결제수단</label>
+						</td>
+						<td>
+							<input type="radio" name="payment" id="payment1" value="1">계좌이체
+							<input type="radio" name="payment" id="payment2" value="2">카드결제
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="notice">메모</label></td>
+						<td>
+						<textarea rows="5" cols="42" name="notice" id="notice"
+			        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
+						</td>
+					</tr>
+				</table>
 			<div class="align-center">
 				<input type="submit" value="주문">
 				<input type="button" value="홈으로"

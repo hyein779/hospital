@@ -22,6 +22,11 @@
 				$('#content').val('').focus();
 				return false;
 			}
+			if($('#quantity').val().trim()==''){
+				alert('모집인원을 입력하세요!');
+				$('#quantity').val('').focus();
+				return false;
+			}
 			if($('#reg_date').val().trim()==''){
 				alert('모집기간을 입력하세요!');
 				$('#reg_date').val('').focus();
@@ -34,9 +39,10 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/volunteer/lnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<jsp:include page="/WEB-INF/views/volunteer/lnb.jsp"/>
+		
 		<h2 class="subtitle">봉사게시판 글쓰기</h2>
 		<form id="volwrite_form" class="volwrite_form" action="volWrite.do" method="post">
 			<ul>
@@ -51,14 +57,19 @@
 					      id="content" maxlength="50"></textarea>
 				</li>
 				<li>
+					<label for="quantity">모집인원</label>
+					<input type="number" name="quantity"
+					      id="quantity" maxlength="10">
+				</li>
+				<li>
 					<label for="reg_date">모집기간</label>
 					<input type="text" name="reg_date" id="reg_date" maxlength="50">
 				</li>
 			</ul> 
 			<div class="align-center">
-				<input type="submit" value="등록">
+				<input type="submit" value="등록" class="submit">
 				<input type="button" value="목록"
-				   onclick="location.href='volList.do'">
+				   onclick="location.href='volList.do'" class="home">
 			</div>      
 		</form>
 	</div>

@@ -19,7 +19,7 @@ public class AdminMemberListAction implements Action{
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		if(user_num == null) {//로그인 되지 않은 경우
-			return "redirect:/member/loginForm.do";
+			return "redirect:/member/loginForm.do?page_url=/member/adminMemberList.do";
 		}
 		
 		Integer user_auth = (Integer)session.getAttribute("user_auth");
@@ -38,7 +38,7 @@ public class AdminMemberListAction implements Action{
 		int count = dao.getMemberCountByAdmin(keyfield, keyword);
 		
 		//페이지 처리
-		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,20,10,"memberList.do");
+		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,6,10,"adminMemberList.do");
 		List<MemberVO> list = null;
 		if(count > 0) {
 			list = dao.getListMemberByAdmin(page.getStartRow(), page.getEndRow(), keyfield, keyword);

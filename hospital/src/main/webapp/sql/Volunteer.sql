@@ -6,6 +6,7 @@ create table volunteerboard(
 	hit number(9) default 0 not null,
 	reg_date varchar2(150) not null,
 	modify_date date,
+	quantity number not null,
 	mem_num number not null,
 	mem_id varchar2(20),
 	constraint volunteerboard_pk primary key(board_num),
@@ -14,27 +15,20 @@ create table volunteerboard(
 );
 create sequence volunteerboard_seq;
 
-CREATE TABLE volunteer(
-	volun_num number,
-	volun_name varchar2(100) not null,
-	volun_content clob not null,
-	volun_date date not null,
-	volun_max number not null,
-	volun_type number not null,
-	
-	constraint volunteer_pk primary key (volun_num)
-);
-CREATE sequence volunteer_seq;
 
+-- 봉사 신청
 CREATE TABLE appvolunteer(
 	app_num number,
-	app_motive varchar2(500),
-	app_approve number not null,
-	volun_num number not null,
+	board_num number not null,
+	name varchar2(20) not null,
+	address varchar2(90) not null,
+	phone varchar(20) not null,
+	content clob not null,
+	app_quantity number not null,
 	mem_num number not null,
 	constraint appvolunteer_pk primary key (app_num),
-	constraint appvolunteer_fk foreign key (volun_num) references volunteer (volun_num),
-	constraint appvolunteer_fk foreign key (mem_num) references member (mem_num)
+	constraint appvolunteer_fk1 foreign key (mem_num) references member (mem_num),
+	constraint appvolunteer_fk2 foreign key (board_num) references volunteerboard (board_num)
 );
 CREATE sequence appvolunteer_seq;
 

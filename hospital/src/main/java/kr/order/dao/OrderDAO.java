@@ -138,8 +138,9 @@ public class OrderDAO {
 			conn = DBUtil.getConnection();
 			
 			if(keyword != null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) sub_sql += "WHERE order_num =?";
-				else if(keyfield.equals("2")) sub_sql += "WHERE order_name LIKE ?";
+				if(keyfield.equals("1")) sub_sql += "WHERE order_num =?"; //같은경우
+				else if(keyfield.equals("2")) sub_sql += "WHERE mem_id LIKE ?"; //포함된단어
+				else if(keyfield.equals("3")) sub_sql += "WHERE item_name LIKE ?"; //포함된단어
 			}
 			
 			sql = "SELECT COUNT(*) FROM zorder o JOIN member m ON o.mem_num=m.mem_num "
@@ -181,7 +182,8 @@ public class OrderDAO {
 			conn = DBUtil.getConnection();
 			 if(keyword != null && !"".equals(keyword)) {
 				 if(keyfield.equals("1")) sub_sql += "WHERE order_num=?";
-				 else if (keyfield.equals("2")) sub_sql += "WHERE order_name LIKE ?";
+				 else if(keyfield.equals("2")) sub_sql += "WHERE mem_id LIKE ?";
+				 else if (keyfield.equals("3")) sub_sql += "WHERE order_name LIKE ?";
 			 }
 			 
 			 sql = "SELECT * FROM (SELECT a.*, rownum rnum "
@@ -218,6 +220,7 @@ public class OrderDAO {
 				order.setNotice(rs.getString("notice"));
 				order.setReg_date(rs.getDate("reg_date"));
 				order.setMem_num(rs.getInt("mem_num"));
+				order.setId(rs.getString("mem_id"));
 				
 				list.add(order);
 			}

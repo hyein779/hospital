@@ -15,51 +15,60 @@
 <body>
 <!-- 관리자 : 수정 및 상세 내역 -->
 <div class="page-main">
+
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
+	
 	<!-- content 시작 -->
-	<div class="content-main">
-	<h2>주문 상세 정보</h2>
+	<div class="content-lnbx">
+	<h2 class="order-h2">주문내역</h2>
 		<!-- 상품 상세 내역 -->
-		<table>
-			<tr>
-				<td>상품명</td>
-				<td>수량</td>	
-				<td>상품가격</td>
-				<td>합계</td>
+		<br>
+		<hr class="order-hr">
+		<br>
+		<table class="order-table">
+			<tr class="admin-item">
+				<th>상품명</th>
+				<th>수량</th>	
+				<th>상품가격</th>
+				<th>합계</th>
 			</tr>
-		<c:forEach var="detail" items="${detailList}">
-			<tr>
-				<td class="align-center">${detail.order_name}</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${detail.order_quantity}"/>
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${detail.item_price}"/>원
-				</td>
-				<td class="align-center">
-					<fmt:formatNumber value="${detail.item_total}"/>원
-				</td>
-			</tr>
-		</c:forEach>
-			<tr>
+			<c:forEach var="detail" items="${detailList}">
+				<tr class="admin-subitem">
+					<td class="align-center">${detail.order_name}</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${detail.order_quantity}"/>
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${detail.item_price}"/>원
+					</td>
+					<td class="align-center">
+						<fmt:formatNumber value="${detail.item_total}"/>원
+					</td>
+				</tr>
+			</c:forEach>
+			<tr><td><br></td></tr>
+			<tr class="color-red">
 				<td colspan="3" class="align-right"><b>총 구매 금액</b></td>
 				<td class="align-center">
 					<fmt:formatNumber value="${order.order_total}"/>원
 				</td>
 			</tr>
 		</table>
-		<div>
+		<br>
+		<hr class="order-hr">
+		<br>		
+		<div class="order-button">
 			<input type="button" value="목록" 
 				   onclick="location.href='list.do'">
 			<input type="button" value="홈으로" 
 				   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
 		
-		<!-- 상품 수정 내역 -->
 	</div>	
 	<!-- content 끝 -->
+	
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- footer 끝 -->

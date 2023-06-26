@@ -130,34 +130,23 @@ $(function(){
 			}
 		}
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	// 댓글 수정 버튼 클릭시 수정폼 노출
 	$(document).on('click','.modify-btn',function(){
 		// 댓글 번호
 		let re_num = $(this).attr('data-renum');
 		// 댓글 내용
 		let content = $(this).parent().find('p').html().replace(/<br>/gi,'\n');
-		                                                      // g:지정문자열 모두, i:대소문자 무시
-															 // 대소문자 무시한 모든 <br> 태그를 \n 으로 바꾸라는 뜻
 		// 댓글 수정폼 UI
 		let modifyUI = '<form id="mre_form">';
-		                                // name:서버전송,  id:자바스크립트,CSS
 		modifyUI += '<input type="hidden" name="re_num" id="mre_num" value="' + re_num + '">';
-		modifyUI += '<textarea rows="3" cols="50" name="re_content" id="mre_content" class="rep-content">' + content + '</textarea>';
+		modifyUI += '<textarea rows="3" cols="50" name="re_content" id="mre_content" class="rep-content-mo">' + content + '</textarea>';
 		modifyUI += '<div id="mre_first"><span class="letter-count">300/300</span></div>';
 		modifyUI += '<div id="mre_second" class="align-right">';
 		modifyUI += ' <input type="submit" value="수정">';
 		modifyUI += ' <input type="button" value="취소" class="re-reset">';
 		modifyUI += '</div>';
-		modifyUI += '<hr size="1" noshade width="96%">';
+		modifyUI += '<hr size="1" noshade width="100%">';
 		modifyUI += '</form>';
 		
 		// 이전에 이미 수정하는 댓글이 있을 경우 수정버튼을 클릭하면 숨겨져있는 sub-item을 환원시키고 수정폼을 초기화
@@ -170,8 +159,8 @@ $(function(){
 		
 		// 입력한 글자수 셋팅
 		let inputLength = $('#mre_content').val().length;
-		let remain = 300 - inputLength;
-		remain += '/300';
+		let remain = 500 - inputLength;
+		remain += '/500';
 		
 		// 문서 객체에 반영
 		$('#mre_first .letter-count').text(remain);
@@ -188,13 +177,13 @@ $(function(){
 		$('#mre_form').remove();
 	}
 	
-/*	// 댓글 수정
+	// 댓글 수정
 	$(document).on('submit','#mre_form',function(event){
 		// 기본 이벤트 제거
 		event.preventDefault();
 		
 		if($('#mre_content').val().trim()==''){
-			alert('내용을 입력하세요!');
+			alert('내용을 입력하세요');
 			$('#mre_content').val('').focus();
 			return false;
 		}
@@ -204,7 +193,7 @@ $(function(){
 		
 		// 서버와 통신
 		$.ajax({
-			url:'updateReply.do',
+			url:'replyUpdate.do',
 			type:'post',
 			data:form_data,
 			dataType:'json',
@@ -219,7 +208,7 @@ $(function(){
 					// 수정폼 삭제 및 초기화
 					initModifyForm();
 				}else if(param.result=='wrongAccess'){
-					alert('타인의 글은 수정할 수 없습니다.');
+					alert('관리자만 댓글 수정이 가능합니다');
 				}else{
 					alert('댓글 수정 오류');
 				}
@@ -228,37 +217,39 @@ $(function(){
 				alert('네트워크 오류 발생');
 			}
 		});
-	});*/
+	});
 	
 	// 댓글 삭제
 	$(document).on('click','.delete-btn',function(){
-		// 댓글 번호
-		let re_num = $(this).attr('data-renum');
-		
-		$.ajax({
-			url:'replyDelete.do',
-			type:'post',
-			data:{re_num:re_num},
-			dataType:'json',
-			success:function(param){
-				if(param.result == 'logout'){
-					alert('로그인이 필요합니다');
-				}else if(param.result == 'success'){
-					alert('삭제 완료');
-					selectList(1);
-				}else if(param.result == 'notAdmin'){
-					alert('관리자만 삭제가 가능합니다');
-				}else{
-					alert('댓글 삭제 오류 발생');
+		let choice = confirm('삭제하시겠습니까?');
+		if(choice){
+			// 댓글 번호
+			let re_num = $(this).attr('data-renum');
+			
+			$.ajax({
+				url:'replyDelete.do',
+				type:'post',
+				data:{re_num:re_num},
+				dataType:'json',
+				success:function(param){
+					if(param.result == 'logout'){
+						alert('로그인이 필요합니다');
+					}else if(param.result == 'success'){
+						alert('삭제 완료');
+						selectList(1);
+					}else if(param.result == 'notAdmin'){
+						alert('관리자만 삭제가 가능합니다');
+					}else{
+						alert('댓글 삭제 오류 발생');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
 				}
-			},
-			error:function(){
-				alert('네트워크 오류 발생');
-			}
-		});
+			});
+		}
 	});
 	
 	// 초기 데이터(목록) 호출
 	selectList(1); 
-	
 });

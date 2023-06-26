@@ -325,6 +325,27 @@ public class AskDAO {
 	}
 	
 	// 댓글 수정
+	public void updateReply(ReplyVO reply) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "UPDATE reply SET re_content=?,re_modifydate=SYSDATE WHERE re_num=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, reply.getRe_content());
+			pstmt.setInt(2, reply.getRe_num());
+			
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
 	// 댓글 삭제
 	public void deleteReply(int re_num)throws Exception{
 		Connection conn = null;

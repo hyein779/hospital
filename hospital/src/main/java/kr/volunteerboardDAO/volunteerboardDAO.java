@@ -26,12 +26,13 @@ public class volunteerboardDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "INSERT INTO volunteerboard (board_num,title,content,reg_date,mem_num) VALUES (volunteerboard_seq.nextval,?,?,?,?)";
+			sql = "INSERT INTO volunteerboard (board_num,title,content,reg_date,mem_num,quantity) VALUES (volunteerboard_seq.nextval,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());
 			pstmt.setString(3, board.getReg_date());
 			pstmt.setInt(4, board.getMem_num());
+			pstmt.setInt(5, board.getQuantity());
 			
 			pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -180,6 +181,7 @@ public class volunteerboardDAO {
 				board.setReg_date(rs.getString("reg_date"));
 				board.setModify_date(rs.getDate("modify_date"));
 				board.setMem_num(rs.getInt("mem_num"));
+				board.setQuantity(rs.getInt("quantity"));
 			}
 			
 			
@@ -221,12 +223,14 @@ public class volunteerboardDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "UPDATE volunteerboard SET title=?,content=?,modify_date=SYSDATE WHERE board_num=?";
+			sql = "UPDATE volunteerboard SET title=?,content=?,modify_date=SYSDATE,quantity=? WHERE board_num=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getContent());
-			pstmt.setInt(3, board.getBoard_num());
+			pstmt.setInt(3, board.getQuantity());
+			pstmt.setInt(4, board.getBoard_num());
+			
 			
 			pstmt.executeUpdate();
 			
