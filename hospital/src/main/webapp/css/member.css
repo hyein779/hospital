@@ -1,84 +1,98 @@
 @charset "UTF-8";
 
-
-.content-main{
+.content-main {
 	padding: 10px 20px;
 	margin: 40px 0 150px 0;
 }
-.result-display{
+
+.result-display {
 	width: 440px;
 	height: 300px;
 	margin: 50px auto;
 	border: 1px solid #6496BA;
 	display: flex;
-	align-items: center;/*세로 정렬*/
-	justify-content: center;/*가로 정렬*/
+	align-items: center; /*세로 정렬*/
+	justify-content: center; /*가로 정렬*/
 }
-#detail_form{
+
+#detail_form {
 	width: 600px;
 	height: 250px;
 	border: 1px solid #6496BA;
-	align-items: center;/*세로 정렬*/
-	justify-content: center;/*가로 정렬*/
+	align-items: center; /*세로 정렬*/
+	justify-content: center; /*가로 정렬*/
 }
-form{
+
+form {
 	width: 600px;
 	margin: 0 auto;
 	padding: 10px 10px 10px 10px;
 }
-label{
-	width: 130px;
-	float: left; /*태그를 왼쪽에 정렬*/
-	/* margin-top: 5px; */
+
+#register_form label {
+	margin-top: 5px;
 }
 
-ul{
+label {
+	width: 130px;
+	float: left; /*태그를 왼쪽에 정렬*/
+}
+
+ul {
 	list-style: none;
 }
-.logreg{
+
+.logreg {
 	margin-top: -10px;
 	margin-left: 300px;
 }
-.logreg-e{
+
+.logreg-e {
 	margin-top: 10px;
 	margin-left: 670px;
 }
-.logreg-a{
+
+.logreg-a {
 	margin-top: -10px;
 	margin-left: 470px;
 }
-.form-notice{
+
+.form-notice {
 	color: red;
 	font-size: small;
 }
-#detailadmin{
+
+#detailadmin {
 	margin-top: 0;
 }
 /*검색창*/
-form#search_form{
+form#search_form {
 	border: none;
 }
-ul.search{
+
+ul.search {
 	width: 400px;
 	list-style: none;
 	padding: 0;
 	margin: 0 0 0 260px;
 }
-ul.search li{
+
+ul.search li {
 	margin: 0 0 0 0;
 	padding: 0;
 	display: inline;
 }
-.list-space{
+
+.list-space {
 	margin-bottom: 10px;
 	margin-right: 50px;
 }
 /*텍스트박스?*/
-input{
+input {
 	margin-top: 6px;
 }
 /*로그인/회원가입*/
-#login_form input[id="id"],#login_form input[id="passwd"]{
+#login_form input[id="id"], #login_form input[id="passwd"] {
 	width: 300px;
 	height: 50px;
 	margin-left: 100px;
@@ -86,30 +100,35 @@ input{
 	margin-bottom: 5px;
 	font-size: 15px;
 }
-#register_form input[id="id"]{
+
+#register_form input[id="id"] {
 	width: 268px;
 	height: 40px;
 	margin-bottom: 5px;
 }
-input[type="text"],input[type="password"],input[type="email"]{
+
+input[type="text"], input[type="password"], input[type="email"] {
 	width: 370px;
 	height: 40px;
 	border: 1px solid #dee2e6;
-	font-size: 13px; 
+	font-size: 13px;
 	border-radius: 5px;
 	margin-bottom: 5px;
 }
-input[id="zipcode"]{
+
+input[id="zipcode"] {
 	width: 268px;
 	height: 40px;
 	margin-bottom: 5px;
 }
-input[type="number"]{
+
+input[type="number"] {
 	width: 100px;
 	height: 40px;
 	margin-bottom: 5px;
 }
-.loginbtn{
+
+#login_form .loginbtn {
 	border: 0;
 	background-color: #6496BA;
 	border: 1px solid #6496BA;
@@ -122,7 +141,14 @@ input[type="number"]{
 	margin-left: 100px;
 	/* box-shadow: 2px 2px 5px #b0b2b5; */
 }
-.regibtn{
+input[type="button"], input[type="submit"]{
+	background-color: #effbff;
+	margin-top: 20px;
+	border: 1px solid #6496BA;
+	width: 60px;
+	height: 30px;
+}
+#register_form .regibtn {
 	border: 0;
 	background-color: #6496BA;
 	border: 1px solid #6496BA;
@@ -134,18 +160,14 @@ input[type="number"]{
 	font-size: 20px;
 	/* box-shadow: 2px 2px 5px #b0b2b5; */
 }
-.combtn{
-	background-color: #effbff;
-	margin-top: 50px;
-	border: 1px solid #6496BA;
-}
-#regigo{
+#regigo {
 	color: #b0b2b5;
 	margin-left: 345px;
 	font-size: 15px;
 	margin-top: 10px;
 }
-.zipbtn{
+
+#register_form .zipbtn {
 	width: 98px;
 	height: 43px;
 	border-radius: 5px;
@@ -155,21 +177,24 @@ input[type="number"]{
 	color: #6496BA
 }
 /*테이블*/
-table{
+table {
 	margin-left: 250px;
 	text-align: center;
 	width: 80%;
 	/* height: 200px; */
 	/* padding: 5px; */
 }
-th{
+
+th {
 	background-color: #effbff;
 	font-size: 15px;
 	height: 30px;
 }
-td{
+
+td {
 	height: 30px
 }
-.itemtable{
+
+.itemtable {
 	border-width: 1px;
 }
