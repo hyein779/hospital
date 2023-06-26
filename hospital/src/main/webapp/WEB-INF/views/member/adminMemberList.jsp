@@ -29,7 +29,7 @@
 	<div class="content-main">
 		<h1 class="logreg">회원관리</h1>
 		<!-- 검색창 시작 -->
-		<form id="search_form" action="memberList.do" method="get">
+		<form id="search_form" action="adminMemberList.do" method="get">
 			<ul class="search">
 				<li>
 					<select name="keyfield">

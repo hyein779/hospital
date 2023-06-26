@@ -3,6 +3,23 @@
 
 .content-main{
 	padding: 10px 20px;
+	margin: 40px 0 150px 0;
+}
+.result-display{
+	width: 440px;
+	height: 300px;
+	margin: 50px auto;
+	border: 1px solid #6496BA;
+	display: flex;
+	align-items: center;/*세로 정렬*/
+	justify-content: center;/*가로 정렬*/
+}
+#detail_form{
+	width: 600px;
+	height: 250px;
+	border: 1px solid #6496BA;
+	align-items: center;/*세로 정렬*/
+	justify-content: center;/*가로 정렬*/
 }
 form{
 	width: 600px;
@@ -12,33 +29,40 @@ form{
 label{
 	width: 130px;
 	float: left; /*태그를 왼쪽에 정렬*/
-	margin-top: 15px;
+	/* margin-top: 5px; */
 }
 
 ul{
 	list-style: none;
 }
 .logreg{
-	margin-top: 30px;
+	margin-top: -10px;
 	margin-left: 300px;
 }
 .logreg-e{
-	margin-top: 30px;
+	margin-top: 10px;
 	margin-left: 670px;
+}
+.logreg-a{
+	margin-top: -10px;
+	margin-left: 470px;
 }
 .form-notice{
 	color: red;
 	font-size: small;
+}
+#detailadmin{
+	margin-top: 0;
 }
 /*검색창*/
 form#search_form{
 	border: none;
 }
 ul.search{
-	width: 340px;
+	width: 400px;
 	list-style: none;
 	padding: 0;
-	margin: 0 auto;
+	margin: 0 0 0 260px;
 }
 ul.search li{
 	margin: 0 0 0 0;
@@ -53,14 +77,6 @@ ul.search li{
 input{
 	margin-top: 6px;
 }
-input[type="text"],input[type="password"],input[type="email"]{
-	width: 325px;
-	height: 30px;
-	border: 1px solid #dee2e6;
-	font-size: 13px; 
-	border-radius: 5px;
-	margin-bottom: 5px;
-}
 /*로그인/회원가입*/
 #login_form input[id="id"],#login_form input[id="passwd"]{
 	width: 300px;
@@ -71,8 +87,26 @@ input[type="text"],input[type="password"],input[type="email"]{
 	font-size: 15px;
 }
 #register_form input[id="id"]{
-	width: 223px;
-	height: 30px;
+	width: 268px;
+	height: 40px;
+	margin-bottom: 5px;
+}
+input[type="text"],input[type="password"],input[type="email"]{
+	width: 370px;
+	height: 40px;
+	border: 1px solid #dee2e6;
+	font-size: 13px; 
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+input[id="zipcode"]{
+	width: 268px;
+	height: 40px;
+	margin-bottom: 5px;
+}
+input[type="number"]{
+	width: 100px;
+	height: 40px;
 	margin-bottom: 5px;
 }
 .loginbtn{
@@ -86,43 +120,55 @@ input[type="text"],input[type="password"],input[type="email"]{
 	color: #ffffff;
 	font-size: 20px;
 	margin-left: 100px;
+	/* box-shadow: 2px 2px 5px #b0b2b5; */
+}
+.regibtn{
+	border: 0;
+	background-color: #6496BA;
+	border: 1px solid #6496BA;
+	width: 330px;
+	height: 50px;
+	border-radius: 5px;
+	margin-top: 10px;
+	color: #ffffff;
+	font-size: 20px;
+	/* box-shadow: 2px 2px 5px #b0b2b5; */
+}
+.combtn{
+	background-color: #effbff;
+	margin-top: 50px;
+	border: 1px solid #6496BA;
 }
 #regigo{
 	color: #b0b2b5;
 	margin-left: 345px;
 	font-size: 15px;
+	margin-top: 10px;
 }
 .zipbtn{
 	width: 98px;
-	height: 33px;
+	height: 43px;
 	border-radius: 5px;
 	font-size: 13px;
 	border: solid 1px #6496BA;
 	background-color: #ffffff;
 	color: #6496BA
 }
-input[id="zipcode"]{
-	width: 220px;
-	height: 30px;
-	margin-bottom: 5px;
-}
-input[type="number"]{
-	width: 100px;
-	height: 30px;
-	margin-bottom: 5px;
-}
 /*테이블*/
 table{
 	margin-left: 250px;
 	text-align: center;
 	width: 80%;
-	height: 200px;
+	/* height: 200px; */
 	/* padding: 5px; */
 }
 th{
 	background-color: #effbff;
 	font-size: 15px;
 	height: 30px;
+}
+td{
+	height: 30px
 }
 .itemtable{
 	border-width: 1px;
