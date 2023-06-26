@@ -6,8 +6,6 @@ public class ReplyVO {
 	private String re_date; // 등록일
 	private String re_modifydate; // 수정일
 	private int ask_num; // 부모글(문의사항) 번호
-	private int mem_num; // 작성자 회원번호
-	private String id; // 아이디
 	
 	public int getRe_num() {
 		return re_num;
@@ -39,18 +37,4 @@ public class ReplyVO {
 	public void setAsk_num(int ask_num) {
 		this.ask_num = ask_num;
 	}
-	public int getMem_num() {
-		return mem_num;
-	}
-	public void setMem_num(int mem_num) {
-		this.mem_num = mem_num;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	
 }
