@@ -87,7 +87,7 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		</c:if>
 		<!-- 내용 시작 -->
-		<div class="product-main">
+		<div class="product-main cart">
 			<h3 class="subtitle">장바구니</h3>
 			<c:if test="${empty list}">
 			<div class="result-display message">
@@ -98,20 +98,25 @@
 			</c:if>
 			<c:if test="${!empty list}">
 			<form id="cart_order" action="${pageContext.request.contextPath}/order/orderForm.do" method="post">
-				<table>
+				<table class="cart-table">
 					<tr>
+						<th><input type="checkbox" name="check"></th>
 						<th>상품명</th>
 						<th>수량</th>
-						<th>상품 가격</th>
+						<th>가격</th>
+						<th>배송비</th>
 						<th>합계</th>
 						<th>삭제</th>
 					</tr>
 					<c:forEach var="cart" items="${list}">
 						<tr>
+							<td><input type="checkbox" name="check"></td>
 							<td>
 								<a href="${pageContext.request.contextPath}/item/detail.do?item_num=${cart.item_num}">
 									<img src="${pageContext.request.contextPath}/upload/${cart.itemVO.item_photo}" width="80">
+									<span>
 									${cart.itemVO.item_name}
+									</span>
 								</a>
 							</td>
 							<td class="align-center">
@@ -125,6 +130,7 @@
 							<td class="align-center">
 								<fmt:formatNumber value="${cart.itemVO.item_price}"/>원
 							</td>
+							<td>무료 배송</td>
 							<td class="align-center">
 								<fmt:formatNumber value="${cart.sub_total}"/>원
 							</td>
@@ -134,9 +140,10 @@
 						</tr>
 					</c:forEach>
 				</table>
-				<div class="align-right">
-					<span><b>총 금액 : </b><fmt:formatNumber value="${all_total}"/>원</span>
-					<input type="submit" value="주문">
+				<input type="button" name="delete" value="선택 삭제">
+				<div class="total align-right">
+					<span>총 금액 : <fmt:formatNumber value="${all_total}"/>원</span>
+					<input type="submit" value="주문하기">
 				</div>
 			</form>
 			</c:if>
