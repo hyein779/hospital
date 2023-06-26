@@ -33,7 +33,7 @@
 					<br>
 					(목디스크, 경추관절증후군, 허리디스크, 척추압박골절 등)
 				</p>
-				<p class="doc_res"><a>예약</a></p>
+				<p class="doc_res"><a href="${pageContext.request.contextPath}/reservation/careRes.do">예약</a></p>
 			</div>
 			<hr width = "100%" color = "#d6d6d6">
 			<div class="doc_list">
@@ -44,7 +44,7 @@
 					<br>
 					(퇴행성 관절, 관절내시경, 외상성 질환 등)
 				</p>
-				<p class="doc_res"><a>예약</a></p>
+				<p class="doc_res"><a href="${pageContext.request.contextPath}/reservation/careRes.do">예약</a></p>
 			</div>
 			<hr width = "100%" color = "#d6d6d6">
 			<div class="doc_list">
@@ -55,7 +55,7 @@
 					<br>
 					(하지골절, 발목관절경, 근육 및 인대 손상, 무지외반증 등)
 				</p>
-				<p class="doc_res"><a>예약</a></p>
+				<p class="doc_res"><a href="${pageContext.request.contextPath}/reservation/careRes.do">예약</a></p>
 			</div>
 		</div>
 		
