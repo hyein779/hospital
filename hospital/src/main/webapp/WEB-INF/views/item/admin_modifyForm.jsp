@@ -47,6 +47,7 @@
 		<div class="product-main">
 			<h3 class="form-title">상품 수정</h3>
 			<form action="modify.do" method="post" enctype="multipart/form-data" id="write_form" class="product-form interval">
+				<input type="hidden" name="item_num" value="${item.item_num}">
 				<ul>
 					<li class="product-content">
 						<label class="product-label">상품 표시 여부</label>

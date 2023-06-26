@@ -166,5 +166,40 @@ public class ItemDAO {
 	}
 	
 	// 관리자 - 상품 수정
+	public void updateItem(ItemVO item) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		String sub_sql = "";
+		int cnt = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if (item.getItem_photo() != null) {
+				sub_sql += ", item_photo = ?";
+			}
+			
+			sql = "UPDATE item SET item_name = ?, item_price = ?, item_quantity = ?" + sub_sql + ", item_detail = ?, item_status = ? WHERE item_num = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(++cnt, item.getItem_name());
+			pstmt.setInt(++cnt, item.getItem_price());
+			pstmt.setInt(++cnt, item.getItem_quantity());
+			if (item.getItem_photo() != null) {
+				pstmt.setString(++cnt, item.getItem_photo());
+			}
+			pstmt.setString(++cnt, item.getItem_detail());
+			pstmt.setInt(++cnt, item.getItem_status());
+			pstmt.setInt(++cnt, item.getItem_num());
+			
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			throw new Exception (e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+	}
+	
 	// 관리자 - 상품 삭제
 }
