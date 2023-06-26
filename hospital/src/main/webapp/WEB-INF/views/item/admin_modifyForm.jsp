@@ -79,8 +79,17 @@
 				</ul>
 				<div class="align-center">
 					<input type="submit" value="수정">
-					<input type="button" value="삭제" onclick="location.href='delete.do?item_num=${item.item_num}'">
+					<input type="button" value="삭제" onclick="location.href='delete.do?item_num=${item.item_num}'" id="item-cancel">
 					<input type="button" value="목록" onclick="location.href='list.do'">
+					<script type="text/javascript">
+						let item_cancel = document.getElementById('item-cancel');
+						item_cancel.onclick = function(){
+							let choice = confirm('상품을 삭제하시겠습니까?');
+							if (choice){
+								location.replace('delete.do?item_num=${item.item_num}');
+							}
+						};
+					</script>
 				</div>
 			</form>
 		</div>
