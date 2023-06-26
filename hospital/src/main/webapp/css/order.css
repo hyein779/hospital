@@ -4,7 +4,7 @@
 	margin:40px 10px 10px 130px;
 }
 .order-hr{
-	width:80%;
+	width:90%;
 }
 .order-table{
 	width:80%;
@@ -46,7 +46,7 @@ modify-hidden li label{
 }
 /* 테이블 맨 윗줄 */
 .admin-item{
-	background-color:#b2b5ae;
+	background-color:#dedede;
 }
 /* 테이블 항목 가운데 정렬 */
 .admin-subitem{

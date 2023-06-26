@@ -8,30 +8,27 @@
 <meta charset="UTF-8">
 <title>[이용자]구매내역_user_modifyForm</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
 <c:if test="${order.status < 2}">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		//유효성 체크
-		('#order_modify').submit(function(){
-			let items = document.querySelectorAll('input[type="text"]');
-			
-			if($('#input[type=radio]:checked').val() == 1){ 
-				for(let i=0; i<items.length; i++){
-					if(items[i].value.trim()==''){
-						let label = document.querySelector('label[for="'+items[i].id+'"]');
-						alert(label.textContent + ' 항목 필수 입력');
-						items[i].value = '';
-						items[i].focus();
-						return false;
-					}
-				}//end of for
-			}//end of if
-		})//end of submit
-
-	});
+$(function(){
+	//상품주문 정보 등록 유효성 체크
+		$('#order_form').submit(function(){
+  	let items = document.querySelectorAll('input[type="text"]');
+  	
+      	for(let i=0;i<items.length;i++){
+	        if(items[i].value.trim()==''){
+				let label = document.querySelector('label[for="'+items[i].id+'"]');
+		        alert(label.textContent + ' 항목을 입력하세요.');
+		        items[i].value = '';
+		        items[i].focus();
+		        return false;
+	        }
+     	}//end of for	
+     	
+		});//end of submit
+})//end of function	
 </script>
 </c:if>
 </head>
@@ -39,10 +36,11 @@
 <div class="page-main">
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- header 끝 -->
 	<!-- content 시작 -->
-	<div class="content-lnbx">
-		<h2 class="order-h2">주문내역</h2>
+	<div class="content-main">
+		<h3 class="subtitle">주문내역</h3>
 		<br>
 		<hr class="order-hr">
 		<br>
@@ -78,7 +76,7 @@
 		<br>
 		<hr class="order-hr">
 		<br>
-		<form id = "order_modify" action="orderModify.do" method="post" class="order-modifyform">
+		<form id = "order_form" action="orderModify.do" method="post" class="order-modifyform">
 			<input type="hidden" name="order_num" value="${order.order_num}">
 			<input type="hidden" name="status" value="${order.status}">
 			<ul class="order-modifyform-item">

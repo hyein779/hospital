@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>관리자상세목록_admin_listForm</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
@@ -18,11 +17,12 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="orderLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
-	<div class="content-lnbx">
-	<h2 class="order-h2">주문내역</h2>
+	<div class="content-main">
+	<h3 class="subtitle">주문 내역</h3>
 		<!-- 상품 상세 내역 -->
 		<br>
 		<hr class="order-hr">

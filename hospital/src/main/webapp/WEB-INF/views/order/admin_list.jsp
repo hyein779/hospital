@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>주문 목록_admin_list</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -35,29 +34,30 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="orderLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
-	<div class="content-lnbx">
-	<h2 class="order-h2">주문 목록</h2>
-	<form id="search_form" method="get">
-		<ul class="search">
-			<li>
-				<select name="keyfield" id="keyfield">
-					<option value="1" <c:if test="${param.keyfield == 1}"></c:if>>주문번호</option>
-					<option value="2" <c:if test="${param.keyfield == 2}"></c:if>>주문자ID</option>
-					<option value="3" <c:if test="${param.keyfield == 3}"></c:if>>상품명</option>
-				</select>
-			</li>
-			<li>
-				<input type="search" size="16" name="keyword" id="keyword" 
-				       value="${param.keyword}"> <!-- 값 유지 -->
-			</li>
-			<li>
-				<input type="submit" value="조회">
-			</li>
-		</ul>
-	</form>
+	<div class="content-main">
+		<h3 class="subtitle">주문 목록</h3>
+		<form id="search_form" method="get">
+			<ul class="search">
+				<li>
+					<select name="keyfield" id="keyfield">
+						<option value="1" <c:if test="${param.keyfield == 1}"></c:if>>주문번호</option>
+						<option value="2" <c:if test="${param.keyfield == 2}"></c:if>>주문자ID</option>
+						<option value="3" <c:if test="${param.keyfield == 3}"></c:if>>상품명</option>
+					</select>
+				</li>
+				<li>
+					<input type="search" size="16" name="keyword" id="keyword" 
+					       value="${param.keyword}"> <!-- 값 유지 -->
+				</li>
+				<li>
+					<input type="submit" value="조회">
+				</li>
+			</ul>
+		</form>
  			<br>
 			<hr class="order-hr">
 			<br>
