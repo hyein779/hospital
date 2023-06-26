@@ -13,14 +13,18 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h2>안내</h2>
+		<h3 class="subtitle">안내</h3>
 		<div class="result-display">
 			<div class="align-center">
 				<c:if test="${!empty accessMsg}">
 					${accessMsg}
 				</c:if>
 				<c:if test="${empty accessMsg}">
-					잘못된 접속입니다.
+				<div class="result-display message">
+					<img src="../images/cancel.jpg" width="250" height="250">
+					<br>
+					<span>잘못된 접속입니다.</span>
+				</div>
 				</c:if>
 				<p>
 				<c:if test="${!empty accessUrl}">

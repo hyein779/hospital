@@ -54,34 +54,34 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		<!-- 내용 시작 -->
-		<div class="content-main align-center">
-			<h2>상품 등록</h2>
-			<form action="write.do" method="post" enctype="multipart/form-data" id="write_form">
+		<div class="product-main">
+			<h3 class="form-title">상품 등록</h3>
+			<form action="write.do" method="post" enctype="multipart/form-data" id="write_form" class="product-form interval">
 				<ul>
-					<li>
-						<label>상품 표시 여부</label>
+					<li class="product-content">
+						<label class="product-label">상품 표시 여부</label>
 						<input type="radio" name="item_status" value="1" id="status1">미표시
 						<input type="radio" name="item_status" value="2" id="status1">표시
 					</li>
-					<li>
-						<label for="name">상품명</label>
+					<li class="product-content">
+						<label for="name" class="product-label">상품명</label>
 						<input type="text" name="item_name" id="name" maxlength="15">
 					</li>
-					<li>
-						<label for="price">가격</label>
+					<li class="product-content">
+						<label for="price" class="product-label">가격</label>
 						<input type="number" name="item_price" id="price" min="1" max="99999999">
 					</li>
-					<li>
-						<label for="quantity">수량</label>
+					<li class="product-content">
+						<label for="quantity" class="product-label">수량</label>
 						<input type="number" name="item_quantity" id="quantity" min="0" max="9999">
 					</li>
-					<li>
-						<label for="photo">상품 사진</label>
+					<li class="product-content">
+						<label for="photo" class="product-label">상품 사진</label>
 						<input type="file" name="item_photo" id="photo" accept="image/gif,image/png,image/jpeg">
 					</li>
-					<li>
-						<label for="detail">상품 설명</label>
-						<textarea rows="5" cols="30" name="item_detail" id="detail"></textarea>
+					<li class="product-content">
+						<label for="detail" class="product-label">상품 설명</label>
+						<textarea rows="10" cols="60" name="item_detail" id="detail"></textarea>
 					</li>
 				</ul>
 				<div class="align-center">

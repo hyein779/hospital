@@ -87,11 +87,13 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		</c:if>
 		<!-- 내용 시작 -->
-		<div class="content-main">
-			<h2>장바구니</h2>
+		<div class="product-main">
+			<h3 class="subtitle">장바구니</h3>
 			<c:if test="${empty list}">
-			<div class="result-display">
-				장바구니에 담은 상품이 없습니다.
+			<div class="result-display message">
+				<img src="../images/cart.jpg" width="250" height="250">
+				<br>
+				<span>장바구니에 담은 상품이 없습니다.</span>	
 			</div>
 			</c:if>
 			<c:if test="${!empty list}">
@@ -117,7 +119,7 @@
 								<c:if test="${cart.itemVO.item_status != 1 and cart.itemVO.item_quantity >= cart.item_count}">
 									<input type="number" name="item_count" min="1" max="${cart.itemVO.item_quantity}" autocomplete="off" value="${cart.item_count}">
 									<br>
-									<input type="button" value="변경" class="cart-modify" data-cartnum="${cart.cart_num}" data-itemnum="${cart.item_num}">
+									<input type="button" value="변경" class="cart-modify modify-button" data-cartnum="${cart.cart_num}" data-itemnum="${cart.item_num}">
 								</c:if>
 							</td>
 							<td class="align-center">
@@ -127,7 +129,7 @@
 								<fmt:formatNumber value="${cart.sub_total}"/>원
 							</td>
 							<td class="align-center">
-								<input type="button" value="X" class="cart-del" data-cartnum="${cart.cart_num}">
+								<input type="button" value="X" class="cart-del delete-button" data-cartnum="${cart.cart_num}">
 							</td>
 						</tr>
 					</c:forEach>

@@ -7,7 +7,7 @@
 }
 
 .border-line{
-	color:#d6d6d6;
+	color:6496BA;
 }
 .product-main{
 	padding:0 120px 0 280px;
@@ -16,7 +16,7 @@
 /* 상품 목록
 ---------------*/
 .image-space .horizontal-area{
-	margin:4px 20px 16px 20px;
+	margin:16px 20px 16px 20px;
 	padding:5px;
 	width:210px;
 	height:270px;
@@ -33,55 +33,118 @@
 }
 /*검색창*/
 form#search_form{
-	border: none;
+	border:none;
 }
 ul.search{
-	width: 340px;
-	list-style: none;
-	padding: 0;
-	margin: 0 auto;
+	width:340px;
+	list-style:none;
+	padding:0;
+	margin:0 auto;
 }
 ul.search li{
-	margin: 0 0 9px 0;
-	padding: 0;
-	display: inline;
+	margin:0 0 9px 0;
+	padding:0;
+	display:inline;
 }
 .list-space{
-	margin-bottom: 10px;
-	margin-right: 50px;
+	margin-bottom:10px;
+	margin-right:50px;
 }
 
 /*테이블*/
 table{
-	margin-left: 250px;
-	text-align: center;
-	width: 80%;
-	height: 200px;
+	margin-left:250px;
+	text-align:center;
+	width:80%;
+	height:200px;
 	/* padding: 5px; */
 }
 th{
 	background-color: #effbff;
-	font-size: 15px;
-	height: 30px;
+	font-size:15px;
+	height:30px;
 }
 /*기본틀*/
 .content-main{
-	padding: 10px 20px;
+	padding:10px 20px;
 }
 form{
-	width: 600px;
-	margin: 0 auto;
-	padding: 10px 10px 10px 30px;
+	width:600px;
+	margin:0 auto;
+	padding:10px 10px 10px 30px;
 }
 label{
-	width: 130px;
-	float: left; /*태그를 왼쪽에 정렬*/
+	width:130px;
+	float:left; /*태그를 왼쪽에 정렬*/
 }
 
 ul{
-	list-style: none;
+	list-style:none;
 }
 .logreg{
-	margin-top: 30px;
-	margin-left: 300px;
+	margin-top:30px;
+	margin-left:300px;
+}
+
+/* 페이지 제목
+---------------*/
+.product-main h3.subtitle{
+	font-size:30px;
+	margin-top:20px;
+}
+/* 상품 등록 및 수정폼
+---------------*/
+.form-title{
+	font-size:30px;
+	margin-left:140px;
+}
+.interval{
+	margin-top:15px; 
+}
+.product-form{
+	border:1px solid #6496BA;
+	border-radius:5px;
+	width:800px;
+	padding-bottom:30px;
+}
+.product-content{
+	padding:10px 0;
+}
+.product-label{
+	width:250px;
+	font-weight:bold;
+	font-size:18px;
+}
+.form-file{
+	padding-left:250px;
+}
+
+/* 장바구니
+---------------*/
+.result-display{
+	width:1000px;
+	height:400px;
+	margin:30px auto;
+	border:2px solid #d6d6d6;
+	border-radius:5px;
+	display:flex;
+	align-items:center;/*세로 정렬*/
+	justify-content:center;/*가로 정렬*/
+}
+.message{
+	font-size:20px;
+	font-weight:bold;
+}
+.delete-button{
+	background-color:#f55442;
+	border:none;
+	border-radius:5px;
+	color:white;
+	cursor:pointer;
+	font-size:13px;
+	font-weight:bold;
+	padding:3px 5px;
+}
+.modify-button{
+	border-radius:5px;
 }

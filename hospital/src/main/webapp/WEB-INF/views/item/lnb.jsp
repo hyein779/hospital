@@ -4,7 +4,7 @@
 	<!-- 보조기/장바구니  -->
 	<h2 class="lnbTitle">보조기</h2>
 	<ul class="depth1">
-		<li id="10101"><a href="#"  onclick="#">보조기</a></li>		
-		<li id="10106" ><a href="#"  onclick="#">장바구니</a></li>
+		<li id="10101"><a href="${pageContext.request.contextPath}/item/item_list.do">보조기</a></li>		
+		<li id="10106" ><a href="${pageContext.request.contextPath}/cart/list.do">장바구니</a></li>
 	</ul>
 </div>

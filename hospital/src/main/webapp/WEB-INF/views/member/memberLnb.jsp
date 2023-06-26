@@ -27,7 +27,7 @@
 		<li id="10109" >My 주문 정보</li>
 		<ul class="depth2">
 			<li id="10110" >
-			<a href="#"  onclick="#">내 주문 내역</a></li>
+			<a href="${pageContext.request.contextPath}/member/itemList.do">내 주문 내역</a></li>
 		</ul>
 			
 		<li id="10111" >My 봉사활동 정보</li>
