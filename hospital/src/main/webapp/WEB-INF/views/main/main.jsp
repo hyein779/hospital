@@ -33,7 +33,7 @@
 		   환자 각각의 상황에 맞는 맞춤 치료로 건강하고 행복한 100세 시대를 열어갈 수 있도록 합니다.</p>
     </div>
 	<div class="content-sub-title1">
-		<h2>진료과목</h2>
+		<h2 class="align-center">진료과목</h2>
 		<p>풍부한 수술경험과 노하우로 정확한 진단과 치료를 제시합니다.</p>
 	   	<table class="table-main">
 			<tr>
@@ -50,7 +50,7 @@
 	</div>
 		
 	<div class="content-sub-title2">
-		<h2 class="content-sub-title">치료종류</h2>
+		<h2 class="align-center">치료종류</h2>
 		<p>몸에 부담과 위험이 가장 작은 치료를 제일의 원칙으로 삼고 있습니다.</p>
 	   	<table class="table-main">
 			<tr>

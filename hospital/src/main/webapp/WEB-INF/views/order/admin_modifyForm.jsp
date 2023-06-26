@@ -144,28 +144,31 @@
 					</table>
 				</c:if>
 				<c:if test="${order.status >= 2}">
+					<br>
+						<li class="delivery_text">* 배송대기일때만 수정가능 *</li>
+					<br>
 					<li>
-						<label>받는사람</label>
+						<label class="order_label">받는사람</label>
 						${order.receive_name}
 					</li>
 					<li>
-						<label>전화번호</label>
+						<label class="order_label">전화번호</label>
 						${order.receive_phone}
 					</li>					
 					<li>
-						<label>우편번호</label>
+						<label class="order_label">우편번호</label>
 						${order.receive_post}
 					</li>
 					<li>
-						<label>주소</label>
+						<label class="order_label">주소</label>
 						${order.receive_address1}
 					</li>					
 					<li>
-						<label>상세주소</label>
+						<label class="order_label">상세주소</label>
 						${order.receive_address2}
 					</li>					
 					<li>
-						<label>메모</label>
+						<label class="order_label">메모</label>
 						${order.notice}
 					</li>					
 				</c:if>	
@@ -181,13 +184,15 @@
 			<div class="align-center">
 				<c:if test="${order.status != 5}">			
 					<input type="submit" value="수정">
+					<input type="button" value="목록"
+					       onclick="location.href='list.do'">
 				</c:if>
 				
 				<!-- 배송완료, 주문취소 상태일때만 정보를 삭제 -->
 				<c:if test="${order.status == 4 or order.status == 5}">
 					<input type="button" value="삭제"
 						   onclick="location.href='deleteOrder.do?order_num=${order.order_num}'">
-					<input type="button" value="주문목록"
+					<input type="button" value="목록"
 					       onclick="location.href='list.do'">
 		        </c:if>	
 	        </div>		

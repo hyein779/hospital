@@ -124,11 +124,11 @@
 					</tr>
 					<tr>
 						<td>
-							<label>결제수단</label>
+							<label>결제수단</label>	
 						</td>
 						<td>
-							<input type="radio" name="payment" id="payment1" value="1">계좌이체
-							<input type="radio" name="payment" id="payment2" value="2">카드결제
+							<input type="checkbox" name="payment" id="payment1" value="1">계좌이체
+							<input type="checkbox" name="payment" id="payment2" value="2">카드결제
 						</td>
 					</tr>
 					<tr>
