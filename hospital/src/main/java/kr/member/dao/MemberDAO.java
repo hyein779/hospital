@@ -262,12 +262,9 @@ public class MemberDAO {
 			conn = DBUtil.getConnection();
 
 			if (keyword != null && !"".equals(keyword)) {
-				if (keyfield.equals("1"))
-					sub_sql += "WHERE mem_id LIKE ?";
-				else if (keyfield.equals("2"))
-					sub_sql += "WHERE mem_name LIKE ?";
-				else if (keyfield.equals("3"))
-					sub_sql += "WHERE mem_email LIKE ?";
+				if(keyfield.equals("1")) sub_sql += "WHERE mem_id LIKE ?";
+				else if(keyfield.equals("2")) sub_sql += "WHERE mem_name LIKE ?";
+				else if(keyfield.equals("3")) sub_sql += "WHERE mem_email LIKE ?";
 			}
 
 			sql = "SELECT count(*) FROM member m LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql;
@@ -307,8 +304,6 @@ public class MemberDAO {
 					sub_sql += "WHERE mem_id LIKE ?";
 				else if (keyfield.equals("2"))
 					sub_sql += "WHERE mem_name LIKE ?";
-				else if (keyfield.equals("3"))
-					sub_sql += "WHERE mem_email LIKE ?";
 			}
 
 			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM "
