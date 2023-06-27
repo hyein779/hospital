@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
 <div id="main_logo">
-	<h1 class="align-center"><a href="${pageContext.request.contextPath}/main/main.do">쌍용 정형외과</a></h1>
+	<h1 class="align-center"><a href="${pageContext.request.contextPath}/main/main.do"><img src="../images/logo.png" width="500" height="150"></a></h1>
 </div>
 <div class="textright">
 		<c:if test="${!empty user_num}">
