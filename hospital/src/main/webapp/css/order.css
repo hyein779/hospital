@@ -63,6 +63,10 @@ input#keyword, select#keyfield{
 	width:80px;
 	float:left;
 }
+.order-page{
+	text-align:center;
+}
+
 /* 버튼 오른쪽 정렬 */
 .order-button{
 	float:right;
