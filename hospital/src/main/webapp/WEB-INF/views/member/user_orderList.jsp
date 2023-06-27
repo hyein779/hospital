@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/member.css">
+	href="${pageContext.request.contextPath}/css/community.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -31,17 +31,17 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp" />
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">내 주문 목록</h1>
+			<h3 class="subtitle">내 주문 목록</h3>
 			<!-- 검색창 시작 -->
 			<form id="search_form" action="itemList.do" method="get">
 				<ul class="search">
-					<li><select name="keyfield">
-							<option value="1"
-								<c:if test="${param.keyfield==1}">selected</c:if>>상품명</option>
-					</select></li>
-					<li><input type="search" size="25" name="keyword" id="keyword"
+					<li><select name="keyfield" id="keyfield">
+							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>상품명</option>
+						</select>
+					</li>
+					<li><input type="search" size="50" name="keyword" id="keyword"
 						value="${param.keyword}"></li>
-					<li><input type="submit" value="검색"></li>
+					<li><input type="submit" id="search" value="검색"></li>
 				</ul>
 			</form>
 			<!-- 검색창 끝 -->

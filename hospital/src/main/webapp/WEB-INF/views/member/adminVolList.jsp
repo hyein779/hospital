@@ -10,7 +10,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/member.css">
+	href="${pageContext.request.contextPath}/css/community.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -33,15 +33,15 @@
 		<div class="content-main">
 			<h1 class="logreg">봉사 목록</h1>
 			<!-- 검색창 시작 -->
-			<form id="search_form" action="itemList.do" method="get">
+			<form id="search_form" action="adminVolList.do" method="get">
 				<ul class="search">
-					<li><select name="keyfield">
-							<option value="1"
-								<c:if test="${param.keyfield==1}">selected</c:if>>봉사명</option>
-					</select></li>
-					<li><input type="search" size="25" name="keyword" id="keyword"
+					<li><select name="keyfield" id="keyfield">
+							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>봉사명</option>
+						</select>
+					</li>
+					<li><input type="search" size="50" name="keyword" id="keyword"
 						value="${param.keyword}"></li>
-					<li><input type="submit" value="검색"></li>
+					<li><input type="submit" id="search" value="검색"></li>
 				</ul>
 			</form>
 			<!-- 검색창 끝 -->
