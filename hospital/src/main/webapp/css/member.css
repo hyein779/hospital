@@ -6,10 +6,10 @@
 	text-align: center;
 }
 
-.content-main h2.subtitle {
+/* .content-main h2.subtitle {
 	font-size: 30px;
 	margin: 40px 0 20px 55px;
-}
+} */
 
 .result-display {
 	width: 440px;
@@ -241,6 +241,11 @@ td {
 .itemtable {
 	border-width: 1px;
 } */
+/*마이페이지*/
+.myPagest{
+	font-size: 30px;
+	margin: 40px 0 20px 55px; 
+}
 .list-space {
 	margin: 15px 0;
 }

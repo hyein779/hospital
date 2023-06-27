@@ -25,7 +25,7 @@
 					loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				<div>
 					<ul>
-						<h3>진료시간</h3>
+						<!-- 시계이미지 --><h3>진료시간</h3>
 						<li><label>평일</label>오전9시 ~ 오후8시</li>
 						<li><label>점심시간</label>오후1시 ~ 오후2시</li>
 						<li><label>토요일</label>오전9시 ~ 오후1시</li>
@@ -34,11 +34,11 @@
 					<hr size="1" noshade="noshade" width="90%">
 					<ul>
 						<h3>전화 문의 및 오시는길</h3>
-						<!-- 이미지 --><span>02)3482-4632</span>
-						<h4>지하철이용시</h4>
+						<!-- 전화기이미지 --><span>02)3482-4632</span>
+						<!-- 지하철이미지 --><h4>지하철이용시</h4>
 						<li><label>역삼역(2호선)</label>3번출구 도보3분 거리</li>
 						<li><label>강남역(2호선)</label>1번출구 도보5분거리</li>
-						<h4>버스 이용시</h4>
+						<!-- 버스이미지 --><h4>버스 이용시</h4>
 						<li><label>역삼역 하차</label>N13, N61, 146,341, 360, 740, 6000</li>
 						<li><label>&nbsp;&nbsp;</label>6020, 1100, 1700, 2000, 2000-1, 7007</li>
 					</ul>

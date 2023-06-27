@@ -102,20 +102,35 @@ input#search{
 }
 
 /*테이블*/
-table{
-	margin-left:250px;
-	text-align:center;
-	width:80%;
-	/* height:200px; */
-	/* padding: 5px; */
+table {
+	width: 100%;
+	border: 1px solid #eaeaea;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	margin-top: 10px;
 }
-th{
-	background-color: #effbff;
-	font-size:15px;
-	height:30px;
+
+th, td {
+	padding: 10px;
+	text-align: center;
 }
+
+th {
+	background-color: #dedede;
+	font-weight: bold;
+	border-bottom: 1px solid #f9f9f9;
+}
+
 td {
-	height: 30px
+	border-bottom: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+tr:hover {
+	background-color: #EFFBFF;
 }
 /*기본틀*/
 .content-main{
