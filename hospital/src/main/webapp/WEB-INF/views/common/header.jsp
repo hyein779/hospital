@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
-<div id="main_logo">
-	<h1 class="align-center"><a href="${pageContext.request.contextPath}/main/main.do"><img src="../images/logo.png" width="500" height="150"></a></h1>
-</div>
+<h1 class="main-logo"><a href="${pageContext.request.contextPath}/main/main.do"><img src="../images/logo.png" width="500" height="150"></a></h1>
 <div class="textright">
 		<c:if test="${!empty user_num}">
 		<li class="menu-logout">
@@ -75,11 +73,9 @@
 							<li class="inner-menu-item"><a href="${pageContext.request.contextPath}/volunteer/volList.do">봉사자 모집</a></li>
 						</ul>
 					</li> 
-					<c:if test="${!empty user_num && user_auth == 9}">
-						<li class = "outer-menu-item">
-							<span class="menu-title"><a href="${pageContext.request.contextPath}/order/list.do">주문관리</a></span>
-						</li>	
-					</c:if>
+					<li class = "outer-menu-item">
+						<span class="menu-title"><a href="#">오시는길</a></span>
+					</li>	
 				</ul>
 			</div>
 		</nav>
