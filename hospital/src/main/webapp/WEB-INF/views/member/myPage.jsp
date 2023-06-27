@@ -15,7 +15,7 @@
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
-	<!-- 내용 시작 -->
+	<!-- 내용  시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">나의 정보</h3>
 		<div class="mypage-div">
