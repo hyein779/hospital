@@ -67,7 +67,7 @@
 						<th></th>
 					</tr>
 					<c:forEach var="order" items="${list}">
-						<tr>
+						<tr>  
 							<td>${order.order_name}</td>
 							<td>${order.order_num}</td>
 							<td><fmt:formatNumber value="${order.order_total}" />원</td>
