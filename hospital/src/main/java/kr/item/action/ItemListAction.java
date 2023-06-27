@@ -8,18 +8,32 @@ import javax.servlet.http.HttpServletResponse;
 import kr.controller.Action;
 import kr.item.dao.ItemDAO;
 import kr.item.vo.ItemVO;
+import kr.util.PageUtil;
 
 public class ItemListAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 신규 상품 데이터 처리
-		ItemDAO itemDao = ItemDAO.getInstance();                 // status
-		List<ItemVO> itemList = itemDao.getListItem(1, 8, null, null, 1);
+		String pageNum = request.getParameter("pageNum");
+		if (pageNum == null) pageNum = "1";
+		
+		String keyfield = request.getParameter("keyfield");
+		String keyword = request.getParameter("keyword");
+		
+		ItemDAO dao = ItemDAO.getInstance();
+		int count = dao.getItemCount(keyfield, keyword, 1);
 		
 		// 페이지 처리
-				
-		request.setAttribute("itemList", itemList);
+		PageUtil page = new PageUtil(keyfield, keyword, Integer.parseInt(pageNum), count, 10, 10, "item_list.do");
+		List<ItemVO> list = null;
+		if (count > 0) {
+			list = dao.getListItem(page.getStartRow(), page.getEndRow(), keyfield, keyword, 1);
+		}
+		
+		
+		request.setAttribute("count", count);
+		request.setAttribute("list", list);
+		request.setAttribute("page", page.getPage());
 		
 		return "/WEB-INF/views/item/item_list.jsp";
 	}
