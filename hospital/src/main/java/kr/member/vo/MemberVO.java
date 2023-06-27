@@ -20,9 +20,17 @@ public class MemberVO {
 	private Date visited; //최근진료일
 	
 	// 비밀번호 일치 여부 체크
-	public boolean isCheckesPassword(String userPasswd) {
+	public boolean isCheckedPassword(String userPasswd) {
 		// 회원등급(auth):0탈퇴회원,1정지회원,2일반회원,9관리자
 		if(auth > 1 && passwd.equals(userPasswd)) {
+			return true;
+		}
+		return false;
+	}
+	
+	// 비밀번호 재발급 위한 체크
+	public boolean isCheckdUserPw(String userName, String userPhone) {
+		if(name.equals(userName) && phone.equals(userPhone)) {
 			return true;
 		}
 		return false;
