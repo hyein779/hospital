@@ -66,7 +66,7 @@
 				   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
 		
-	</div>	
+	</div>	 
 	<!-- content 끝 -->
 	
 	<!-- footer 시작 -->

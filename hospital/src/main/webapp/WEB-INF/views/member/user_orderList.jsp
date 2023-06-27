@@ -88,7 +88,7 @@
 		</div>
 		<!-- 내용 끝 -->
 		<div class="align-center">${page}</div>
-		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+		<jsp:include page="/WEB-INF/views/common/footer.jsp" /> 
 	</div>
 </body>
 </html>

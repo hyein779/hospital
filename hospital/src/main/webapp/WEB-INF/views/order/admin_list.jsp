@@ -99,7 +99,7 @@
 			</c:forEach>
 			</table>
  			<br>
-			<hr class="order-hr">
+			<hr class="order-hr"> 
 			<br>
 		</c:if>
 	</div>		
