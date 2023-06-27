@@ -16,7 +16,7 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h2 class="logreg-a">${member.id}의회원정보(관리자전용)</h2>
+			<h2 class="logreg-a align-center">${member.id}의회원정보(관리자전용)</h2>
 			<form action="adminDetailUser.do" method="post" id="detail_form">
 				<input type="hidden" name="mem_num" value="${member.mem_num}">
 				<ul>

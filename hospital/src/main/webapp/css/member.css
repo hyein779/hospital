@@ -5,6 +5,18 @@
 	margin: 40px 0 150px 0;
 	text-align: center;
 }
+.content-main h2.subtitle{
+	font-size:30px;
+	margin:40px 0 20px 55px;
+}
+dl{
+	display: block;
+	height: auto;
+	width: 100%;
+	margin: 60px auto;
+	font-size: 0;
+	letter-spacing: -4px;
+}
 
 .result-display {
 	width: 440px;
@@ -38,6 +50,8 @@ label {
 	width: 130px;
 	float: left; /*태그를 왼쪽에 정렬*/
 	margin-top: 15px;
+	font-weight: 550;
+	text-align: left;
 }
 
 .logreg-e {
@@ -45,8 +59,8 @@ label {
 }
 
 .logreg-a {
-	margin-top: 30px;
-	margin-left: 300px;
+	margin-top: 50px;
+	margin-bottom: 30px;
 }
 /* 
 .form-notice {
