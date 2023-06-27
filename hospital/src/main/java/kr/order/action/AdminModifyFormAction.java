@@ -28,6 +28,7 @@ public class AdminModifyFormAction implements Action{
 		int order_num = Integer.parseInt(request.getParameter("order_num"));
 		OrderDAO dao = OrderDAO.getInstance();
 		OrderVO order = dao.getOrder(order_num);
+		
 		//주문한 상세정보 읽어오기
 		List<OrderDetailVO> detailList = dao.getListOrderDetail(order_num);
 		request.setAttribute("order", order);
