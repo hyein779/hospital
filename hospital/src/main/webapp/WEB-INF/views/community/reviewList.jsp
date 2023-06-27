@@ -54,25 +54,42 @@
 					};
 				</script> -->
 				</c:if>
-				<li>
+				<li class="like">
 					<!-- 좋아요 -->
-					<div id="output_fav" data-num="${review.rev_num}">좋아요</div>
-					<div id="output_fcount" data-num="${review.rev_num}"></div>
+					<img id="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/fav01.png" width="23">
+					좋아요
+					<span id="output_fcount"></span> 
 				</li>
 			</ul>
 			<ul class="rev-main">
 				<li class="review-image">
 					<c:if test="${review.rev_type == 0}">
-					<div class="review-image"><img src="${pageContext.request.contextPath}/images/목질환.png"></div>
+					<div class="review-image">
+						<img src="${pageContext.request.contextPath}/images/목통증.jpg">
+						<p>
+						목통증 <br> 진료 후기
+						</div>
 					</c:if>
 					<c:if test="${review.rev_type == 1}">
-					<div class="review-image"><img src="${pageContext.request.contextPath}/images/허리질환.png"></div>
+					<div class="review-image">
+						<img src="${pageContext.request.contextPath}/images/허리통증.jpg">
+						<p>
+						허리통증 <br> 진료 후기
+						</div>
 					</c:if>
 					<c:if test="${review.rev_type == 2}">
-					<div class="review-image"><img src="${pageContext.request.contextPath}/images/어깨질환.png"></div>
+					<div class="review-image">
+						<img src="${pageContext.request.contextPath}/images/어깨통증.jpg">
+						<p>
+						어깨통증 <br> 진료 후기
+						</div>
 					</c:if>
 					<c:if test="${review.rev_type == 3}">
-					<div class="review-image"><img src="${pageContext.request.contextPath}/images/도수치료.png"></div>
+					<div class="review-image">
+						<img src="${pageContext.request.contextPath}/images/도수치료.png">
+						<p>
+						기타 진료 후기
+						</div>
 					</c:if>
 				</li>
 				<li>
@@ -85,7 +102,7 @@
 			
 		</div>
 		</c:forEach>
-		<div class="align-center">${page}</div>
+		<div class="align-center float-clear">${page}</div>
 		</c:if>
 	</div>
 	<!-- 내용 끝 -->
