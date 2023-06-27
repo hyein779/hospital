@@ -15,7 +15,6 @@
 <body>
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
-		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp" />
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h3 class="subtitle">오시는 길</h3>
