@@ -32,8 +32,8 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">회원정보수정</h1>
-			<hr size="1" noshade="noshade" width="80%">
+			<h3 class="subtitle">회원정보 수정</h3>
+			<hr size="1" noshade="noshade" width="90%">
 			<form id="modify_form" action="modifyUser.do" method="post">
 				<ul>
 					<li>
@@ -55,7 +55,7 @@
 					<li>
 						<label for="zipcode">우편번호</label>
 						<input type="text" name="zipcode" value="${member.zipcode}" id="zipcode" maxlength="5">
-						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()">
+						<input type="button" value="우편번호 찾기" onclick="execDaumPostcode()" class="zipbtn">
 					</li>
 					<li>
 						<label for="address1">주소</label>

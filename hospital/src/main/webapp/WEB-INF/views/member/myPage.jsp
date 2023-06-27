@@ -17,8 +17,7 @@
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h1 class="logreg">나의정보</h1>
-		<hr size="1" noshade="noshade" width="80%">
+		<h3 class="subtitle">나의 정보</h3>
 		<div class="mypage-div">
 			<table>
 				<tr>
@@ -77,7 +76,6 @@
 					<td>${member.modify_date}</td>
 				</tr>
 			</table>
-			<hr size="1" noshade="noshade" width="80%">
 			<div class="align-center">
 				<input type="button" value="내 정보수정" onclick="location.href='${pageContext.request.contextPath}/member/modifyUserForm.do'">
 			</div>

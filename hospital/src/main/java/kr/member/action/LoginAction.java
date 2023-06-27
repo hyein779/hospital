@@ -24,7 +24,7 @@ public class LoginAction implements Action{
 				
 		if(member!=null) {//id가 존재할 시
 			// 비밀번호 일치여부 체크(일치하면 true)
-			check = member.isCheckesPassword(passwd);
+			check = member.isCheckedPassword(passwd);
 			// 로그인 실패시 auth 체크용(auth 값 저장)
 			request.setAttribute("auth", member.getAuth());
 		}

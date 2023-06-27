@@ -40,7 +40,7 @@ public class ModifyUserAction implements Action{
 		
 		MemberVO check_pw = dao.checkMember(user_id);
 		boolean check = false;
-		check = check_pw.isCheckesPassword(passwd);
+		check = check_pw.isCheckedPassword(passwd);
 		if(check) {
 			dao.updateMember(member);
 		}

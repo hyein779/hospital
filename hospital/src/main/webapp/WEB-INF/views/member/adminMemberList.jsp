@@ -27,22 +27,21 @@
 	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h1 class="logreg">회원관리</h1>
+		<h3 class="subtitle">회원목록</h3>
 		<!-- 검색창 시작 -->
-		<form id="search_form" action="adminMemberList.do" method="get">
+		<form id="search_form" action="noticeList.do" method="get">
 			<ul class="search">
 				<li>
-					<select name="keyfield">
-						<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>ID</option>
-						<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>이름</option>
-						<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>email</option>
+					<select name="keyfield" id="keyfield">
+						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>ID</option>
+						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>이름</option>
 					</select>
 				</li>
 				<li>
-					<input type="search" size="25" name="keyword" id="keyword" value="${param.keyword}">
+					<input type="search" size="50" name="keyword" id="keyword" value="${param.keyword}">
 				</li>
 				<li>
-					<input type="submit" value="검색">
+					<input type="submit" id="search" value="검색">
 				</li>
 			</ul>
 		</form>
@@ -51,7 +50,6 @@
 			<input type="button" value="목록" onclick="location.href='memberList.do'"> 
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '">  
 		</div>
-		<hr size="1" noshade="noshade" width="80%">
 		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 회원정보가 없습니다.
@@ -98,7 +96,6 @@
 			</tr>
 			</c:forEach>
 		</table>
-		<hr size="1" noshade="noshade" width="80%">
 		<div class="align-center">${page}</div>
 		</c:if>
 		
