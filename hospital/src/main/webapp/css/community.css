@@ -208,6 +208,14 @@ tr:hover{
 	padding-right:10px;
 }
 
+.sub input{
+	background-color:#6496BA;
+	color:white;
+	border:none;
+	padding:4px 10px;
+	border-radius:3px;
+}
+
 .rev-main{
 	padding:0;
 	margin:0;
@@ -223,6 +231,8 @@ li.review-image{
 	padding:15px 0;
 	font-size:14px;
 	text-align:center;
+	color:#6496BA;
+	font-weight:bold;
 }
 
 

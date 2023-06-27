@@ -164,17 +164,31 @@ public class ReviewDAO {
 	public void deleteReview(int rev_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		String sql = null;
 		
 		try {
 			conn = DBUtil.getConnection();
+			// 오토커밋 해제
+			conn.setAutoCommit(false);
 			
-			sql = "DELETE FROM review WHERE rev_num=?";
+			// 좋아요 삭제
+			sql= "DELETE FROM fav WHERE rev_num=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, rev_num);
 			pstmt.executeUpdate();
 			
+			// 부모글 삭제
+			sql = "DELETE FROM review WHERE rev_num=?";
+			pstmt2 = conn.prepareStatement(sql);
+			pstmt2.setInt(1, rev_num);
+			pstmt2.executeUpdate();
+			
+			// 예외 발생없이 정상적으로 SQL문 실행
+			conn.commit();
 		}catch(Exception e) {
+			// 하나라도 SQL문이 실패하면
+			conn.rollback();
 			throw new Exception(e);
 		}finally {
 			DBUtil.executeClose(null, pstmt, conn);
