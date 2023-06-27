@@ -10,7 +10,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#appvolform').submit(function(){
+		$('.appvolform').submit(function(){
 			if($('#name').val().trim()==''){
 				alert('이름을 입력하세요');
 				$('#name').val('').focus();
@@ -49,6 +49,7 @@
 		</div>
 		<hr size="2" noshade="noshade" width="100%">
 		<form class="appvolform" action="appVolWrite.do" method="post">
+			<input type="hidden" name="board_num" value="${board.board_num}">
 			<div class="div1">
 				<ul>
 					<li>
@@ -72,7 +73,7 @@
 						<textarea rows="12" cols="80" name="content" id="content"></textarea>
 					</li>
 					<li>
-						<input type="submit" value="지원하기" class="submit">
+						<input type="submit" value="지원하기">
 						<input type="button" value="뒤로가기" onclick="location.href='volDetail.do'" class="home">
 					</li>
 				</ul>

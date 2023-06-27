@@ -82,7 +82,7 @@
 		<hr class="order-hr">
 		<form id ="order_form" action="order.do" method="post" class="order-modifyform">
 			<h4 class="delivery_text">* 배송정보 입력란 *</h4>
-				<table class="order-modifytable">
+				<table>
 					<tr>
 						<td>
 							<label for="receive_name">받는사람</label></td>
@@ -104,9 +104,9 @@
 							<label for="zipcode">우편번호</label></td>
 						<td>
 						<input type="text" name="receive_post" id="zipcode"
-						   maxlength="5" value="${order.receive_post}">
+						       maxlength="5" value="${order.receive_post}">
 						<input type="button" value="우편번호 찾기" 
-					       onclick="execDaumPostcode()">						
+					           onclick="execDaumPostcode()">						
 						</td>
 					</tr>
 					<tr>
@@ -144,8 +144,8 @@
 					</tr>
 				</table>
 			<div class="align-center">
-				<input type="submit" value="주문">
-				<input type="button" value="홈으로"
+				<input type="submit" id="btn" value="주문">
+				<input type="button" id="btn" value="홈으로"
 				       onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
 		</form>		

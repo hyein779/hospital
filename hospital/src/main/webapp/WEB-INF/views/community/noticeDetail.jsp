@@ -29,9 +29,11 @@
 			
 			<ul class="detail-sub">
 				<li>
+					<c:if test="${empty notice.notice_modifydate}"> <!-- 수정한 날짜가 없는 경우 -->
 					작성일 ${notice.notice_date}
+					</c:if>
 					<c:if test="${!empty notice.notice_modifydate}"> <!-- 수정한 날짜가 있는 경우 -->
-					(수정일 ${notice.notice_modifydate})
+					수정일 ${notice.notice_modifydate}
 					</c:if>
 					<input type="button" value="목록" onclick="location.href='noticeList.do'" class="submit">
 					<!-- 관리자만 수정, 삭제가 가능 -->

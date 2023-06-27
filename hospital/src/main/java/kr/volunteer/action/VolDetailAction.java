@@ -2,7 +2,6 @@ package kr.volunteer.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import kr.controller.Action;
 import kr.util.StringUtil;
 import kr.volunteerboard.vo.volunteerboardVO;
@@ -17,12 +16,13 @@ public class VolDetailAction implements Action{
 		volunteerboardDAO dao = volunteerboardDAO.getInstance();
 		//조회수 증가
 		dao.updateReadcount(board_num);
-		
 		volunteerboardVO board = dao.getBoard(board_num);
 		
 		board.setTitle(StringUtil.useNoHtml(board.getTitle()));
 		board.setContent(StringUtil.useBrNoHtml(board.getContent()));
 		board.setQuantity(board.getQuantity());
+		board.setReg_date(board.getReg_date());
+		board.setBoard_num(board_num);
 		
 		request.setAttribute("board", board);
 		 

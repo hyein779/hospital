@@ -90,9 +90,9 @@
 						<c:if test="${order.status == 5}">주문취소</c:if>
 					</td>
 					<td class="order-table-button">
-						<input type="button" value="주문상세" 
+						<input type="button" value="주문내역" 
 							   onclick="location.href='listForm.do?order_num=${order.order_num}'">
-						<input type="button" value="주문변경" 
+						<input type="button" value="배송정보" 
 							   onclick="location.href='modifyForm.do?order_num=${order.order_num}'">
 					</td>
 				</tr>

@@ -40,12 +40,11 @@ $(function(){
 	//좋아요 표시 
 	function displayFav(param){
 		let output;
-		output = '좋아요';
-		/*if(param.status=='noFav'){
+		if(param.status=='noFav'){
 			output = '../images/fav01.png';
 		}else{
 			output = '../images/fav02.png';
-		}*/
+		}
 		//문서 객체 설정
 		$('#output_fav').attr('src',output);
 		$('#output_fcount').text(param.count);

@@ -22,7 +22,7 @@ public class NoticeListAction implements Action{
 		
 		NoticeDAO dao = NoticeDAO.getInstance();
 		int count = dao.getNoticeCount(keyfield, keyword);
-		PageUtil page = new PageUtil(keyfield, keyword, Integer.parseInt(pageNum),count,15,10,"list.do");
+		PageUtil page = new PageUtil(keyfield, keyword, Integer.parseInt(pageNum),count,15,10,"noticeList.do");
 		
 		
 		List<NoticeVO> list = null;

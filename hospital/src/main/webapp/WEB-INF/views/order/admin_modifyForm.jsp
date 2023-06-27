@@ -47,9 +47,9 @@
 		<br>
 		<hr class="order-hr">
 		<br>		
-		<form id = "order_form" action="modify.do" method="post" class="order-modifyform">
+		<form id = "order_form" action="modify.do" method="post">
 			<input type="hidden" name="order_num" value="${order.order_num}">
-			<ul class="order-modifyform-item">
+			<ul>
 				<li>
 					<label>배송 상태</label>
 					<c:if test="${order.status != 5}">
@@ -71,10 +71,11 @@
 				<br>
 				<li class="delivery_text">* 배송대기일때만 수정가능 *</li>
 				<br>
-					<table class="order-modifytable">
+ 					<table>
 						<tr>
 							<td>
-								<label for="receive_name">받는사람</label></td>
+								<label for="receive_name">받는사람</label>
+							</td>
 							<td>						
 								<input type="text" name="receive_name" id="receive_name"
 									   maxlength="10" value="${order.receive_name}">
@@ -82,44 +83,49 @@
 						</tr>
 						<tr>
 							<td>
-								<label for="receive_phone">전화번호</label></td>
+								<label for="receive_phone">전화번호</label>
+							</td>
 							<td>
-							<input type="text" name="receive_phone" id="receive_phone"
-								   maxlength="15" value="${order.receive_phone}">						
+								<input type="text" name="receive_phone" id="receive_phone"
+								 	   maxlength="15" value="${order.receive_phone}">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="zipcode">우편번호</label>
+							</td>
 							<td>
-							<input type="text" name="receive_post" id="zipcode"
-							   maxlength="5" value="${order.receive_post}">
-							<input type="button" value="우편번호 찾기" 
-						       onclick="execDaumPostcode()">						
+								<input type="text" name="receive_post" id="zipcode"
+								       maxlength="5" value="${order.receive_post}">
+								<input type="button" value="우편번호 찾기" 
+							           onclick="execDaumPostcode()">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="receive_address1">주소</label>
+							</td>	
 							<td>
-							<input type="text" name="receive_address1" id="address1"
-							  	   maxlength="30" value="${order.receive_address1}">						
+								<input type="text" name="receive_address1" id="address1"
+								  	   maxlength="30" value="${order.receive_address1}">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="receive_address2">상세주소</label>
+							</td>
 							<td>
-							<input type="text" name="receive_address2" id="receive_address2"
-						 		   maxlength="30" value="${order.receive_address2}">						
+								<input type="text" name="receive_address2" id="receive_address2"
+							 		   maxlength="30" value="${order.receive_address2}">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="notice">메모</label>
+							</td>	
 							<td>
-							<textarea rows="5" cols="42" name="notice" id="notice"
-				        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
+								<textarea rows="5" cols="42" name="notice" id="notice"
+					        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
 							</td>
 						</tr>
 					</table>
