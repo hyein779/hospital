@@ -14,13 +14,23 @@
 	margin:0 0 35px 0;
 	height:auto;
 }
+.product-main > h3{
+	border-bottom: 1px solid #8f9ba8;
+	padding-bottom:20px;
+}
+.image-space{
+	margin: -15px 0 20px 0;
+    border-top: 2px solid #7c8691;
+    border-bottom: 1px solid #7c8691;
+    overflow: hidden;
+}
 /* 상품 목록
 ---------------*/
 .image-space .horizontal-area{
-	margin:16px 20px 16px 20px;
-	padding:5px;
+	margin:16px 32px 16px 28px;
+	padding:10px;
 	width:210px;
-	height:270px;
+	height:280px;
 	float:left;
 	overflow:hidden;
 	text-align:center;
@@ -28,9 +38,11 @@
 .image-space .horizontal-area img{
 	width:245px;
 	height:225px;
+	margin-bottom:15px;
 }
 .image-space .float-clear{
 	clear:both;
+	padding-top:10px;
 }
 .btn{
 	background-color:#333;
@@ -75,7 +87,6 @@ input#search{
 	color:#fff;
 	background-color:#6496BA;
 	border:none;
-	border-radius:5px;
 	cursor:pointer;
 	height:32px;
 	font-size:14px;
@@ -207,7 +218,7 @@ ul{
 .cart > form > .total {
     float: right;
     width: 360px;
-    padding: 18px;
+    padding: 9px 18px 15px;
     margin-top: 12px;
     border: 1px solid #d3d3d3;
     box-sizing: border-box;
@@ -247,7 +258,6 @@ ul{
 	color:#fff;
 	background-color:#6496BA;
 	border:none;
-	border-radius:5px;
 	cursor:pointer;
 	height:25px;
 	padding:2px 8px 10px 8px;

@@ -38,7 +38,7 @@ public class ModifyPasswordAction implements Action{
 		//사용자가 입력한 아이디가 존재하고 && 로그인한 아이디와 일치하는지 체크
 		if(member!=null && id.equals(user_id)) {
 			//비밀번호 일치 여부 체크					현재 비밀번호
-			check = member.isCheckesPassword(origin_passwd);
+			check = member.isCheckedPassword(origin_passwd);
 		}
 		if(check) {//인증성공
 			//비밀번호 변경

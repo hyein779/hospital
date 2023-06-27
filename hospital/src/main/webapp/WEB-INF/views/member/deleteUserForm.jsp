@@ -38,9 +38,9 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">회원탈퇴</h1>
-			<hr size="1" noshade="noshade" width="80%">
-			<form id="delete_form" action="deleteUser.do" method="post">
+			<h3 class="subtitle">회원탈퇴</h3>
+			<hr size="1" noshade="noshade" width="90%">
+			<form id="delete_form" action="deleteUser.do" method="post" class="align-center">
 				<ul>
 					<li>
 						<label for="id">아이디</label>

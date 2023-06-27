@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/community.fav.js"></script>
 </head>
 <body>
 <div class="page-main">
@@ -42,7 +43,7 @@
 				<li>
 					<input type="button" value="삭제" id="delete_btn">
 				</li>
-				<script type="text/javascript">
+				<!-- <script type="text/javascript">
 					let delete_btn = document.getElementById('delete_btn');
 					// 이벤트 연결
 					delete_btn.onclick=function(){
@@ -51,8 +52,13 @@
 							location.replace('reviewDelete.do?rev_num=${review.rev_num}');
 						}
 					};
-				</script>
+				</script> -->
 				</c:if>
+				<li>
+					<!-- 좋아요 -->
+					<div id="output_fav" data-num="${review.rev_num}">좋아요</div>
+					<div id="output_fcount" data-num="${review.rev_num}"></div>
+				</li>
 			</ul>
 			<ul class="rev-main">
 				<li class="review-image">

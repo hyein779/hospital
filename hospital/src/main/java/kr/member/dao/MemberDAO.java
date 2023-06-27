@@ -100,6 +100,8 @@ public class MemberDAO {
 				member.setMem_num(rs.getInt("mem_num"));
 				member.setId(rs.getString("mem_id"));
 				member.setAuth(rs.getInt("mem_auth"));
+				member.setName(rs.getString("mem_name"));
+				member.setPhone(rs.getString("mem_phone"));
 				member.setPasswd(rs.getString("mem_pw"));
 				member.setEmail(rs.getString("mem_email"));
 			}
@@ -111,6 +113,60 @@ public class MemberDAO {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
 		return member;
+	}
+
+	// 아이디 찾기
+	public String findId(String mem_name, String mem_phone) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String id = null;
+
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT m.mem_id FROM member m LEFT OUTER JOIN member_detail d ON "
+					+ "m.mem_num = d.mem_num WHERE d.mem_name=? AND d.mem_phone=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem_name);
+			pstmt.setString(2, mem_phone);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) { // 회원관리에 필요한 정보를 담아둠
+				id = rs.getString(1);
+			}
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+
+		}
+		return id;
+	}
+
+	// 비밀번호 재발급
+	public void findPw(String mem_id, String mem_name, String mem_phone,String mem_pw) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+
+		try {
+			conn = DBUtil.getConnection();
+			sql = "UPDATE (SELECT d.mem_pw FROM member_detail d, member m WHERE m.mem_num = d.mem_num AND "
+					+ "m.mem_id=? AND d.mem_name=? AND d.mem_phone=?) SET mem_pw=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_name);
+			pstmt.setString(3, mem_phone);
+			pstmt.setString(4, mem_pw);
+
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
 	}
 
 	// 회원 상세 정보
@@ -214,23 +270,54 @@ public class MemberDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		PreparedStatement pstmt4 = null;
+		PreparedStatement pstmt5 = null;
+		PreparedStatement pstmt6 = null;
+
 		String sql = null;
+
 		try {
 			// 커넥션풀로부터 커넥션을 할당
 			conn = DBUtil.getConnection();
 			// auto커밋 해제
 			conn.setAutoCommit(false);
 
+			// 등급을 탈퇴회원으로 변경
 			sql = "UPDATE member SET mem_auth=0 WHERE mem_num=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, mem_num);
 			pstmt.executeUpdate();
 
-			// zmember_detail의 레코드 삭제
+			// member_detail의 레코드 삭제
 			sql = "DELETE FROM member_detail WHERE mem_num=?";
 			pstmt2 = conn.prepareStatement(sql);
 			pstmt2.setInt(1, mem_num);
 			pstmt2.executeUpdate();
+
+			// fav레코드 삭제
+			sql = "DELETE FROM fav WHERE mem_num=?";
+			pstmt3 = conn.prepareStatement(sql);
+			pstmt3.setInt(1, mem_num);
+			pstmt3.executeUpdate();
+
+			// review의 레코드 삭제
+			sql = "DELETE FROM review WHERE mem_num=?";
+			pstmt4 = conn.prepareStatement(sql);
+			pstmt4.setInt(1, mem_num);
+			pstmt4.executeUpdate();
+
+			// reply의 레코드 삭제
+			sql = "DELETE FROM reply where ask_num IN(select ask_num FROM ask WHERE mem_num=?)";
+			pstmt5 = conn.prepareStatement(sql);
+			pstmt5.setInt(1, mem_num);
+			pstmt5.executeUpdate();
+
+			// ask의 레코드 삭제
+			sql = "DELETE FROM ask WHERE mem_num=?";
+			pstmt6 = conn.prepareStatement(sql);
+			pstmt6.setInt(1, mem_num);
+			pstmt6.executeUpdate();
 
 			// 모든 SQL문의 실행이 성공하면 commit
 			conn.commit();
@@ -242,7 +329,11 @@ public class MemberDAO {
 			throw new Exception(e);
 		} finally {
 			// 자원정리
-			DBUtil.executeClose(null, pstmt2, conn);
+			DBUtil.executeClose(null, pstmt6, null);
+			DBUtil.executeClose(null, pstmt5, null);
+			DBUtil.executeClose(null, pstmt4, null);
+			DBUtil.executeClose(null, pstmt3, null);
+			DBUtil.executeClose(null, pstmt2, null);
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
@@ -262,9 +353,12 @@ public class MemberDAO {
 			conn = DBUtil.getConnection();
 
 			if (keyword != null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) sub_sql += "WHERE mem_id LIKE ?";
-				else if(keyfield.equals("2")) sub_sql += "WHERE mem_name LIKE ?";
-				else if(keyfield.equals("3")) sub_sql += "WHERE mem_email LIKE ?";
+				if (keyfield.equals("1"))
+					sub_sql += "WHERE mem_id LIKE ?";
+				else if (keyfield.equals("2"))
+					sub_sql += "WHERE mem_name LIKE ?";
+				else if (keyfield.equals("3"))
+					sub_sql += "WHERE mem_email LIKE ?";
 			}
 
 			sql = "SELECT count(*) FROM member m LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql;
@@ -296,7 +390,7 @@ public class MemberDAO {
 		int cnt = 0;
 
 		try {
-			// 커넥션풀로부터 커넥션 할당 
+			// 커넥션풀로부터 커넥션 할당
 			conn = DBUtil.getConnection();
 
 			if (keyword != null && !"".equals(keyword)) {
@@ -372,77 +466,84 @@ public class MemberDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	//사용자 - 전체 주문 개수/검색 주문 개수
-	public int getOrderCountByMem_num(String keyfield,String keyword,int mem_num)throws Exception{
+
+	// 사용자 - 전체 주문 개수/검색 주문 개수
+	public int getOrderCountByMem_num(String keyfield, String keyword, int mem_num) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
 		String sub_sql = "";
 		int count = 0;
-		
+
 		try {
 			conn = DBUtil.getConnection();
-			if(keyword != null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) sub_sql += "AND order_num=?";
-				else if(keyfield.equals("2")) sub_sql += "AND order_name LIKE ?";
+			if (keyword != null && !"".equals(keyword)) {
+				if (keyfield.equals("1"))
+					sub_sql += "AND order_num=?";
+				else if (keyfield.equals("2"))
+					sub_sql += "AND order_name LIKE ?";
 			}
-			sql = "SELECT COUNT(*) FROM zorder WHERE mem_num=?"+sub_sql;
+			sql = "SELECT COUNT(*) FROM zorder WHERE mem_num=?" + sub_sql;
 			pstmt = conn.prepareStatement(sql);
-			//?에 데이터 바인딩
+			// ?에 데이터 바인딩
 			pstmt.setInt(1, mem_num);
-			if(keyword!=null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) {
+			if (keyword != null && !"".equals(keyword)) {
+				if (keyfield.equals("1")) {
 					pstmt.setString(2, keyword);
-				}else if(keyfield.equals("2")){
-					pstmt.setString(2, "%"+keyword+"%");
+				} else if (keyfield.equals("2")) {
+					pstmt.setString(2, "%" + keyword + "%");
 				}
 			}
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				count = rs.getInt(1);
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			throw new Exception(e);
-		}finally {
+		} finally {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
 		return count;
 	}
-	//사용자 - 전체 주문 목록/검색 주문 목록
-	public List<OrderVO> getListOrderByMem_num(int start,int end, String keyfield,String keyword, int mem_num) throws Exception{
+
+	// 사용자 - 전체 주문 목록/검색 주문 목록
+	public List<OrderVO> getListOrderByMem_num(int start, int end, String keyfield, String keyword, int mem_num)
+			throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<OrderVO> list = null;
 		String sql = null;
 		String sub_sql = "";
-		int cnt=0;
-		
+		int cnt = 0;
+
 		try {
 			conn = DBUtil.getConnection();
-			
-			if(keyword != null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) sub_sql += "AND order_num=?";
-				else if(keyfield.equals("2")) sub_sql += "AND order_name LIKE ?";
+
+			if (keyword != null && !"".equals(keyword)) {
+				if (keyfield.equals("1"))
+					sub_sql += "AND order_num=?";
+				else if (keyfield.equals("2"))
+					sub_sql += "AND order_name LIKE ?";
 			}
-			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM zorder WHERE mem_num=? "
-							+sub_sql+" ORDER BY order_num DESC)a)WHERE rnum>=? AND rnum<=?";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM zorder WHERE mem_num=? " + sub_sql
+					+ " ORDER BY order_num DESC)a)WHERE rnum>=? AND rnum<=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(++cnt, mem_num);
-			if(keyword!=null && !"".equals(keyword)) {
-				if(keyfield.equals("1")) {
+			if (keyword != null && !"".equals(keyword)) {
+				if (keyfield.equals("1")) {
 					pstmt.setString(++cnt, keyword);
-				}else if(keyfield.equals("2")){
-					pstmt.setString(++cnt, "%"+keyword+"%");
+				} else if (keyfield.equals("2")) {
+					pstmt.setString(++cnt, "%" + keyword + "%");
 				}
 			}
 			pstmt.setInt(++cnt, start);
 			pstmt.setInt(++cnt, end);
-			
+
 			rs = pstmt.executeQuery();
 			list = new ArrayList<OrderVO>();
-			while(rs.next()) {
+			while (rs.next()) {
 				OrderVO order = new OrderVO();
 				order.setOrder_num(rs.getInt("order_num"));
 				order.setOrder_name(rs.getString("order_name"));
@@ -457,12 +558,12 @@ public class MemberDAO {
 				order.setNotice(rs.getString("notice"));
 				order.setReg_date(rs.getDate("reg_date"));
 				order.setMem_num(rs.getInt("mem_num"));
-				
+
 				list.add(order);
 			}
 		} catch (Exception e) {
 			throw new Exception(e);
-		}finally {
+		} finally {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}
 		return list;

@@ -42,10 +42,14 @@
 			<ul>
 				<li>
 					<label for="rev_type">진료과목</label>
-					<span><input type="radio" name="rev_type" id="rev_type" value="0">목 질환</span>
-					<span><input type="radio" name="rev_type" id="rev_type" value="1">허리 질환</span>
-					<span><input type="radio" name="rev_type" id="rev_type" value="2">어깨 질환</span>
-					<span><input type="radio" name="rev_type" id="rev_type" value="3">기타</span>
+					<span><input type="radio" name="rev_type" id="rev_type" value="0"
+					<c:if test="${review.rev_type==0}">checked</c:if>>목 질환</span>
+					<span><input type="radio" name="rev_type" id="rev_type" value="1"
+					<c:if test="${review.rev_type==1}">checked</c:if>>허리 질환</span>
+					<span><input type="radio" name="rev_type" id="rev_type" value="2"
+					<c:if test="${review.rev_type==2}">checked</c:if>>어깨 질환</span>
+					<span><input type="radio" name="rev_type" id="rev_type" value="3"
+					<c:if test="${review.rev_type==3}">checked</c:if>>기타</span>
 				</li>
 				<li>
 					<label for="rev_title">제목</label>

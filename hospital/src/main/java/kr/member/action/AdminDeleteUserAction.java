@@ -34,7 +34,7 @@ public class AdminDeleteUserAction implements Action{
 		//입력한 이메일과 저장된 이메일이 일치하는지 여부 체크
 		if(db_member!=null&&id.equals(user_id)) {
 			//비밀번호 일치여부 체크
-			check = db_member.isCheckesPassword(passwd);
+			check = db_member.isCheckedPassword(passwd);
 			if(check) {//인증성공
 				int member_num = Integer.parseInt(request.getParameter("mem_num"));
 				//회원탈퇴

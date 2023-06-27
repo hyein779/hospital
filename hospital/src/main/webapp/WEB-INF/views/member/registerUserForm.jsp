@@ -111,7 +111,7 @@
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<!-- 내용 시작 -->
-		<div class="content-main">
+		<div class="content-mainn">
 			<h1 class="logreg-e">회원가입</h1>
 			<hr size="1" noshade="noshade" width="50%">
 			<form id="register_form" action="registerUser.do" method="post">

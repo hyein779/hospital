@@ -44,6 +44,9 @@
 	<!-- content 시작 -->
 	<div class="content-lnbx">
 		<h2 class="order-h2">상품 주문</h2>
+		<br>
+		<hr class="order-hr">
+		<br>
 		<table class="order-table">
 			<tr class="admin-item">
 				<th>상품명</th>

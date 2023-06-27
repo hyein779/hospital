@@ -8,47 +8,27 @@
 <meta charset="UTF-8">
 <title>관리자수정목록_admin_modifyForm</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
 <c:if test="${order.status < 2}">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		//유효성 체크
-		('#order_modify').submit(function(){
-			let items = document.querySelectorAll('input[type="text"]');
-			
-			if($('#input[type=radio]:checked').val() == 1){ 
-				for(let i=0; i<items.length; i++){
-					if(items[i].value.trim()==''){
-						let label = document.querySelector('label[for="'+items[i].id+'"]');
-						alert(label.textContent + ' 항목 필수 입력');
-						items[i].value = '';
-						items[i].focus();
-						return false;
-					}
-				}//end of for
-			}//end of if
-		})//end of submit
-		
-		let origin_status = ${order.status};
-		$('input[type=radio]').click(function(){
-			if(origin_status == 1 && $('input[type=radio]:checked').val() != 1){
-				$('.modify-hidden').hide();
-			}else{
-				$('.modify-hidden').show();
-			}
-		});//end of click
-		
-/* 		$('#delete-btn').click(function(){
-			if(confirm("삭제 하시겠습니까?")){
-				alert('삭제되었습니다.'));
-			}
-			else{
-				return false;
-			}
-		}) */
-	});
+		//상품주문 정보 등록 유효성 체크
+			$('#order_form').submit(function(){
+	  	let items = document.querySelectorAll('input[type="text"]');
+	  	
+	      	for(let i=0;i<items.length;i++){
+		        if(items[i].value.trim()==''){
+					let label = document.querySelector('label[for="'+items[i].id+'"]');
+			        alert(label.textContent + ' 항목을 입력하세요.');
+			        items[i].value = '';
+			        items[i].focus();
+			        return false;
+		        }
+	     	}//end of for	
+	     	
+			});//end of submit
+	})//end of function	
 </script>
 </c:if>
 </head>
@@ -57,16 +37,17 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="orderLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
-	<div class="content-lnbx">
-	<h2 class="order-h2">주문 수정</h2>
+	<div class="content-main">
+	<h3 class="subtitle">주문 수정</h3>
 		<!-- 상품 수정 내역 -->
 		<br>
 		<hr class="order-hr">
 		<br>		
-		<form id = "order_modify" action="modify.do" method="post" class="order-modifyform">
+		<form id = "order_form" action="modify.do" method="post" class="order-modifyform">
 			<input type="hidden" name="order_num" value="${order.order_num}">
 			<ul class="order-modifyform-item">
 				<li>
@@ -190,8 +171,18 @@
 				
 				<!-- 배송완료, 주문취소 상태일때만 정보를 삭제 -->
 				<c:if test="${order.status == 4 or order.status == 5}">
-					<input type="button" value="삭제"
-						   onclick="location.href='deleteOrder.do?order_num=${order.order_num}'">
+					<input type="button" value="삭제" id="delete_btn">
+					<script type="text/javascript">
+							let delete_btn = document.getElementById('delete_btn');
+							
+					      		//이벤트연결
+					      		delete_btn.onclick=function(){
+					      			let choice = confirm('삭제하겠습니까?');
+					      			if(choice) {
+					      				location.replace('deleteOrder.do?order_num=${order.order_num}');
+								}
+							}
+					</script>	   
 					<input type="button" value="목록"
 					       onclick="location.href='list.do'">
 		        </c:if>	
