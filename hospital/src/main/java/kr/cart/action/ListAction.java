@@ -18,7 +18,7 @@ public class ListAction implements Action{
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		
 		if (user_num == null) {
-			return "redirect:/member/loginForm.do";
+			return "redirect:/member/loginForm.do?page_url=/cart/list.do";
 		}
 		CartDAO dao = CartDAO.getInstance();
 		

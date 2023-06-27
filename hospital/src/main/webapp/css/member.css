@@ -40,10 +40,6 @@ label {
 	margin-top: 15px;
 }
 
-ul {
-	list-style: none;
-}
-
 .logreg-e {
 	margin-top: 10px;
 }
@@ -121,9 +117,9 @@ input#search{
 }
 
 /*텍스트박스?*/
-input {
+/* input {
 	margin-top: 6px;
-}
+} */
 /*로그인/회원가입*/
 #login_form input[id="id"], #login_form input[id="passwd"] {
 	width: 350px;
@@ -136,7 +132,7 @@ input {
 #register_form input[id="id"] {
 	width: 268px;
 	height: 40px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -145,19 +141,19 @@ input[type="text"], input[type="password"], input[type="email"] {
 	border: 1px solid #dee2e6;
 	font-size: 13px;
 	border-radius: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 input[id="zipcode"] {
 	width: 268px;
 	height: 40px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 input[type="number"] {
 	width: 100px;
 	height: 40px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 #login_form .loginbtn {

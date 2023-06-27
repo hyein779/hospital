@@ -76,7 +76,7 @@ $(function(){
 		<br>
 		<hr class="order-hr">
 		<br>
-		<form id = "order_form" action="orderModify.do" method="post" class="order-modifyform">
+		<form id = "order_form" action="orderModify.do" method="post">
 			<input type="hidden" name="order_num" value="${order.order_num}">
 			<input type="hidden" name="status" value="${order.status}">
 			<ul class="order-modifyform-item">
@@ -85,7 +85,7 @@ $(function(){
 				<!-- 사용하기 편하게 하기 위한 추가 문구 -->
 				<li class="delivery_text">* 배송대기인 경우에만 배송정보를 수정하실 있습니다. *</li>
 				<br>
-				<table class="order-modifytable">
+				<table>
 					<tr>
 						<td>
 							<label for="receive_name">받는사람</label></td>
@@ -140,39 +140,39 @@ $(function(){
 				</c:if>
 				<c:if test="${order.status >= 2}">
 					<li>
-						<label>받는사람</label>
+						<label class="order-item">받는사람</label>
 						${order.receive_name}
 					</li>
 					<li>
-						<label>전화번호</label>
+						<label class="order-item">전화번호</label>
 						${order.receive_phone}
 					</li>					
 					<li>
-						<label>우편번호</label>
+						<label class="order-item">우편번호</label>
 						${order.receive_post}
 					</li>
 					<li>
-						<label>주소</label>
+						<label class="order-item">주소</label>
 						${order.receive_address1}
 					</li>					
 					<li>
-						<label>상세주소</label>
+						<label class="order-item">상세주소</label>
 						${order.receive_address2}
 					</li>					
 					<li>
-						<label>메모</label>
+						<label class="order-item">메모</label>
 						${order.notice}
 					</li>					
 				</c:if>					
 					<li>
-						<label>결제수단</label>
+						<label class="order-item">결제수단</label>
 						<span class="color-red">
 							<c:if test="${order.payment == 1}">계좌이체</c:if>
 							<c:if test="${order.payment == 2}">카드결제</c:if>
 						</span>
 					</li>
 					<li>
-						<label>배송상태</label>
+						<label class="order-item">배송상태</label>
 						<span class="color-red">
 							<c:if test="${order.status == 1}">배송대기</c:if>
 							<c:if test="${order.status == 2}">배송준비중</c:if>
@@ -184,7 +184,7 @@ $(function(){
 			</ul>
 		<div class="align-center">
 			<c:if test="${order.status < 2}">			
-				<input type="submit" value="주문수정">
+				<input type="submit"  id="btn" value="주문수정">
 				<input type="button" value="주문취소" id="order_cancel">
 				
 				<script>
@@ -197,7 +197,7 @@ $(function(){
 				}
 				</script>
 			</c:if>
-			<input type="button" value="주문내역" onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
+			<input type="button" id="btn" value="주문내역" onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
 			       
 		</div>
 		</form>

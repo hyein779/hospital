@@ -20,14 +20,20 @@
 	margin-right:5px;
 	text-align:center;	
 }
-.order-modifyform{
-	width:570px;
+#order_form{
+	width:600px;
 	margin:0 auto;
 }
-input[type="text"], textarea{
-	width:430px;
+input[type="text"]{
+	width:440px;
+	height:25px;
 	border: 1px solid #dee2e6;
 }
+textarea {
+	width:440px;
+	border: 1px solid #dee2e6;
+}
+
 input[id="zipcode"]{
 	width:325px;
 }
@@ -41,8 +47,9 @@ input[id="zipcode"]{
 modify-hidden li label{
 	width:100px;
 }
-.order_label{
-	width:200px;
+input#keyword, select#keyfield{
+	height:32px;
+	font-size:14px;
 }
 /* 테이블 맨 윗줄 */
 .admin-item{
@@ -52,9 +59,22 @@ modify-hidden li label{
 .admin-subitem{
 	text-align:center;
 }
+.order-item{
+	width:80px;
+	float:left;
+}
 /* 버튼 오른쪽 정렬 */
 .order-button{
 	float:right;
+}
+input[type="button"], #btn{
+	height:32px;
+	margin-left:5px;
+	font-size:14px;
+	cursor:pointer;
+	background-color:#6496BA;
+	border:none;
+	color:#fff;
 }
 /* 검색창 */
 ul.search{
@@ -68,8 +88,5 @@ ul.search li{
 	/* 검색 가로 정렬 */
 	padding:0;
 	display:inline;
+	
 }
-/* 수정폼 */
-/* input[type="text"], .order-text{
-	border: 1px solid #dee2e6;
-} */

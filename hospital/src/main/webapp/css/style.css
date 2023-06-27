@@ -24,7 +24,7 @@ a:hover{
 .content-main{
 	padding:0 120px 0 280px;
 	height:auto;
-	min-height:350px;
+	min-height:680px;
 }	
 
 /* 공통 정렬
@@ -114,7 +114,7 @@ ul{
 
 .content-lnbx{
 	padding:0 120px;
-	min-height:550px;
+	min-height:680px;
 }
 
 /* lnb 

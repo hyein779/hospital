@@ -10,6 +10,7 @@ public class appvolunteerVO {
 	private String phone;
 	private String content;//신청 내용
 	private int app_quantity;//지원수
+	private String reg_date;
 	private int mem_num;//신청자 번호
 	public int getApp_num() {
 		return app_num;
@@ -58,6 +59,12 @@ public class appvolunteerVO {
 	}
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
+	}
+	public String getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 	
 

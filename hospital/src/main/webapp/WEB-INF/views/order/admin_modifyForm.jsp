@@ -47,9 +47,9 @@
 		<br>
 		<hr class="order-hr">
 		<br>		
-		<form id = "order_form" action="modify.do" method="post" class="order-modifyform">
+		<form id = "order_form" action="modify.do" method="post">
 			<input type="hidden" name="order_num" value="${order.order_num}">
-			<ul class="order-modifyform-item">
+			<ul>
 				<li>
 					<label>배송 상태</label>
 					<c:if test="${order.status != 5}">
@@ -71,10 +71,11 @@
 				<br>
 				<li class="delivery_text">* 배송대기일때만 수정가능 *</li>
 				<br>
-					<table class="order-modifytable">
+ 					<table>
 						<tr>
 							<td>
-								<label for="receive_name">받는사람</label></td>
+								<label for="receive_name">받는사람</label>
+							</td>
 							<td>						
 								<input type="text" name="receive_name" id="receive_name"
 									   maxlength="10" value="${order.receive_name}">
@@ -82,44 +83,49 @@
 						</tr>
 						<tr>
 							<td>
-								<label for="receive_phone">전화번호</label></td>
+								<label for="receive_phone">전화번호</label>
+							</td>
 							<td>
-							<input type="text" name="receive_phone" id="receive_phone"
-								   maxlength="15" value="${order.receive_phone}">						
+								<input type="text" name="receive_phone" id="receive_phone"
+								 	   maxlength="15" value="${order.receive_phone}">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="zipcode">우편번호</label>
+							</td>
 							<td>
-							<input type="text" name="receive_post" id="zipcode"
-							   maxlength="5" value="${order.receive_post}">
-							<input type="button" value="우편번호 찾기" 
-						       onclick="execDaumPostcode()">						
+								<input type="text" name="receive_post" id="zipcode"
+								       maxlength="5" value="${order.receive_post}">
+								<input type="button" value="우편번호 찾기" 
+							           onclick="execDaumPostcode()">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="receive_address1">주소</label>
+							</td>	
 							<td>
-							<input type="text" name="receive_address1" id="address1"
-							  	   maxlength="30" value="${order.receive_address1}">						
+								<input type="text" name="receive_address1" id="address1"
+								  	   maxlength="30" value="${order.receive_address1}">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="receive_address2">상세주소</label>
+							</td>
 							<td>
-							<input type="text" name="receive_address2" id="receive_address2"
-						 		   maxlength="30" value="${order.receive_address2}">						
+								<input type="text" name="receive_address2" id="receive_address2"
+							 		   maxlength="30" value="${order.receive_address2}">						
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<label for="notice">메모</label>
+							</td>	
 							<td>
-							<textarea rows="5" cols="42" name="notice" id="notice"
-				        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
+								<textarea rows="5" cols="42" name="notice" id="notice"
+					        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
 							</td>
 						</tr>
 					</table>
@@ -129,33 +135,33 @@
 						<li class="delivery_text">* 배송대기일때만 수정가능 *</li>
 					<br>
 					<li>
-						<label class="order_label">받는사람</label>
+						<label class="order-item">받는사람</label>
 						${order.receive_name}
 					</li>
 					<li>
-						<label class="order_label">전화번호</label>
+						<label class="order-item">전화번호</label>
 						${order.receive_phone}
 					</li>					
 					<li>
-						<label class="order_label">우편번호</label>
+						<label class="order-item">우편번호</label>
 						${order.receive_post}
 					</li>
 					<li>
-						<label class="order_label">주소</label>
+						<label class="order-item">주소</label>
 						${order.receive_address1}
 					</li>					
 					<li>
-						<label class="order_label">상세주소</label>
+						<label class="order-item">상세주소</label>
 						${order.receive_address2}
 					</li>					
 					<li>
-						<label class="order_label">메모</label>
+						<label class="order-item">메모</label>
 						${order.notice}
 					</li>					
 				</c:if>	
 					<li><br></li>		
 					<li>
-						<label>결제수단</label>
+						<label class="order-item">결제수단</label>
 						<span class="color-red">
 							<c:if test="${order.payment == 1}">&#91; 계좌이체 &#93;</c:if>
 							<c:if test="${order.payment == 2}">&#91; 카드결제 &#93;</c:if>
@@ -164,9 +170,7 @@
 			</ul>
 			<div class="align-center">
 				<c:if test="${order.status != 5}">			
-					<input type="submit" value="수정">
-					<input type="button" value="목록"
-					       onclick="location.href='list.do'">
+					<input type="submit" id="btn" value="수정">
 				</c:if>
 				
 				<!-- 배송완료, 주문취소 상태일때만 정보를 삭제 -->
@@ -183,9 +187,9 @@
 								}
 							}
 					</script>	   
-					<input type="button" value="목록"
-					       onclick="location.href='list.do'">
 		        </c:if>	
+     				<input type="button" value="목록"
+					       onclick="location.href='list.do'">
 	        </div>		
 		</form>
 		<br>

@@ -28,15 +28,15 @@
 <body>
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
-		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp" />
+		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp" />
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="subtitle">내 주문 목록</h3>
+			<h3 class="subtitle">봉사 목록</h3>
 			<!-- 검색창 시작 -->
-			<form id="search_form" action="itemList.do" method="get">
+			<form id="search_form" action="adminVolList.do" method="get">
 				<ul class="search">
 					<li><select name="keyfield" id="keyfield">
-							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>상품명</option>
+							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>봉사명</option>
 						</select>
 					</li>
 					<li><input type="search" size="50" name="keyword" id="keyword"
@@ -57,25 +57,21 @@
 			<c:if test="${count > 0}">
 				<table>
 					<tr>
-						<th>상품명</th>
-						<th>주문번호</th>
-						<th>결제금액</th>
-						<th>주문날짜</th>
-						<th>상태</th>
-						<th></th>
+						<th>봉사번호</th>
+						<th>봉사명</th>
+						<th>봉사기간</th>
+						<th>모집인원</th>
+						<th>수정일</th>
+						<th>상세보기</th>
 					</tr>
-					<c:forEach var="order" items="${list}">
+					<c:forEach var="board" items="${list}">
 						<tr>
-							<td>${order.order_name}</td>
-							<td>${order.order_num}</td>
-							<td><fmt:formatNumber value="${order.order_total}" />원</td>
-							<td>${order.reg_date}</td>
-							<td><c:if test="${order.status == 1}">배송대기</c:if> <c:if
-									test="${order.status == 2}">배송준비중</c:if> <c:if
-									test="${order.status == 3}">배송중</c:if> <c:if
-									test="${order.status == 4}">배송완료</c:if> <c:if
-									test="${order.status == 5}">주문취소</c:if></td>
-							<td><a href="${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}">상세보기</a></td> 
+							<td>${board.board_num}</td>
+							<td>${board.title}</a></td>
+							<td>${board.reg_date}</td>
+							<td>${board.quantity}</td>
+							<td>${board.modify_date}</td>
+							<td><a href="#">상세보기</a></td> 
 						</tr>
 					</c:forEach>
 				</table>

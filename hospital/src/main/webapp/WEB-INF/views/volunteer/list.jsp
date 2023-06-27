@@ -69,7 +69,7 @@
 			<tr>
 				<th>글번호</th>
 				<th>제목</th>
-				<th>모집기간</th> 
+				<th>봉사기간</th> 
 				<th>조회</th>
 			</tr>
 			<c:forEach var="board" items="${list}">
