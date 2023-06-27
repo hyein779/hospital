@@ -25,7 +25,7 @@
 					loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				<div>
 					<ul>
-						<!-- 시계이미지 --><h3>진료시간</h3>
+						<!-- 시계이미지  --><h3>진료시간</h3>
 						<li><label>평일</label>오전9시 ~ 오후8시</li>
 						<li><label>점심시간</label>오후1시 ~ 오후2시</li>
 						<li><label>토요일</label>오전9시 ~ 오후1시</li>
