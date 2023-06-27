@@ -35,7 +35,7 @@
 					<hr size="1" noshade="noshade" width="90%">
 					<ul>
 						<h3>전화 문의 및 오시는길</h3>
-						<!-- 이미지  --><span>02)3482-4632</span>
+						<!-- 이미지 --><span>02)3482-4632</span>
 						<h4>지하철이용시</h4>
 						<li><label>역삼역(2호선)</label>3번출구 도보3분 거리</li>
 						<li><label>강남역(2호선)</label>1번출구 도보5분거리</li>
