@@ -20,8 +20,6 @@
 			<span><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></span>
 			<span><a href="${pageContext.request.contextPath}/member/registerUserForm.do">회원가입</a></span>
 		</c:if>
-		
-		<span><a href="${pageContext.request.contextPath}/member/map.do">오시는길</a></span>
 </div>
 <div id="main_nav">
 		<nav id="main_nav">
@@ -74,7 +72,7 @@
 						</ul>
 					</li> 
 					<li class = "outer-menu-item">
-						<span class="menu-title"><a href="#">오시는길</a></span>
+						<span class="menu-title"><a href="${pageContext.request.contextPath}/member/map.do">오시는길</a></span>
 					</li>	
 				</ul>
 			</div>
