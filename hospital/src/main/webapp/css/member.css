@@ -5,17 +5,10 @@
 	margin: 40px 0 150px 0;
 	text-align: center;
 }
-.content-main h2.subtitle{
-	font-size:30px;
-	margin:40px 0 20px 55px;
-}
-dl{
-	display: block;
-	height: auto;
-	width: 100%;
-	margin: 60px auto;
-	font-size: 0;
-	letter-spacing: -4px;
+
+.content-main h2.subtitle {
+	font-size: 30px;
+	margin: 40px 0 20px 55px;
 }
 
 .result-display {
@@ -36,13 +29,13 @@ dl{
 	justify-content: center; /*가로 정렬*/
 }
 
-form{
+form {
 	width: 600px;
 	margin: 0 auto;
 	padding: 10px 10px 10px 10px;
 }
 
-#detail_form label {
+#detail_form label, .supyung label{
 	margin-top: 0;
 }
 
@@ -67,7 +60,6 @@ label {
 	color: red;
 	font-size: small;
 } */
-
 #detailadmin {
 	margin-top: 0;
 }
@@ -99,35 +91,36 @@ ul.search li {
    font-size:30px;
    margin-top:20px;
 }*/
-
-
-
-form#search_form{
-	display:flex;
-	justify-content:center;
+form#search_form {
+	display: flex;
+	justify-content: center;
 	align-items: center;
 }
-ul.search{
-	list-style:none;
-	margin:0;
-	padding:0;
-	display:flex;
+
+ul.search {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
 }
-ul.search li{
-	margin-bottom:10px;
+
+ul.search li {
+	margin-bottom: 10px;
 }
-input#keyword, select#keyfield{
-	height:32px;
-	font-size:14px;
+
+input#keyword, select#keyfield {
+	height: 32px;
+	font-size: 14px;
 }
-input#search{
-	height:32px;
-	margin-left:5px;
-	font-size:14px;
-	cursor:pointer;
-	background-color:#6496BA;
-	border:none;
-	color:#fff;
+
+input#search {
+	height: 32px;
+	margin-left: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	background-color: #6496BA;
+	border: none;
+	color: #fff;
 }
 
 /*텍스트박스?*/
@@ -182,7 +175,8 @@ input[type="number"] {
 	font-size: 20px;
 	/* box-shadow: 2px 2px 5px #b0b2b5; */
 }
-.regisbtn{
+
+.regisbtn {
 	border: 0;
 	width: 350px;
 	height: 50px;
@@ -206,10 +200,12 @@ input[type="number"] {
 	font-size: 20px;
 	/* box-shadow: 2px 2px 5px #b0b2b5; */
 }
+
 #regigo {
 	margin: 10px 0 10px 180px;
 }
-#regigo a{
+
+#regigo a {
 	color: #64686c;
 	font-size: 13px;
 }
@@ -245,40 +241,69 @@ td {
 .itemtable {
 	border-width: 1px;
 } */
-.list-space{
-	margin:15px 0;
+.list-space {
+	margin: 15px 0;
 }
-table{
-	width:100%;
-	border:1px solid #eaeaea;
-	border-collapse:collapse;
-	margin-bottom:20px;
-	margin-top:10px;
+
+table {
+	width: 100%;
+	border: 1px solid #eaeaea;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	margin-top: 10px;
 }
-th, td{
-  padding:10px;
-  text-align:center;
+
+th, td {
+	padding: 10px;
+	text-align: center;
 }
-th{
-  background-color:#dedede;
-  font-weight:bold;
-  border-bottom:1px solid #f9f9f9;
+
+th {
+	background-color: #dedede;
+	font-weight: bold;
+	border-bottom: 1px solid #f9f9f9;
 }
-td{
-  border-bottom:1px solid #ccc;
+
+td {
+	border-bottom: 1px solid #ccc;
 }
-tr:nth-child(even){
-  background-color:#f9f9f9;
+
+tr:nth-child(even) {
+	background-color: #f9f9f9;
 }
-tr:hover{
-  background-color:#EFFBFF;
+
+tr:hover {
+	background-color: #EFFBFF;
 }
-#btn{
-	height:32px;
-	margin-left:5px;
-	font-size:14px;
-	cursor:pointer;
-	background-color:#6496BA; 
-	border:none;     
-	color:#fff;
-} 
+#btn {
+	height: 32px;
+	margin-left: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	background-color: #6496BA;
+	border: none;
+	color: #fff;
+}
+/*오시는길*/
+.supyung {
+	display: flex;
+	border: 1px solid #b0b2b5;
+	border-radius: 5px;
+}
+.supyung div{
+	width: 50%;
+	margin: 0 30px 30px 30px;
+	
+}
+
+.supyung li{
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+.supyung span{
+	color: red;
+}
+.supyung p{
+	color: blue;
+	font-size: 20px;
+}
