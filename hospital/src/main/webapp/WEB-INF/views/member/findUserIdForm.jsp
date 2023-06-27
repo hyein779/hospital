@@ -33,7 +33,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-mainn">
 			<h2 class="logreg-e">아이디찾기</h2>
-			<hr size="1" noshade="noshade" width="70%">
+			<hr size="1" noshade="noshade" width="50%">
 			<form id="findUserId_form" action="findUserId.do" method="post">
 				<ul>
 					<li>

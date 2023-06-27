@@ -3,6 +3,7 @@
 .content-mainn {
 	padding: 10px 20px;
 	margin: 40px 0 150px 0;
+	text-align: center;
 }
 
 .result-display {
@@ -45,7 +46,6 @@ ul {
 
 .logreg-e {
 	margin-top: 10px;
-	margin-left: 670px;
 }
 
 .logreg-a {
@@ -90,10 +90,7 @@ ul.search li {
    margin-top:20px;
 }*/
 
-.content-main h3.subtitle{
-   font-size:30px;
-   margin-top:20px;
-}
+
 
 form#search_form{
 	display:flex;
@@ -131,7 +128,6 @@ input {
 #login_form input[id="id"], #login_form input[id="passwd"] {
 	width: 350px;
 	height: 50px;
-	margin-left: 100px;
 	margin-top: 10px;
 	margin-bottom: 5px;
 	font-size: 15px;
@@ -174,7 +170,6 @@ input[type="number"] {
 	margin-top: 10px;
 	color: #ffffff;
 	font-size: 20px;
-	margin-left: 100px;
 	/* box-shadow: 2px 2px 5px #b0b2b5; */
 }
 .regisbtn{
@@ -184,7 +179,6 @@ input[type="number"] {
 	border-radius: 5px;
 	margin-top: 10px;
 	font-size: 20px;
-	margin-left: 100px;
 	border: solid 1px #6496BA;
 	background-color: #ffffff;
 	color: #6496BA
@@ -197,13 +191,13 @@ input[type="number"] {
 	width: 330px;
 	height: 50px;
 	border-radius: 5px;
-	margin-top: 10px;
+	margin-top: 30px;
 	color: #ffffff;
 	font-size: 20px;
 	/* box-shadow: 2px 2px 5px #b0b2b5; */
 }
 #regigo {
-	margin: 10px 0 10px 270px;
+	margin: 10px 0 10px 180px;
 }
 #regigo a{
 	color: #64686c;

@@ -33,7 +33,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-mainn">
 			<h2 class="logreg-e">비밀번호 재설정</h2>
-			<hr size="1" noshade="noshade" width="70%">
+			<hr size="1" noshade="noshade" width="50%">
 			<form id="findUserPw_form" action="findUserPw.do" method="post">
 				<ul>
 					<li>
