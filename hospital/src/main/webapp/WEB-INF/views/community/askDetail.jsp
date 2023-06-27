@@ -22,6 +22,7 @@
 			<ul class="detail-info">
 				<li><b>${ask.ask_title}</b></li>
 				<li>조회 ${ask.ask_hit}</li>
+				<li class="writer">작성자 ${ask.id}</li>
 			</ul>
 			<p>
 				${ask.ask_content}
@@ -30,9 +31,11 @@
 			
 			<ul class="detail-sub">
 				<li>
+					<c:if test="${empty ask.ask_modifydate}"> <!-- 수정한 날짜가 없는 경우 -->
 					작성일 ${ask.ask_date}
+					</c:if>
 					<c:if test="${!empty ask.ask_modifydate}"> <!-- 수정한 날짜가 있는 경우 -->
-					(수정일 ${ask.ask_modifydate})
+					수정일 ${ask.ask_modifydate}
 					</c:if>
 					<input type="button" value="목록" onclick="location.href='askList.do'" class="submit">
 					<!-- 로그인한 회원번호와 작성자 회원번호가 일치하거나 관리자인 경우 수정, 삭제 가능-->

@@ -44,6 +44,6 @@ public class ReviewUpdateAction implements Action{
 		
 		dao.updateReview(review);
 		
-		return "redirect:/community/reviewList.do";
+		return "/WEB-INF/views/community/reviewUpdate.jsp";
 	}
 }
