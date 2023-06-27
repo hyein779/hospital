@@ -141,17 +141,6 @@
 		<br>
 		<!-- 배송안내 -->
 		<div class="order-notice">
-			<table class="banking-info">
-				<tr>
-					<td colspan="2" class="notice-title">&nbsp;무통장 입금 계좌</td>
-				</tr>
-				<tr>
-					<td>농협:300-1234-1234-89<br>신한:100-333-123456</td>
-				</tr>
-				<tr>
-					<td>예금주: 쌍용정형외과</td>
-				</tr>
-			</table>
 			<table class="express">
 				<tr>
 					<td colspan="2" class="notice-title">&nbsp;배송 안내</td>
@@ -183,6 +172,29 @@
 					<td>■ 일부 상품의 경우, 인수 뒤 고객 단순변심에 의한 교환, 반품이 불가능할 수 있으니, 상품상세정보를 꼭 참조하시기 바랍니다.</td>
 				</tr>
 			</table>
+		</div>
+		<div class="inner">
+			<h3>고객센터</h3>
+			<div>02)3482-4632</div>
+			<div>
+				평일: 9:00 ~ 20:00, 점심: 13:00 ~ 14:00
+				<br>
+				토요일: 9:00 ~ 13:00
+				<br>
+				주말, 공휴일 휴무
+			</div>
+			<div class="banking-info">
+				<h3>무통장 입금 계좌</h3>
+				<div>
+				농협: 300-1234-1234-89
+				<br>신한: 100-333-123456
+				<br>
+				국민: 033000-01-012345
+				<br>
+				하나: 233-123456-77777
+				<br>
+				예금주: 쌍용정형외과
+			</div>
 		</div>
 		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	</div>
