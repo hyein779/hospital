@@ -99,13 +99,12 @@
 			</c:forEach>
 			</table>
  			<br>
-			<hr class="order-hr">
+			<hr class="order-hr"> 
 			<br>
-			<div class="align-center">${page}</div>
 		</c:if>
 	</div>		
 	<!-- content 끝 -->
-	
+	<div class="order-page">${page}</div>
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- footer 끝 -->

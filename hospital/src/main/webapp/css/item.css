@@ -176,6 +176,93 @@ ul{
 	margin:3px 3px;
 }
 
+/* 상품 상세
+---------------*/
+#item_cart{
+	width:1000px;
+	margin-bottom:50px;
+}
+#item_total_txt{
+	font-size:22px;
+	font-weight:bold;
+}
+.product-info{
+	width:1200px;
+	font-size:30px;
+	margin-left:330px;
+	padding-bottom:20px;
+	border-bottom: 1px solid;
+}
+.item-image{
+	float:left;
+}
+.o_image{
+	margin:10px 40px 10px 330px;
+}
+.product-name{
+	font-size:28px;
+	font-weight:bold;
+	padding:5px 0 20px 0;
+}
+.product-detail{
+	font-size:20px;
+	margin:10px 0;
+	padding:2px 0;
+}
+.order-quantity{
+	margin-right:-25px;
+}
+.quantity-width{
+	font-size:16px;
+}
+.delivery-notice{
+	margin-top:20px;
+}
+.delivery{
+	font-size:18px;
+	font-weight:bold;
+    color:#2e8de5;
+}
+.desc{
+	display:block;
+    color:#aaa;
+    margin:2px 0 5px 0;
+}
+.total{
+	overflow:hidden;
+    margin:50px 0 10px 0;
+}
+.order-button{
+	margin-top:16px;
+    height:50px;
+}
+.list-button{
+	background:#fff;
+    border:1px solid #d9d9d9;
+    color:#233594;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.cart-button{
+	background:#2e8de5;
+    border:1px solid #217fd7;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.detail-list{
+	width:1200px;
+	font-size:25px;
+	font-weight:bold;
+	margin-left:330px;
+	padding-bottom:10px;
+}
+.detail{
+	margin:0 330px;
+	padding:15px 0;
+}
 /* 장바구니
 ---------------*/
 #cart_order{
@@ -219,7 +306,7 @@ ul{
     float: right;
     width: 360px;
     padding: 9px 18px 15px;
-    margin-top: 12px;
+    margin: 12px 0;
     border: 1px solid #d3d3d3;
     box-sizing: border-box;
 }
@@ -229,12 +316,13 @@ ul{
     font-weight: bold;
 }
 .cart > form > .total > input[type=submit] {
-    font-size: 20px;
-    border:none;
-    border-radius:3px;
-    border-width: 1px;
-    background-image: -webkit-linear-gradient(#1c79b8, #147dc4);
-    color: #fff;
+    font-size:20px;
+    font-weight:bold;
+    border:1px solid #d9d9d9;
+    border-radius:2px;
+    border-width:1px;
+    background-image: -webkit-linear-gradient(#1c79b8, #2e8de5);
+    color:#fff;
     cursor:pointer;
     box-sizing: border-box;
     margin-top: 10px;
@@ -263,3 +351,33 @@ ul{
 	padding:2px 8px 10px 8px;
 	margin-top:5px;
 } 
+.sold-out{
+	color:red;
+}
+.float-clear{
+	float:clear;
+}
+/* 배송 안내
+---------------*/
+.order-notice{
+	margin:20px auto;
+}
+.order-notice table{
+	margin-left:330px;
+}
+.banking-info{
+	text-align:left;
+	padding:10px 0 15px 0;
+}
+.express{
+	text-align:left;
+	padding:10px 0;
+}
+.refund{
+	text-align:left;
+	padding-top:10px;
+}
+.notice-title{
+	font-size:20px;
+	font-weight:bold;
+}

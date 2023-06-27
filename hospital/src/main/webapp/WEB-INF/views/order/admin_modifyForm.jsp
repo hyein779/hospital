@@ -30,7 +30,7 @@
 			});//end of submit
 	})//end of function	
 </script>
-</c:if>
+</c:if> 
 </head>
 <body>
 <div class="page-main">

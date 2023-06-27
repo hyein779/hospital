@@ -53,7 +53,7 @@
 				<th>수량</th>
 				<th>상품가격</th>
 				<th>합계</th>
-			</tr>
+			</tr> 
 			<c:forEach var="cart" items="${list}">
 				<tr>	
 					<td>

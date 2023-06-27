@@ -32,6 +32,8 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h3 class="subtitle">내 주문 목록</h3>
+			<hr size="1" noshade="noshade" width="90%">
+			<br>
 			<!-- 검색창 시작 -->
 			<form id="search_form" action="itemList.do" method="get">
 				<ul class="search">
@@ -46,9 +48,9 @@
 			</form>
 			<!-- 검색창 끝 -->
 			<div class="list-space align-right">
-				<input type="button" value="목록"
+				<input type="button" id="btn" value="목록"
 					onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
-				<input type="button" value="홈으로"
+				<input type="button" id="btn" value="홈으로"
 					onclick="location.href='${pageContext.request.contextPath}/main/main.do '">
 			</div>
 			<c:if test="${count == 0}">
@@ -75,16 +77,18 @@
 									test="${order.status == 3}">배송중</c:if> <c:if
 									test="${order.status == 4}">배송완료</c:if> <c:if
 									test="${order.status == 5}">주문취소</c:if></td>
-							<td><a href="${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}">상세보기</a></td> 
+							<td>
+							<input type="button" value="주문상세" id="btn"
+								   onclick="location.href='${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}'">
+							</td> 
 						</tr>
 					</c:forEach>
 				</table>
-				<div class="align-center">${page}</div>
 			</c:if>
-
 		</div>
 		<!-- 내용 끝 -->
-		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+		<div class="align-center">${page}</div>
+		<jsp:include page="/WEB-INF/views/common/footer.jsp" /> 
 	</div>
 </body>
 </html>

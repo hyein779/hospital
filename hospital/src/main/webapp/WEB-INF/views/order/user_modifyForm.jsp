@@ -183,7 +183,7 @@ $(function(){
 					</li>
 			</ul>
 		<div class="align-center">
-			<c:if test="${order.status < 2}">			
+			<c:if test="${order.status < 2}">	 		
 				<input type="submit"  id="btn" value="주문수정">
 				<input type="button" value="주문취소" id="order_cancel">
 				

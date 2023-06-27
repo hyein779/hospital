@@ -63,6 +63,10 @@ input#keyword, select#keyfield{
 	width:80px;
 	float:left;
 }
+.order-page{
+	text-align:center;
+}
+
 /* 버튼 오른쪽 정렬 */
 .order-button{
 	float:right;
@@ -75,7 +79,7 @@ input[type="button"], #btn{
 	background-color:#6496BA;
 	border:none;
 	color:#fff;
-}
+} 
 /* 검색창 */
 ul.search{
 	/* 검색 가운데 정렬 */
