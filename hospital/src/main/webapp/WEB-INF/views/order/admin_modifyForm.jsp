@@ -129,33 +129,33 @@
 						<li class="delivery_text">* 배송대기일때만 수정가능 *</li>
 					<br>
 					<li>
-						<label class="order_label">받는사람</label>
+						<label class="order-item">받는사람</label>
 						${order.receive_name}
 					</li>
 					<li>
-						<label class="order_label">전화번호</label>
+						<label class="order-item">전화번호</label>
 						${order.receive_phone}
 					</li>					
 					<li>
-						<label class="order_label">우편번호</label>
+						<label class="order-item">우편번호</label>
 						${order.receive_post}
 					</li>
 					<li>
-						<label class="order_label">주소</label>
+						<label class="order-item">주소</label>
 						${order.receive_address1}
 					</li>					
 					<li>
-						<label class="order_label">상세주소</label>
+						<label class="order-item">상세주소</label>
 						${order.receive_address2}
 					</li>					
 					<li>
-						<label class="order_label">메모</label>
+						<label class="order-item">메모</label>
 						${order.notice}
 					</li>					
 				</c:if>	
 					<li><br></li>		
 					<li>
-						<label>결제수단</label>
+						<label class="order-item">결제수단</label>
 						<span class="color-red">
 							<c:if test="${order.payment == 1}">&#91; 계좌이체 &#93;</c:if>
 							<c:if test="${order.payment == 2}">&#91; 카드결제 &#93;</c:if>
@@ -164,9 +164,7 @@
 			</ul>
 			<div class="align-center">
 				<c:if test="${order.status != 5}">			
-					<input type="submit" value="수정">
-					<input type="button" value="목록"
-					       onclick="location.href='list.do'">
+					<input type="submit" id="btn" value="수정">
 				</c:if>
 				
 				<!-- 배송완료, 주문취소 상태일때만 정보를 삭제 -->
@@ -183,9 +181,9 @@
 								}
 							}
 					</script>	   
-					<input type="button" value="목록"
-					       onclick="location.href='list.do'">
 		        </c:if>	
+     				<input type="button" value="목록"
+					       onclick="location.href='list.do'">
 	        </div>		
 		</form>
 		<br>

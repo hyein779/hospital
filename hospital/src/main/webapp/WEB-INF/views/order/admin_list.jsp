@@ -54,7 +54,7 @@
 					       value="${param.keyword}"> <!-- 값 유지 -->
 				</li>
 				<li>
-					<input type="submit" value="조회">
+					<input type="submit" id="btn" value="조회">
 				</li>
 			</ul>
 		</form>
