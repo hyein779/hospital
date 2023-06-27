@@ -26,7 +26,7 @@
 		<li id="10111" >봉사 관리</li>
 		<ul class="depth2">
 			<li id="10112" >
-			<a href="#"  onclick="#">봉사 목록</a></li>
+			<a href="${pageContext.request.contextPath}/member/adminVolList.do">봉사 목록</a></li>
 		</ul>
 	</ul>
 		

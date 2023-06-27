@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
+<%-- <%
 String id = (String) request.getAttribute("id");
-%>
+%> --%>
 <c:if test="${check}">
 	<!DOCTYPE html>
 	<html>
@@ -23,7 +23,7 @@ String id = (String) request.getAttribute("id");
 			<div class="result-display">
 				<div class="align-center">
 					<h3>아이디 찾기</h3>
-					<span>회원님의 아이디는 <%=id%>입니다.
+					<span>회원님의 아이디는 ${id}입니다.
 					</span><br>
 					<br>
 					<br> <input type="button" value="로그인"

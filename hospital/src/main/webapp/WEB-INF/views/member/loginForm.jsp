@@ -45,7 +45,7 @@
 			</div>
 			<div>
 				<input type="submit" value="로그인" class="loginbtn">
-				<input type="button" value="회원가입" class="regisbtn" onclick="location.href='registerForm.do'">
+				<input type="button" value="회원가입" class="regisbtn" onclick="location.href='registerUserForm.do'">
 			</div>
 			<div class="align-center">
 				
