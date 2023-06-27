@@ -59,7 +59,7 @@
 		<br>
 		<hr class="order-hr">
 		<br>		
-		<div class="order-button">
+		<div class="align-center">
 			<input type="button" value="목록" 
 				   onclick="location.href='list.do'">
 			<input type="button" value="홈으로" 

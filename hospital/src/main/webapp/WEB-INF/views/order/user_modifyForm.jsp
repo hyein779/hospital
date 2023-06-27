@@ -140,39 +140,39 @@ $(function(){
 				</c:if>
 				<c:if test="${order.status >= 2}">
 					<li>
-						<label>받는사람</label>
+						<label class="order-item">받는사람</label>
 						${order.receive_name}
 					</li>
 					<li>
-						<label>전화번호</label>
+						<label class="order-item">전화번호</label>
 						${order.receive_phone}
 					</li>					
 					<li>
-						<label>우편번호</label>
+						<label class="order-item">우편번호</label>
 						${order.receive_post}
 					</li>
 					<li>
-						<label>주소</label>
+						<label class="order-item">주소</label>
 						${order.receive_address1}
 					</li>					
 					<li>
-						<label>상세주소</label>
+						<label class="order-item">상세주소</label>
 						${order.receive_address2}
 					</li>					
 					<li>
-						<label>메모</label>
+						<label class="order-item">메모</label>
 						${order.notice}
 					</li>					
 				</c:if>					
 					<li>
-						<label>결제수단</label>
+						<label class="order-item">결제수단</label>
 						<span class="color-red">
 							<c:if test="${order.payment == 1}">계좌이체</c:if>
 							<c:if test="${order.payment == 2}">카드결제</c:if>
 						</span>
 					</li>
 					<li>
-						<label>배송상태</label>
+						<label class="order-item">배송상태</label>
 						<span class="color-red">
 							<c:if test="${order.status == 1}">배송대기</c:if>
 							<c:if test="${order.status == 2}">배송준비중</c:if>
@@ -181,7 +181,7 @@ $(function(){
 							<c:if test="${order.status == 5}">주문취소</c:if>
 						</span>
 					</li>
-			</ul>
+			</ul>d
 		<div class="align-center">
 			<c:if test="${order.status < 2}">			
 				<input type="submit" value="주문수정">
