@@ -329,7 +329,11 @@ public class MemberDAO {
 			throw new Exception(e);
 		} finally {
 			// 자원정리
-			DBUtil.executeClose(null, pstmt2, conn);
+			DBUtil.executeClose(null, pstmt6, null);
+			DBUtil.executeClose(null, pstmt5, null);
+			DBUtil.executeClose(null, pstmt4, null);
+			DBUtil.executeClose(null, pstmt3, null);
+			DBUtil.executeClose(null, pstmt2, null);
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
