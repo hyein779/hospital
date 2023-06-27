@@ -3,24 +3,40 @@
 	background:url("/../images/병원외관.jpg");
 	bottom:top;
 }
-.content-main{
+.main-img{
 	text-align:center;
 }
+.content-main{
+	text-align:center;
+	padding:5px 0;;
+}
 .table-main{
-	margin-left:auto;
-	margin-right:auto;
+	margin:0 auto;
+}
+.table-main td{
+	padding:30px 120px;
+}
+.main{
+	text-align:center;
 }
 p{
 	width:1000px;
 	margin:0 auto;
 }
 .content-main-title{
-	text-align:center;
-	padding:5px 0;
+	font-size:48px;
 }
-.content-sub-title1{
+.content-sub{
 	padding:10px 0;
 	background-color:#effbff;
+	text-align:center;
+}
+.content-sub-title{
+	font-size:30px;
+}
+.content-sub2{
+	text-align:center;
+	padding:10px 0;
 }
 .content-main-p{
 	padding:0px 0px 20px 0px;
