@@ -2,7 +2,7 @@
    pageEncoding="UTF-8"%>
 <!-- footer 시작 -->
 <div id="footer">
-   <h1>쌍용 정형외과</h1>
+   <h1>Gangnam SIST orthopedic surgery</h1>
 
    <address>
       쌍용정형외과&nbsp;|&nbsp;대표자:김쌍용&nbsp;|&nbsp;서울특별시 강남구 테헤란로 132
