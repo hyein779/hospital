@@ -25,7 +25,7 @@
 				<b>[ ${user_id} ]</b> 님 환영합니다 ::
 				<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a><br>
 			</li>
-		</c:if>
+		</c:if> 
 </div>
 
 <div id="main_nav">
