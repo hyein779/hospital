@@ -232,9 +232,6 @@ input#search{
 form.appvolform{
 	float:left;
 	margin:10px;
-	width:600px;
-	margin:0 100px;
-	padding:10px 10px 10px 30px;
 }
 form.appvolform div{
 	float:left;
@@ -243,14 +240,42 @@ form.appvolform div{
 form.appvolform .div1{
 	float:left;
 }
-form.appvolform .div2{
-	float:right;
-}
-form.appvolform .div2 input[type="button"]{
-	float:right;
-}
 
+form.appvolform label{
+  display:block;
+  font-weight:bold;
+  margin:15px 0 5px 0;
+}
+form.appvolform input[type="text"]{
+  width:500px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+form.appvolform textarea{
+  width:1000px;
+  height:300px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
 
 .remove-style{
 	all: unset;
 }
+.volwrite_form{
+	margin:10px;
+}
+
+#appvol{
+	margin:10px;
+	width:auto;
+}
+#update_form{
+	margin:10px;
+	padding:0px;
+}
+#update_form label{
+	float:none;
+}
+

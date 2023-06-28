@@ -65,16 +65,13 @@
 						<label for="phone">휴대폰</label>
 						<input type="text" size="5" name="phone" id="phone">
 					</li>
-				</ul>
-			</div>
-			<div class="div2">
-				<ul>
+					
 					<li>
 						<label for="content">지원동기</label>
 						<textarea rows="12" cols="80" name="content" id="content"></textarea>
 					</li>
 					<li>
-						<input type="submit" value="지원하기">
+						<input type="submit" value="지원하기" class="submit">
 						<input type="button" value="뒤로가기" onclick="location.href='volDetail.do'" class="home">
 					</li>
 				</ul>

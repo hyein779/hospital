@@ -54,7 +54,7 @@
 				<li>
 					<label for="content">내용</label>
 					<textarea rows="5" cols="30" name="content"
-					      id="content" maxlength="50"></textarea>
+					      id="content"></textarea>
 				</li>
 				<li>
 					<label for="quantity">모집인원</label>
