@@ -74,7 +74,7 @@ $(function(){
 		</table>
 		<br>
 		<hr class="order-hr">
-		<br>
+		<h3 class="subtitle">배송정보</h3>
 		<form id = "order_form" action="orderModify.do" method="post">
 			<input type="hidden" name="order_num" value="${order.order_num}">
 			<input type="hidden" name="status" value="${order.status}">

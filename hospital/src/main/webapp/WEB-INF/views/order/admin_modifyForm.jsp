@@ -37,14 +37,13 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="orderLnb.jsp"/>
+	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
 	<div class="content-main">
 	<h3 class="subtitle">배송 정보</h3>
 		<!-- 상품 수정 내역 -->
-		<br>
 		<hr class="order-hr">
 		<br>		
 		<form id = "order_form" action="modify.do" method="post">
@@ -192,9 +191,6 @@
 					       onclick="location.href='list.do'">
 	        </div>		
 		</form>
-		<br>
-		<hr class="order-hr">
-		<br>
 	</div>	
 	<!-- content 끝 -->
 <!-- 우편번호 검색 시작 -->

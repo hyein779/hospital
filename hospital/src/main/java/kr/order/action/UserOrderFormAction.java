@@ -11,6 +11,9 @@ import kr.cart.vo.CartVO;
 import kr.controller.Action;
 import kr.item.dao.ItemDAO;
 import kr.item.vo.ItemVO;
+import kr.order.dao.OrderDAO;
+import kr.order.vo.OrderDetailVO;
+import kr.order.vo.OrderVO;
 
 public class UserOrderFormAction implements Action{
 
@@ -56,10 +59,10 @@ public class UserOrderFormAction implements Action{
 			}
 		}//end of for 
 		 
-		 
-		 //조건 통과 
-		 request.setAttribute("list", cartList);
-		 request.setAttribute("all_total", all_total);
+				 
+		//조건 통과 
+		request.setAttribute("list", cartList);
+		request.setAttribute("all_total", all_total);
 		 
 		return "/WEB-INF/views/order/user_orderForm.jsp";
 	}
