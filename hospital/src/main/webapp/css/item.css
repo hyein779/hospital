@@ -293,16 +293,6 @@ ul{
 #cart_order{
 	width:1000px;
 }
-.result-display{
-	width:1000px;
-	height:400px;
-	margin:30px auto;
-	border:2px solid #d6d6d6;
-	border-radius:5px;
-	display:flex;
-	align-items:center;/*세로 정렬*/
-	justify-content:center;/*가로 정렬*/
-}
 .cart > form > table tr { 
 	border-bottom:1px solid #d3d3d3 ;
 }
@@ -353,12 +343,8 @@ ul{
     margin-top: 10px;
     padding:3px 5px;
 }
-.message{
-	font-size:20px;
-	font-weight:bold;
-}
 .delete-button{
-	background-color:#f55442;
+	background-color:#333;
 	border:none;
 	border-radius:5px;
 	color:white;
@@ -384,27 +370,59 @@ ul{
 }
 /* 배송 안내
 ---------------*/
-.order-notice{
-	margin:20px auto;
+.bottom-notice{
+	border:3px solid #dbd8ce;
+	margin:0 330px 30px;
+	padding:0 30px;
 }
-.order-notice table{
-	margin-left:330px;
+.order-notice1{
+	margin-top:10px;
+	padding: 20px 10px 3px 9px;
+}
+.order-notice2{
+	margin-bottom:10px;
+	padding: 3px 10px 20px 9px;
+}
+.cs{
+	padding: 30px 0 30px 0;
+    background: #f7f7f7;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+	overflow:hidden;
+    position:relative;
+}
+.cs-inner{
+	margin:0 auto;
+	width:745px;
+}
+.cs-center{
+	float:left;
+    height:200px;
+    width:300px;
+    margin-left:40px;
+}
+.phone{
+	font-size:22px;
+    font-weight:bold;
+    color:#293744;
+    letter-spacing:-1px;
+}
+.office-hour{
+	font-size:15px;
+	margin-top:10px
 }
 .banking-info{
-	text-align:left;
-	padding:10px 0 15px 0;
+	float:left;
+    height:200px;
+    width:300px;
+    margin:0 20px 0 20px;
+    padding-left:60px;
+    border-left:3px solid #f0f0f0;
 }
-.express{
-	text-align:left;
-	padding:10px 0;
-}
-.refund{
-	text-align:left;
-	padding-top:10px;
-}
-.notice-title{
-	font-size:20px;
-	font-weight:bold;
+.banking-info div{
+    font-size: 15px;
+    padding-bottom: 8px;
+    line-height: 20px;
 }
 /*관리자페이지*/
 .list-spaces{

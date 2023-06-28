@@ -34,7 +34,7 @@
 						<input type="search" size="25" name="keyword" id="keyword" value="${param.keyword}">
 					</li>
 					<li>
-						<input type="submit" value="찾기" id="search">
+						<input type="submit" value="검색" id="search">
 					</li>
 				</ul>
 			</form>
@@ -56,10 +56,43 @@
 				</div>
 				</c:forEach>
 			</div>
-			<div class="float-clear align-center">${page}</div>
+			<div class="align-center">${page}</div>
 			</c:if>
 		</div>
 		<!-- 내용 끝 -->
+		<!-- 배송안내 시작 -->
+		<div class="cs">
+			<div class="cs-inner">
+				<div class="cs-center">
+					<h3>고객센터</h3>
+					<div class="phone">02)3482-4632</div>
+					<div class="office-hour">
+						평일: 오전 9시 ~ 오후 8시
+						<br>
+						점심: 오후 1시 ~ 오후 2시
+						<br>
+						토요일: 오전 9시 ~ 오후 1시
+						<br>
+						<b>*주말, 공휴일 휴무</b>
+					</div>
+				</div>
+				<div class="banking-info">
+					<h3>무통장 입금 계좌</h3>
+					<div>
+					농협: 300-1234-1234-89
+					<br>
+					신한: 100-333-123456
+					<br>
+					국민: 033000-01-012345
+					<br>
+					하나: 233-123456-77777
+					<br><br>
+					<b>예금주: 쌍용정형외과</b>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 배송안내 끝 -->
 		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	</div>
 </body>
