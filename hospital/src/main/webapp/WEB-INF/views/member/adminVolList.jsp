@@ -37,6 +37,8 @@
 				<ul class="search">
 					<li><select name="keyfield" id="keyfield">
 							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>봉사명</option>
+							<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>ID</option>
+							<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
 						</select>
 					</li>
 					<li><input type="search" size="50" name="keyword" id="keyword"
@@ -47,7 +49,7 @@
 			<!-- 검색창 끝 -->
 			<div class="list-space align-right">
 				<input type="button" value="목록"
-					onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'" id="btn_bk">
+					onclick="location.href='${pageContext.request.contextPath}/member/adminVolList.do'" id="btn_bk">
 				<input type="button" value="홈으로"
 					onclick="location.href='${pageContext.request.contextPath}/main/main.do'" id="btn_bk">
 			</div>

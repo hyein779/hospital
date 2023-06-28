@@ -29,12 +29,13 @@
 	<div class="content-main">
 		<h3 class="myPagest">회원목록</h3>
 		<!-- 검색창 시작 -->
-		<form id="search_form" action="noticeList.do" method="get">
+		<form id="search_form" action="adminMemberList.do" method="get">
 			<ul class="search">
 				<li>
 					<select name="keyfield" id="keyfield">
 						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>ID</option>
 						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>이름</option>
+						<option value="3" <c:if test="${param.keyfield==3}"></c:if>>email</option>
 					</select>
 				</li>
 				<li>
@@ -48,7 +49,7 @@
 		<!-- 검색창 끝 -->
 		<hr size="1" noshade="noshade" width="100%">
 		<div class="list-space align-right">
-			<input type="button" value="목록" onclick="location.href='memberList.do'" id="btn_bk"> 
+			<input type="button" value="목록" onclick="location.href='adminMemberList.do'" id="btn_bk"> 
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '" id="btn_bk">  
 		</div>
 		<c:if test="${count == 0}">
