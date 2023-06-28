@@ -66,7 +66,7 @@ public class ReviewDAO {
 	}
 	
 	// 글 목록
-	public List<ReviewVO> getReviewList(int start,int end) throws Exception{
+	public List<ReviewVO> getReviewList(int start,int end,int mem_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -75,11 +75,15 @@ public class ReviewDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
-			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM review r JOIN member_detail m "
-				+ "USING(mem_num) ORDER BY r.rev_num DESC)a) WHERE rnum>=? AND rnum<=?";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM ("
+					+ "SELECT * FROM review r JOIN member_detail m USING(mem_num) "
+					+ " LEFT OUTER JOIN (SELECT 'clicked' clicked,rev_num FROM fav WHERE mem_num=?) USING(rev_num)"
+					+ " LEFT OUTER JOIN (SELECT rev_num, COUNT(*) cnt FROM fav GROUP BY rev_num) USING(rev_num)"
+					+ "ORDER BY rev_num DESC)a) WHERE rnum>=? AND rnum<=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
+			pstmt.setInt(1, mem_num);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
 			
 			rs = pstmt.executeQuery();
 			list = new ArrayList<ReviewVO>();
@@ -87,11 +91,13 @@ public class ReviewDAO {
 				ReviewVO review = new ReviewVO();
 				review.setRev_num(rs.getInt("rev_num"));
 				review.setRev_title(StringUtil.useNoHtml(rs.getString("rev_title")));
-				review.setRev_content(StringUtil.useBrNoHtml(rs.getString("rev_content")));
+				review.setRev_content(rs.getString("rev_content"));
 				review.setRev_type(rs.getInt("rev_type"));
 				review.setRev_date(rs.getDate("rev_date"));
 				review.setMem_num(rs.getInt("mem_num"));
 				review.setMem_name(rs.getString("mem_name"));
+				review.setCnt(rs.getInt("cnt"));
+				review.setClicked(rs.getString("clicked"));
 				
 				list.add(review);
 			}

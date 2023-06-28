@@ -12,6 +12,8 @@ public class ReviewVO {
 	private int mem_num; // 회원번호
 	
 	private String mem_name; // 회원이름
+	private int cnt;
+	private String clicked;
 
 	public int getRev_num() {
 		return rev_num;
@@ -76,4 +78,21 @@ public class ReviewVO {
 	public void setMem_name(String mem_name) {
 		this.mem_name = mem_name;
 	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+
+	public String getClicked() {
+		return clicked;
+	}
+
+	public void setClicked(String clicked) {
+		this.clicked = clicked;
+	}
+	
 }

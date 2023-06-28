@@ -19,9 +19,9 @@
 		<li id="10106" >My 병원 예약 정보</li>
 		<ul class="depth2">
 			<li id="10107" >
-				<a href="#"  onclick="#">진료 예약 정보</a></li>
+				<a href="${pageContext.request.contextPath}/member/userTreatmentForm.do">진료 예약 정보</a></li>
 			<li id="10108" >
-				<a href="#"  onclick="#">치료 예약 정보</a></li>
+				<a href="${pageContext.request.contextPath}/member/userTherapyForm.do">치료 예약 정보</a></li>
 		</ul>
 		
 		<li id="10109" >My 주문 정보</li>

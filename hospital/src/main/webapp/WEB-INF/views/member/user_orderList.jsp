@@ -86,6 +86,9 @@
 					</c:forEach>
 				</table>
 			</c:if>
+ 			<br>
+			<hr class="order-hr"> 
+			<br>
 		</div>
 		<!-- 내용 끝 -->
 		<div class="align-center">${page}</div>

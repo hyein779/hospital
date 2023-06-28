@@ -43,7 +43,7 @@
 				<li>
 					<label for="rev_type">진료과목</label>
 					<span><input type="radio" name="rev_type" id="rev_type" value="0"
-					<c:if test="${review.rev_type==0}">checked</c:if>>목 질환</span>
+					<c:if test="${review.rev_type==0}">checked</c:if>>발목 질환</span>
 					<span><input type="radio" name="rev_type" id="rev_type" value="1"
 					<c:if test="${review.rev_type==1}">checked</c:if>>허리 질환</span>
 					<span><input type="radio" name="rev_type" id="rev_type" value="2"

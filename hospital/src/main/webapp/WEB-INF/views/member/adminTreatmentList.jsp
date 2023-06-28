@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 목록</title>
+<title>진료 예약 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
@@ -27,15 +27,14 @@
 	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h3 class="myPagest">회원목록</h3>
+		<h3 class="myPagest">진료 예약 목록</h3>
 		<!-- 검색창 시작 -->
-		<form id="search_form" action="adminMemberList.do" method="get">
+		<form id="search_form" action="noticeList.do" method="get">
 			<ul class="search">
 				<li>
 					<select name="keyfield" id="keyfield">
-						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>ID</option>
-						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>이름</option>
-						<option value="3" <c:if test="${param.keyfield==3}"></c:if>>email</option>
+						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>회원이름</option>
+						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>선생님</option>
 					</select>
 				</li>
 				<li>
@@ -49,48 +48,35 @@
 		<!-- 검색창 끝 -->
 		<hr size="1" noshade="noshade" width="100%">
 		<div class="list-space align-right">
-			<input type="button" value="목록" onclick="location.href='adminMemberList.do'" id="btn_bk"> 
+			<input type="button" value="목록" onclick="location.href='adminTreatmentList.do'" id="btn_bk"> 
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '" id="btn_bk">  
 		</div>
-		<c:if test="${count == 0}">
+		<%-- <c:if test="${count == 0}">
 		<div class="result-display">
-			표시할 회원정보가 없습니다.
+			표시할 진료예약내역이 없습니다.
 		</div>
 		</c:if>
 		<c:if test="${count > 0}">
 		<table>
 			<tr>
-				<th>회원번호</th>
-				<th>ID</th>
-				<th>이름</th>
-				<th>전화번호</th>
-				<th>주소</th>
-				<th>최근진료일</th>
-				<th>등급</th>
+				<th>예약번호</th>
+				<th>회원이름</th>
+				<th>선생님</th>
+				<th>예약날짜</th>
+				<th>예약시간</th>
+				<th>진료상세</th>
 				<th>관리</th>
 			</tr>
 			<c:forEach var="member" items="${list}">
 			<tr>
-				<td>${member.mem_num}</td>
-				<td>${member.id}</td>
-				<td>${member.name}</td>
-				<td>${member.phone}</td>
-				<td>${member.address1} ${member.address2}</td>
-				<c:if test="${member.visited==null}">
-					<td>없음</td>
-				</c:if>
-				<c:if test="${member.visited != null}">
-					<td>${member.visited}</td>
-				</c:if>
-				<td>
-					<c:if test="${member.auth == 0}">탈퇴</c:if>
-					<c:if test="${member.auth == 1}">정지</c:if>
-					<c:if test="${member.auth == 2}">일반</c:if>
-					<c:if test="${member.auth == 9}">관리</c:if>
-				</td>
+				<td>${}</td>
+				<td>${}</td>
+				<td>${}</td>
+				<td>${}</td>
+				<td>${}</td>
 				<c:if test="${member.auth > 0}">
-					<td><a href="adminDetailUserForm.do?mem_num=${member.mem_num}" id="bluecolor"><ins>수정</ins></a>
-					 / <a href="adminDeleteUserForm.do?mem_num=${member.mem_num}" id="redcolor"><ins>삭제</ins></a></td>
+					<td><a href="#" id="bluecolor"><ins>수정</ins></a>
+					 / <a href="#" id="redcolor"><ins>삭제</ins></a></td>
 				</c:if>
 				<c:if test="${member.auth == 0}">
 					<td>X</td>
@@ -99,7 +85,7 @@
 			</c:forEach>
 		</table>
 		<div class="align-center">${page}</div>
-		</c:if>
+		</c:if> --%>
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

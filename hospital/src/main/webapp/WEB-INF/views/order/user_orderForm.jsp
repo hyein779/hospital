@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>(회원)상품 주문_user_orderForm</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -40,11 +39,11 @@
 <div class="page-main">
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/views/item/lnb.jsp"/>
 	<!-- header 끝 -->
 	<!-- content 시작 -->
-	<div class="content-lnbx">
-		<h2 class="order-h2">상품 주문</h2>
-		<br>
+	<div class="content-main">
+	<h3 class="subtitle">상품 주문</h3>
 		<hr class="order-hr">
 		<br>
 		<table class="order-table">
@@ -74,7 +73,7 @@
 				<td colspan="2"></td>
 				<td class="align-center"><b>총 구매 금액</b></td>
 				<td class="align-center">
-					<fmt:formatNumber value="${order.order_total}"/>원
+					<fmt:formatNumber value="${all_total}"/>원
 				</td>
 			</tr>
 		</table>
@@ -148,7 +147,10 @@
 				<input type="button" id="btn" value="홈으로"
 				       onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
-		</form>		
+		</form>	
+		<br>
+		<hr class="order-hr"> 
+		<br>	
 	</div>
 	<!-- content 끝 -->
 	<!-- 우편번호 검색 시작 -->
@@ -249,6 +251,9 @@
 	    }
 	</script>
 	<!-- 우편번호 검색 끝 -->
+	<!-- footer 시작 -->
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	<!-- footer 끝 -->
 </div>
 </body>
 </html>

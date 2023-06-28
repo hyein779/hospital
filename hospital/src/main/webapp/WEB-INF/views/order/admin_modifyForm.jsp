@@ -37,14 +37,13 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="orderLnb.jsp"/>
+	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
 	<div class="content-main">
 	<h3 class="subtitle">배송 정보</h3>
 		<!-- 상품 수정 내역 -->
-		<br>
 		<hr class="order-hr">
 		<br>		
 		<form id = "order_form" action="modify.do" method="post">
@@ -128,6 +127,15 @@
 					        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
 							</td>
 						</tr>
+						<tr>
+							<td><label class="order-item">결제수단</label></td>
+							<td>
+								<span class="color-red">
+									<c:if test="${order.payment == 1}">&#91; 계좌이체 &#93;</c:if>
+									<c:if test="${order.payment == 2}">&#91; 카드결제 &#93;</c:if>
+								</span>
+							</td>
+						</tr>
 					</table>
 				</c:if>
 				<c:if test="${order.status >= 2}">
@@ -157,16 +165,15 @@
 					<li>
 						<label class="order-item">메모</label>
 						${order.notice}
-					</li>					
-				</c:if>	
-					<li><br></li>		
+					</li>		
 					<li>
 						<label class="order-item">결제수단</label>
 						<span class="color-red">
 							<c:if test="${order.payment == 1}">&#91; 계좌이체 &#93;</c:if>
 							<c:if test="${order.payment == 2}">&#91; 카드결제 &#93;</c:if>
 						</span>
-					</li>
+					</li>								
+				</c:if>	
 			</ul>
 			<div class="align-center">
 				<c:if test="${order.status != 5}">			
@@ -193,7 +200,7 @@
 	        </div>		
 		</form>
 		<br>
-		<hr class="order-hr">
+		<hr class="order-hr"> 
 		<br>
 	</div>	
 	<!-- content 끝 -->
@@ -294,7 +301,7 @@
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
 	</script>
-		<!-- 우편번호 검색 끝 -->
+	<!-- 우편번호 검색 끝 -->
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- footer 끝 -->

@@ -17,14 +17,13 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="orderLnb.jsp"/>
+	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
 	<div class="content-main">
 	<h3 class="subtitle">주문 내역</h3>
 		<!-- 상품 상세 내역 -->
-		<br>
 		<hr class="order-hr">
 		<br>
 		<table class="order-table">
@@ -57,18 +56,15 @@
 			</tr>
 		</table>  
 		<br>
-		<hr class="order-hr">
-		<br>		
 		<div class="align-center">
 			<input type="button" value="목록" 
 				   onclick="location.href='list.do'">
 			<input type="button" value="홈으로" 
 				   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
-		
+
 	</div>	 
 	<!-- content 끝 -->
-	
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- footer 끝 -->

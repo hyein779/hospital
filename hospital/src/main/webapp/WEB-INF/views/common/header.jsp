@@ -7,35 +7,32 @@
 <div class="textright">
 		<!-- 로그아웃 상태 -->
 		<c:if test="${empty user_num}">
-			<span><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></span>
+			<span><a href="${pageContext.request.contextPath}/member/loginForm.do">로그인</a></span> | 
 			<span><a href="${pageContext.request.contextPath}/member/registerUserForm.do">회원가입</a></span>
 		</c:if>
 		
 		<!-- 관리자 로그인 -->
 		<c:if test="${!empty user_num && user_auth == 9}">
 			<li class="main-login">
-				<span>[ ${user_id} ] 님 환영합니다.</span>
+				<b>[ ${user_id} ]</b> 님 환영합니다 ::
 				<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a><br>
-				<a href="${pageContext.request.contextPath}/member/adminMemberList.do">관리자페이지</a>
 			</li>
 		</c:if>
 		
 		<!-- 일반회원 로그인 -->
 		<c:if test="${!empty user_num && user_auth == 2}">
 			<li class="main-login">
-				[ ${user_id} ] 님 환영합니다.
+				<b>[ ${user_id} ]</b> 님 환영합니다 ::
 				<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a><br>
-				<a href="${pageContext.request.contextPath}/member/myPage.do">마이페이지</a>
 			</li>
-		</c:if>
-</div>
+		</c:if> 
+</div> 
 
 <div id="main_nav">
 		<nav id="main_nav">
 			<!-- 메뉴창 -->
 			<div class="menuleft">
 				<ul class="outer-menu">
-				
 					<li class = "outer-menu-item">
 						<span class="menu-title"><a href="#">병원소개</a></span>
 						<ul class="inner-menu">
@@ -83,6 +80,16 @@
 					<li class = "outer-menu-item">
 						<span class="menu-title"><a href="${pageContext.request.contextPath}/member/map.do">오시는길</a></span>
 					</li>	
+					<c:if test="${empty user_num || user_auth < 9}">
+						<li class = "outer-menu-item">
+							<span class="menu-title"><a href="${pageContext.request.contextPath}/member/myPage.do">마이페이지</a></span>
+						</li>
+					</c:if>
+					<c:if test="${!empty user_num && user_auth == 9}">
+						<li class = "outer-menu-item">
+							<span class="menu-title"><a href="${pageContext.request.contextPath}/member/adminMemberList.do">관리페이지</a></span>
+						</li>
+					</c:if>					
 				</ul>
 			</div>
 		</nav>

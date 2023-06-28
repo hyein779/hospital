@@ -56,30 +56,34 @@
 				</c:if>
 				<li class="like">
 					<!-- 좋아요 -->
-					<img id="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/fav01.png" width="23">
-					좋아요
-					<span id="output_fcount"></span> 
+					<c:if test="${review.clicked != 'clicked'}">
+					<img class="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/like01.png" width="23">
+					</c:if>
+					<c:if test="${review.clicked == 'clicked'}">
+					<img class="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/like02.png" width="23">
+					</c:if>
+					<span class="output_fcount">${review.cnt}</span> 
 				</li>
 			</ul>
 			<ul class="rev-main">
 				<li class="review-image">
 					<c:if test="${review.rev_type == 0}">
 					<div class="review-image">
-						<img src="${pageContext.request.contextPath}/images/목통증.jpg">
+						<img src="${pageContext.request.contextPath}/images/ankle.png">
 						<p>
-						목통증 <br> 진료 후기
+						발목통증 <br> 진료 후기
 						</div>
 					</c:if>
 					<c:if test="${review.rev_type == 1}">
 					<div class="review-image">
-						<img src="${pageContext.request.contextPath}/images/허리통증.jpg">
+						<img src="${pageContext.request.contextPath}/images/back.png">
 						<p>
 						허리통증 <br> 진료 후기
 						</div>
 					</c:if>
 					<c:if test="${review.rev_type == 2}">
 					<div class="review-image">
-						<img src="${pageContext.request.contextPath}/images/어깨통증.jpg">
+						<img src="${pageContext.request.contextPath}/images/shoulder.png">
 						<p>
 						어깨통증 <br> 진료 후기
 						</div>

@@ -37,10 +37,13 @@ p{
 .content-sub2{
 	text-align:center;
 	padding:10px 0;
-}
+} 
 .content-main-p{
 	padding:0px 0px 20px 0px;
 }
 .content-sub-title2{
 	padding:10px 0;
 }
+.main-login{
+	list-style:none;
+} 
