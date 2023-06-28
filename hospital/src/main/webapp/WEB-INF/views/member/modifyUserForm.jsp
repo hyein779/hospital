@@ -67,8 +67,8 @@
 					</li>
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="수정">
-					<input type="button" value="MY페이지" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
+					<input type="submit" value="수정" id="btn_b">
+					<input type="button" value="MY페이지" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'" id="btn_w">
 				</div>
 			</form>
 		</div>

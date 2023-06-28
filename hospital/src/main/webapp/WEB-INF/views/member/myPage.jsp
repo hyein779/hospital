@@ -77,7 +77,7 @@
 				</tr>
 			</table>
 			<div class="align-center">
-				<input type="button" id="btn" value="내 정보수정" onclick="location.href='${pageContext.request.contextPath}/member/modifyUserForm.do'">
+				<input type="button" id="btn_b" value="내 정보수정" onclick="location.href='${pageContext.request.contextPath}/member/modifyUserForm.do'">
 			</div>
 		</div>
 	</div>

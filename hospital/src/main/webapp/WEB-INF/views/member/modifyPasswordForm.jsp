@@ -61,8 +61,8 @@
 					</li>
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="비밀번호 수정">
-					<input type="button" value="MY페이지" onclick="location.href='myPage.do'">
+					<input type="submit" value="비밀번호 수정" id="btn_b">
+					<input type="button" value="MY페이지" onclick="location.href='myPage.do'" id="btn_w">
 				</div>
 			</form>
 		</div>

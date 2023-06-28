@@ -19,7 +19,7 @@
 		<div class="result-display">
 			<div class="align-center">
 			 	정지된 회원 ID입니다.<p>
-			 	<input type="button" value="홈으로" class="combtn" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+			 	<input type="button" value="홈으로" id="btn_b" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
 		</div>
 	</div>

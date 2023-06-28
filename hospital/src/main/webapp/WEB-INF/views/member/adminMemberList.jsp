@@ -47,8 +47,8 @@
 		</form>
 		<!-- 검색창 끝 -->
 		<div class="list-space align-right">
-			<input type="button" value="목록" onclick="location.href='memberList.do'"> 
-			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '">  
+			<input type="button" value="목록" onclick="location.href='memberList.do'" id="btn_bk"> 
+			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '" id="btn_bk">  
 		</div>
 		<c:if test="${count == 0}">
 		<div class="result-display">
@@ -65,7 +65,7 @@
 				<th>주소</th>
 				<th>최근진료일</th>
 				<th>등급</th>
-				<th>수정 / 삭제</th>
+				<th>관리</th>
 			</tr>
 			<c:forEach var="member" items="${list}">
 			<tr>
@@ -87,8 +87,8 @@
 					<c:if test="${member.auth == 9}">관리</c:if>
 				</td>
 				<c:if test="${member.auth > 0}">
-					<td><a href="adminDetailUserForm.do?mem_num=${member.mem_num}">수정</a>
-					 / <a href="adminDeleteUserForm.do?mem_num=${member.mem_num}">삭제</a></td>
+					<td><a href="adminDetailUserForm.do?mem_num=${member.mem_num}" id="bluecolor"><ins>수정</ins></a>
+					 / <a href="adminDeleteUserForm.do?mem_num=${member.mem_num}" id="redcolor"><ins>삭제</ins></a></td>
 				</c:if>
 				<c:if test="${member.auth == 0}">
 					<td>X</td>
