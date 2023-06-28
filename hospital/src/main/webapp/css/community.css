@@ -183,17 +183,17 @@ tr:hover{
   border-radius:5px;
   padding:10px;
   margin:5px 19px 40px 19px;
-  width:500px;
+  width:496px;
   height:285px;
   float:left;
-  border:solid 1px #6496BA;
+  border:solid 3px #000;
 }
 
 .rev {
   padding:1px 10px 10px 15px;
   width:350px;
   height:215px;
-  border:solid 1px #ccc;
+  border:solid 3px #979797;
   color:#888;
 }
 

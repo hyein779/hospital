@@ -26,9 +26,9 @@ $(function(){
 	function displayFav(param,clicked){
 		let output;
 		if(param.status=='noFav'){
-			output = '../images/fav01.png';
+			output = '../images/like01.png';
 		}else{
-			output = '../images/fav02.png';
+			output = '../images/like02.png';
 		}
 		//문서 객체 설정
 		clicked.attr('src',output);
