@@ -54,14 +54,14 @@ ul{
 	text-align:right;
 }
 .outer-menu{
-	width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+	width: 1400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .outer-menu-item{
 	float:left;
 	position:relative;
-	width:120px;
+	width:130px;
 	padding:0 20px;
 }
 .outer-menu-item:hover{
