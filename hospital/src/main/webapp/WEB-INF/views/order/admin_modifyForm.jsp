@@ -15,7 +15,7 @@
 	$(function(){
 		//상품주문 정보 등록 유효성 체크
 			$('#order_form').submit(function(){
-	  	let items = document.querySelectorAll('input[type="text"]');
+	 	 	let items = document.querySelectorAll('input[type="text"]');
 	  	  
 	      	for(let i=0;i<items.length;i++){
 		        if(items[i].value.trim()==''){
