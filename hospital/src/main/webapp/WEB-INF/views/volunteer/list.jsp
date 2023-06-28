@@ -83,7 +83,7 @@
 		</table>
 		<div class="align-center">${page}</div>
 		</c:if>
-		<input type="button" onclick="location.href='${pageContext.request.contextPath}/volunteer/memberVolList.do'" value="상세정보">
+		<!-- <input type="button" onclick="location.href='${pageContext.request.contextPath}/volunteer/memberVolList.do'" value="상세정보"> -->
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

@@ -55,7 +55,13 @@
 			});
 			
 		});// end of click
-		
+		//경고표시
+		$('#register_form #id').keyup(function(){
+			let inputLength = $(this).val().length;
+			if(inputLength<4 || inputLength>12){
+				$('#message_id').text('*영문 또는 숫자(4자~12자)를 입력하세요');
+			}
+		});
 		// 아이디 중복 안내 메시지 초기화 및 아이디
 		// 중복 값 초기화
 		$('#register_form #id').keydown(function(){
@@ -119,7 +125,8 @@
 					<li>
 						<label for="id">아이디</label>
 						<input type="text" name="id" id="id" maxlength="12" autocomplete="off" placeholder=" 아이디를 입력해주세요">
-						<input type="button" value="id중복체크" id="id_check" class="zipbtn">
+						<input type="button" value="id중복체크" id="id_check" class="zipbtn"><br>
+						<div id="message_id"></div>
 					</li>
 					<li>
 						<label for="passwd">비밀번호</label>

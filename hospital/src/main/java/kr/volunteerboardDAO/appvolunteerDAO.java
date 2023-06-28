@@ -31,6 +31,7 @@ public class appvolunteerDAO {
 		
 		try {
 			conn = DBUtil.getConnection();
+			conn.setAutoCommit(false);
 			//app_num구하기
 			sql = "SELECT appvolunteer_seq.nextval FROM dual";
 			pstmt = conn.prepareStatement(sql);
@@ -60,8 +61,11 @@ public class appvolunteerDAO {
 			
 			pstmt3.executeUpdate();
 			
+			conn.commit();
+			
 			
 			}catch(Exception e) {
+				conn.rollback();
 				throw new Exception(e);
 			}finally {
 				DBUtil.executeClose(null, pstmt3, null);
@@ -219,7 +223,7 @@ public class appvolunteerDAO {
 				if(keyfield.equals("1")) sub_sql += "AND app_num=?";
 			}
 			
-			sql = "SELECT * FROM appvolunteer WHERE mem_num=?" + sub_sql;
+			sql = "SELECT COUNT(*) FROM appvolunteer WHERE mem_num=?" + sub_sql;
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, mem_num);
 			if(keyword!=null && !"".equals(keyword)) {
@@ -248,21 +252,35 @@ public class appvolunteerDAO {
 	public void deleteApp(int app_num)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		String sql = null;
-		
+		int plus = 1;
 			
 		try {
 			conn = DBUtil.getConnection();
-			sql = "DELETE FROM appvolunteer WHERE app_num=?";
+			conn.setAutoCommit(false);
+			
+			//sql = "UPDATE volunteerboard v SET quantity=quantity+? WHERE v.board_num = (SELECT board_num FROM volunteerboard LEFT OUTER JOIN appvolunteer a ON a.app_num=?)";
+			sql = "UPDATE volunteerboard v SET v.quantity=v.quantity+? WHERE v.board_num = (SELECT board_num FROM appvolunteer WHERE app_num=?)";
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, app_num);
-			
+			pstmt.setInt(1, plus);
+			pstmt.setInt(2, app_num);
 			pstmt.executeUpdate();
 			
+			sql = "DELETE FROM appvolunteer WHERE app_num=?";
+			pstmt2 = conn.prepareStatement(sql);
+			pstmt2.setInt(1, app_num);
+			pstmt2.executeUpdate();
+			
+			
+			
+			conn.commit();
+			
 		}catch(Exception e) {
+			conn.rollback();
 			throw new Exception(e);
 		}finally {
+			DBUtil.executeClose(null, pstmt2, null);
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 		

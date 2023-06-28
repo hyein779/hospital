@@ -29,7 +29,7 @@ public class AdminWriteAction implements Action{
 		}
 		
 		// 관리자로 로그인한 경우
-		MultipartRequest multi = FileUtil.createFile(request);
+		MultipartRequest multi = FileUtil.createFile(request);  
 		
 		ItemVO item = new ItemVO();
 		item.setItem_name(multi.getParameter("item_name"));
