@@ -200,8 +200,10 @@ $(function(){
 			       
 		</div>
 		</form>
+		<br>
+		<hr class="order-hr"> 
+		<br>
 	</div>
-		
 	<!-- content 끝 -->
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

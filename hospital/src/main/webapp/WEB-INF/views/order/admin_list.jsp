@@ -61,7 +61,7 @@
 			</ul>
 		</form><br>
  			<c:if test="${count == 0}">
-				<div>주문내역이 없습니다.</div>
+				<h3 class="delivery_text">주문내역이 없습니다.</h3>
  			</c:if>
  			<c:if test="${count > 0}">
 			<table>

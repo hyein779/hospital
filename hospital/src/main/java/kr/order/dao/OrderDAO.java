@@ -446,6 +446,7 @@ public class OrderDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
 		String sql = null;
 		String sub_sql = "";
 		int cnt = 0;
@@ -455,7 +456,7 @@ public class OrderDAO {
 			conn.setAutoCommit(false);
 			
 			OrderVO db_order = getOrder(order.getOrder_num()); //화면전송데이터=DB저장데이터
-			if(order.getStatus() == 1 && db_order.getStatus() == 1) {
+			if(order.getStatus() == 1 && db_order.getStatus() == 1) {	
 				sub_sql += "receive_name=?,receive_post=?,receive_address1=?,receive_address2=?,receive_phone=?,notice=?,";
 			}
 			sql = "UPDATE zorder SET status=?," + sub_sql + "modify_date=SYSDATE WHERE order_num=?";
@@ -473,7 +474,7 @@ public class OrderDAO {
 			pstmt.setInt(++cnt, order.getOrder_num());
 			
 			pstmt.executeUpdate();
-			
+
 			//주문 취소일 때 상품 개수 조절
 			if(order.getStatus() == 5) {
 				//주문번호에 해당하는 상품정보 구하기
@@ -494,6 +495,25 @@ public class OrderDAO {
 				pstmt2.executeBatch();
 			}//end of if
 			
+			//배송 완료일 때 상품 개수 조절
+			if(order.getStatus() == 4) {
+				//주문번호에 해당하는 상품정보 구하기
+				List<OrderDetailVO> detailList = getListOrderDetail(order.getOrder_num());
+				
+				sql = "UPDATE item SET item_quantity=item_quantity-? WHERE item_num=?";
+				pstmt3 = conn.prepareStatement(sql);
+				for(int i=0; i<detailList.size(); i++) {
+					OrderDetailVO detail = detailList.get(i);
+					pstmt3.setInt(1, detail.getOrder_quantity());
+					pstmt3.setInt(2, detail.getItem_num());
+					pstmt3.addBatch();
+					
+					if(i%1000 == 0) {
+						pstmt3.executeBatch();
+					}
+				}//end of for
+				pstmt3.executeBatch();
+			}//end of if			
 			//모든 SQL문 성공시
 			conn.commit();
 		}catch(Exception e) {

@@ -147,7 +147,10 @@
 				<input type="button" id="btn" value="홈으로"
 				       onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
-		</form>		
+		</form>	
+		<br>
+		<hr class="order-hr"> 
+		<br>	
 	</div>
 	<!-- content 끝 -->
 	<!-- 우편번호 검색 시작 -->
