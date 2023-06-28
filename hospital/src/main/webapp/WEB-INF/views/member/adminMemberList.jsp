@@ -28,7 +28,7 @@
 	<!-- 내용 시작 -->
 	<div class="content-main">
 		<h3 class="myPagest">회원목록</h3>
-		<!-- 검색창 시작 -->
+		<!-- 검색창 시작  -->
 		<form id="search_form" action="noticeList.do" method="get">
 			<ul class="search">
 				<li>
