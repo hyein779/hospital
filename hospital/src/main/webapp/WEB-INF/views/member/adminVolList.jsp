@@ -32,7 +32,7 @@
 		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h3 class="subtitle">봉사 목록</h3>
-			<!-- 검색창 시작 -->
+			<!-- 검색창 시작  -->
 			<form id="search_form" action="adminVolList.do" method="get">
 				<ul class="search">
 					<li><select name="keyfield" id="keyfield">
