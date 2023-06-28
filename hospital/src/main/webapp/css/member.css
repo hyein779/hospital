@@ -297,18 +297,20 @@ tr:hover {
 }
 .supyung div{
 	width: 50%;
-	margin: 0 30px 30px 30px;
+	margin: 20px 30px 20px 30px;
 	
 }
-
+.supyung h2{
+	color: #004080;
+}
+.supyung h4{
+	margin-top: 30px;
+}
 .supyung li{
 	font-size: 15px;
 	margin-bottom: 10px;
 }
 .supyung span{
 	color: red;
-}
-.supyung p{
-	color: blue;
-	font-size: 20px;
+	font-size: 14px;
 }
