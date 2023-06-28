@@ -1,22 +1,7 @@
-$(function(){
-	//좋아요 선택 여부와 선택한 총 개수 읽기
-	function selectFav(){
-		$.ajax({
-			url:'favGet.do',
-			type:'post',
-			data:{rev_num:$('#output_fav').attr('data-num')},
-			dataType:'json',
-			success:function(param){
-				displayFav(param);
-			},
-			error:function(){
-				alert('네트워크 오류 발생');
-			}			
-		});
-	}
-	
+$(function(){	
 	//좋아요 등록(및 삭제) 이벤트 처리
-	$('#output_fav').click(function(){
+	$('.output_fav').click(function(){
+		let clicked = $(this);
 		$.ajax({
 			url:'favWrite.do',
 			type:'post',
@@ -26,7 +11,7 @@ $(function(){
 				if(param.result == 'logout'){
 					alert('로그인 후 좋아요를 눌러주세요');
 				}else if(param.result == 'success'){
-					displayFav(param);
+					displayFav(param,clicked);
 				}else{
 					alert('좋아요 표시 오류 발생');
 				}
@@ -38,7 +23,7 @@ $(function(){
 	});
 	
 	//좋아요 표시 
-	function displayFav(param){
+	function displayFav(param,clicked){
 		let output;
 		if(param.status=='noFav'){
 			output = '../images/fav01.png';
@@ -46,12 +31,10 @@ $(function(){
 			output = '../images/fav02.png';
 		}
 		//문서 객체 설정
-		$('#output_fav').attr('src',output);
-		$('#output_fcount').text(param.count);
+		clicked.attr('src',output);
+		clicked.parent().find('.output_fcount').text(param.count);
+		
 	}
-	
-	//초기 데이터 호출
-	selectFav();
 	
 });
 
