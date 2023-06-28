@@ -121,6 +121,7 @@
 	border-radius: 20%;
 	font-size:13px;
 	margin:90px 0 0 100px;
+	border:0px;
 }
 /*진료 예약
 ------------------------------------*/
@@ -128,52 +129,8 @@
 	float:left;
 	margin:0 20px 20px 20px;
 }
-
-
-
-
-
-/* 기본스타일  */	
-table{
-	background-color: #FFF;
-	width:500px;
-	align-content:center;
-	
-}	
-tr{
-	height: 50px;
+.res_date input[type="button"]{
+	background-color:#24A5E4;
+	border:2px solid #24A5E4;
+	color:white;
 }
-td{width: 30px; text-align: right; font-size: 15pt; font-family: D2coding;}
-/* 타이틀 스타일 */
-th#title {
-	font-size: 20pt; 
-	font-weight: bold; 
-	font-family: D2coding; 
-}
-table p{
-	color:#24A5E4; 
-}
-tr.cal_top{
-	background-color: #EFFBFF; 
-}
-
-/* 요일 스타일 */
-td.sunday{ text-align: center; font-weight: bold; color: red; font-family: D2coding; }
-td.saturday{ text-align: center; font-weight: bold; color: blue; font-family: D2coding; }
-td.etcday{ text-align: center; font-weight: bold; color: black; font-family: D2coding; }
-
-/* 날짜 스타일 */
-td.sun{ text-align: center; font-size: 15pt; color: red; font-family: D2coding;}
-td.sat{ text-align: center; font-size: 15pt; color: blue; font-family: D2coding;}
-td.etc{ text-align: center; font-size: 15pt; color: black; font-family: D2coding;}
-	
-td.redbefore{ text-align: right; font-size: 12pt; color: red; font-family: D2coding; vertical-align: top;}
-td.before{ text-align: right; font-size: 12pt; color: gray; font-family: D2coding; vertical-align: top;}
-	
-
-
-
-
-
-
-

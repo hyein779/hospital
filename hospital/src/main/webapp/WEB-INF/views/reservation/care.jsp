@@ -25,17 +25,20 @@
 			<p><a href="${pageContext.request.contextPath}/reservation/select.do">돌아가기</a></p>
 		</div>
 		<div class="selDoc">
-			<div class="doc_list">
-				<img class="doc_img" src="../images/장원호.jpg">
-				<p class="doc_name">장원호 교수</p>
-				<p class="doc_cont">
-					목, 허리 질환
-					<br>
-					(목디스크, 경추관절증후군, 허리디스크, 척추압박골절 등)
-				</p>
-				<p class="doc_res"><a href="${pageContext.request.contextPath}/reservation/careRes.do">예약</a></p>
-			</div>
+			<form>
+				<div class="doc_list">
+					<img class="doc_img" src="../images/장원호.jpg">
+					<p class="doc_name">장원호 교수</p>
+					<p class="doc_cont">
+						목, 허리 질환
+						<br>
+						(목디스크, 경추관절증후군, 허리디스크, 척추압박골절 등)
+					</p>  
+					<input type="button" class="doc_res" value="예약"  onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=1'"/>
+				</div>
+			</form>
 			<hr width = "100%" color = "#d6d6d6">
+			<form>
 			<div class="doc_list">
 				<img class="doc_img" src="../images/임유니스.jpg">
 				<p class="doc_name">임유니스 교수</p>
@@ -44,9 +47,11 @@
 					<br>
 					(퇴행성 관절, 관절내시경, 외상성 질환 등)
 				</p>
-				<p class="doc_res"><a href="${pageContext.request.contextPath}/reservation/careRes.do">예약</a></p>
+				<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=2'"/>
 			</div>
+			</form>
 			<hr width = "100%" color = "#d6d6d6">
+			<form>
 			<div class="doc_list">
 				<img class="doc_img" src="../images/이승흠.jpg">
 				<p class="doc_name">이승흠 교수</p>
@@ -55,8 +60,9 @@
 					<br>
 					(하지골절, 발목관절경, 근육 및 인대 손상, 무지외반증 등)
 				</p>
-				<p class="doc_res"><a href="${pageContext.request.contextPath}/reservation/careRes.do">예약</a></p>
+				<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=3'"/>
 			</div>
+			</form>
 		</div>
 		
 	</div>

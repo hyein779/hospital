@@ -1,5 +1,12 @@
 package kr.reservation.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import kr.reservation.vo.ReservationVO;
+import kr.util.DBUtil;
+
 public class ReservationDAO {
 	//싱글턴 패턴
 	private static ReservationDAO instance = new ReservationDAO();
@@ -8,31 +15,93 @@ public class ReservationDAO {
 	}
 	private ReservationDAO() {}
 	
-//	년도를 넘겨받아 윤년/ 평년을 판단해 윤년이면 true, 평년이면 false를 리턴하는 메서드
-	public static boolean isLeapYear(int year) {
-		return (year % 4 ==0) && (year % 100 !=0) ||(year % 400 ==0);
-	}
-	
-//	년, 월을 넘겨받아 그 달의 마지막 날짜를 리턴하는 메서드
-	public static int lastDay(int year ,int month ) {
-		int[] m = {31,28,31,30,31,30,31,31,30,31,30,31};
-		m[1]=isLeapYear(year)? 29:28;
-		return m[month-1];
-	}
-	
-	
-//	년, 월, 일을 념겨받아 1년 1월 1일부터 지나온 날짜의 합계를 리턴하는 메서드	
-	public static int totalDay(int year, int month, int day) {
-		int sum = (year-1)*365 +(year-1)/4 - (year-1)/100 +(year-1)/400;
-		for (int i = 1; i < month; i++) {
-			sum += lastDay(year,i);
+	//의사 정보
+	public ReservationVO getDoc(int doc_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ReservationVO reservation = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT * FROM doc WHERE doc_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, doc_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				reservation = new ReservationVO();
+				reservation.setDoc_num(rs.getInt("doc_num"));
+				reservation.setDoc_name(rs.getString("doc_name"));
+				reservation.setDoc_content(rs.getString("doc_content"));
+				reservation.setDoc_photo(rs.getString("doc_photo"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
 		}
-		return sum + day;
+		return reservation;
 	}
 	
-//	년, 월, 일을 넘겨받아 요일을 숫자로 리턴하는 메서드, 일요일(0),월요일(1)....토요일(6)
-	public static int weekDay(int year, int month, int day) {
-		return totalDay(year, month, day) % 7;
+	//예약 정보 insert
+	public void insertRes(ReservationVO reservation) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			conn = DBUtil.getConnection();
+			sql = "INSERT INTO reservation (res_num,res_date,res_time,res_treat,res_status,res_select,mem_num,doc_num) "
+					+ "VALUES (reservation_seq.nextval,?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, reservation.getRes_date());
+			pstmt.setString(2, reservation.getRes_time());
+			pstmt.setString(3, reservation.getRes_treat());
+			pstmt.setInt(4, reservation.getRes_status());
+			pstmt.setInt(5, reservation.getRes_select());
+			pstmt.setInt(6, reservation.getMem_num());
+			pstmt.setInt(7, reservation.getDoc_num());
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
 	}
 	
+	//예약 정보 select
+	public ReservationVO getRes(int res_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ReservationVO reservation = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT * FROM reservation WHERE res_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, res_num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				reservation = new ReservationVO();
+				reservation.setRes_num(rs.getInt("res_num"));
+				reservation.setRes_date(rs.getString("res_date"));
+				reservation.setRes_time(rs.getString("res_time"));
+				reservation.setRes_treat(rs.getString("res_treat"));
+				reservation.setRes_status(rs.getInt("res_status"));
+				reservation.setRes_select(rs.getInt("res_select"));
+				reservation.setMem_num(rs.getInt("mem_num"));
+				reservation.setDoc_num(rs.getInt("doc_num"));
+			}
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return reservation;
+	}	
+	
+	
+
 }
