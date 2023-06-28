@@ -46,6 +46,7 @@
 			</ul>
 		</form>
 		<!-- 검색창 끝 -->
+		<hr size="1" noshade="noshade" width="100%">
 		<div class="list-space align-right">
 			<input type="button" value="목록" onclick="location.href='memberList.do'" id="btn_bk"> 
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '" id="btn_bk">  

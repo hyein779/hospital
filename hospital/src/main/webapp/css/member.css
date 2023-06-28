@@ -11,15 +11,15 @@
 	margin: 40px 0 20px 55px;
 } */
 
-.result-display {
+/* .result-display {
 	width: 440px;
 	height: 300px;
 	margin: 50px auto;
 	border: 1px solid #6496BA;
 	display: flex;
-	align-items: center; /*세로 정렬*/
-	justify-content: center; /*가로 정렬*/
-}
+	align-items: center; 세로 정렬
+	justify-content: center; 가로 정렬
+} */
 
 #detail_form {
 	width: 600px;

@@ -20,7 +20,7 @@
 			<div class="align-center">
 				<h3>임시비밀번호 발급</h3>
 				<span>회원님의 비밀번호는 <%= passwd %>입니다.</span><br><br><br>
-				<input type="button" value="로그인" onclick="location.href='${pageContext.request.contextPath}/member/loginForm.do'" id="btn_b">
+				<input type="button" value="로그인" onclick="location.href='${pageContext.request.contextPath}/member/loginForm.do'">
 			</div>
 		</div>
 	</div>
