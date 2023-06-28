@@ -41,7 +41,7 @@
 			<ul>
 				<li>
 					<label for="rev_type">진료과목</label>
-					<span><input type="radio" name="rev_type" id="rev_type" value="0">목 질환</span>
+					<span><input type="radio" name="rev_type" id="rev_type" value="0">발목 질환</span>
 					<span><input type="radio" name="rev_type" id="rev_type" value="1">허리 질환</span>
 					<span><input type="radio" name="rev_type" id="rev_type" value="2">어깨 질환</span>
 					<span><input type="radio" name="rev_type" id="rev_type" value="3">기타</span>
