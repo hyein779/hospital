@@ -26,7 +26,7 @@
 				<a href="${pageContext.request.contextPath}/member/logout.do">로그아웃</a><br>
 			</li>
 		</c:if> 
-</div>
+</div> 
 
 <div id="main_nav">
 		<nav id="main_nav">

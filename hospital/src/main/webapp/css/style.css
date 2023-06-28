@@ -67,7 +67,7 @@ ul{
 .outer-menu-item:hover{
 	border-radius:10px;
 	color: black;
-}
+} 
 .outer-menu-item:hover .inner-menu{
 	display:block;
 }
