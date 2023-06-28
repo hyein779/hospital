@@ -57,12 +57,11 @@
 				<li class="like">
 					<!-- 좋아요 -->
 					<c:if test="${review.clicked != 'clicked'}">
-					<img class="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/fav01.png" width="23">
+					<img class="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/like01.png" width="23">
 					</c:if>
 					<c:if test="${review.clicked == 'clicked'}">
-					<img class="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/fav02.png" width="23">
+					<img class="output_fav" data-num="${review.rev_num}" src="${pageContext.request.contextPath}/images/like02.png" width="23">
 					</c:if>
-					좋아요
 					<span class="output_fcount">${review.cnt}</span> 
 				</li>
 			</ul>
