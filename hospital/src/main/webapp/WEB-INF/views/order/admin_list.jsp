@@ -34,12 +34,14 @@
 
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="orderLnb.jsp"/>
+	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- header 끝 -->
 	
 	<!-- content 시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">주문 목록</h3>
+		<hr class="order-hr">
+		<br>
 		<form id="search_form" method="get">
 			<ul class="search">
 				<li>
@@ -57,16 +59,13 @@
 					<input type="submit" id="btn" value="조회">
 				</li>
 			</ul>
-		</form>
- 			<br>
-			<hr class="order-hr">
-			<br>
+		</form><br>
  			<c:if test="${count == 0}">
 				<div>주문내역이 없습니다.</div>
  			</c:if>
  			<c:if test="${count > 0}">
-			<table class="order-table">
-				<tr class="admin-item">
+			<table>
+				<tr>
 					<th>주문번호</th>
 					<th>주문자ID</th>
 					<th>상품명</th>
@@ -76,7 +75,7 @@
 					<th>&nbsp;</th>
 				</tr>
 			<c:forEach var="order" items="${list}">
-				<tr class="admin-subitem">
+				<tr>
 					<td>${order.order_num}</td>
 					<td>${order.id}</td>
 					<td>${order.order_name}</td>
@@ -95,7 +94,7 @@
 						<input type="button" value="배송정보" 
 							   onclick="location.href='modifyForm.do?order_num=${order.order_num}'">
 					</td>
-				</tr>
+				</tr>  
 			</c:forEach>
 			</table>
  			<br>

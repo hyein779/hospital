@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문 목록</title>
+<title>내 주문 내역</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet"
@@ -31,14 +31,15 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp" />
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="subtitle">내 주문 목록</h3>
+			<h3 class="subtitle">내 주문 내역</h3>
 			<hr size="1" noshade="noshade" width="90%">
 			<br>
 			<!-- 검색창 시작 -->
 			<form id="search_form" action="itemList.do" method="get">
 				<ul class="search">
 					<li><select name="keyfield" id="keyfield">
-							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>상품명</option>
+							<option value="1" <c:if test="${param.keyfield == 1}"></c:if>>주문번호</option>
+							<option value="2" <c:if test="${param.keyfield == 2}">selected</c:if>>상품명</option>
 						</select>
 					</li>
 					<li><input type="search" size="50" name="keyword" id="keyword"
