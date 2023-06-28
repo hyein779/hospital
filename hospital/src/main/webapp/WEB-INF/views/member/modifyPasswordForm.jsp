@@ -37,7 +37,7 @@
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
-		<!-- 내용 시작  -->
+		<!-- 내용 시작 -->
 		<div class="content-main">
 			<h3 class="myPagest">비밀번호 변경</h3>
 			<hr size="1" noshade="noshade" width="90%">
