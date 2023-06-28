@@ -48,14 +48,14 @@
 					</td>
 				</tr>
 			</c:forEach>
-			<tr><td><br></td></tr>
 			<tr class="color-red">
-				<td colspan="3" class="align-right"><b>총 구매 금액</b></td>
+				<td colspan="2"></td>
+				<td class="align-center"><b>총 구매 금액</b></td>
 				<td class="align-center">
 					<fmt:formatNumber value="${order.order_total}"/>원
 				</td>
 			</tr>
-		</table>
+		</table>  
 		<br>
 		<hr class="order-hr">
 		<br>		

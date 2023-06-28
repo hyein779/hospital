@@ -28,7 +28,7 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg">상품 목록 관리</h1>
+			<h1 class="logreg-a">상품 목록 관리</h1>
 			<!-- 검색창 시작 -->
 			<form id="search-form" action="list.do" method="get">
 				<ul class="search">
@@ -47,7 +47,7 @@
 				</ul>
 			</form>
 			<!-- 검색창 끝 -->
-			<div class="list-space align-right">
+			<div class="list-spaces align-right">
 				<input type="button" value="상품 등록" class="btn" onclick="location.href='writeForm.do'">
 				<input type="button" value="판매 목록" class="btn" onclick="location.href='item_list.do'">
 				<input type="button" value="홈으로" class="btn" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">

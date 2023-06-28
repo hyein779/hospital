@@ -94,7 +94,7 @@ ul{
 	box-shadow:0 2px 6px rgba(5,5,5,0.9);
 	z-index:999;
 	text-align:left;
-	padding:0;
+	padding:0; 
 }
 .inner-menu-item > a{
 	display:block;
@@ -105,6 +105,12 @@ ul{
 .inner-menu-item > a:hover{
 	background:#E6F4F1;
 	color:black;
+}
+
+.main-logo{
+	text-align:center;
+	margin-bottom:0;
+	margin-top:35px;
 }
 /* 메인화면
 ----------------------*/
@@ -159,7 +165,7 @@ ul{
 ---------------*/
 .content-main h3.subtitle{
 	font-size:30px;
-	margin:20px 0 30px 55px;
+	margin:20px 0 30px 25px;
 }
 .result-display{
 	width:1000px;

@@ -21,8 +21,8 @@
 		</c:if>
 		<!-- 내용 시작 -->
 		<div class="product-main">
-			<h3 class="subtitle">보조기 목록</h3>
-			<form action="item_list.do" method="get" id="search-form">
+			<h3 class="subtitle item-list">보조기 목록</h3>
+			<form action="item_list.do" method="get" id="search-form" class="item-search">
 				<ul class="search">
 					<li>
 						<select name="keyfield" id="keyfield">

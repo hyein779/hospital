@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<% String passwd = (String)request.getAttribute("passwd"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:if test="${check}">
 <!DOCTYPE html>
 <html>
@@ -19,7 +18,7 @@
 		<div class="result-display">
 			<div class="align-center">
 				<h3>임시비밀번호 발급</h3>
-				<span>회원님의 비밀번호는 <%= passwd %>입니다.</span><br><br><br>
+				<span>회원님의 비밀번호는 ${passwd}입니다.</span><br><br><br>
 				<input type="button" value="로그인" onclick="location.href='${pageContext.request.contextPath}/member/loginForm.do'">
 			</div>
 		</div>

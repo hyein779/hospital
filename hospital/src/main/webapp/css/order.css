@@ -47,10 +47,6 @@ input[id="zipcode"]{
 modify-hidden li label{
 	width:100px;
 }
-input#keyword, select#keyfield{
-	height:32px;
-	font-size:14px;
-}
 /* 테이블 맨 윗줄 */
 .admin-item{
 	background-color:#dedede;
@@ -81,16 +77,57 @@ input[type="button"], #btn{
 	color:#fff;
 } 
 /* 검색창 */
-ul.search{
-	/* 검색 가운데 정렬 */
-	width:340px;
-	list-style:none;
-	padding:0;
-	margin:0 auto;
+form#search_form{
+	display:flex;
+	justify-content:center;
+	align-items: center;
 }
-ul.search li{
-	/* 검색 가로 정렬 */
+input#keyword, select#keyfield{
+	height:32px;
+	font-size:14px;
+}
+
+select#keyfield{
+	width:100px;
+}
+
+input#search{
+	height:32px;
+	margin-left:5px;
+	font-size:14px;
+	cursor:pointer;
+	background-color:#6496BA;
+	border:none;
+	color:#fff;
+}
+ul.search{
+	list-style:none;
+	margin:0;
 	padding:0;
-	display:inline;
-	
+	display:flex;
+}
+table{
+	width:100%;
+	border:1px solid #eaeaea;
+	border-collapse:collapse;
+	margin-bottom:20px;
+	margin-top:10px;
+}
+th, td{
+  padding:10px;
+  text-align:center;
+}
+th{
+  background-color:#dedede;
+  font-weight:bold;
+  border-bottom:1px solid #f9f9f9;
+}
+td{
+  border-bottom:1px solid #ccc;
+}
+tr:nth-child(even){
+  background-color:#f9f9f9;
+}
+tr:hover{
+  background-color:#EFFBFF;
 }

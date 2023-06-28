@@ -33,7 +33,7 @@
 		<li id="10111" >My 봉사활동 정보</li>
 		<ul class="depth2">
 			<li id="10112" >
-			<a href="#"  onclick="#">봉사활동 신청 내역</a></li>
+			<a href="${pageContext.request.contextPath}/volunteer/memberVolList.do">봉사활동 신청 내역</a></li>
 		</ul>
 	</ul>
 		

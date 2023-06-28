@@ -41,7 +41,6 @@ $(function(){
 	<!-- content 시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">주문내역</h3>
-		<br>
 		<hr class="order-hr">
 		<br>
 		<table class="order-table">
@@ -65,9 +64,9 @@ $(function(){
 					</td>
 				</tr>
 			</c:forEach>
-			<tr><td><br></td></tr>
 			<tr class="color-red">
-				<td colspan="3" class="align-right"><b>총 구매 금액</b></td>
+				<td colspan="2"></td>
+				<td class="align-center"><b>총 구매 금액</b></td>
 				<td class="align-center">
 					<fmt:formatNumber value="${order.order_total}"/>원
 				</td>

@@ -26,6 +26,9 @@
 }
 /* 상품 목록
 ---------------*/
+.item-list{
+	margin-bottom:2px;
+}
 .image-space .horizontal-area{
 	margin:16px 32px 16px 28px;
 	padding:10px;
@@ -93,22 +96,41 @@ input#search{
 	margin-left:8px;
 	padding:6px 12px 8px 12px;
 }
+.item-search{
+	margin-left:350px;
+	padding:20px 0;
+}
 
 /*테이블*/
-table{
-	margin-left:250px;
-	text-align:center;
-	width:80%;
-	/* height:200px; */
-	/* padding: 5px; */
+table {
+	width: 100%;
+	border: 1px solid #eaeaea;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	margin-top: 10px;
 }
-th{
-	background-color: #effbff;
-	font-size:15px;
-	height:30px;
+
+th, td {
+	padding: 10px;
+	text-align: center;
 }
+
+th {
+	background-color: #dedede;
+	font-weight: bold;
+	border-bottom: 1px solid #f9f9f9;
+}
+
 td {
-	height: 30px
+	border-bottom: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+tr:hover {
+	background-color: #EFFBFF;
 }
 /*기본틀*/
 .content-main{
@@ -131,7 +153,10 @@ ul{
 	margin-top:30px;
 	margin-left:300px;
 }
-
+.logreg-a{
+	margin-top:30px;
+	margin-left:50px;
+}
 /* 페이지 제목
 ---------------*/
 .product-main h3.subtitle{
@@ -380,4 +405,8 @@ ul{
 .notice-title{
 	font-size:20px;
 	font-weight:bold;
+}
+/*관리자페이지*/
+.list-spaces{
+	margin-bottom:10px;
 }

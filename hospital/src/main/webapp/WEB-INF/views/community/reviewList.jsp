@@ -43,7 +43,7 @@
 				<li>
 					<input type="button" value="삭제" id="delete_btn">
 				</li>
-				<!-- <script type="text/javascript">
+				<script type="text/javascript">
 					let delete_btn = document.getElementById('delete_btn');
 					// 이벤트 연결
 					delete_btn.onclick=function(){
@@ -52,7 +52,7 @@
 							location.replace('reviewDelete.do?rev_num=${review.rev_num}');
 						}
 					};
-				</script> -->
+				</script>
 				</c:if>
 				<li class="like">
 					<!-- 좋아요 -->

@@ -247,3 +247,7 @@ form.appvolform .div2 input[type="button"]{
 	float:right;
 }
 
+
+.remove-style{
+	all: unset;
+}

@@ -3,11 +3,11 @@ package kr.volunteerboardDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
-import kr.cart.vo.CartVO;
 import kr.util.DBUtil;
 import kr.volunteerboard.vo.appvolunteerVO;
-import kr.volunteerboard.vo.volunteerboardVO;
 
 public class appvolunteerDAO {
 	//싱글턴 패턴
@@ -52,6 +52,7 @@ public class appvolunteerDAO {
 			
 			pstmt2.executeUpdate();
 			
+			//
 			sql = "UPDATE volunteerboard SET quantity=quantity-? WHERE board_num=?";
 			pstmt3 = conn.prepareStatement(sql);
 			pstmt3.setInt(1, app.getApp_quantity());
@@ -72,9 +73,40 @@ public class appvolunteerDAO {
 		
 	}
 	
+	//지원자 전원 보기
+	public List<appvolunteerVO> Apptotal()throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<appvolunteerVO> list = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT app_num FROM appvolunteer";
+			pstmt = conn.prepareStatement(sql);
+			
+			//SQL문 실행
+			rs = pstmt.executeQuery();
+			list = new ArrayList<appvolunteerVO>();
+			while(rs.next()) {
+				appvolunteerVO app = new appvolunteerVO();
+				app.setApp_num(rs.getInt("app_num"));
+				
+				list.add(app);
+			}
+			
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}		
+		
+		return list;
+	}
+	
 	//봉사 상세
-	public appvolunteerVO getApp(appvolunteerVO app)
-            throws Exception{
+	/*public appvolunteerVO getApp(int app_num)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -82,34 +114,33 @@ public class appvolunteerDAO {
 		String sql = null;
 		
 		try {
-		conn = DBUtil.getConnection();
-		sql = "SELECT * FROM appvolunteer WHERE "
-			+ "board_num=? AND mem_num=?";
-		pstmt = conn.prepareStatement(sql);
-		//?에 데이터 바인딩
-		pstmt.setInt(1, app.getBoard_num());
-		pstmt.setInt(2, app.getMem_num());
-		//SQL문 실행
-		rs = pstmt.executeQuery();
-		if(rs.next()) {
-			appSaved = new appvolunteerVO();
-			appSaved.setApp_num(
-					rs.getInt("app_num"));
-			appSaved.setBoard_num(
-					rs.getInt("board_num"));
-			appSaved.setName(
-				rs.getString("name"));
-			appSaved.setAddress(
-					rs.getString("address"));
-			appSaved.setPhone(
-					rs.getString("phone"));
-			appSaved.setContent(
-					rs.getString("content"));
-			appSaved.setApp_quantity(
-					rs.getInt("app_quantity"));
-			appSaved.setReg_date(
-					rs.getString("reg_date"));
-		}
+			conn = DBUtil.getConnection();
+			sql = "SELECT * FROM appvolunteer WHERE WHERE app_num";
+			pstmt = conn.prepareStatement(sql);
+			//?에 데이터 바인딩
+			pstmt.setInt(1, app.getBoard_num());
+			pstmt.setInt(2, app.getMem_num());
+			//SQL문 실행
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				appSaved = new appvolunteerVO();
+				appSaved.setApp_num(
+						rs.getInt("app_num"));
+				appSaved.setBoard_num(
+						rs.getInt("board_num"));
+				appSaved.setName(
+					rs.getString("name"));
+				appSaved.setAddress(
+						rs.getString("address"));
+				appSaved.setPhone(
+						rs.getString("phone"));
+				appSaved.setContent(
+						rs.getString("content"));
+				appSaved.setApp_quantity(
+						rs.getInt("app_quantity"));
+				appSaved.setReg_date(
+						rs.getString("reg_date"));
+			}
 		
 		}catch(Exception e) {
 			throw new Exception(e);
@@ -117,6 +148,124 @@ public class appvolunteerDAO {
 			DBUtil.executeClose(rs, pstmt, conn);
 		}		
 		return appSaved;
+	}*/
+	
+	//봉사 지원 목록
+	public List<appvolunteerVO> getAppList(int start, int end, String keyfield, String keyword, int mem_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<appvolunteerVO> list = null;
+		String sql = null;
+		String sub_sql = "";
+		int cnt = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if(keyword!=null && !"".equals(keyword)) {
+				sub_sql += "AND app_num=?";
+			}
+			
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM appvolunteer WHERE mem_num=? "
+					+ sub_sql + " ORDER BY app_num DESC)a) WHERE rnum>=? AND rnum<=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(++cnt, mem_num);
+			if(keyword!=null && !"".equals(keyword)) {
+					pstmt.setString(++cnt,keyword);
+			}
+			pstmt.setInt(++cnt, start);
+			pstmt.setInt(++cnt, end);
+			
+			rs = pstmt.executeQuery();
+			list = new ArrayList<appvolunteerVO>();
+			while(rs.next()) {
+				appvolunteerVO app = new appvolunteerVO();
+				app.setApp_num(rs.getInt("app_num"));
+				app.setBoard_num(rs.getInt("board_num"));
+				app.setName(rs.getString("name"));
+				app.setAddress(rs.getString("address"));
+				app.setPhone(rs.getString("phone"));
+				app.setContent(rs.getString("content"));
+				app.setMem_num(rs.getInt("mem_num"));
+				
+				list.add(app);
+			}
+			
+		
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
+	
+	//사용자 - 전체 자원봉사 개수
+	public int getAppCount(String keyfield, String keyword, int mem_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String sub_sql = "";
+		int count = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if(keyword!=null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "AND app_num=?";
+			}
+			
+			sql = "SELECT * FROM appvolunteer WHERE mem_num=?" + sub_sql;
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			if(keyword!=null && !"".equals(keyword)) {
+				if(keyfield.equals("1"))
+					pstmt.setString(2,keyword);
+			}
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return count;
+		
+		
+	}
+	
+	//지원 취소
+	public void deleteApp(int app_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+			
+		try {
+			conn = DBUtil.getConnection();
+			sql = "DELETE FROM appvolunteer WHERE app_num=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, app_num);
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+		
 	}
 	
 	//전체 지원자 

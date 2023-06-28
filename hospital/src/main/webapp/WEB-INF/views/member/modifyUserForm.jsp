@@ -32,7 +32,7 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="subtitle">회원정보 수정</h3>
+			<h3 class="myPagest">회원정보 수정</h3>
 			<hr size="1" noshade="noshade" width="90%">
 			<form id="modify_form" action="modifyUser.do" method="post">
 				<ul>
@@ -67,8 +67,8 @@
 					</li>
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="수정">
-					<input type="button" value="MY페이지" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
+					<input type="submit" value="수정" id="btn_b">
+					<input type="button" value="MY페이지" onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'" id="btn_w">
 				</div>
 			</form>
 		</div>
