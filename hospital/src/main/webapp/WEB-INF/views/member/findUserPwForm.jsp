@@ -50,8 +50,8 @@
 					</li>			
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="비밀번호찾기">
-					<input type="button" value="로그인" onclick="location.href='loginForm.do'">
+					<input type="submit" value="비밀번호찾기" id="btn_b">
+					<input type="button" value="로그인" onclick="location.href='loginForm.do'" id="btn_w">
 				</div>
 			</form>
 		</div>

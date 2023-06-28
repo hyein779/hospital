@@ -33,10 +33,10 @@
 				<tr>
 					<td>생년월일</td>
 					<td> | </td>
-					<c:if test="${fn:substring(member.code,7,8)%2==1}">
+					<c:if test="${fn:substring(member.code,7,8)==1||fn:substring(member.code,7,8)==2||fn:substring(member.code,7,8)==5||fn:substring(member.code,7,8)==6}">
 						<td>19${fn:substring(member.code,0,2)}년 ${fn:substring(member.code,2,4)}월 ${fn:substring(member.code,4,6)}일</td>
 					</c:if>
-					<c:if test="${fn:substring(member.code,7,8)%2==0}">
+					<c:if test="${fn:substring(member.code,7,8)==3||fn:substring(member.code,7,8)==4||fn:substring(member.code,7,8)==7||fn:substring(member.code,7,8)==8}">
 						<td>20${fn:substring(member.code,0,2)}년 ${fn:substring(member.code,2,4)}월 ${fn:substring(member.code,4,6)}일</td>
 					</c:if>
 				</tr>
