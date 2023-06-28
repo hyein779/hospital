@@ -47,9 +47,9 @@
 			<!-- 검색창 끝 -->
 			<div class="list-space align-right">
 				<input type="button" value="목록"
-					onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
+					onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'" id="btn_bk">
 				<input type="button" value="홈으로"
-					onclick="location.href='${pageContext.request.contextPath}/main/main.do '">
+					onclick="location.href='${pageContext.request.contextPath}/main/main.do'" id="btn_bk">
 			</div>
 			<c:if test="${count == 0}">
 				<div class="result-display">표시할 목록이 없습니다.</div>
