@@ -14,18 +14,25 @@
 <script type="text/javascript">
 $(function(){
 	//상품주문 정보 등록 유효성 체크
-		$('#order_form').submit(function(){
+	$('#order_form').submit(function(){
   	let items = document.querySelectorAll('input[type="text"]');
   	
-      	for(let i=0;i<items.length;i++){
-	        if(items[i].value.trim()==''){
-				let label = document.querySelector('label[for="'+items[i].id+'"]');
-		        alert(label.textContent + ' 항목을 입력하세요.');
-		        items[i].value = '';
-		        items[i].focus();
-		        return false;
-	        }
-     	}//end of for	
+  	for(let i=0;i<items.length;i++){
+        if(items[i].value.trim()==''){
+			let label = document.querySelector('label[for="'+items[i].id+'"]');
+	        alert(label.textContent + ' 항목을 입력해주세요.');
+	        items[i].value = '';
+	        items[i].focus();
+	        return false;
+        }
+        
+		if(!/^\d{11}$/.test($('#receive_phone').val())){
+			alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
+			$('#phone').val('');
+			$('#phone').focus();
+			return false;
+		}
+ 	}//end of for	
      	
 		});//end of submit
 })//end of function	

@@ -19,16 +19,23 @@
 	      	for(let i=0;i<items.length;i++){
 		        if(items[i].value.trim()==''){
 					let label = document.querySelector('label[for="'+items[i].id+'"]');
-			        alert(label.textContent + ' 항목을 입력하세요.');
+			        alert(label.textContent + ' 항목을 입력해주세요.');
 			        items[i].value = '';
 			        items[i].focus();
 			        return false;
 		        }
 		        
 		    	if($('input[type=checkbox]:checked').length<1){
-		     		alert('결제 수단을 선택하세요.');
+		     		alert('결제 수단을 선택해주세요.');
 		     		return false;
 		     	}
+		    	
+				if(!/^\d{11}$/.test($('#receive_phone').val())){
+					alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
+					$('#phone').val('');
+					$('#phone').focus();
+					return false;
+				}
 	     	}//end of for
 	     	
   		});//end of submit
