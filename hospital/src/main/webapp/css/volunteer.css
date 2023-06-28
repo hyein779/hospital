@@ -59,7 +59,7 @@
 }
 form{
 	width:600px;
-	/*margin:0 300px;*/
+	margin:0 300px;
 	padding:10px 10px 10px 30px;
 }
 
@@ -232,6 +232,9 @@ input#search{
 form.appvolform{
 	float:left;
 	margin:10px;
+	width:600px;
+	margin:0 100px;
+	padding:10px 10px 10px 30px;
 }
 form.appvolform div{
 	float:left;

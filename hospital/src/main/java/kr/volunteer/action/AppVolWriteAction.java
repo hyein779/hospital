@@ -45,7 +45,6 @@ public class AppVolWriteAction implements Action{
 		app.setMem_num(user_num);
 		
 		request.setAttribute("app", app);
-
 		
 		appvolunteerDAO appDao = appvolunteerDAO.getInstance();
 		appDao.insertVol(app);

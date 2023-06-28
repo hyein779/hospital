@@ -35,7 +35,7 @@ public class MemberVolListAction implements Action{
 		int count = appDao.getAppCount(keyfield, keyword, user_num);
 		
 		//페이지 처리
-		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,6,10,"adminVolList.do");
+		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,6,10,"memberVolList.do");
 		List<appvolunteerVO> list = null;
 		if(count > 0) {
 			list = appDao.getAppList(page.getStartRow(), page.getEndRow(), keyfield, keyword, user_num);

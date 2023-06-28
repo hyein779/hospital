@@ -14,6 +14,13 @@ public class VolListAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		
+		
+		
+		
+		
+		
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum==null) pageNum="1";
 		
@@ -22,7 +29,7 @@ public class VolListAction implements Action{
 		
 		volunteerboardDAO dao = volunteerboardDAO.getInstance();
 		int count = dao.getBoardCount(keyfield,keyword);		
-		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,10,10,"list.do");
+		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,10,10,"volList.do");
 		
 		List<volunteerboardVO> list = null;
 		if(count>0) {
