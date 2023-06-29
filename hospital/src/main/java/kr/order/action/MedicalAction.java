@@ -1,4 +1,4 @@
-package kr.reservation.action;
+package kr.order.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
