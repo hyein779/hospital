@@ -13,6 +13,7 @@
 	padding:0 120px 0 280px;
 	margin:0 0 35px 0;
 	height:auto;
+	width:1120px;
 }
 .product-main > h3{
 	border-bottom: 1px solid #8f9ba8;
@@ -223,7 +224,6 @@ ul{
 	font-weight:bold;
 }
 .product-info{
-	width:1200px;
 	font-size:30px;
 	margin-left:60px;
 	padding-bottom:20px;
@@ -289,7 +289,6 @@ ul{
     cursor:pointer;
 }
 .detail-list{
-	width:1200px;
 	font-size:25px;
 	font-weight:bold;
 	margin-left:60px;
