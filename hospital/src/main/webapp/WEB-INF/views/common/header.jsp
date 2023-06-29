@@ -29,7 +29,7 @@
 </div> 
 
 <div id="main_nav">
-		<nav id="main_nav">
+		<nav id="main_nav"> 
 			<!-- 메뉴창 -->
 			<div class="menuleft">
 				<ul class="outer-menu">
