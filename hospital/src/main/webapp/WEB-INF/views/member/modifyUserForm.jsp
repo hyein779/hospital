@@ -32,8 +32,8 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="myPagest">회원정보 수정</h3>
-			<hr size="1" noshade="noshade" width="90%">
+			<h3 class="subtitle">회원정보 수정</h3>
+			<hr size="1" noshade="noshade" width="100%">
 			<form id="modify_form" action="modifyUser.do" method="post">
 				<ul>
 					<li>

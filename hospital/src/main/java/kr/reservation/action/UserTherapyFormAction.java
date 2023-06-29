@@ -1,4 +1,4 @@
-package kr.member.action;
+package kr.reservation.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +14,10 @@ public class UserTherapyFormAction implements Action {
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer) session.getAttribute("user_num");
 		if (user_num == null) {
-			return "redirect:/member/loginForm.do?page_url=/member/userTherapyForm.do";
+			return "redirect:/member/loginForm.do?page_url=/reservation/userTherapyForm.do";
 		}
 		// 치료 리스트
-		return "/WEB-INF/views/member/userTherapyForm.jsp";
+		return "/WEB-INF/views/reservation/userTherapyForm.jsp";
 	}
 
 }

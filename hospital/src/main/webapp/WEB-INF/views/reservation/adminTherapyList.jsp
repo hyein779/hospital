@@ -27,7 +27,7 @@
 	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h3 class="myPagest">치료 예약 목록</h3>
+		<h3 class="subtitle">치료 예약 목록</h3>
 		<!-- 검색창 시작 --><!-- action수정해야함 -->
 		<form id="search_form" action="noticeList.do" method="get">
 			<ul class="search">

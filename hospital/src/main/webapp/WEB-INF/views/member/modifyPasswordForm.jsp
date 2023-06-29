@@ -39,8 +39,8 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="myPagest">비밀번호 변경</h3>
-			<hr size="1" noshade="noshade" width="90%">
+			<h3 class="subtitle">비밀번호 변경</h3>
+			<hr size="1" noshade="noshade" width="100%">
 			<form id="password_form" action="modifyPassword.do" method="post">
 				<ul>
 					<li>

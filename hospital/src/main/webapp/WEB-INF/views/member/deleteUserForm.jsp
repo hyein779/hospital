@@ -38,8 +38,8 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="myPagest">회원탈퇴</h3>
-			<hr size="1" noshade="noshade" width="90%">
+			<h3 class="subtitle">회원탈퇴</h3>
+			<hr size="1" noshade="noshade" width="100%">
 			<form id="delete_form" action="deleteUser.do" method="post" class="align-center">
 				<ul>
 					<li>

@@ -1,4 +1,4 @@
-package kr.member.action;
+package kr.reservation.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ public class AdminTherapyFormAction implements Action{
 		HttpSession session = request.getSession();
 		Integer user_num = (Integer)session.getAttribute("user_num");
 		if(user_num == null) {//로그인 되지 않은 경우
-			return "redirect:/member/loginForm.do?page_url=/member/adminTherapyList.do";
+			return "redirect:/member/loginForm.do?page_url=/reservation/adminTherapyList.do";
 		}
 		
 		Integer user_auth = (Integer)session.getAttribute("user_auth");
@@ -22,7 +22,7 @@ public class AdminTherapyFormAction implements Action{
 			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
-		return "/WEB-INF/views/member/adminTherapyList.jsp";
+		return "/WEB-INF/views/reservation/adminTherapyList.jsp";
 	}
 
 }
