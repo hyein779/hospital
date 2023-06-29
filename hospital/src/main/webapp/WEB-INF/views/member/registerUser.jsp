@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 완료</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 </head>
@@ -13,7 +16,6 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<!-- <h2  class="logreg-e">회원가입 완료</h2> -->
 			<div class="result-display">
 				<div class="align-center">
 					회원가입이 완료되었습니다.<p>

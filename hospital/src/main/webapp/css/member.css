@@ -49,6 +49,7 @@ label {
 
 .logreg-e {
 	margin-top: 10px;
+	font-size: 30px;
 }
 
 .logreg-a {
@@ -180,7 +181,7 @@ input[type="number"] {
 
 #regigo a {
 	color: #64686c;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .zipbtn {
@@ -311,7 +312,7 @@ tr:hover {
 }
 .supyung div{
 	width: 50%;
-	margin: 20px 30px 20px 30px;
+	margin: 10px 30px 10px 30px;
 	
 }
 .supyung h2{
