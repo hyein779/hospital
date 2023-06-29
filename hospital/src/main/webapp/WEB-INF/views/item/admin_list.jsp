@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>상품 목록 관리</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -28,7 +28,7 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="logreg-a">상품 목록 관리</h1>
+			<h1 class="myPagest">상품 목록 관리</h1>
 			<!-- 검색창 시작 -->
 			<form id="search-form" action="list.do" method="get">
 				<ul class="search">
@@ -39,7 +39,7 @@
 						</select>
 					</li>
 					<li>
-						<input type="search" size="25" name="keyword" id="keyword" value="${param.keyword}">
+						<input type="search" size="50" name="keyword" id="keyword" value="${param.keyword}">
 					</li>
 					<li>
 						<input type="submit" value="검색" id="search">
@@ -48,9 +48,9 @@
 			</form>
 			<!-- 검색창 끝 -->
 			<div class="list-spaces align-right">
-				<input type="button" value="상품 등록" class="btn" onclick="location.href='writeForm.do'">
-				<input type="button" value="판매 목록" class="btn" onclick="location.href='item_list.do'">
-				<input type="button" value="홈으로" class="btn" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				<input type="button" value="상품 등록" id="btn_bk" onclick="location.href='writeForm.do'">
+				<input type="button" value="판매 목록" id="btn_bk" onclick="location.href='item_list.do'">
+				<input type="button" value="홈으로" id="btn_bk" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
 		<hr size="1" noshade="noshade" width="80%">
 		<c:if test="${count == 0}">
