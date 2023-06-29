@@ -9,6 +9,9 @@
 <title>보조기</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 	<div class="page-main">
@@ -49,9 +52,9 @@
 				<div class="horizontal-area">
 					<a href="${pageContext.request.contextPath}/item/detail.do?item_num=${item.item_num}">
 						<img src="${pageContext.request.contextPath}/upload/${item.item_photo}">
-						<span>${item.item_name}</span>
+						<span class="item-name">${item.item_name}</span>
 						<br>
-						<fmt:formatNumber value="${item.item_price}"/>원
+						<span class="price"><fmt:formatNumber value="${item.item_price}"/>원</span>
 					</a>
 				</div>
 				</c:forEach>

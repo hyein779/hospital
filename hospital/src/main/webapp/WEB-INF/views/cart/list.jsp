@@ -9,10 +9,19 @@
 <title>장바구니</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/item.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js"></script>
 <script type="text/javascript">
 	$(function(){
+		$("#restore").click(function(){
+	        if(confirm("장바구니를 비우시겠습니까?")){
+	            location.href="deleteCart.do";
+	        }
+	    });
+		
 		// 장바구니 삭제 이벤트
 		$('.cart-del').on('click', function(){
 			$.ajax({
@@ -101,7 +110,6 @@
 			<form id="cart_order" action="${pageContext.request.contextPath}/order/orderForm.do" method="post">
 				<table class="cart-table">
 					<tr>
-						<th>선택</th>
 						<th>상품명</th>
 						<th>수량</th>
 						<th>가격</th>
@@ -111,7 +119,6 @@
 					</tr>
 					<c:forEach var="cart" items="${list}">
 						<tr>
-							<td><input type="checkbox" name="cbox" value="select" checked="checked" onclick="checkSelect()"></td>
 							<td>
 								<a href="${pageContext.request.contextPath}/item/detail.do?item_num=${cart.item_num}">
 									<img src="${pageContext.request.contextPath}/upload/${cart.itemVO.item_photo}" width="80">
@@ -141,7 +148,7 @@
 						</tr>
 					</c:forEach>
 				</table>
-				<input type="button" name="delete" value="선택 삭제">
+				<input type="button" id="restore" value="장바구니 비우기">
 				<div class="total align-right">
 					<span>총 금액 : <fmt:formatNumber value="${all_total}"/>원</span>
 					<input type="submit" value="주문하기">
