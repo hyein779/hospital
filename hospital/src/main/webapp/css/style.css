@@ -180,6 +180,15 @@ ul{
 	align-items:center;/*세로 정렬*/
 	justify-content:center;/*가로 정렬*/
 }
+.result-display input{
+	padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
 .message{
 	font-size:20px;
 	font-weight:bold;
