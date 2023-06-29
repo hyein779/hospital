@@ -25,6 +25,7 @@ a:hover{
    padding:0 120px 0 280px;
    height:auto;
    min-height:680px;
+   width:1120px;
 }   
 
 /* 공통 정렬
@@ -57,7 +58,7 @@ ul{
    text-align:right;
 }
 .outer-menu{
-   width: 1400px; 
+   width: 1200px; 
    margin-left: auto;
    margin-right: auto;
 }
