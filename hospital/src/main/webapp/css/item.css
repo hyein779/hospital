@@ -99,6 +99,9 @@ input#search{
 .item-search{
 	margin-left:350px;
 	padding:20px 0;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*테이블*/
