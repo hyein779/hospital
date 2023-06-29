@@ -48,8 +48,8 @@
 				</li>
 			</ul>
 			<div class="align-right">
-				<input type="submit" value="등록" class="submit">
-				<input type="button" value="취소" onclick="location.href='askList.do'" class="home">
+				<input type="submit" value="등록" class="button">
+				<input type="button" value="취소" onclick="location.href='askList.do'" class="button">
 			</div>
 		</form>
 	</div>

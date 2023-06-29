@@ -38,11 +38,11 @@
 					<c:if test="${!empty notice.notice_modifydate}"> <!-- 수정한 날짜가 있는 경우 -->
 					수정일 ${notice.notice_modifydate}
 					</c:if>
-					<input type="button" value="목록" onclick="location.href='noticeList.do'" class="submit">
+					<input type="button" value="목록" onclick="location.href='noticeList.do'" class="button">
 					<!-- 관리자만 수정, 삭제가 가능 -->
 					<c:if test="${user_auth == 9}">
-					<input type="button" value="수정" onclick="location.href='noticeUpdateForm.do?notice_num=${notice.notice_num}'" class="submit">
-					<input type="button" value="삭제" id="delete_btn" class="submit">
+					<input type="button" value="수정" onclick="location.href='noticeUpdateForm.do?notice_num=${notice.notice_num}'" class="button">
+					<input type="button" value="삭제" id="delete_btn" class="button">
 		 	
 					<script type="text/javascript">
 						let delete_btn = document.getElementById('delete_btn');

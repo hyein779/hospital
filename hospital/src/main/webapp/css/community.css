@@ -43,15 +43,6 @@ input#search{
 	border:none;
 	color:#fff;
 }
-input#write{
-	padding:5px 10px;
-	font-size:14px;
-	background-color:#333;
-  	color:#fff;
-  	border:none;
- 	cursor:pointer;
- 	border-radius:5px;
-}
 #write[disabled] {
   opacity:0.5;
   cursor:default;
@@ -107,24 +98,6 @@ tr:hover{
   border:1px solid #ccc;
   border-radius:5px;
 }
-.submit, .home{
-  padding:8px 20px;
-  background-color:#333;
-  color:#fff;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-  margin-right:10px;
-  margin-bottom:30px;
-  font-size:14px;
-}
-.home{
-  background-color:#ccc;
-}
-.submit:hover, .home:hover{
-  background-color:#6496BA;
-}
-
 
 /* 커뮤니티 글상세
 ------------------*/
