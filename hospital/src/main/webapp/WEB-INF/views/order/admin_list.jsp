@@ -40,7 +40,7 @@
 	<!-- content 시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">주문 목록</h3>
-		<hr class="order-hr">
+		<hr size="1" noshade="noshade" width="100%">
 		<br>
 		<form id="search_form" method="get">
 			<ul class="search">
@@ -97,9 +97,7 @@
 				</tr>  
 			</c:forEach>
 			</table>
- 			<br>
-			<hr class="order-hr"> 
-			<br>
+ 			<hr size="1" noshade="noshade" width="100%">
 		</c:if>
 	</div>		
 	<!-- content 끝 -->
