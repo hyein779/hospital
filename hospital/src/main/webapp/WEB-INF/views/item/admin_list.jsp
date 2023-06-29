@@ -28,7 +28,7 @@
 		<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h1 class="myPagest">상품 목록 관리</h1>
+			<h1 class="subtitle">상품 목록 관리</h1>
 			<!-- 검색창 시작 -->
 			<form id="search-form" action="list.do" method="get">
 				<ul class="search">
@@ -47,12 +47,12 @@
 				</ul>
 			</form>
 			<!-- 검색창 끝 -->
+			<hr size="1" noshade="noshade" width="100%">
 			<div class="list-spaces align-right">
 				<input type="button" value="상품 등록" id="btn_bk" onclick="location.href='writeForm.do'">
 				<input type="button" value="판매 목록" id="btn_bk" onclick="location.href='item_list.do'">
 				<input type="button" value="홈으로" id="btn_bk" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
-		<hr size="1" noshade="noshade" width="100%">
 		<c:if test="${count == 0}">
 			<div class="result-display">
 				표시할 상품이 없습니다.
