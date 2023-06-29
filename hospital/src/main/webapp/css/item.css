@@ -43,6 +43,19 @@
 	height:225px;
 	margin-bottom:15px;
 }
+.item-name{
+	color:#999999;
+	font-size:18px;
+    font-weight:bold;
+    margin:0 auto;
+    padding:12px 0 10px;
+    text-align:center;
+}
+.price{
+	color: #008BCC;
+	font-size: 17px;
+    font-weight: bold;
+}
 .image-space .float-clear{
 	clear:both;
 	padding-top:10px;
@@ -301,7 +314,7 @@ ul{
 .cart > form > table td > a > span { 
 	vertical-align:super;
 }
-.cart > form > input[name=delete] {
+#restore {
     border-color: #bdbdbd;
     border-bottom-color: #828282;
     background: #fafafa;
@@ -320,7 +333,7 @@ ul{
     float: right;
     width: 360px;
     padding: 9px 18px 15px;
-    margin: 12px 0;
+    margin: 12px 0 24px 0;
     border: 1px solid #d3d3d3;
     box-sizing: border-box;
 }
