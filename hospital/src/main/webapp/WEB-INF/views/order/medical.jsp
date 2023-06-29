@@ -36,8 +36,8 @@
 					서울대학교병원 정형외과 전공의 수료<br>
 					정형외과 전문의<br>					
 				</li>
-				<li class="medical-center">
-				<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=1'"/>
+				<li class="medical-center"><br>
+					<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=1'"/>
 				</li>
 			</ul>
 		</div>
@@ -59,8 +59,8 @@
 					정형외과 전공의 수료<br>
 					대한정형외과학호 정회원<br>
 				</li>
-				<li class="medical-center">
-				<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=2'"/>
+				<li class="medical-center"><br>
+					<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=2'"/>
 				</li>
 			</ul>
 		</div>
@@ -83,8 +83,8 @@
 					올바른병원 외래교수<br>
 					대한관절학회 정회원<br>	
 				</li>
-				<li class="medical-center">
-				<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=3'"/>
+				<li class="medical-center"><br>
+					<input type="button" class="doc_res" value="예약" onclick="location.href='${pageContext.request.contextPath}/reservation/careRes.do?doc_num=3'"/>
 				</li>
 			</ul>
 		</div>
