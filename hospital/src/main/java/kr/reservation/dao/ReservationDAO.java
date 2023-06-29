@@ -51,16 +51,17 @@ public class ReservationDAO {
 		String sql = null;
 		try {
 			conn = DBUtil.getConnection();
-			sql = "INSERT INTO reservation (res_num,res_date,res_time,res_treat,res_status,res_select,mem_num,doc_num) "
-					+ "VALUES (reservation_seq.nextval,?,?,?,?,?,?,?)";
+			sql = "INSERT INTO reservation (res_num,res_date,res_time,res_treat,res_status,res_select,mem_num,doc_num,res_content) "
+					+ "VALUES (reservation_seq.nextval,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, reservation.getRes_date());
 			pstmt.setString(2, reservation.getRes_time());
 			pstmt.setString(3, reservation.getRes_treat());
-			pstmt.setInt(4, reservation.getRes_status());
-			pstmt.setInt(5, reservation.getRes_select());
+			pstmt.setInt(4, 1);
+			pstmt.setInt(5, 1);
 			pstmt.setInt(6, reservation.getMem_num());
 			pstmt.setInt(7, reservation.getDoc_num());
+			pstmt.setString(8, reservation.getRes_content());
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			throw new Exception(e);
@@ -93,6 +94,7 @@ public class ReservationDAO {
 				reservation.setRes_select(rs.getInt("res_select"));
 				reservation.setMem_num(rs.getInt("mem_num"));
 				reservation.setDoc_num(rs.getInt("doc_num"));
+				reservation.setRes_content(rs.getString("res_content"));
 			}
 		}catch(Exception e) {
 			throw new Exception(e);

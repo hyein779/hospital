@@ -9,6 +9,7 @@ public class ReservationVO {
 	private String res_treat; //치료 이름
 	private int res_status; //예약 가능 여부(1:예약 가능 2:예약 불가능)
 	private int res_select; //예약 종류 (1:진료 2:치료)
+	private String res_content; //증상 설명
 	private int mem_num; //회원번호
 	private int doc_num; //의사번호
 	private String doc_name; //의사이름
@@ -18,6 +19,12 @@ public class ReservationVO {
 	private String mem_public;//주민번호
 	
 	
+	public String getRes_content() {
+		return res_content;
+	}
+	public void setRes_content(String res_content) {
+		this.res_content = res_content;
+	}
 	public String getMem_name() {
 		return mem_name;
 	}

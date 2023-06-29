@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <script>
 	alert('예약이 완료되었습니다.');
-	location.href='/member/userTreatmentForm.do';
+	location.href='userTreatmentForm.do';
 </script>

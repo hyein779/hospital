@@ -5,6 +5,7 @@ CREATE TABLE reservation(
 	res_treat varchar2(50), 
 	res_status number not null,
 	res_select number not null,
+	res_content varchar2(100),
 	mem_num number not null,
 	doc_num number not null,
 	

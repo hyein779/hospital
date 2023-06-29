@@ -21,19 +21,22 @@ public class ResDecideAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		
-		MemberDAO dao = MemberDAO.getInstance();
-		MemberVO member = dao.getMember(user_num);
-		
-		request.setAttribute("member", member);
+		request.setCharacterEncoding("utf-8");
 		
 		int doc_num = Integer.parseInt(request.getParameter("doc_num"));
 		
-		ReservationDAO resdao = ReservationDAO.getInstance();
-		ReservationVO reservation = resdao.getDoc(doc_num);
+		ReservationVO reservation = new ReservationVO();
+		reservation.setMem_name(request.getParameter("mem_name"));
+		reservation.setMem_public(request.getParameter("mem_pulic"));
+		reservation.setDoc_name(request.getParameter("doc_name"));
+		reservation.setRes_date(request.getParameter("res_date"));
+		reservation.setRes_time(request.getParameter("res_time"));
+		reservation.setRes_content(request.getParameter("res_content"));
+		reservation.setDoc_num(doc_num);
+		reservation.setMem_num(user_num);
 		
-		request.setAttribute("reservation", reservation);
-		
-		resdao.insertRes(reservation);
+		ReservationDAO dao = ReservationDAO.getInstance();
+		dao.insertRes(reservation);
 				
 		return "/WEB-INF/views/reservation/resDecide.jsp";
 	}

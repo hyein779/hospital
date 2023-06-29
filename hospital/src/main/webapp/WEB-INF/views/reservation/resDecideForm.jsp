@@ -27,24 +27,27 @@
          <p><a href="${pageContext.request.contextPath}/reservation/careRes.do">돌아가기</a></p>
       </div>
       <br>
-      <form id="res_decide" action="resDecide.do" method="post">
+      <form id="res_decide" action="resDecide.do?doc_num=${reservation.doc_num}&res_num=${reservation.res_num}" method="post">
       <div class="res_info">
       	<ul>
       		<li>
-				<label for="name">이름 : ${member.name}</label>
+				<label for="name"  name="name" value="${member.name}">이름 : ${member.name}</label>
 			</li>
       		<li>
-				<label for="name">생년월일 : ${member.code.substring(0, 6)}</label>
+				<label for="code" name="code" value="${member.code.substring(0,6)}">생년월일 : ${member.code.substring(0, 6)}</label>
 			</li>
 			<li>
-				<label for="name">담당의료진 : ${reservation.doc_name}</label>
+				<label for="doc_name" name="doc_name" value="${reservation.doc_name}">담당의료진 : ${reservation.doc_name}</label>
 			</li>
 			<li>
-				<label for="name">예약일시 : ${param.res_date} ${param.res_time}</label>
+				<label for="res_time">예약일시 : ${param.res_date} ${param.res_time}</label>
+					<input type="hidden" name="res_time" value="${param.res_time}">
+					<input type="hidden" name="res_date" value="${param.res_date}">
+	 				
 			</li>
 			<li>
-				<label for="name">증상설명(선택)</label>
-				<textarea rows="5" cols="30"></textarea>
+				<label for="res_content">증상설명(선택)</label>
+				<textarea rows="5" cols="30" name="res_content"></textarea>
 			</li>
 			<input type="submit" value="예약하기">
       	</ul>
