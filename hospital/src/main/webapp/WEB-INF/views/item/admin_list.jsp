@@ -52,7 +52,7 @@
 				<input type="button" value="판매 목록" id="btn_bk" onclick="location.href='item_list.do'">
 				<input type="button" value="홈으로" id="btn_bk" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 			</div>
-		<hr size="1" noshade="noshade" width="80%">
+		<hr size="1" noshade="noshade" width="100%">
 		<c:if test="${count == 0}">
 			<div class="result-display">
 				표시할 상품이 없습니다.
@@ -80,7 +80,7 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<hr size="1" noshade="noshade" width="80%">
+			<hr size="1" noshade="noshade" width="100%">
 			<div class="align-center">${page}</div>
 		</c:if>
 		</div>
