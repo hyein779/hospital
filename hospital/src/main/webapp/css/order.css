@@ -16,7 +16,7 @@
 	margin:0 auto;
 	text-align:center;
 }
-.order-table-button{
+.order-table-button{	
 	margin-right:5px;
 	text-align:center;	
 }
@@ -136,4 +136,26 @@ tr:nth-child(even){
 }
 tr:hover{
   background-color:#EFFBFF;
+}
+/* 의료진소개 
+------------------*/
+.v-line {
+    border-left : thick solid #999;
+    height : 600px;
+	float:left;
+}
+.medical-int{
+	width:400px;
+	float:left;
+}
+.medical-photo{
+	width:300px;
+	height:300px;
+}
+.medical-center{
+	text-align:center;
+}
+.medical-left{
+	text-align:left;
+	margin:30px 0 0 50px;
 }

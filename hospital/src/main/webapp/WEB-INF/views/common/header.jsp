@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
-<h1 class="main-logo"><a href="${pageContext.request.contextPath}/main/main.do"><img src="../images/logo.png" width="500" height="150"></a></h1>
+<h1 class="main-logo"><a href="${pageContext.request.contextPath}/main/main.do"><img src="../images/logo.png" width="450" height="150"></a></h1>
 
 <div class="textright">
 		<!-- 로그아웃 상태 -->
@@ -34,17 +34,7 @@
 			<div class="menuleft">
 				<ul class="outer-menu">
 					<li class = "outer-menu-item">
-						<span class="menu-title"><a href="#">병원소개</a></span>
-						<ul class="inner-menu">
-							<li class="inner-menu-item"><a href="#">병원소개</a></li>
-						</ul>
-					</li>										
-					
-					<li class = "outer-menu-item">
-						<span class="menu-title"><a href="#">의료진</a></span>
-						<ul class="inner-menu">
-							<li class="inner-menu-item"><a href="#">의료진 소개</a></li>
-						</ul>
+						<span class="menu-title"><a href="${pageContext.request.contextPath}/order/medical.do">의료진소개</a></span>
 					</li>
 					
 					<li class = "outer-menu-item">
