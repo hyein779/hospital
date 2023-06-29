@@ -5,13 +5,16 @@
 }
 .main{
 	text-align:center;
+	margin-top:80px;
 }
 .main-div{
 	text-align:center;
-	border:solid 1px #000;
+	border:solid 1px #ccc;
 	box-shadow:0 2px 6px rgba(5,5,5,0.3);
 	width:1200px;
 	margin:0 auto;
+	height:400px;
+	display:flex;
 }
 
 .main-div li{
@@ -24,11 +27,26 @@
 }
 .main-div img{
 	width:600px;
-	float:left;
 }
 
 .main-content-title{
+	margin:50px;
+	font-size:50px;
 	color:#6496BA;
+}
+
+.main-div-content{
+	width:600px;
+	margin:20px;
+}
+
+.main-content-subtitle{
+	font-size:40px;
+	margin-top:100px;
+}
+
+.main-content{
+	font-size:18px;
 }
 /* .main-photo{
 	background:url("/../images/병원외관.jpg");

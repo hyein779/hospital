@@ -27,10 +27,10 @@
 		<h1 class="main-content-title">쌍용 정형외과의 특색</h1>
 		<div class="main-div">
 				<img src="${pageContext.request.contextPath}/images/main02.jpg" width="400px">
-			<div>
+			<div class="main-div-content">
 				<ul>
 					<li class="main-content-subtitle">
-						1. 노하우로 축적된 비수술 치료
+						1. 노하우로 축적된 비수술 치료<br>
 					</li>
 					<li class="main-content">
 						비수술적 치료에는 물리치료, 도수치료, 주사치료, 약물치료, 고정치료 등이 있습니다. 
