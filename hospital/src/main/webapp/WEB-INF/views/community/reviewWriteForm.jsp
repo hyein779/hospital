@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 <script type="text/javascript">
 	$(function(){
 		// 이벤트 연결;

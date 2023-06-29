@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 <div id="lnb" tabindex="0">
 	<!-- 의료진/진료과  -->
 	
