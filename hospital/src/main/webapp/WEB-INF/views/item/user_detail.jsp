@@ -77,7 +77,7 @@
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 		<!-- 내용 시작 -->
-		<div class="content-main">
+		<div class="product-main">
 			<c:if test="${item.item_status == 1}">
 			<div class="result-display">
 				<div class="align-center">
@@ -131,7 +131,6 @@
 					</form>
 				</div>
 				<div class="detail-list">상세 설명</div>
-				<hr size="1" noshade="noshade" width="1200">
 				<p class="detail">
 					${item.item_detail}
 				</p>
