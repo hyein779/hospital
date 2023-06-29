@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/community.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/community.reply.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <div class="page-main">

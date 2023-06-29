@@ -1,6 +1,11 @@
 @charset "UTF-8";
 /* 커뮤니티 목록
 ------------------*/
+.font{
+	
+	font-family:'Hi Melody', cursive;
+}
+
 .content-main h3.subtitle{
    font-size:30px;
    margin-top:20px;
@@ -179,6 +184,7 @@ tr:hover{
  
 /* 리뷰 목록
 ------------------*/
+
 .review-container {
   border-radius:5px;
   padding:10px;
