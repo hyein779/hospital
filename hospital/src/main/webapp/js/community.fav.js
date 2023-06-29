@@ -35,7 +35,6 @@ $(function(){
 		clicked.parent().find('.output_fcount').text(param.count);
 		
 	}
-	
 });
 
 
