@@ -74,7 +74,7 @@
 					<tr>
 						<td>
 							<label class="order-item">주소</label>
-						</td>	
+						</td>		
 						<td>
 							${order.receive_address1}
 						</td>
