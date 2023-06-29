@@ -16,6 +16,7 @@
 			let choice = confirm('삭제하시겠습니까?');
 			if(choice){
 				location.replace('reviewDelete.do?rev_num='+$(this).attr('data-num'));
+				alert('삭제가 완료되었습니다.')
 			}
 		});
 	});
