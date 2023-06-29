@@ -5,6 +5,7 @@
 body{
    min-width: 1519px;
    margin:0 auto;
+   font-family:'IBM Plex Sans KR', sans-serif;
 }
 a:link{
    text-decoration:none;
