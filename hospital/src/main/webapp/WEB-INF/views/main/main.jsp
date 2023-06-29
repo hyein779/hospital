@@ -29,14 +29,29 @@
 				<img src="${pageContext.request.contextPath}/images/main02.jpg" width="400px">
 			<div class="main-div-content">
 				<ul>
-					<li class="main-content-subtitle">
-						1. 노하우로 축적된 비수술 치료<br>
-					</li>
+					<h3 class="main-content-subtitle">
+						1. 노하우로 축적된 비수술 치료
+					</h3>
 					<li class="main-content">
 						비수술적 치료에는 물리치료, 도수치료, 주사치료, 약물치료, 고정치료 등이 있습니다. 
 						쌍용 정형외과는 주사 치료의 남용을 방지하려고 노력하고 있습니다. 
 						본원은 목, 척추, 어깨에 관하여 비수술적 치료를 지향하며, 
 						치료 방법에 있어서 어떤 병원보다 많은 노하우를 가지고 있습니다.
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-div">
+				<img src="${pageContext.request.contextPath}/images/main03.png" width="400px">
+			<div class="main-div-content">
+				<ul>
+					<h3 class="main-content-subtitle">
+						2. 다양한 수술 경험
+					</h3>
+					<li class="main-content">
+						비수술적 치료를 우선으로 하지만 그 자신감은 풍부한 수술 경험에 있습니다. 
+						본원 의료진들은 다년간의 수술에 참여하였으며, 
+						그만큼 폭넓은 지식이 있기 때문에 꼭 필요한 경우가 아니라면 비수술적 치료에 초점을 둡니다.
 					</li>
 				</ul>
 			</div>

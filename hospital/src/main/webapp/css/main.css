@@ -27,6 +27,7 @@
 }
 .main-div img{
 	width:600px;
+	height:400px;
 }
 
 .main-content-title{
@@ -42,11 +43,12 @@
 
 .main-content-subtitle{
 	font-size:40px;
-	margin-top:100px;
+	margin-top:60px;
 }
 
 .main-content{
-	font-size:18px;
+	font-size:20px;
+	line-height:35px;
 }
 /* .main-photo{
 	background:url("/../images/병원외관.jpg");
