@@ -189,6 +189,15 @@ ul{
     cursor: pointer;
     border-radius: 5px;
 }
+.result-display input{
+	padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
 .message{
    font-size:20px;
    font-weight:bold;

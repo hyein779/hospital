@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>치료 예약 목록</title>
+<title>진료 예약 목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/member.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
@@ -15,9 +15,9 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- 내용 시작 -->
-	우하하
+	하하하
 	<%-- <div class="content-main">
-		<h3 class="myPagest">치료 예약 목록</h3>
+		<h3 class="subtitle">진료 예약 목록</h3>
 		<hr size="1" noshade="noshade" width="100%">
 		<c:if test="${count == 0}">
 		<div class="result-display">
@@ -28,9 +28,9 @@
 		<table>
 			<tr>
 				<th>예약번호</th>
-				<th>치료 예약일</th>
-				<th>치료 예약 시간</th>
-				<th>치료명</th>
+				<th>진료 예약일</th>
+				<th>진료 예약 시간</th>
+				<th>의료진명</th>
 			</tr>
 			<c:forEach var="#" items="${list}">
 			<tr>

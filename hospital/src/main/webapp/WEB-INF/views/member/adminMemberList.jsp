@@ -27,7 +27,7 @@
 	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
 	<!-- 내용 시작 -->
 	<div class="content-main">
-		<h3 class="myPagest">회원목록</h3>
+		<h3 class="subtitle">회원목록</h3>
 		<!-- 검색창 시작 -->
 		<form id="search_form" action="adminMemberList.do" method="get">
 			<ul class="search">
@@ -98,6 +98,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+		<hr size="1" noshade="noshade" width="100%">
 		<div class="align-center">${page}</div>
 		</c:if>
 	</div>

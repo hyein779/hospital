@@ -39,8 +39,8 @@
 				</ul>
 				<div class="align-center">
 					<c:if test="${member.auth != 9}">
-						<input type="submit" value="수정" onclick="location.href='adminDetailUser.do'" id="btn_b">
-						<input type="button" value="삭제" onclick="location.href='adminDeleteUserForm.do?mem_num=${member.mem_num}'" id="btn_w">
+						<input type="submit" value="수정" onclick="location.href='adminDetailUser.do'" id="btn_bk">
+						<input type="button" value="삭제" onclick="location.href='adminDeleteUserForm.do?mem_num=${member.mem_num}'" id="btn_bk">
 					</c:if>
 					<input type="button" value="목록" onclick="location.href='adminMemberList.do'" id="btn_w">
 				</div>

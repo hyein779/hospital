@@ -39,8 +39,8 @@
 		<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 		<!-- 내용 시작 -->
 		<div class="content-main">
-			<h3 class="myPagest">비밀번호 변경</h3>
-			<hr size="1" noshade="noshade" width="90%">
+			<h3 class="subtitle">비밀번호 변경</h3>
+			<hr size="1" noshade="noshade" width="100%">
 			<form id="password_form" action="modifyPassword.do" method="post">
 				<ul>
 					<li>
@@ -61,7 +61,7 @@
 					</li>
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="비밀번호 수정" id="btn_b">
+					<input type="submit" value="비밀번호 수정" id="btn_bk">
 					<input type="button" value="MY페이지" onclick="location.href='myPage.do'" id="btn_w">
 				</div>
 			</form>

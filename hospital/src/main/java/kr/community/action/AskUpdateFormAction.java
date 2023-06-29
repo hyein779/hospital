@@ -18,7 +18,7 @@ public class AskUpdateFormAction implements Action{
 		Integer user_auth = (Integer)session.getAttribute("user_auth");
 		
 		if(user_num==null) { // 로그인 되지 않은 경우
-			return "redirect:/member/loginForm.do?page_url=/community/askList.do";
+			return "redirect:/member/loginForm.do";
 		}
 		
 		int ask_num = Integer.parseInt(request.getParameter("ask_num"));

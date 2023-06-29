@@ -57,8 +57,8 @@
 					</li>
 				</ul>
 				<div class="align-center">
-					<input type="submit" value="회원탈퇴">
-					<input type="button" value="목록" onclick="location.href='adminMemberList.do'">
+					<input type="submit" value="회원탈퇴" id="btn_bk">
+					<input type="button" value="목록" onclick="location.href='adminMemberList.do'" id="btn_w">
 				</div>
 			</form>
 		</div>
