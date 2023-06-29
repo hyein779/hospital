@@ -1,3 +1,15 @@
+/*$(document).ready(function(){
+    //체크박스 전체 선택&해제
+    $('#checkAll').click(function(){
+         if($('#checkAll').prop('checked')){
+            $('input[type="checkbox"]').prop('checked',true); 
+        }else{
+            $('input[type="checkbox"]').prop('checked',false); 
+        }
+    });
+});
+*/
+
 // 체크박스 하나만 선택
 /*function checkSelect() {
 	// 전체 체크박스

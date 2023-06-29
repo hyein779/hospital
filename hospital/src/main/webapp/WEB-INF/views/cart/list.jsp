@@ -15,13 +15,13 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js"></script>
 <script type="text/javascript">
-	$(function(){
+	<%--$(function(){
 		$("#restore").click(function(){
 	        if(confirm("장바구니를 비우시겠습니까?")){
 	            location.href="deleteCart.do";
 	        }
 	    });
-		
+	--%>
 		// 장바구니 삭제 이벤트
 		$('.cart-del').on('click', function(){
 			$.ajax({
@@ -148,7 +148,7 @@
 						</tr>
 					</c:forEach>
 				</table>
-				<input type="button" id="restore" value="장바구니 비우기">
+				<input type="button" id="restore" value="쇼핑 계속하기" onclick="location.href='${pageContext.request.contextPath}/item/item_list.do'">
 				<div class="total align-right">
 					<span>총 금액 : <fmt:formatNumber value="${all_total}"/>원</span>
 					<input type="submit" value="주문하기">
