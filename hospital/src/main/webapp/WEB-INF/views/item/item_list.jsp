@@ -67,7 +67,7 @@
 		<div class="cs">
 			<div class="cs-inner">
 				<div class="cs-center">
-					<h3>고객센터</h3>
+					<h3><img src="../images/support.png" width="25" height="25">고객센터</h3>
 					<div class="phone">02)3482-4632</div>
 					<div class="office-hour">
 						평일: 오전 9시 ~ 오후 8시
@@ -80,7 +80,7 @@
 					</div>
 				</div>
 				<div class="banking-info">
-					<h3>무통장 입금 계좌</h3>
+					<h3><img src="../images/passbook.png" width="25" height="25">무통장 입금 계좌</h3>
 					<div>
 					농협: 300-1234-1234-89
 					<br>
