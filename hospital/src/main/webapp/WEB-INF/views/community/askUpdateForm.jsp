@@ -50,8 +50,8 @@
 				</li>
 			</ul>
 			<div class="align-right">
-				<input type="submit" value="수정" class="submit">
-				<input type="button" value="취소" onclick="location.href='askDetail.do?ask_num=${ask.ask_num}'" class="home">
+				<input type="submit" value="수정" class="button">
+				<input type="button" value="취소" onclick="location.href='askDetail.do?ask_num=${ask.ask_num}'" class="button">
 			</div>
 		</form>
 	</div>

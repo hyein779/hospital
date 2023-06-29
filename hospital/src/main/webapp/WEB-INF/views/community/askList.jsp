@@ -51,7 +51,7 @@
 		</form>
 		<!-- 검색창 끝 -->
 		<div class="list-space align-right">
-			<input type="button" value="글쓰기" id="write" onclick="location.href='askWriteForm.do'"
+			<input type="button" value="글쓰기" id="write" class="button" onclick="location.href='askWriteForm.do'"
 			<c:if test="${empty user_num}">disabled="disabled"</c:if>> <!-- 로그인 안되어 있을때 글쓰기 버튼 비활성화 -->
 		</div>
 		

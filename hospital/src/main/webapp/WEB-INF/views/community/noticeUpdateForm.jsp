@@ -50,8 +50,8 @@
 				</li>
 			</ul>
 			<div class="align-right">
-				<input type="submit" value="수정" class="submit">
-				<input type="button" value="취소" onclick="location.href='noticeDetail.do?notice_num=${notice.notice_num}'" class="home">
+				<input type="submit" value="수정" class="button">
+				<input type="button" value="취소" onclick="location.href='noticeDetail.do?notice_num=${notice.notice_num}'" class="button">
 			</div>
 		</form>
 	</div>

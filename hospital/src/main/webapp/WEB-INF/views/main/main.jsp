@@ -9,9 +9,12 @@
 <title>메인</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
-<div class="page-main">
+<div class="page-main"></div>
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<!-- header 끝 -->
@@ -21,6 +24,28 @@
 		<img src="../images/병원외관.jpg">
 	</div>
 	<div class="main">
+		<h1 class="main-content-title">쌍용 정형외과의 특색</h1>
+		<div class="main-div">
+				<img src="${pageContext.request.contextPath}/images/main02.jpg" width="400px">
+			<div>
+				<ul>
+					<li class="main-content-subtitle">
+						1. 노하우로 축적된 비수술 치료
+					</li>
+					<li class="main-content">
+						비수술적 치료에는 물리치료, 도수치료, 주사치료, 약물치료, 고정치료 등이 있습니다. 
+						쌍용 정형외과는 주사 치료의 남용을 방지하려고 노력하고 있습니다. 
+						본원은 목, 척추, 어깨에 관하여 비수술적 치료를 지향하며, 
+						치료 방법에 있어서 어떤 병원보다 많은 노하우를 가지고 있습니다.
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<!-- <div class="main">
 		<h1 class="content-main-title">쌍용 정형외과</h1>
 		<p>정형외과는 자세의 유지와 신체 운동에 관계되는 척추, 사지의 뼈, 관절, 근육 및 힘줄, 인대 등의 근골격계 질환을 진료하고 치료합니다.
 		   정형외과의 영역은 주로 사지나 몸의 골간을 이루는 부위의 각종 질환과 외상입니다. 즉 뼈, 관절, 근육, 힘줄, 인대 등의 운동 기관을 
@@ -62,7 +87,7 @@
 				<th>충격파치료</th>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 	<!-- content 끝 -->
 	
 	<!-- footer 시작 -->

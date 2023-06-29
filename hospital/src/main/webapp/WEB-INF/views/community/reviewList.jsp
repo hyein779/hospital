@@ -33,14 +33,15 @@
 	<div class="content-main">
 		<h3 class="subtitle">리뷰</h3>
 		<div class="list-space align-right">
-			<input type="button" value="글쓰기" id="write" onclick="location.href='reviewWriteForm.do'"
+			<input type="button" value="글쓰기" id="write" class="button" onclick="location.href='reviewWriteForm.do'"
 			<c:if test="${empty user_num}">disabled="disabled"</c:if>> <!-- 로그인 안되어 있을때 글쓰기 버튼 비활성화 -->
 		</div>
 		
 		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 게시물이 없습니다.
-		</div>
+		CERX#%DF 
+	$
 		</c:if>
 		<c:if test="${count > 0}">
 		<c:forEach var="review" items="${list}">
