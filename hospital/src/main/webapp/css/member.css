@@ -41,7 +41,7 @@ form {
 
 label {
 	width: 130px;
-	float: left; /*태그를 왼쪽에 정렬*/
+	float: left; /*태그를 왼쪽에 정렬 */
 	margin-top: 15px;
 	font-weight: 550;
 	text-align: left;
