@@ -10,6 +10,16 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/community.fav.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.delete_btn').click(function(){
+			let choice = confirm('삭제하시겠습니까?');
+			if(choice){
+				location.replace('reviewDelete.do?rev_num='+$(this).attr('data-num'));
+			}
+		});
+	});
+</script>
 </head>
 <body>
 <div class="page-main">
@@ -41,18 +51,8 @@
 					<input type="button" value="수정" onclick="location.href='reviewUpdateForm.do?rev_num=${review.rev_num}'">
 				</li>
 				<li>
-					<input type="button" value="삭제" id="delete_btn">
+					<input type="button" value="삭제" class="delete_btn" data-num="${review.rev_num}">
 				</li>
-				<script type="text/javascript">
-					let delete_btn = document.getElementById('delete_btn');
-					// 이벤트 연결
-					delete_btn.onclick=function(){
-						let choice = confirm('삭제하시겠습니까?');
-						if(choice){
-							location.replace('reviewDelete.do?rev_num=${review.rev_num}');
-						}
-					};
-				</script>
 				</c:if>
 				<li class="like">
 					<!-- 좋아요 -->
