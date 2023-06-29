@@ -26,7 +26,7 @@ String id = (String) request.getAttribute("id");
 					<span>회원님의 아이디는 ${id}입니다.
 					</span><br>
 					<br>
-					<br> <input type="button" value="로그인" 
+					<br> <input type="button" value="로그인"  id="btn_bk"
 						onclick="location.href='${pageContext.request.contextPath}/member/loginForm.do'">
 				</div>
 			</div>

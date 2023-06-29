@@ -18,7 +18,7 @@
 		<div class="result-display">
 			<div class="align-center">
 				회원탈퇴가 완료되었습니다.<p>
-				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
+				<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'" id="btn_bk">
 			</div>
 		</div>
 	</div>
