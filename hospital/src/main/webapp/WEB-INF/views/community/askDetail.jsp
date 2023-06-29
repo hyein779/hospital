@@ -40,11 +40,11 @@
 					<c:if test="${!empty ask.ask_modifydate}"> <!-- 수정한 날짜가 있는 경우 -->
 					수정일 ${ask.ask_modifydate}
 					</c:if>
-					<input type="button" value="목록" onclick="location.href='askList.do'" class="submit">
+					<input type="button" value="목록" onclick="location.href='askList.do'" class="button">
 					<!-- 로그인한 회원번호와 작성자 회원번호가 일치하거나 관리자인 경우 수정, 삭제 가능-->
 					<c:if test="${user_num == ask.mem_num || user_auth == 9}">
-					<input type="button" value="수정" onclick="location.href='askUpdateForm.do?ask_num=${ask.ask_num}'" class="submit">
-					<input type="button" value="삭제" id="delete_btn" class="submit">
+					<input type="button" value="수정" onclick="location.href='askUpdateForm.do?ask_num=${ask.ask_num}'" class="button">
+					<input type="button" value="삭제" id="delete_btn" class="button">
 		 
 					<script type="text/javascript">
 						let delete_btn = document.getElementById('delete_btn');

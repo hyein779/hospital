@@ -27,7 +27,17 @@ a:hover{
    height:auto;
    min-height:680px;
    width:1120px;
-}   
+}
+
+.button{
+	padding:5px 10px;
+	font-size:14px;
+	background-color:#333;
+  	color:#fff;
+  	border:none;
+ 	cursor:pointer;
+ 	border-radius:5px;
+}
 
 /* 공통 정렬
 ------------------*/
