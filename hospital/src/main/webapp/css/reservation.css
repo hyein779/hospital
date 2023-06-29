@@ -162,3 +162,25 @@
 .therapy-text b{
 	font-size:35px;
 }
+/* 의료진소개 
+------------------*/
+.v-line {
+    border-left : thick solid #999;
+    height : 600px;
+	float:left;
+}
+.medical-int{
+	width:370px;
+	float:left;
+}
+.medical-photo{
+	width:200px;
+	height:200px;
+}
+.medical-center{
+	text-align:center;ㄴ
+}
+.medical-left{
+	text-align:left;
+	margin:30px 0 0 50px;
+}

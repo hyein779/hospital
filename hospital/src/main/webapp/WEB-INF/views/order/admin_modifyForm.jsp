@@ -61,7 +61,7 @@
 						</td>
 						<td>
 							${order.receive_phone}
-						</td>
+						</td>   
 					</tr>
 					<tr>
 						<td>
