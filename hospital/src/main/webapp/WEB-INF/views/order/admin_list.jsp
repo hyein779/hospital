@@ -40,8 +40,6 @@
 	<!-- content 시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">주문 목록</h3>
-		<hr size="1" noshade="noshade" width="100%">
-		<br>
 		<form id="search_form" method="get">
 			<ul class="search">
 				<li>
@@ -56,10 +54,13 @@
 					       value="${param.keyword}"> <!-- 값 유지 -->
 				</li>
 				<li>
-					<input type="submit" id="btn" value="조회">
+					<input type="submit" class="search-btn" value="조회">
 				</li>
 			</ul>
-		</form><br>
+		</form>
+		<br>
+		<hr class="order-hr">
+		<br>
  			<c:if test="${count == 0}">
 				<h3 class="delivery_text">주문내역이 없습니다.</h3>
  			</c:if>
@@ -97,11 +98,15 @@
 				</tr>  
 			</c:forEach>
 			</table>
- 			<hr size="1" noshade="noshade" width="100%">
+			<br>
+ 			<hr class="order-hr">
+			<div class="align-center">
+				<div class="order-page">${page}</div>
+			</div>
 		</c:if>
 	</div>		
 	<!-- content 끝 -->
-	<div class="order-page">${page}</div>
+
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- footer 끝 -->

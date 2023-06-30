@@ -80,9 +80,9 @@
 									test="${order.status == 4}">배송완료</c:if> <c:if
 									test="${order.status == 5}">주문취소</c:if></td>
 							<td>
-								<input type="button" value="주문상세" id="btn"
+								<input type="button" value="주문상세" class="button"
                    					   onclick="location.href='${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}'">
-								<input type="button" value="배송조회" id="btn"	
+								<input type="button" value="배송조회" class="button"	
                    					   onclick="location.href='${pageContext.request.contextPath}/order/orderReceiveForm.do?order_num=${order.order_num}'">
 								
 							</td>
@@ -90,10 +90,11 @@
 					</c:forEach>
 				</table>
 			</c:if>
+			<br>
 			<hr size="1" noshade="noshade" width="100%">
+			<div class="align-center">${page}</div>
 		</div>
 		<!-- 내용 끝 -->
-		<div class="align-center">${page}</div>
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</div>
 </body>

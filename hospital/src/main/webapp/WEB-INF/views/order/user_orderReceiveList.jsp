@@ -35,7 +35,7 @@
 						<td>
 							<label class="order-item">배송상태</label>
 						</td>
-						<td>		
+						<td class="align-left">		
 							<c:if test="${order.status == 1}">배송대기</c:if>
 							<c:if test="${order.status == 2}">배송준비중</c:if>
 							<c:if test="${order.status == 3}">배송중</c:if>
@@ -47,7 +47,7 @@
 						<td>
 							<label class="order-item">받는사람</label>
 						</td>
-						<td>
+						<td class="align-left">
 							${order.receive_name}						
 						</td>
 					</tr>
@@ -55,7 +55,7 @@
 						<td>
 							<label class="order-item">전화번호</label>
 						</td>
-						<td>
+						<td class="align-left">
 							${order.receive_phone}
 						</td>   
 					</tr>
@@ -63,7 +63,7 @@
 						<td>
 							<label class="order-item">우편번호</label>
 						</td>
-						<td>
+						<td class="align-left">
 							${order.receive_post}
 						</td>
 					</tr>
@@ -71,7 +71,7 @@
 						<td>
 							<label class="order-item">주소</label>
 						</td>		
-						<td>
+						<td class="align-left">
 							${order.receive_address1}
 						</td>
 					</tr>
@@ -79,7 +79,7 @@
 						<td>
 							<label class="order-item">상세주소</label>
 						</td>
-						<td>
+						<td class="align-left">
 							${order.receive_address2}
 						</td>
 					</tr>
@@ -87,7 +87,7 @@
 						<td>
 							<label class="order-item">메모</label>
 						</td>	
-						<td>
+						<td class="align-left">
 							${order.notice}
 						</td>
 					</tr>
@@ -95,7 +95,7 @@
 						<td>
 							<label class="order-item">결제수단</label>
 						</td>
-						<td>
+						<td class="align-left">
 							<span class="color-red">
 								<c:if test="${order.payment == 1}">&#91; 계좌이체 &#93;</c:if>
 								<c:if test="${order.payment == 2}">&#91; 카드결제 &#93;</c:if>

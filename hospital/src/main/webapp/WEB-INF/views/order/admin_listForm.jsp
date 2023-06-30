@@ -62,7 +62,9 @@
 			<input type="button" value="홈으로" 
 				   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
-
+		<br>
+		<hr size="1" noshade="noshade" width="100%">
+		<br>
 	</div>	 
 	<!-- content 끝 -->
 	<!-- footer 시작 -->

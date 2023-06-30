@@ -59,15 +59,12 @@ modify-hidden li label{
 	width:80px;
 	float:left;
 }
-.order-page{
-	text-align:center;
-}
 
 /* 버튼 오른쪽 정렬 */
 .order-button{
 	float:right;
 }
-input[type="button"], #btn{
+.search-btn{
 	height:32px;
 	margin-left:5px;
 	font-size:14px;
@@ -76,6 +73,15 @@ input[type="button"], #btn{
 	border:none;
 	color:#fff;
 } 
+input[type="button"], #btn{
+	padding:5px 10px;
+	font-size:14px;
+	background-color:#333;
+  	color:#fff;
+  	border:none;
+ 	cursor:pointer;
+ 	border-radius:5px;
+}
 /* 검색창 */
 form#search_form{
 	display:flex;
@@ -121,7 +127,7 @@ table{
 }
 th, td{
   padding:10px;
-  text-align:left;
+  text-align:center;
 }
 th{
   background-color:#dedede;
@@ -157,4 +163,7 @@ tr:hover{
 .medical-left{
 	text-align:left;
 	margin:30px 0 0 50px;
+}
+.align-left{
+	text-align:left;
 }

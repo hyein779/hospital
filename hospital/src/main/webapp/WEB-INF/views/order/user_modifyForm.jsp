@@ -79,8 +79,11 @@ $(function(){
 				</td>
 			</tr>
 		</table>
-		<input type="button" id="btn" value="주문내역" 
-			       onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
+		<br>
+		<div class="align-center">
+			<input type="button" class="button" value="주문내역" 
+				       onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
+       </div>
 		<br>
 		<hr class="order-hr"> 
 		<br>
