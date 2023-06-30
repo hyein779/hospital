@@ -166,6 +166,7 @@ tr:hover{
   height:285px;
   float:left;
   border:solid 3px #000;
+  box-shadow:0 2px 6px rgba(5,5,5,0.5);
 }
 
 .rev {

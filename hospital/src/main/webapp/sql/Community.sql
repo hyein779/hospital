@@ -31,7 +31,7 @@ create table review(
  rev_modifydate date,
  rev_title varchar2(150) not null,
  rev_content clob not null,
- rev_type number not null, -- 0:목, 1:허리, 2:어깨, 3:기타
+ rev_type number(1) not null, -- 0:목, 1:허리, 2:어깨, 3:기타
  mem_num number not null,
  constraint review_pk primary key (rev_num),
  constraint review_fk foreign key (mem_num) references member (mem_num)

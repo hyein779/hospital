@@ -50,11 +50,14 @@
 				<li>${review.mem_name.substring(0,1)}**님의 후기</li>
 				<li>/</li>
 				<li>${review.rev_date}</li>
-				<!-- 로그인한 회원번호와 작성자 회원번호가 일치하거나 관리자인 경우 수정, 삭제 가능-->
-				<c:if test="${user_num == review.mem_num || user_auth == 9}">
+				<!-- 로그인한 회원번호와 작성자 회원번호가 일치한 경우 수정 가능-->
+				<c:if test="${user_num == review.mem_num}">
 				<li>
 					<input type="button" value="수정" onclick="location.href='reviewUpdateForm.do?rev_num=${review.rev_num}'">
 				</li>
+				</c:if>
+				<!-- 로그인한 회원번호와 작성자 회원번호가 일치하거나 관리자인 경우 삭제 가능-->
+				<c:if test="${user_num == review.mem_num || user_auth == 9}">
 				<li>
 					<input type="button" value="삭제" class="delete_btn" data-num="${review.rev_num}">
 				</li>
