@@ -12,9 +12,9 @@
 	border:solid 1px #ccc;
 	box-shadow:0 2px 6px rgba(5,5,5,0.3);
 	width:1200px;
-	margin:50px 0 50px 160px;
+	margin:50px 0 50px 0;
 	height:400px;
-	display:flex;
+	display:inline-flex;
 }
 
 .main-div li{

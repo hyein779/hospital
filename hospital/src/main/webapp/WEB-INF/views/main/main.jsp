@@ -39,7 +39,7 @@
 						관하여 비수술적 치료를 지향하며, 치료 방법에 있어서 어떤 병원보다 많은 노하우를 가지고 있습니다.</li>
 				</ul>
 			</div>
-		</div>
+		</div><br>
 		<div class="main-div">
 			<div class="main-div-content">
 				<ul>
@@ -50,7 +50,7 @@
 				</ul>
 			</div>
 			<img src="${pageContext.request.contextPath}/images/main03.png">
-		</div>
+		</div><br>
 		<div class="main-div">
 			<img src="${pageContext.request.contextPath}/images/main01.png">
 			<div class="main-div-content">
