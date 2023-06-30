@@ -62,7 +62,7 @@
 					      id="quantity" maxlength="10">
 				</li>
 				<li>
-					<label for="reg_date">모집기간</label>
+					<label for="reg_date">봉사기간</label>
 					<input type="text" name="reg_date" id="reg_date" maxlength="50">
 				</li>
 			</ul> 

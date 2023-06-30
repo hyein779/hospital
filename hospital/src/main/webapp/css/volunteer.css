@@ -116,6 +116,7 @@ input#keyword, select#keyfield{
 }
 select#keyfield{
 	width:70px;
+	margin-top:3px;
 }
 input#search{
 	height:32px;

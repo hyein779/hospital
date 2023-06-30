@@ -341,11 +341,15 @@ public class appvolunteerDAO {
 				if(keyfield.equals("1")) sub_sql += "WHERE a.app LIKE ?";
 				else if(keyfield.equals("2")) sub_sql += "WHERE b.board_num = ?";
 				else if(keyfield.equals("3")) sub_sql += "WHERE a.content LIKE ?";
+				//if(keyfield.equals("1")) sub_sql += "WHERE app LIKE ?";
+				//else if(keyfield.equals("2")) sub_sql += "WHERE board_num = ?";
+				//else if(keyfield.equals("3")) sub_sql += "WHERE content LIKE ?";
 			}
 			
 			//SQL문 작성
 			sql = "SELECT COUNT(*) FROM appvolunteer a "
 				+ "JOIN volunteerboard v USING(board_num) " + sub_sql;
+			//sql = "SELECT COUNT(*) FROM appvlounteer "+sub_sql;
 			//PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
 			if(keyword != null 

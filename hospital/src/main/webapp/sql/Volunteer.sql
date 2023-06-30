@@ -24,7 +24,6 @@ CREATE TABLE appvolunteer(
 	address varchar2(90) not null,
 	phone varchar(20) not null,
 	content clob not null,
-	app_quantity number not null,
 	mem_num number not null,
 	constraint appvolunteer_pk primary key (app_num),
 	constraint appvolunteer_fk1 foreign key (mem_num) references member (mem_num),
