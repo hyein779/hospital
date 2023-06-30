@@ -62,11 +62,28 @@
 				</ul>
 			</div>
 		</div>
+		
+		<div class="content-sub">
+		<h2 class="content-sub-title">진료과목</h2>
+		<p>해당 분야에 숙련된 의료진들이 풍부한 수술경험과 노하우로 정확한 진단과 치료를 제시합니다.</p>
+	   		<div class="disease-main">
+				<ul>
+					<li class="box">
+						<img src="../images/neck.png" width="200" height="200">
+						<p>목질환</p>
+					</li>
+					<li class="box">
+						<img src="../images/hurt.png" width="200" height="200">
+						<p>허리질환</p>
+					</li>
+					<li class="box">
+						<img src="../images/body.png" width="200" height="200">
+						<p>어깨질환</p>
+					</li>
+				</ul>							
+			</div>	
+		</div>
 	</div>
-
-
-
-
 	<!-- <div class="main">
 		<h1 class="content-main-title">쌍용 정형외과</h1>
 		<p>정형외과는 자세의 유지와 신체 운동에 관계되는 척추, 사지의 뼈, 관절, 근육 및 힘줄, 인대 등의 근골격계 질환을 진료하고 치료합니다.
@@ -77,23 +94,7 @@
 		<p class="content-main-p">정형외과는 정확한 진단, 올바른 치료를 목표로 과도한 검사 없는 진료실	을 운영하고 있으며 
 		   환자 각각의 상황에 맞는 맞춤 치료로 건강하고 행복한 100세 시대를 열어갈 수 있도록 합니다.</p>
     </div>
-	<div class="content-sub">
-		<h2 class="content-sub-title">진료과목</h2>
-		<p>풍부한 수술경험과 노하우로 정확한 진단과 치료를 제시합니다.</p>
-	   	<table class="table-main">
-			<tr>
-				<td><img src="../images/목질환.png" width="200" height="200"></td>
-				<td><img src="../images/허리질환.png" width="200" height="200"></td>
-				<td><img src="../images/어깨질환.png" width="200" height="200"></td>
-			</tr>
-			<tr>
-				<th>목질환</th>
-				<th>허리질환</th>
-				<th>어깨질환</th>
-			</tr>
-		</table>	
-	</div>
-		
+	
 	<div class="content-sub2">
 		<h2 class="content-sub-title">치료종류</h2>
 		<p>몸에 부담과 위험이 가장 작은 치료를 제일의 원칙으로 삼고 있습니다.</p>
