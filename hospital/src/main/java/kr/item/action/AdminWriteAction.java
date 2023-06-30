@@ -10,6 +10,7 @@ import kr.controller.Action;
 import kr.item.dao.ItemDAO;
 import kr.item.vo.ItemVO;
 import kr.util.FileUtil;
+import kr.util.StringUtil;
 
 public class AdminWriteAction implements Action{
 
@@ -36,7 +37,7 @@ public class AdminWriteAction implements Action{
 		item.setItem_price(Integer.parseInt(multi.getParameter("item_price")));
 		item.setItem_quantity(Integer.parseInt(multi.getParameter("item_quantity")));
 		item.setItem_photo(multi.getFilesystemName("item_photo"));
-		item.setItem_detail(multi.getParameter("item_detail"));
+		item.setItem_detail(StringUtil.useBrNoHtml(multi.getParameter("item_detail")));
 		item.setItem_status(Integer.parseInt(multi.getParameter("item_status")));
 		
 		ItemDAO dao = ItemDAO.getInstance();

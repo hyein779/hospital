@@ -84,7 +84,17 @@
 					</li>
 					<li class="product-content">
 						<label for="detail" class="product-label">상품 설명</label>
-						<textarea rows="10" cols="60" name="item_detail" id="detail"></textarea>
+						<textarea rows="10" cols="60" name="item_detail" id="detail">1. 품명 및 모델명 :
+						           2. 의료기기법상 허가/신고 번호 및 광고사전심의필 유무 :
+						           3. 전기용품안전관리법상 KC 인증 필 유무 :
+						           4. 정격전압, 소비전력 : 
+						           5. 동일모델의 출시년월 : 
+						           6. 제조사 : 
+						           7. 제조국 : 
+						           8. 제품의 사용목적 : 
+						           9. 사용방법 : 
+						           10 . 취급시 주의사항 : 
+						           11. 품질보증기준 :</textarea>
 					</li>
 				</ul>
 				<div class="align-center">
