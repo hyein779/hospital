@@ -107,10 +107,15 @@ ul.search{
 	padding:0;
 	display:flex;
 }
-
+ul.search li{
+	margin-bottom:10px;
+}
 input#keyword, select#keyfield{
 	height:32px;
 	font-size:14px;
+}
+select#keyfield{
+	width:70px;
 }
 input#search{
 	height:32px;

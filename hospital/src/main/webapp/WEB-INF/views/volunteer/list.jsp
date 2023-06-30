@@ -53,8 +53,11 @@
 		</form>
 		<!-- 검색창 끝 -->
 		<div class="align-right">
-			<input type="button" value="글쓰기"  id="write" onclick="location.href='volWriteForm.do'" 
-			<c:if test="${empty user_num || user_auth != 9}">disabled="disabled"</c:if> class="submit1">
+			<%--<input type="button" value="글쓰기"  id="write" onclick="location.href='volWriteForm.do'" 
+			<c:if test="${empty user_num || user_auth != 9}">disabled="disabled"</c:if> class="submit1"> --%>
+			<c:if test="${empty user_num || user_auth == 9}">
+			<input type="button" value="글쓰기"  id="write" onclick="location.href='volWriteForm.do'" class="submit1">
+			</c:if>
 			<input type="button" value="목록" onclick="location.href='volList.do'" class="submit1">
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do'" class="submit1">
 		</div>
@@ -83,7 +86,7 @@
 		</table>
 		<div class="align-center">${page}</div>
 		</c:if>
-		<input type="button" onclick="location.href='${pageContext.request.contextPath}/volunteer/adminVolList.do'" value="상세정보"> 
+		<%--<input type="button" onclick="location.href='${pageContext.request.contextPath}/volunteer/adminVolList.do'" value="상세정보">  --%>
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
