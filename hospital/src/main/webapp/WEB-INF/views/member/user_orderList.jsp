@@ -79,8 +79,12 @@
 									test="${order.status == 3}">배송중</c:if> <c:if
 									test="${order.status == 4}">배송완료</c:if> <c:if
 									test="${order.status == 5}">주문취소</c:if></td>
-							<td><input type="button" value="주문상세" id="btn"
-								onclick="location.href='${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}'">
+							<td>
+								<input type="button" value="주문상세" id="btn"
+                   					   onclick="location.href='${pageContext.request.contextPath}/order/orderModifyForm.do?order_num=${order.order_num}'">
+								<input type="button" value="배송조회" id="btn"	
+                   					   onclick="location.href='${pageContext.request.contextPath}/order/orderReceiveForm.do?order_num=${order.order_num}'">
+								
 							</td>
 						</tr>
 					</c:forEach>

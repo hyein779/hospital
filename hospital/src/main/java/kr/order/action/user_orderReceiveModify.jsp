@@ -1,148 +1,161 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자_배송정보</title>
+<title>이용자_배송정보수정</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
+<c:if test="${order.status < 2}">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//상품주문 정보 등록 유효성 체크
+	$('#order_form').submit(function(){
+  	let items = document.querySelectorAll('input[type="text"]');
+  	
+	  	for(let i=0;i<items.length;i++){
+	        if(items[i].value.trim()==''){
+				let label = document.querySelector('label[for="'+items[i].id+'"]');
+		        alert(label.textContent + ' 항목을 입력해주세요.');
+		        items[i].value = '';
+		        items[i].focus();
+		        return false;
+	        }
+	        
+			if(!/^\d{11}$/.test($('#receive_phone').val())){
+				alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
+				$('#phone').val('');
+				$('#phone').focus();
+				return false;
+			}
+	 	}//end of for	
+     	
+	});//end of submit
+})//end of function	
+</script>
+</c:if>
 </head>
 <body>
 <div class="page-main">
-
 	<!-- header 시작 -->
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="/WEB-INF/views/member/adminLnb.jsp"/>
+	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- header 끝 -->
-	
 	<!-- content 시작 -->
 	<div class="content-main">
-	<h3 class="subtitle">배송 정보</h3>
-		<!-- 상품 수정 내역 -->
-		<hr class="order-hr">
-		<br>		
-		<form id = "order_form" action="modify.do" method="post">
+		<h3 class="subtitle">배송정보</h3>
+		<form id = "order_form" action="orderModify.do" method="post">
 			<input type="hidden" name="order_num" value="${order.order_num}">
-			<table>
+			<input type="hidden" name="status" value="${order.status}">
+				<table>
 					<tr>
 						<td>
-							<label class="order-item">배송상태</label>
-						</td>
-						<td>		
-							<c:if test="${order.status != 5}">
-								<input type="radio" name="status" id="status1" 
-								       value="1" <c:if test="${order.status == 1}">checked</c:if>>배송대기
-								<input type="radio" name="status" id="status2" 
-								       value="2" <c:if test="${order.status == 2}">checked</c:if>>배송준비중
-								<input type="radio" name="status" id="status3" 
-								       value="3" <c:if test="${order.status == 3}">checked</c:if>>배송중
-							    <input type="radio" name="status" id="status4" 
-								       value="4" <c:if test="${order.status == 4}">checked</c:if>>배송완료      						       
-							</c:if>
-								<input type="radio" name="status" id="status5" 
-							      	   value="5" <c:if test="${order.status == 5}">checked</c:if>>주문취소
+							<label for="receive_name">받는사람</label></td>
+						<td>						
+							<input type="text" name="receive_name" id="receive_name"
+								   maxlength="10" value="${order.receive_name}">
 					    </td>
-					</tr> 					
+					</tr>
 					<tr>
 						<td>
-							<label class="order-item">받는사람</label>
-						</td>
+							<label for="receive_phone">전화번호</label></td>
 						<td>
-							${order.receive_name}						
+						<input type="text" name="receive_phone" id="receive_phone"
+							   maxlength="15" value="${order.receive_phone}">						
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label class="order-item">전화번호</label>
-						</td>
+							<label for="zipcode">우편번호</label>
 						<td>
-							${order.receive_phone}
-						</td>   
-					</tr>
-					<tr>
-						<td>
-							<label class="order-item">우편번호</label>
-						</td>
-						<td>
-							${order.receive_post}
+						<input type="text" name="receive_post" id="zipcode"
+						   maxlength="5" value="${order.receive_post}">
+						<input type="button" value="우편번호 찾기" 
+					       onclick="execDaumPostcode()">						
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label class="order-item">주소</label>
-						</td>		
+							<label for="receive_address1">주소</label>
 						<td>
-							${order.receive_address1}
+						<input type="text" name="receive_address1" id="address1"
+						  	   maxlength="30" value="${order.receive_address1}">						
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label class="order-item">상세주소</label>
-						</td>
+							<label for="receive_address2">상세주소</label>
 						<td>
-							${order.receive_address2}
+						<input type="text" name="receive_address2" id="receive_address2"
+					 		   maxlength="30" value="${order.receive_address2}">						
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label class="order-item">메모</label>
-						</td>	
+							<label for="notice">메모</label>
 						<td>
-							${order.notice}
+						<textarea rows="5" cols="42" name="notice" id="notice"
+			        			  maxlength="1300" class="order-text">${order.notice}</textarea>					
 						</td>
 					</tr>
+					
 					<tr>
 						<td>
 							<label class="order-item">결제수단</label>
-						</td>
 						<td>
 							<span class="color-red">
-								<c:if test="${order.payment == 1}">&#91; 계좌이체 &#93;</c:if>
-								<c:if test="${order.payment == 2}">&#91; 카드결제 &#93;</c:if>
-							</span>
+								<c:if test="${order.payment == 1}">계좌이체</c:if>
+								<c:if test="${order.payment == 2}">카드결제</c:if>
+							</span>				
 						</td>
 					</tr>
-			</table>
-				<div class="align-center">
-					<c:if test="${order.status != 5}">			
-						<input type="submit" id="btn" value="수정">
-					</c:if>
-					<!-- 배송완료, 주문취소 상태일때만 정보를 삭제 -->
-					<c:if test="${order.status == 4 or order.status == 5}">
-						<input type="button" value="삭제" id="delete_btn">
-						<script type="text/javascript">
-								let delete_btn = document.getElementById('delete_btn');
-								
-						      		//이벤트연결
-						      		delete_btn.onclick=function(){
-						      			let choice = confirm('삭제하겠습니까?');
-						      			if(choice) {
-						      				location.replace('deleteOrder.do?order_num=${order.order_num}');
-									}
-								}
-						</script>	   
-			        </c:if>	
-	     				<input type="button" value="목록"
-						       onclick="location.href='list.do'">
-	        	</div>		
+					<tr>
+						<td>
+							<label class="order-item">배송상태</label>
+						<td>
+							<span class="color-red">
+								<c:if test="${order.status == 1}">배송대기</c:if>
+								<c:if test="${order.status == 2}">배송준비중</c:if>
+								<c:if test="${order.status == 3}">배송중</c:if>
+								<c:if test="${order.status == 4}">배송완료</c:if>
+								<c:if test="${order.status == 5}">주문취소</c:if>
+							</span>			
+						</td>
+					</tr>
+				</table>				
+			<div class="align-center">
+				<input type="submit"  id="btn" value="주문수정">
+				<input type="button" value="주문취소" id="order_cancel">
+				
+				<script>
+					let order_cancel = document.getElementById('order_cancel');
+					order_cancel.onclick=function(){
+						let choice = confirm('주문을 취소하시겠습니까?');
+						if(choice){
+							location.replace('orderCancel.do?order_num=${order.order_num}');								
+						}
+				}
+				</script>
+			<input type="button" id="btn" value="주문내역" onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
+			       
+		</div>
 		</form>
 		<br>
 		<hr class="order-hr"> 
 		<br>
-	</div>	
-	<!-- content 끝 -->
-<!-- 우편번호 검색 시작 -->
-		<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
-<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-</div>
-
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
+	</div>
+	<!-- 우편번호 검색 시작 -->
+	<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+	<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+	<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+	</div>
+	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
     // 우편번호 찾기 화면을 넣을 element
     var element_layer = document.getElementById('layer');
 
@@ -233,6 +246,7 @@
     }
 	</script>
 	<!-- 우편번호 검색 끝 -->
+	<!-- content 끝 -->
 	<!-- footer 시작 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<!-- footer 끝 -->
