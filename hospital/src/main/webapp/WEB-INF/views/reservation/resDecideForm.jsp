@@ -12,6 +12,9 @@
 	var res_date = document.getElementById("res_date").value;
 	var res_time = document.getElementById("res_time").value;
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <div class="page-main">

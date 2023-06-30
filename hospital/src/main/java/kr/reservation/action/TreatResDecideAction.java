@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import kr.controller.Action;
 import kr.reservation.dao.ReservationDAO;
 import kr.reservation.vo.ReservationVO;
+import kr.reservation.vo.TReservationVO;
 
 public class TreatResDecideAction implements Action{
 
@@ -23,19 +24,20 @@ public class TreatResDecideAction implements Action{
 		
 		int treat_num = Integer.parseInt(request.getParameter("treat_num"));
 		
-		ReservationVO reservation = new ReservationVO();
+		TReservationVO reservation = new TReservationVO();
 		reservation.setMem_name(request.getParameter("mem_name"));
 		reservation.setMem_public(request.getParameter("mem_pulic"));
 		reservation.setTreat_name(request.getParameter("treat_name"));
 		reservation.setRes_date(request.getParameter("res_date"));
 		reservation.setRes_time(request.getParameter("res_time"));
+		reservation.setRes_content(request.getParameter("res_content"));
 		reservation.setTreat_num(treat_num);
 		reservation.setMem_num(user_num);
 		
 		ReservationDAO dao = ReservationDAO.getInstance();
-		dao.insertRes(reservation);
+		dao.insertTRes(reservation);
 		
-		return null;
+		return "/WEB-INF/views/reservation/treatResDecide.jsp";
 	}
 
 }

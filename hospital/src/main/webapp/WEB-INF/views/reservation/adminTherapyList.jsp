@@ -20,6 +20,9 @@
 		});
 	});
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <div class="page-main">
@@ -28,13 +31,13 @@
 	<!-- 내용 시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">치료 예약 목록</h3>
-		<!-- 검색창 시작 --><!-- action수정해야함 -->
-		<form id="search_form" action="noticeList.do" method="get">
+		<!-- 검색창 시작 -->
+		<form id="search_form" action="adminTherapyList.do" method="get">
 			<ul class="search">
 				<li>
 					<select name="keyfield" id="keyfield">
-						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>회원이름</option>
-						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>선생님</option>
+						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>회원</option>
+						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>치료종류</option>
 					</select>
 				</li>
 				<li>
@@ -48,10 +51,9 @@
 		<!-- 검색창 끝 -->
 		<hr size="1" noshade="noshade" width="100%">
 		<div class="list-space align-right">
-			<input type="button" value="목록" onclick="location.href='adminTherapyList.do'" id="btn_bk"> 
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '" id="btn_bk">  
 		</div>
-		<%-- <c:if test="${count == 0}">
+		<c:if test="${count == 0}">
 		<div class="result-display">
 			표시할 진료예약내역이 없습니다.
 		</div>
@@ -60,32 +62,25 @@
 		<table>
 			<tr>
 				<th>예약번호</th>
-				<th>회원이름</th>
-				<th>선생님</th>
+				<th>회원</th>
+				<th>치료종류</th>
 				<th>예약날짜</th>
 				<th>예약시간</th>
-				<th>진료상세</th>
-				<th>관리</th>
+				<th>요청사항</th>
 			</tr>
-			<c:forEach var="member" items="${list}">
+			<c:forEach var="reservation" items="${list}">
 			<tr>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<c:if test="${member.auth > 0}">
-					<td><a href="#" id="bluecolor"><ins>수정</ins></a>
-					 / <a href="#" id="redcolor"><ins>삭제</ins></a></td>
-				</c:if>
-				<c:if test="${member.auth == 0}">
-					<td>X</td>
-				</c:if>
+				<td>${reservation.res_num}</td>
+				<td>${reservation.mem_name}</td>
+				<td>${reservation.treat_name}</td>
+				<td>${reservation.res_date}</td>
+				<td>${reservation.res_time}</td>
+				<td>${reservation.res_content}</td>
 			</tr>
 			</c:forEach>
 		</table>
 		<div class="align-center">${page}</div>
-		</c:if> --%>
+		</c:if>
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

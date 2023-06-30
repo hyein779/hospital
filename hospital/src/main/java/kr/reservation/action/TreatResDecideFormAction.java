@@ -34,7 +34,7 @@ public class TreatResDecideFormAction implements Action{
 		
 		request.setAttribute("reservation", reservation);
 		
-		return null;
+		return "/WEB-INF/views/reservation/treatResDecideForm.jsp";
 	}
 
 }

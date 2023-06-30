@@ -1,10 +1,16 @@
 package kr.reservation.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.controller.Action;
+import kr.reservation.dao.ReservationDAO;
+import kr.reservation.vo.ReservationVO;
+import kr.reservation.vo.TReservationVO;
+import kr.util.PageUtil;
 
 public class AdminTherapyFormAction implements Action{
 
@@ -22,6 +28,27 @@ public class AdminTherapyFormAction implements Action{
 			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
+		//관리자로 로그인한 경우
+		String pageNum = request.getParameter("pageNum");
+		if(pageNum==null) pageNum = "1";
+		
+		String keyfield = request.getParameter("keyfield");
+		String keyword = request.getParameter("keyword");
+		
+		ReservationDAO dao = ReservationDAO.getInstance();
+		int count = dao.getTResCountByAdmin(keyfield, keyword);
+		
+		//페이지 처리
+		PageUtil page = new PageUtil(keyfield,keyword,Integer.parseInt(pageNum),count,6,10,"adminTherapyList.do");
+		List<TReservationVO> list = null;
+		if(count > 0) {
+			list = dao.getListTResByAdmin(page.getStartRow(), page.getEndRow(), keyfield, keyword);
+		}
+		
+		request.setAttribute("count", count);
+		request.setAttribute("list", list);
+		request.setAttribute("page", page.getPage());
+				
 		return "/WEB-INF/views/reservation/adminTherapyList.jsp";
 	}
 

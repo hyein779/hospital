@@ -12,6 +12,9 @@
 	var res_date = document.getElementById("res_date").value;
 	var res_time = document.getElementById("res_time").value;
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <div class="page-main">
@@ -27,7 +30,7 @@
          <p><a href="${pageContext.request.contextPath}/reservation/therapyRes.do">돌아가기</a></p>
       </div>
       <br>
-      <form id="res_decide" action="treatResDecide.do?treat_num=${treservation.treat_num}&res_num=${treservation.res_num}" method="post">
+      <form id="res_decide" action="treatResDecide.do?treat_num=${reservation.treat_num}&res_num=${reservation.res_num}" method="post">
       <div class="res_info">
       	<ul>
       		<li>

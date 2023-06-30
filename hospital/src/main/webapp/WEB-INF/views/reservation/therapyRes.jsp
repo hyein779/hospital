@@ -28,6 +28,9 @@
 		})
 	})
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <div class="page-main">
@@ -42,7 +45,7 @@
          <h4>치료 예약 일자 및 시간 선택</h4>
          <p><a href="${pageContext.request.contextPath}/reservation/care.do">돌아가기</a></p>
       </div>
-      <form id="res_decide_form" action="resDecideForm.do?treat_num=${reservation.treat_num}" method="post">
+      <form id="res_decide_form" action="treatResDecideForm.do?treat_num=${reservation.treat_num}" method="post">
       <div class="res_date">
 	      <div class="treat_name">
 				<p class="treat_name">
