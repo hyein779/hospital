@@ -24,7 +24,7 @@ public class ItemListAction implements Action{
 		int count = dao.getItemCount(keyfield, keyword, 1);
 		
 		// 페이지 처리
-		PageUtil page = new PageUtil(keyfield, keyword, Integer.parseInt(pageNum), count, 10, 10, "item_list.do");
+		PageUtil page = new PageUtil(keyfield, keyword, Integer.parseInt(pageNum), count, 8, 10, "item_list.do");
 		List<ItemVO> list = null;
 		if (count > 0) {
 			list = dao.getListItem(page.getStartRow(), page.getEndRow(), keyfield, keyword, 1);
