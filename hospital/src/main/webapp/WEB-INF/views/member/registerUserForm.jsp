@@ -20,8 +20,8 @@
 	
 		// 아이디 중복 체크
 		$('#id_check').click(function(){
-			if(!/^[A-Za-z0-9]{4,12}$/.test($('#id').val())){
-				alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
+			if(!/^[A-Za-z0-9]{6,12}$/.test($('#id').val())){
+				alert('영문 또는 숫자 사용, 최소 6자~최대 12자를 사용하세요');
 				$('#id').val('');
 				$('#id').focus();
 				return false;
@@ -61,8 +61,8 @@
 		//경고표시
 		$('#register_form #id').keyup(function(){
 			let inputLength = $(this).val().length;
-			if(inputLength<4 || inputLength>12){
-				$('#message_id').text('*영문 또는 숫자(4자~12자)를 입력하세요');
+			if(inputLength<6 || inputLength>12){
+				$('#message_id').text('*영문 또는 숫자(6자~12자)를 입력하세요');
 			}
 		});
 		// 아이디 중복 안내 메시지 초기화 및 아이디
@@ -83,8 +83,8 @@
 					items[i].focus();
 					return false;
 				}
-				if(items[i].id=='id' && !/^[A-Za-z0-9]{4,12}$/.test($('#id').val())){
-					alert('영문 또는 숫자 사용, 최소 4자~최대 12자를 사용하세요');
+				if(items[i].id=='id' && !/^[A-Za-z0-9]{6,12}$/.test($('#id').val())){
+					alert('영문 또는 숫자 사용, 최소 6자~최대 12자를 사용하세요');
 					$('#id').val('');
 					$('#id').focus();
 					return false;
