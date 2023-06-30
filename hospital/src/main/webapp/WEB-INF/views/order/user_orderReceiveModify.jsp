@@ -48,6 +48,9 @@ $(function(){
 	<!-- content 시작 -->
 	<div class="content-main">
 		<h3 class="subtitle">배송정보</h3>
+		<br>
+		<hr class="order-hr"> 
+		<br>
 		<form id = "order_form" action="orderModify.do" method="post">
 			<input type="hidden" name="order_num" value="${order.order_num}">
 			<input type="hidden" name="status" value="${order.status}">
