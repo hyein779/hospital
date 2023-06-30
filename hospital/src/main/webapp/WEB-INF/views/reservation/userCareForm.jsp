@@ -15,8 +15,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<jsp:include page="/WEB-INF/views/member/memberLnb.jsp"/>
 	<!-- 내용 시작 -->
-	하하하
-	<%-- <div class="content-main">
+	<div class="content-main">
 		<h3 class="subtitle">진료 예약 목록</h3>
 		<hr size="1" noshade="noshade" width="100%">
 		<c:if test="${count == 0}">
@@ -28,22 +27,24 @@
 		<table>
 			<tr>
 				<th>예약번호</th>
-				<th>진료 예약일</th>
-				<th>진료 예약 시간</th>
 				<th>의료진명</th>
+				<th>진료 예약 날짜</th>
+				<th>진료 예약 시간</th>
+				<th>증상 설명</th>
 			</tr>
-			<c:forEach var="#" items="${list}">
+			<c:forEach var="reservation" items="${list}">
 			<tr>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
+				<td>${reservation.res_num}</td>
+				<td>${reservation.doc_name}</td>
+				<td>${reservation.res_date}</td>
+				<td>${reservation.res_time}</td>
+				<td>${reservation.res_content}</td>
 			</tr>
 			</c:forEach>
 		</table>
 		<div class="align-center">${page}</div>
 		</c:if>
-	</div> --%>
+	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </div>

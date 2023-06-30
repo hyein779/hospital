@@ -1,6 +1,6 @@
 package kr.reservation.vo;
 
-public class ReservationVO {
+public class TReservationVO {
 	private int res_num; //예약 번호
 	private String res_date; //예약 날짜
 	private String res_time; //예약 시간

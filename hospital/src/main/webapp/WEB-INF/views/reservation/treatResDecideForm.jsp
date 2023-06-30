@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>진료 예약 정보 기입</title>
+<title>치료 예약 정보 기입</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reservation.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
@@ -20,14 +20,14 @@
    <jsp:include page="/WEB-INF/views/reservation/lnb.jsp"/>
    <div class="content-main">
       <div class="subContHeader">
-         <h3 class=subtitle>진료 예약</h3>
+         <h3 class=subtitle>치료 예약</h3>
       </div>
       <div class="subHeader">
-         <h4>진료 예약 정보 기입</h4>
-         <p><a href="${pageContext.request.contextPath}/reservation/careRes.do">돌아가기</a></p>
+         <h4>치료 예약 정보 기입</h4>
+         <p><a href="${pageContext.request.contextPath}/reservation/therapyRes.do">돌아가기</a></p>
       </div>
       <br>
-      <form id="res_decide" action="resDecide.do?doc_num=${reservation.doc_num}&res_num=${reservation.res_num}" method="post">
+      <form id="res_decide" action="treatResDecide.do?treat_num=${treservation.treat_num}&res_num=${treservation.res_num}" method="post">
       <div class="res_info">
       	<ul>
       		<li>
@@ -37,7 +37,7 @@
 				<label for="code" name="code" value="${member.code.substring(0,6)}">생년월일 : ${member.code.substring(0, 6)}</label>
 			</li>
 			<li>
-				<label for="doc_name" name="doc_name" value="${reservation.doc_name}">담당의료진 : ${reservation.doc_name}</label>
+				<label for="treat_name" name="treat_name" value="${treservation.treat_name}">치료 종류 : ${treservation.treat_name}</label>
 			</li>
 			<li>
 				<label for="res_time">예약일시 : ${param.res_date} ${param.res_time}</label>
@@ -46,7 +46,7 @@
 	 				
 			</li>
 			<li>
-				<label for="res_content">증상설명(선택)</label>
+				<label for="res_content">요청사항(선택)</label>
 				<textarea rows="5" cols="30" name="res_content"></textarea>
 			</li>
 			<input type="submit" value="예약하기">

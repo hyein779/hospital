@@ -29,12 +29,12 @@
 	<div class="content-main">
 		<h3 class="subtitle">진료 예약 목록</h3>
 		<!-- 검색창 시작 -->
-		<form id="search_form" action="noticeList.do" method="get">
+		<form id="search_form" action="adminCareList.do" method="get">
 			<ul class="search">
 				<li>
 					<select name="keyfield" id="keyfield">
-						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>회원이름</option>
-						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>선생님</option>
+						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>회원</option>
+						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>의료진</option>
 					</select>
 				</li>
 				<li>
@@ -48,44 +48,36 @@
 		<!-- 검색창 끝 -->
 		<hr size="1" noshade="noshade" width="100%">
 		<div class="list-space align-right">
-			<input type="button" value="목록" onclick="location.href='adminTreatmentList.do'" id="btn_bk"> 
 			<input type="button" value="홈으로" onclick="location.href='${pageContext.request.contextPath}/main/main.do '" id="btn_bk">  
 		</div>
-		<%-- <c:if test="${count == 0}">
+		<c:if test="${count == 0}">
 		<div class="result-display">
-			표시할 진료예약내역이 없습니다.
+			표시할 진료 예약 내역이 없습니다.
 		</div>
 		</c:if>
 		<c:if test="${count > 0}">
 		<table>
 			<tr>
 				<th>예약번호</th>
-				<th>회원이름</th>
-				<th>선생님</th>
+				<th>회원</th>
+				<th>의료진</th>
 				<th>예약날짜</th>
 				<th>예약시간</th>
 				<th>진료상세</th>
-				<th>관리</th>
 			</tr>
-			<c:forEach var="member" items="${list}">
+			<c:forEach var="reservation" items="${list}">
 			<tr>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<td>${}</td>
-				<c:if test="${member.auth > 0}">
-					<td><a href="#" id="bluecolor"><ins>수정</ins></a>
-					 / <a href="#" id="redcolor"><ins>삭제</ins></a></td>
-				</c:if>
-				<c:if test="${member.auth == 0}">
-					<td>X</td>
-				</c:if>
+				<td>${reservation.res_num}</td>
+				<td>${reservation.mem_name}</td>
+				<td>${reservation.doc_name}</td>
+				<td>${reservation.res_date}</td>
+				<td>${reservation.res_time}</td>
+				<td>${reservation.res_content}</td>
 			</tr>
 			</c:forEach>
 		</table>
 		<div class="align-center">${page}</div>
-		</c:if> --%>
+		</c:if>
 	</div>
 	<!-- 내용 끝 -->
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

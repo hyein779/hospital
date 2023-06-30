@@ -31,7 +31,7 @@
 				</span>
 				<p>
 					<span class="therapy-text">
-					<b>통증치료</b><br><br>
+					<b><a href="${pageContext.request.contextPath}/reservation/therapyRes.do?treat_num=1">통증치료</a></b><br><br>
 					반복적인 근수축에 따라 근육 대사를 증진시켜<br>
 					통증을 완화시키는 치료
 					</span>
@@ -43,7 +43,7 @@
 				</span>
 				<p>
 					<span class="therapy-text">
-					<b>도수치료</b><br><br>
+					<b><a href="${pageContext.request.contextPath}/reservation/therapyRes.do?treat_num=2">도수치료</a></b><br><br>
 					손이나 장비 등을 이용하여 전문 물리치료사가<br>
 					감각수용체를 직접 자극시키는 치료
 					</span>
@@ -55,7 +55,7 @@
 				</span>
 				<p>
 					<span class="therapy-text">
-					<b>재활치료</b><br><br>
+					<b><a href="${pageContext.request.contextPath}/reservation/therapyRes.do?treat_num=3">재활치료</a></b><br><br>
 					근육, 관절 등의 인체 조직에 자극을 가하여<br>
 					신경을 완화시키는 치료
 					</span>
@@ -67,7 +67,7 @@
 				</span>
 				<p>
 					<span class="therapy-text">
-					<b>특수치료</b><br><br>
+					<b><a href="${pageContext.request.contextPath}/reservation/therapyRes.do?treat_num=4">특수치료</a></b><br><br>
 					환자에게 알맞은 방법을 선정하여<br>
 					체외충격파치료, 극저온자극치료를 시행
 					</span>
