@@ -71,8 +71,7 @@
 						<textarea rows="12" cols="80" name="content" id="content"></textarea>
 					</li>
 					<li>
-						<input type="submit" value="지원하기" class="submit">
-						<input type="button" value="뒤로가기" onclick="location.href='volDetail.do'" class="home">
+						<input type="submit" value="지원하기" class="submit2">
 					</li>
 				</ul>
 			</div>

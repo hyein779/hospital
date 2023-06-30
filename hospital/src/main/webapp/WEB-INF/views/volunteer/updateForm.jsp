@@ -58,7 +58,7 @@
 						<input type="number" name="quantity" id="quantity" maxlength="10" value="${board.quantity}">
 					</li>
 				</ul>
-				<div class="align-center">
+				<div class="div_align">
 					<input type="submit" value="수정" class="submit">
 					<input type="button" value="글상세" onclick="location.href='volDetail.do?board_num=${board.board_num}'"  class="home">
 				</div>
