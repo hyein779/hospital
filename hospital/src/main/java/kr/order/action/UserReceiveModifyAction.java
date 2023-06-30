@@ -34,4 +34,4 @@ public class UserReceiveModifyAction implements Action{
 		return "/WEB-INF/views/order/user_orderReceiveModify.jsp";
 	}
 
-}
+} 

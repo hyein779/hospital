@@ -53,6 +53,6 @@ public class AdminListAction implements Action{
 		request.setAttribute("page", page.getPage());
 		
 		return "/WEB-INF/views/order/admin_list.jsp";
-	}
+	} 
 
 }

@@ -30,7 +30,7 @@
 			<ul>
 			<li class="delivery_text">* 배송대기인 경우에만 배송정보를 수정하실 있습니다. *</li>
 			</ul><br>
-			<table>
+			<table> 
 					<tr>
 						<td>
 							<label class="order-item">배송상태</label>

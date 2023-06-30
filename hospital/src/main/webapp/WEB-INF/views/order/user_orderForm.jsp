@@ -29,7 +29,7 @@
 		     		alert('결제 수단을 선택해주세요.');
 		     		return false;
 		     	}
-		    	
+		    	 
 				if(!/^\d{11}$/.test($('#receive_phone').val())){
 					alert('하이픈(-)을 제거하고 작성해주세요(ex.01012345678)');
 					$('#phone').val('');
