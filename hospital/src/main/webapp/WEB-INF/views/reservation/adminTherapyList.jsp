@@ -66,7 +66,7 @@
 				<th>치료종류</th>
 				<th>예약날짜</th>
 				<th>예약시간</th>
-				<th>요청사항</th>
+				<th>요청사항</th>      
 			</tr>
 			<c:forEach var="reservation" items="${list}">
 			<tr>
