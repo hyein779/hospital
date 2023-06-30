@@ -55,6 +55,7 @@ ul{
 /* header : 공통 상단 */
 .main-login{
    list-style:none;
+   margin-right: 20px;
 } 
 #main_nav{
    width:100%;
@@ -67,6 +68,7 @@ ul{
 
 .textright{
    text-align:right;
+   margin-right: 20px;
 }
 .outer-menu{
    width: 1200px; 
