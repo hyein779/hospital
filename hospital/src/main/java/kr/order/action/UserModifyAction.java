@@ -37,7 +37,7 @@ public class UserModifyAction implements Action{
 			request.setAttribute("notice_msg", "배송 상태가 변경되어 주문자가 주문 정보 변경 불가");
 			request.setAttribute("notice_url", request.getContextPath()+"/order/orderList.do");			
 		}
- 
+
 		//배송 상태가 배송대기일 경우
 		OrderVO order = new OrderVO();
 		order.setOrder_num(order_num);

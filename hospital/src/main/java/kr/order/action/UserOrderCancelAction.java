@@ -37,4 +37,4 @@ public class UserOrderCancelAction implements Action{
 		return "/WEB-INF/views/common/alert_singleView.jsp";
 	}
 
-} 
+}

@@ -34,4 +34,4 @@ public class UserReceiveFormAction implements Action{
 		return "/WEB-INF/views/order/user_orderReceiveList.jsp";
 	}
 
-} 
+}

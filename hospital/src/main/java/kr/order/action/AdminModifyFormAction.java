@@ -35,6 +35,6 @@ public class AdminModifyFormAction implements Action{
 		request.setAttribute("detailList", detailList);
 		
 		return "/WEB-INF/views/order/admin_modifyForm.jsp";
-	} 
+	}
 
 }

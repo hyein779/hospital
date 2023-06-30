@@ -24,7 +24,7 @@
 				$('#keyword').val('').focus();
 				return false;
 			}
-		}); 
+		});
 	})
 </script>
 </head>

@@ -46,5 +46,5 @@ public class AdminModifyAction implements Action{
 		
 		return "/WEB-INF/views/common/alert_singleView.jsp";
 	}
- 
+
 }

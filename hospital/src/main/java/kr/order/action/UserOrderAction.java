@@ -42,7 +42,7 @@ public class UserOrderAction implements Action{
 								 request.getContextPath()+"/item/itemList.do");
 			return "/WEB-INF/views/common/alert_singleView.jsp";
 		}
-		 
+		
 		//장바구니에 담겨 있는 상품 정보 반환
 		List<CartVO> cartList = dao.getListCart(user_num);
 		

@@ -147,7 +147,7 @@ $(function(){
 							location.replace('orderCancel.do?order_num=${order.order_num}');								
 						}
 				}
-				</script> 
+				</script>
 			<input type="button" id="btn" value="주문내역" onclick="location.href='${pageContext.request.contextPath}/member/itemList.do'">
 			       
 		</div>

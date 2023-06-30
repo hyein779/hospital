@@ -63,7 +63,7 @@ public class UserOrderFormAction implements Action{
 		//조건 통과 
 		request.setAttribute("list", cartList);
 		request.setAttribute("all_total", all_total);
-		  
+		 
 		return "/WEB-INF/views/order/user_orderForm.jsp";
 	}
 

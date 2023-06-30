@@ -7,4 +7,4 @@
 		<li id="10101"><a href="${pageContext.request.contextPath}/order/list.do" onclick="#">주문목록</a></li>
 	</ul>
 		 
-</div> 
+</div>

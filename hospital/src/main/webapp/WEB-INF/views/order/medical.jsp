@@ -17,7 +17,7 @@
 	<div class="content-main">
 		<div class="subContHeader">
 			<h3 class=subtitle>의료진</h3>
-		</div> 
+		</div>
 		<div class="medical-int">
 			<ul>
 				<li class="medical-center">
