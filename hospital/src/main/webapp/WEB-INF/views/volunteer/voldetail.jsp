@@ -9,6 +9,35 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/volunteer.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#appvol').submit(function(){
+			$.ajax({
+				url:'appCheck.do',
+				type:'post',
+				data:{board_num:${board.board_num}},
+				dataType:'json',
+				success:function(param){
+					console.log("appCheck 액션 ajax가 동작함.");
+					if(param.result=='appNotFound'){
+						alert('등록 페이지로 이동합니다.');
+					}else if(param.result=='appDuplicated'){
+						alert('이미 지원한 자원봉사입니다.');
+						location.href="volList.do";
+					}else if(param.result=='zero'){
+						alert('정원이 다 찼습니다.');
+					}else{
+						alert('오류');
+					}
+				},
+				error:function(){
+					alert('네트워크 오류 발생');
+				}
+			})
+		});
+		
+	})
+</script>
 </head>
 <body>
 <div class="page-main">
@@ -36,9 +65,9 @@
 							최근 수정일 : ${board.modify_date}
 							</c:if>
 							<%-- 로그인한 회원번호와 작성자 회원번호가 일치해야 수정,삭제 가능 --%>
-							<c:if test="${user_num == board.mem_num}">
-							<input type="button" value="수정" onclick="location.href='volUpdateForm.do?board_num=${board.board_num}'">
-							<input type="button" value="삭제" id="delete_btn">
+							<c:if test="${user_auth == 9}">
+							<input type="button" value="수정" onclick="location.href='volUpdateForm.do?board_num=${board.board_num}'" class="submit">
+							<input type="button" value="삭제" id="delete_btn" class="home">
 							<script type="text/javascript">
 								let delete_btn = document.getElementById('delete_btn');
 								//이벤트 연결
@@ -51,7 +80,7 @@
 							</script>
 							</c:if>
 							<c:if test="${user_auth < 9}">
-								<input type="submit" value="지원하기">
+								<input type="submit" value="지원하기" class="submit">
 							</c:if>
 						</li>
 					</ul>

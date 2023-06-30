@@ -13,15 +13,7 @@
 	height:auto;
 	min-height:350px;
 }
-.content-main h3.subtitle{
-   float:left;
-   font-size:30px;
-   padding-left: 70px;
-   margin-top:20px;
-   padding-bottom:30px;
-   margin-bottom:30px;
-   width:1200px;
-}  
+
 
 .content-sub{
 	margin:30px;
@@ -166,6 +158,27 @@ input#search{
   margin-bottom:30px;
   font-size:14px;
 }
+.submit1{
+  padding:8px 20px;
+  background-color:#333;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  margin-right:10px;
+  font-size:14px;	
+}
+.submit2{
+  padding:8px 20px;
+  background-color:#333;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  margin-right:10px;
+  font-size:14px;
+  
+}
 .home{
   background-color:#ccc;
 }
@@ -277,5 +290,8 @@ form.appvolform textarea{
 }
 #update_form label{
 	float:none;
+}
+.div_align{
+	margin:40px;
 }
 

@@ -14,13 +14,7 @@ public class VolListAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		
-		
-		
-		
-		
-		
+
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum==null) pageNum="1";
 		

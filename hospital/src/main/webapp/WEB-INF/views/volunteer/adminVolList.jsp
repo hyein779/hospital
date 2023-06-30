@@ -25,8 +25,7 @@
 			}
 		});
 	});
-	var element = document.getElementById("myDiv");
-	element.removeAttribute("style");
+	
 </script>
 </head>
 <body>
@@ -37,10 +36,10 @@
 		<div class="content-main">
 			<h3 class="subtitle">봉사 목록</h3>
 			<!-- 검색창 시작 -->
-			<form id="search_form" action="memberVolList.do" method="get">
+			<form id="search_form" action="adminVolList.do" method="get">
 				<ul class="search">
 					<li><select name="keyfield" id="keyfield">
-							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>봉사번호</option>
+							<option value="1" <c:if test="${param.keyfield==1}">selected</c:if>>봉사명</option>
 							<option value="2" <c:if test="${param.keyfield==2}">selected</c:if>>글번호</option>
 							<option value="3" <c:if test="${param.keyfield==3}">selected</c:if>>내용</option>
 						</select>
@@ -66,7 +65,8 @@
 						<th>이름</th>
 						<th>주소</th>
 						<th>전화번호</th>
-						<th>취소</th>
+						<th>내용</th>
+						<th>회원번호</th>
 					</tr>
 					<c:forEach var="app" items="${list}">
 						<tr>
@@ -75,12 +75,8 @@
 							<td>${app.name}</td>
 							<td>${app.address}</td>
 							<td>${app.phone}</td>
-							<td>
-							<form class="remove-style" action="memberDelete.do" method="post">
-							<input type="hidden" value="${app.app_num}" name="app_num">
-							<input type="submit" value="취소">
-							</form>
-							</td> 
+							<td>${app.content}</td>
+							<td>${app.mem_num}</td>
 						</tr>
 					</c:forEach>
 				</table>

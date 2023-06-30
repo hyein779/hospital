@@ -8,6 +8,7 @@ import java.util.List;
 
 import kr.util.DBUtil;
 import kr.volunteerboard.vo.appvolunteerVO;
+import kr.volunteerboard.vo.volunteerboardVO;
 
 public class appvolunteerDAO {
 	//싱글턴 패턴
@@ -207,6 +208,44 @@ public class appvolunteerDAO {
 		return list;
 	}
 	
+	//지원 중복체크
+	public appvolunteerVO checkApp(int board_num, int mem_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		appvolunteerVO app = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			//sql = "SELECT * FROM appvolunteer a LEFT OUTER JOIN member m ON a.mem_num = m.mem_num WHERE a.board_num=?";
+			sql = "SELECT * FROM appvolunteer a WHERE a.board_num=? AND (a.mem_num = "+mem_num+")"; 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				app = new appvolunteerVO();
+				app.setApp_num(rs.getInt("app_num"));
+				app.setBoard_num(rs.getInt("board_num"));
+				app.setName(rs.getString("name"));
+				app.setAddress(rs.getString("address"));
+				app.setPhone(rs.getString("phone"));
+				app.setContent(rs.getString("content"));
+				app.setMem_num(rs.getInt("mem_num"));
+			}
+			
+		
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return app;
+		
+	}
+	
 	//사용자 - 전체 자원봉사 개수
 	public int getAppCount(String keyfield, String keyword, int mem_num)throws Exception{
 		Connection conn = null;
@@ -286,6 +325,97 @@ public class appvolunteerDAO {
 		
 	}
 	
-	//전체 지원자 
+	//관리자 - 전체 지원자 목록 총 레코드 수
+	public int AdminGetBoardCount(String keyfield,String keyword)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String sub_sql = "";
+		int count=0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "WHERE a.app LIKE ?";
+				else if(keyfield.equals("2")) sub_sql += "WHERE b.board_num = ?";
+				else if(keyfield.equals("3")) sub_sql += "WHERE a.content LIKE ?";
+			}
+			
+			//SQL문 작성
+			sql = "SELECT COUNT(*) FROM appvolunteer a "
+				+ "JOIN volunteerboard v USING(board_num) " + sub_sql;
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			if(keyword != null 
+					      && !"".equals(keyword)) {
+				pstmt.setString(1, "%" + keyword + "%");
+			}
+			
+			//SQL 실행
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return count;
+	}
 	
+	//관리자 - 총 지원자 목록
+	public List<appvolunteerVO> AppGetListBoard(int start, int end, String keyfield, String keyword)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<appvolunteerVO> list = null;
+		String sql = null;
+		String sub_sql = "";
+		int cnt=0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			if(keyword != null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "WHERE a.app LIKE ?";
+				else if(keyfield.equals("2")) sub_sql += "WHERE b.board_num = ?";
+				else if(keyfield.equals("3")) sub_sql += "WHERE a.content LIKE ?";
+			}
+			
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM appvolunteer "
+					+ "ORDER BY app_num DESC)a) WHERE rnum>=? AND rnum<=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			
+			// SQL문 실행
+			rs = pstmt.executeQuery();
+			list = new ArrayList<appvolunteerVO>();
+			while(rs.next()) {
+				appvolunteerVO app = new appvolunteerVO();
+				app.setApp_num(rs.getInt("app_num"));
+				app.setBoard_num(rs.getInt("board_num"));
+				app.setName(rs.getString("name"));
+				app.setAddress(rs.getString("address"));
+				app.setPhone(rs.getString("phone"));
+				app.setContent(rs.getString("content"));
+				app.setMem_num(rs.getInt("mem_num"));
+				
+				// 자바빈을 ArrayList에 저장
+				list.add(app);
+			}
+			
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
 }

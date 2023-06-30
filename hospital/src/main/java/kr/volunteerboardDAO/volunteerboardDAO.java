@@ -43,6 +43,42 @@ public class volunteerboardDAO {
 		
 	}
 	
+	//전체 글
+	public volunteerboardVO getBoardTotal(int board_num)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		volunteerboardVO board = null;
+		String sql = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			sql = "SELECT * FROM volunteerboard WHERE board_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				board = new volunteerboardVO();
+				board.setBoard_num(rs.getInt("board_num"));
+				board.setTitle(rs.getString("title"));
+				board.setContent(rs.getString("content"));
+				board.setHit(rs.getInt("hit"));
+				board.setReg_date(rs.getString("reg_date"));
+				board.setModify_date(rs.getDate("modify_date"));
+				board.setMem_num(rs.getInt("mem_num"));
+				board.setQuantity(rs.getInt("quantity"));
+			}
+			return board;
+			
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		
+	}
+	
 	//총 레코드 수
 		public int getBoardCount(String keyfield,String keyword)throws Exception{
 			Connection conn = null;
@@ -245,18 +281,31 @@ public class volunteerboardDAO {
 	public void deleteBoard(int board_num)throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		
 		String sql = null;
 		 
 		try {
 			conn = DBUtil.getConnection();
-			sql = "DELETE FROM volunteerboard WHERE board_num=?";
+			conn.setAutoCommit(false);
+			
+			sql = "DELETE FROM appvolunteer WHERE board_num=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, board_num);
 			pstmt.executeUpdate();
 			
+			sql = "DELETE FROM volunteerboard WHERE board_num=?";
+			pstmt2 = conn.prepareStatement(sql);
+			pstmt2.setInt(1, board_num);
+			pstmt2.executeUpdate();
+			
+			conn.commit();
+			
 		}catch(Exception e) {
+			conn.rollback();
 			throw new Exception(e);
 		}finally {
+			DBUtil.executeClose(null, pstmt2, null);
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
