@@ -11,14 +11,14 @@ import kr.order.vo.OrderVO;
 import kr.util.DBUtil;
 
 public class OrderDAO {
-	//1.싱글턴패턴
+	// 싱글턴패턴
 	private static OrderDAO instance = new OrderDAO();
 	public static OrderDAO getInstance() {
 		return instance;
 	}
 	private OrderDAO() {}
 	
-	//2.주문등록
+	// 주문등록
 	public void insertOrder(OrderVO order,
 						    List<OrderDetailVO> orderDetailList) throws Exception{
 		Connection conn = null;
@@ -124,7 +124,7 @@ public class OrderDAO {
 		
 		
 	}
-	//3. 관리자 - 전체주문개수/검색주문개수
+	// 관리자 - 전체주문개수/검색주문개수
 	public int getOrderCount(String keyfield,String keyword) throws Exception{
 		
 		Connection conn = null;
@@ -166,7 +166,7 @@ public class OrderDAO {
 		
 		return count;
 	}
-	//4. 관리자 - 전체주문목록/검색주문목록
+	// 관리자 - 전체주문목록/검색주문목록
 	public List<OrderVO> getListOrder(int start, int end,
 								      String keyfield,
 								      String keyword) throws Exception{
@@ -232,7 +232,7 @@ public class OrderDAO {
 		
 		return list;
 	}
-	//9. 사용자 - 전체주문개수/검색주문개수
+	// 사용자 - 전체주문개수/검색주문개수
 	public int getOrderCountByMem_num(String keyfield, String keyword,
 									  int mem_num) throws Exception {
 		Connection conn = null;
@@ -272,7 +272,7 @@ public class OrderDAO {
 		
 		return count;
 	}
-	//10. 사용자 - 전체주문목록/검색주문목록
+	// 사용자 - 전체주문목록/검색주문목록
 	public List<OrderVO> getListOrderByMem_num(int start, int end,
 											   String keyfield,
 											   String keyword,
@@ -335,7 +335,7 @@ public class OrderDAO {
 		return list;
 	}
 
-	//5. 개별상품목록
+	// 개별상품목록
 	public List<OrderDetailVO> getListOrderDetail(int order_num) throws Exception{
 		//배송 취소 시 다시 원래대로 돌아갈 수 없음.
 		Connection conn = null;
@@ -372,7 +372,7 @@ public class OrderDAO {
 		
 		return list;
 	}
-	//8. 주문삭제
+	// 주문삭제
 	public void deleteOrder(int order_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -402,7 +402,7 @@ public class OrderDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	//6. 관리자/사용자 주문 상세
+	// 관리자/사용자 주문 상세
 	public OrderVO getOrder(int order_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -441,7 +441,7 @@ public class OrderDAO {
 		
 		return order;
 	}
-	//7. 관리자/사용자 주문수정
+	// 관리자/사용자 주문수정
 	public void updateOrder(OrderVO order) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -525,7 +525,7 @@ public class OrderDAO {
 			DBUtil.executeClose(null, pstmt, conn);
 		}
 	}
-	//11.사용자주문취소
+	// 사용자주문취소
 	public void updateOrderCancel(int order_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;

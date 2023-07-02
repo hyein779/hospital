@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>괸리자_주문목록</title>
+<title>관리자_주문목록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/order.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
@@ -89,7 +89,7 @@
 						<c:if test="${order.status == 4}">배송완료</c:if>
 						<c:if test="${order.status == 5}">주문취소</c:if>
 					</td>
-					<td class="order-table-button">
+					<td>
 						<input type="button" value="주문내역" 
 							   onclick="location.href='listForm.do?order_num=${order.order_num}'">
 						<input type="button" value="배송정보" 
