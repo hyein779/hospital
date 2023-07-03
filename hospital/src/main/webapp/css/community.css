@@ -90,6 +90,7 @@ tr:hover{
   padding:10px;
   border:1px solid #ccc;
   border-radius:5px;
+  font-family:'IBM Plex Sans KR', sans-serif;
 }
 #write_form textarea{
   width:1000px;
@@ -97,6 +98,7 @@ tr:hover{
   padding:10px;
   border:1px solid #ccc;
   border-radius:5px;
+  font-family:'IBM Plex Sans KR', sans-serif;
 }
 
 /* 커뮤니티 글상세
