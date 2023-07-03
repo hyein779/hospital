@@ -38,7 +38,6 @@
 					<select name="keyfield" id="keyfield">
 						<option value="1" <c:if test="${param.keyfield==1}"></c:if>>ID</option>
 						<option value="2" <c:if test="${param.keyfield==2}"></c:if>>이름</option>
-						<option value="3" <c:if test="${param.keyfield==3}"></c:if>>email</option>
 					</select>
 				</li>
 				<li>
@@ -68,7 +67,6 @@
 				<th>이름</th>
 				<th>전화번호</th>
 				<th>주소</th>
-				<th>최근진료일</th>
 				<th>등급</th>
 				<th>관리</th>
 			</tr>
@@ -79,12 +77,6 @@
 				<td>${member.name}</td>
 				<td>${member.phone}</td>
 				<td>${member.address1} ${member.address2}</td>
-				<c:if test="${member.visited==null}">
-					<td>없음</td>
-				</c:if>
-				<c:if test="${member.visited != null}">
-					<td>${member.visited}</td>
-				</c:if>
 				<td>
 					<c:if test="${member.auth == 0}">탈퇴</c:if>
 					<c:if test="${member.auth == 1}">정지</c:if>
