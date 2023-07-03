@@ -18,7 +18,7 @@
 	<jsp:include page="/WEB-INF/views/order/medicalLnb.jsp"/>
 	<!-- content 시작 -->
 	<div class="content-main">
-		<div class="subContHeader">
+		<div class="subCㄴontHeader">
 			<h3 class=subtitle></h3>
 		</div>
 		<div class="medical-int">
@@ -27,6 +27,7 @@
 					<img class="medical-photo" src="../images/장원호.jpg">
 				</li>
 				<li class="medical-left">
+					<b>장원호 교수</b><br><br>
 					<b>전문분야</b><br><br>
 					목디스크<br>
 					경추관절증후군<br>
@@ -51,6 +52,7 @@
 					<img class="medical-photo" src="../images/임유니스.jpg"><br>
 				</li>
 				<li class="medical-left">
+					<b>임유니스 교수</b><br><br>
 					<b>전문분야</b><br><br>	
 					퇴행성관절<br>
 					관절내시경<br>
@@ -74,6 +76,7 @@
 					<img class="medical-photo" src="../images/이승흠.jpg"><br>
 				</li>
 				<li class="medical-left">
+					<b>이승흠 교수</b><br><br>
 					<b>전문분야</b><br><br>
 					하지골절<br>
 					발목관절경<br>
