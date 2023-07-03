@@ -16,7 +16,7 @@ public class TherapyAction implements Action{
 		if(user_num == null) { //로그인되지 않은 경우
 			request.setAttribute("notice_msg", "로그인 후 이용하세요.");
 			request.setAttribute("notice_url", request.getContextPath()+"/member/loginForm.do");
-			return "/WEB-INF/views/common/alert_signleView.jsp";
+			return "/WEB-INF/views/common/alert_singleView.jsp";
 		}
 		return "/WEB-INF/views/reservation/therapy.jsp";
 	}
