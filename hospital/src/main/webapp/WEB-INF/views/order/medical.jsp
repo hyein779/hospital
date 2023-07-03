@@ -12,11 +12,11 @@
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
-	<jsp:include page="/WEB-INF/views/reservation/lnb.jsp"/>
+	<jsp:include page="/WEB-INF/views/order/medicalLnb.jsp"/>
 	<!-- content 시작 -->
 	<div class="content-main">
 		<div class="subContHeader">
-			<h3 class=subtitle>의료진</h3>
+			<h3 class=subtitle></h3>
 		</div>
 		<div class="medical-int">
 			<ul>
