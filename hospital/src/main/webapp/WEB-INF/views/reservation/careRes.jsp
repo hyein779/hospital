@@ -59,7 +59,7 @@
      	<ul>
 	     	<li>
 	     		<label for="res_date">예약 날짜</label>
-	     		<input type="date" name="res_date" id="res_date" min="2023-07-03" max="2023-07-09"><br>
+	     		<input type="date" name="res_date" id="res_date" min="2023-07-04" max="2023-07-10"><br>
 	     		<p class="warn"> * 당일 예약 불가능</p>
 	     	</li>
 	     	<li>
