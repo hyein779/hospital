@@ -266,77 +266,124 @@ public class MemberDAO {
 	}
 
 	// 회원 탈퇴(회원 정보 삭제)
-	public void deleteMember(int mem_num) throws Exception {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		PreparedStatement pstmt2 = null;
-		PreparedStatement pstmt3 = null;
-		PreparedStatement pstmt4 = null;
-		PreparedStatement pstmt5 = null;
-		PreparedStatement pstmt6 = null;
+		public void deleteMember(int mem_num) throws Exception {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			PreparedStatement pstmt2 = null;
+			PreparedStatement pstmt3 = null;
+			PreparedStatement pstmt4 = null;
+			PreparedStatement pstmt5 = null;
+			PreparedStatement pstmt6 = null;
+			PreparedStatement pstmt7 = null;
+			PreparedStatement pstmt8 = null;
+			PreparedStatement pstmt9 = null;
+			PreparedStatement pstmt10 = null;
+			PreparedStatement pstmt11 = null;
+			PreparedStatement pstmt12 = null;
 
-		String sql = null;
+			String sql = null;
 
-		try {
-			// 커넥션풀로부터 커넥션을 할당
-			conn = DBUtil.getConnection();
-			// auto커밋 해제
-			conn.setAutoCommit(false);
+			try {
+				// 커넥션풀로부터 커넥션을 할당
+				conn = DBUtil.getConnection();
+				// auto커밋 해제
+				conn.setAutoCommit(false);
 
-			// 등급을 탈퇴회원으로 변경
-			sql = "UPDATE member SET mem_auth=0 WHERE mem_num=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
-			pstmt.executeUpdate();
+				// 등급을 탈퇴회원으로 변경
+				sql = "UPDATE member SET mem_auth=0 WHERE mem_num=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, mem_num);
+				pstmt.executeUpdate();
 
-			// member_detail의 레코드 삭제
-			sql = "DELETE FROM member_detail WHERE mem_num=?";
-			pstmt2 = conn.prepareStatement(sql);
-			pstmt2.setInt(1, mem_num);
-			pstmt2.executeUpdate();
+				// member_detail의 레코드 삭제
+				sql = "DELETE FROM member_detail WHERE mem_num=?";
+				pstmt2 = conn.prepareStatement(sql);
+				pstmt2.setInt(1, mem_num);
+				pstmt2.executeUpdate();
 
-			// fav레코드 삭제
-			sql = "DELETE FROM fav WHERE mem_num=?";
-			pstmt3 = conn.prepareStatement(sql);
-			pstmt3.setInt(1, mem_num);
-			pstmt3.executeUpdate();
+				// fav레코드 삭제
+				sql = "DELETE FROM fav WHERE mem_num=?";
+				pstmt3 = conn.prepareStatement(sql);
+				pstmt3.setInt(1, mem_num);
+				pstmt3.executeUpdate();
 
-			// review의 레코드 삭제
-			sql = "DELETE FROM review WHERE mem_num=?";
-			pstmt4 = conn.prepareStatement(sql);
-			pstmt4.setInt(1, mem_num);
-			pstmt4.executeUpdate();
+				// review의 레코드 삭제
+				sql = "DELETE FROM review WHERE mem_num=?";
+				pstmt4 = conn.prepareStatement(sql);
+				pstmt4.setInt(1, mem_num);
+				pstmt4.executeUpdate();
 
-			// reply의 레코드 삭제
-			sql = "DELETE FROM reply where ask_num IN(select ask_num FROM ask WHERE mem_num=?)";
-			pstmt5 = conn.prepareStatement(sql);
-			pstmt5.setInt(1, mem_num);
-			pstmt5.executeUpdate();
+				// reply의 레코드 삭제
+				sql = "DELETE FROM reply where ask_num IN(select ask_num FROM ask WHERE mem_num=?)";
+				pstmt5 = conn.prepareStatement(sql);
+				pstmt5.setInt(1, mem_num);
+				pstmt5.executeUpdate();
 
-			// ask의 레코드 삭제
-			sql = "DELETE FROM ask WHERE mem_num=?";
-			pstmt6 = conn.prepareStatement(sql);
-			pstmt6.setInt(1, mem_num);
-			pstmt6.executeUpdate();
+				// ask의 레코드 삭제
+				sql = "DELETE FROM ask WHERE mem_num=?";
+				pstmt6 = conn.prepareStatement(sql);
+				pstmt6.setInt(1, mem_num);
+				pstmt6.executeUpdate();
+				// reservation의 레코드 삭제
+				sql = "DELETE FROM reservation WHERE mem_num=?";
+				pstmt7 = conn.prepareStatement(sql);
+				pstmt7.setInt(1, mem_num);
+				pstmt7.executeUpdate();
 
-			// 모든 SQL문의 실행이 성공하면 commit
-			conn.commit();
+				// treservation의 레코드 삭제
+				sql = "DELETE FROM treservation WHERE mem_num=?";
+				pstmt8 = conn.prepareStatement(sql);
+				pstmt8.setInt(1, mem_num);
+				pstmt8.executeUpdate();
 
-		} catch (Exception e) {
-			// SQL문이 하나라도 실패하면 롤백
-			conn.rollback();
+				// appvolunteer의 레코드 삭제
+				sql = "DELETE FROM appvolunteer WHERE mem_num=?";
+				pstmt9 = conn.prepareStatement(sql);
+				pstmt9.setInt(1, mem_num);
+				pstmt9.executeUpdate();
 
-			throw new Exception(e);
-		} finally {
-			// 자원정리
-			DBUtil.executeClose(null, pstmt6, null);
-			DBUtil.executeClose(null, pstmt5, null);
-			DBUtil.executeClose(null, pstmt4, null);
-			DBUtil.executeClose(null, pstmt3, null);
-			DBUtil.executeClose(null, pstmt2, null);
-			DBUtil.executeClose(null, pstmt, conn);
+				// cart의 레코드 삭제
+				sql = "DELETE FROM cart WHERE mem_num=?";
+				pstmt10 = conn.prepareStatement(sql);
+				pstmt10.setInt(1, mem_num);
+				pstmt10.executeUpdate();
+
+				// zorder_detail의 레코드 삭제
+				sql = "DELETE FROM zorder_detail where order_num IN(select order_num FROM zorder WHERE mem_num=?)";
+				pstmt11 = conn.prepareStatement(sql);
+				pstmt11.setInt(1, mem_num);
+				pstmt11.executeUpdate();
+
+				// zorder의 레코드 삭제
+				sql = "DELETE FROM zorder WHERE mem_num=?";
+				pstmt12 = conn.prepareStatement(sql);
+				pstmt12.setInt(1, mem_num);
+				pstmt12.executeUpdate();
+
+				// 모든 SQL문의 실행이 성공하면 commit
+				conn.commit();
+
+			} catch (Exception e) {
+				// SQL문이 하나라도 실패하면 롤백
+				conn.rollback();
+
+				throw new Exception(e);
+			} finally {
+				// 자원정리
+				DBUtil.executeClose(null, pstmt12, null);
+				DBUtil.executeClose(null, pstmt11, null);
+				DBUtil.executeClose(null, pstmt10, null);
+				DBUtil.executeClose(null, pstmt9, null);
+				DBUtil.executeClose(null, pstmt8, null);
+				DBUtil.executeClose(null, pstmt7, null);
+				DBUtil.executeClose(null, pstmt6, null);
+				DBUtil.executeClose(null, pstmt5, null);
+				DBUtil.executeClose(null, pstmt4, null);
+				DBUtil.executeClose(null, pstmt3, null);
+				DBUtil.executeClose(null, pstmt2, null);
+				DBUtil.executeClose(null, pstmt, conn);
+			}
 		}
-	}
 
 	// 관리자
 	// 전체 글 개수, 검색 글 개수
