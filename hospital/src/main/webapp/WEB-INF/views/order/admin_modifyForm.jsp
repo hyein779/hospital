@@ -38,7 +38,7 @@
 						<td class="align-left">		
 							<c:if test="${order.status != 5}">
 								<input type="radio" name="status" id="status2" 
-								       value="2" <c:if test="${order.status == 2}">checked</c:if>>배송준비중
+								       value="2" checked>배송준비중
 								<input type="radio" name="status" id="status3" 
 								       value="3" <c:if test="${order.status == 3}">checked</c:if>>배송중
 							    <input type="radio" name="status" id="status4" 

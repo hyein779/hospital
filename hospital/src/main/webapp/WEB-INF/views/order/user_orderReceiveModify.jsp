@@ -92,7 +92,7 @@ $(function(){
 					</tr>
 					<tr>
 						<td>
-							<label for="receive_address1">주소</label>
+							<label for="address1">주소</label>
 						<td>
 						<input type="text" name="receive_address1" id="address1"
 						  	   maxlength="30" value="${order.receive_address1}">						
@@ -100,9 +100,9 @@ $(function(){
 					</tr>
 					<tr>
 						<td>
-							<label for="receive_address2">상세주소</label>
+							<label for="address2">상세주소</label>
 						<td>
-						<input type="text" name="receive_address2" id="receive_address2"
+						<input type="text" name="receive_address2" id="address2"
 					 		   maxlength="30" value="${order.receive_address2}">						
 						</td>
 					</tr>
