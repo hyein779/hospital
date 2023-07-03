@@ -190,7 +190,7 @@ public class ReservationDAO {
 		return reservation;
 	}	
 	
-	//사용자 예약 목록
+	//사용자 진료 예약 목록
 	public int getResCount() throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -215,7 +215,32 @@ public class ReservationDAO {
 		return count;
 	}
 	
-	//예약 목록
+	//사용자 치료 예약 목록
+		public int getTResCount() throws Exception{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			int count  = 0;
+			
+			try {
+				conn = DBUtil.getConnection();
+				
+				sql = "SELECT COUNT(*) FROM treservation JOIN member USING(mem_num)";
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					count = rs.getInt(1);
+				}
+			}catch(Exception e) {
+				throw new Exception(e);
+			}finally {
+				DBUtil.executeClose(rs, pstmt, conn);
+			}
+			return count;
+		}
+	
+	//사용자 진료 예약 목록
 	public List<ReservationVO> getListRes(int mem_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -237,6 +262,44 @@ public class ReservationDAO {
 				ReservationVO reservation = new ReservationVO();
 	 			reservation.setRes_num(rs.getInt("res_num"));
 				reservation.setDoc_name(rs.getString("doc_name"));
+				reservation.setRes_date(rs.getString("res_date"));
+				reservation.setRes_time(rs.getString("res_time"));
+				reservation.setRes_content(rs.getString("res_content"));
+				
+				list.add(reservation);
+			}
+		}catch(Exception e) {
+			throw new Exception	(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	//사용자 치료 예약 목록
+	public List<TReservationVO> getListTRes(int start, int end, int mem_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<TReservationVO> list = null;
+		String sql = null;
+		int cnt = 0;
+		
+		try {
+			conn = DBUtil.getConnection();
+			
+			//sql = "SELECT * FROM treservation r JOIN treat t ON r.treat_num=t.treat_num WHERE r.mem_num = ? ORDER BY r.res_num DESC";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(++cnt, start);
+			pstmt.setInt(++cnt, end);
+			
+			rs = pstmt.executeQuery();
+			list = new ArrayList<TReservationVO>();
+			while(rs.next()) {
+				TReservationVO reservation = new TReservationVO();
+	 			reservation.setRes_num(rs.getInt("res_num"));
+				reservation.setTreat_name(rs.getString("treat_name"));
 				reservation.setRes_date(rs.getString("res_date"));
 				reservation.setRes_time(rs.getString("res_time"));
 				reservation.setRes_content(rs.getString("res_content"));
@@ -289,6 +352,44 @@ public class ReservationDAO {
 		return count;
 	}
 	
+	//관리자 치료 예약 목록
+	public int getTResCountByAdmin(String keyfield, String keyword) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String sub_sql = "";
+		int count = 0;
+
+		try {
+			// 커넥션풀로부터 커넥션을 할당
+			conn = DBUtil.getConnection();
+
+			if (keyword != null && !"".equals(keyword)) {
+				if (keyfield.equals("1"))
+					sub_sql += "WHERE mem_name LIKE ?";
+				else if (keyfield.equals("2"))
+					sub_sql += "WHERE treat_name LIKE ?";
+			}
+
+			sql = "SELECT count(*) FROM treservation r JOIN treat t USING(treat_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql;
+			pstmt = conn.prepareStatement(sql);
+
+			if (keyword != null && !"".equals(keyword)) {
+				pstmt.setString(1, "%" + keyword + "%");
+			}
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}
+		return count;
+	}
+	
 	// 목록, 검색 글 목록
 	public List<ReservationVO> getListResByAdmin(int start, int end, String keyfield, String keyword) throws Exception{
 		Connection conn = null;
@@ -309,7 +410,7 @@ public class ReservationDAO {
 					sub_sql += "WHERE doc_name LIKE ?";
 			}
 			
-			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM reservation r JOIN doc d USING(doc_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_date DESC)a) WHERE rnum >= ? AND rnum <= ?";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM reservation r JOIN doc d USING(doc_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			if (keyword != null && !"".equals(keyword)) {
@@ -340,4 +441,57 @@ public class ReservationDAO {
 		
 		return list;
 	}
+	
+	// 관리자 치료 목록, 검색 글 목록
+		public List<TReservationVO> getListTResByAdmin(int start, int end, String keyfield, String keyword) throws Exception{
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			List<TReservationVO> list = null;
+			String sql = null;
+			String sub_sql = "";
+			int cnt = 0;
+			
+			try {
+				conn = DBUtil.getConnection();
+				
+				if(keyword != null && !"".equals(keyword)) {
+					if (keyfield.equals("1"))
+						sub_sql += "WHERE mem_name LIKE ?";
+					else if (keyfield.equals("2"))
+						sub_sql += "WHERE doc_name LIKE ?";
+				}
+				
+				sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
+				
+				pstmt = conn.prepareStatement(sql);
+				if (keyword != null && !"".equals(keyword)) {
+					pstmt.setString(++cnt, "%" + keyword + "%");
+				}
+				pstmt.setInt(++cnt, start);
+				pstmt.setInt(++cnt, end);
+				
+				rs = pstmt.executeQuery();
+				list = new ArrayList<TReservationVO>();
+				while (rs.next()) {
+					TReservationVO reservation = new TReservationVO();
+					reservation.setRes_num(rs.getInt("res_num"));
+					reservation.setMem_name(rs.getString("mem_name"));
+					reservation.setTreat_name(rs.getString("treat_name"));
+					reservation.setRes_date(rs.getString("res_date"));
+					reservation.setRes_time(rs.getString("res_time"));
+					reservation.setRes_content(rs.getString("res_content"));
+					
+					list.add(reservation);
+				}
+				
+			}catch (Exception e) {
+				throw new Exception(e);
+			} finally {
+				DBUtil.executeClose(rs, pstmt, conn);
+			}
+			
+			return list;
+		}
+	
 }

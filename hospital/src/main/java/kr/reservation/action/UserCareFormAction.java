@@ -28,7 +28,7 @@ public class UserCareFormAction implements Action {
 		ReservationDAO dao = ReservationDAO.getInstance();
 		int count = dao.getResCount();
 		
-		PageUtil page = new PageUtil(Integer.parseInt(pageNum),count,10,10,"userCareForm.do");
+		PageUtil page = new PageUtil(Integer.parseInt(pageNum),count,5,10,"userCareForm.do");
 		
 		List<ReservationVO> list = null;
 		if(count > 0) {

@@ -10,7 +10,7 @@
 		<li id="10106">예약 관리</li>
 		<ul class="depth2">
 			<li id="10107" >
-				<a href="${pageContext.request.contextPath}/reservation/adminTreatmentList.do">진료 예약 관리</a></li>
+				<a href="${pageContext.request.contextPath}/reservation/adminCareList.do">진료 예약 관리</a></li>
 			<li id="10108" >
 				<a href="${pageContext.request.contextPath}/reservation/adminTherapyList.do">치료 예약 관리</a></li>
 		</ul>

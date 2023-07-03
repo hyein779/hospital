@@ -12,6 +12,9 @@
 	var res_date = document.getElementById("res_date").value;
 	var res_time = document.getElementById("res_time").value;
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <div class="page-main">
@@ -24,30 +27,34 @@
       </div>
       <div class="subHeader">
          <h4>치료 예약 정보 기입</h4>
-         <p><a href="${pageContext.request.contextPath}/reservation/therapyRes.do">돌아가기</a></p>
+         <p><a href="${pageContext.request.contextPath}/reservation/therapyRes.do?res_num=${reservation.res_num}">돌아가기</a></p>
       </div>
       <br>
-      <form id="res_decide" action="treatResDecide.do?treat_num=${treservation.treat_num}&res_num=${treservation.res_num}" method="post">
+      <form id="res_decide" action="treatResDecide.do?treat_num=${reservation.treat_num}&res_num=${reservation.res_num}" method="post">
       <div class="res_info">
       	<ul>
       		<li>
-				<label for="name"  name="name" value="${member.name}">이름 : ${member.name}</label>
+				<label for="name"  name="name" value="${member.name}">이름</label>
+				${member.name}
 			</li>
       		<li>
-				<label for="code" name="code" value="${member.code.substring(0,6)}">생년월일 : ${member.code.substring(0, 6)}</label>
+				<label for="code" name="code" value="${member.code.substring(0,6)}">생년월일</label>
+				${member.code.substring(0, 6)}
 			</li>
 			<li>
-				<label for="treat_name" name="treat_name" value="${treservation.treat_name}">치료 종류 : ${treservation.treat_name}</label>
+				<label for="treat_name" name="treat_name" value="${reservation.treat_name}">치료 종류</label>
+				${reservation.treat_name}
 			</li>
 			<li>
-				<label for="res_time">예약일시 : ${param.res_date} ${param.res_time}</label>
+				<label for="res_time">예약일시</label>
+				${param.res_date} ${param.res_time}
 					<input type="hidden" name="res_time" value="${param.res_time}">
 					<input type="hidden" name="res_date" value="${param.res_date}">
 	 				
 			</li>
 			<li>
 				<label for="res_content">요청사항(선택)</label>
-				<textarea rows="5" cols="30" name="res_content"></textarea>
+				<textarea rows="7" cols="70" name="res_content"></textarea>
 			</li>
 			<input type="submit" value="예약하기">
       	</ul>

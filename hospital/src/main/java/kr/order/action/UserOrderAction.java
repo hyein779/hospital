@@ -106,7 +106,7 @@ public class UserOrderAction implements Action{
 		//refresh 정보를 응답 헤더에 추가
 		response.addHeader("Refresh", "/main/main.do");
 		request.setAttribute("accessMsg", "주문이 완료되었습니다.");
-		request.setAttribute("accessUrl", request.getContextPath()+"/main/main.do");
+		request.setAttribute("accessUrl", request.getContextPath()+"/member/itemList.do");
 		
 		return "/WEB-INF/views/common/notice.jsp";
 	}

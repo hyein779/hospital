@@ -63,7 +63,7 @@
 				   onclick="location.href='${pageContext.request.contextPath}/main/main.do'">
 		</div>
 		<br>
-		<hr size="1" noshade="noshade" width="100%">
+		<hr class="order-hr">
 		<br>
 	</div>	 
 	<!-- content 끝 -->

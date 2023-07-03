@@ -12,6 +12,9 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/member.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/volunteer.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 	

@@ -13,15 +13,8 @@
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 </style>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/cart.js"></script>
 <script type="text/javascript">
-	<%--$(function(){
-		$("#restore").click(function(){
-	        if(confirm("장바구니를 비우시겠습니까?")){
-	            location.href="deleteCart.do";
-	        }
-	    });
-	--%>
+	$(function(){
 		// 장바구니 삭제 이벤트
 		$('.cart-del').on('click', function(){
 			$.ajax({

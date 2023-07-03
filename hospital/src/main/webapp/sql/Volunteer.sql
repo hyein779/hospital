@@ -8,10 +8,8 @@ create table volunteerboard(
 	modify_date date,
 	quantity number not null,
 	mem_num number not null,
-	mem_id varchar2(20),
 	constraint volunteerboard_pk primary key(board_num),
 	constraint volunteerboard_fk1 foreign key (mem_num) references member (mem_num),
-	constraint volunteerboard_fk2 foreign key (mem_id) references member (mem_id)
 );
 create sequence volunteerboard_seq;
 

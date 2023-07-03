@@ -102,6 +102,7 @@
 							<label for="receive_phone">전화번호</label></td>
 						<td>
 						<input type="text" name="receive_phone" id="receive_phone"
+							   value="ex) 00000000000 (-제외)"
 							   maxlength="15" value="${order.receive_phone}">						
 						</td>
 					</tr>

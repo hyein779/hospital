@@ -1,11 +1,19 @@
 @charset "UTF-8";
+/* 제목 
+------------------*/
 .order-h2{
 	text-align:left;
 	margin:40px 10px 10px 130px;
 }
+
+/* 가로줄 
+------------------*/
 .order-hr{
 	width:90%;
 }
+
+/* table 
+------------------*/
 .order-table{
 	width:80%;
 	margin:0 auto;
@@ -16,10 +24,9 @@
 	margin:0 auto;
 	text-align:center;
 }
-.order-table-button{	
-	margin-right:5px;
-	text-align:center;	
-}
+
+/* form 
+------------------*/
 #order_form{
 	width:600px;
 	margin:0 auto;
@@ -33,25 +40,16 @@ textarea {
 	width:440px;
 	border: 1px solid #dee2e6;
 }
-
 input[id="zipcode"]{
 	width:325px;
 }
-.delivery_text{
-	text-align:center;
-	color:red;
-}
-.color-red{
-	color:red;	
-}
-modify-hidden li label{
-	width:100px;
-}
-/* 테이블 맨 윗줄 */
+
+/* table 맨 윗줄 */
 .admin-item{
 	background-color:#dedede;
 }
-/* 테이블 항목 가운데 정렬 */
+
+/* table 항목 가운데 정렬 */
 .admin-subitem{
 	text-align:center;
 }
@@ -60,7 +58,18 @@ modify-hidden li label{
 	float:left;
 }
 
-/* 버튼 오른쪽 정렬 */
+/* 강조글 
+------------------*/
+.delivery_text{
+	text-align:center;
+	color:red;
+}
+.color-red{
+	color:red;	
+}
+
+/* button 
+------------------*/
 .order-button{
 	float:right;
 }
@@ -82,7 +91,9 @@ input[type="button"], #btn{
  	cursor:pointer;
  	border-radius:5px;
 }
-/* 검색창 */
+
+/* 검색창 
+------------------*/
 form#search_form{
 	display:flex;
 	justify-content:center;
@@ -102,7 +113,6 @@ select#keyfield{
 	height: 32px;
     font-size: 14px;
 }
-
 input#search{
 	height:32px;
 	margin-left:5px;
@@ -118,6 +128,9 @@ ul.search{
     margin: 0 auto;
     display: flex;
 }
+
+/* 테이블공용 
+------------------*/
 table{
 	width:100%;
 	border:1px solid #eaeaea;
@@ -143,6 +156,8 @@ tr:nth-child(even){
 tr:hover{
   background-color:#EFFBFF;
 }
+
+
 /* 의료진소개 
 ------------------*/
 .v-line {

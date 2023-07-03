@@ -19,8 +19,8 @@ public class TherapyResAction implements Action{
 		TReservationVO reservation = dao.getTreat(treat_num);
 		
 		request.setAttribute("reservation", reservation);
-		
-		return "/WEB-INF/views/reservation/careRes.jsp";
+		  
+		return "/WEB-INF/views/reservation/therapyRes.jsp";
 	}
 
 }
