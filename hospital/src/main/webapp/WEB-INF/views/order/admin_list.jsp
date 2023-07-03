@@ -27,6 +27,9 @@
 		});
 	})
 </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+</style>
 </head>
 <body>
 <!-- 관리자 : 주문목록 -->
