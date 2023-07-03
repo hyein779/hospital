@@ -29,11 +29,11 @@ public class UserTherapyFormAction implements Action {
 		ReservationDAO dao = ReservationDAO.getInstance();
 		int count = dao.getTResCount();
 		
-		PageUtil page = new PageUtil(Integer.parseInt(pageNum),count,10,10,"userTherapyForm.do");
+		PageUtil page = new PageUtil(Integer.parseInt(pageNum),count,5,10,"userTherapyForm.do");
 		
 		List<TReservationVO> list = null;
 		if(count > 0) {
-			list = dao.getListTRes(user_num);
+			list = dao.getListTRes(page.getStartRow(), page.getEndRow(), user_num);
 		}
 		
 		request.setAttribute("count", count);

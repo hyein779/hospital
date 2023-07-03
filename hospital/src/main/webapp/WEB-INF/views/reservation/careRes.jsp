@@ -14,7 +14,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#res_decide').submit(function(){
+		$('#res_decide_form').submit(function(){
 			if($('#res_date').val()==''){
 				alert('예약 날짜를 선택하세요.');
 				$('#res_date').focus();
@@ -46,19 +46,21 @@
          <p><a href="${pageContext.request.contextPath}/reservation/care.do">돌아가기</a></p>
       </div>
       <form id="res_decide_form" action="resDecideForm.do?doc_num=${reservation.doc_num}" method="post">
-      <div class="res_date">
-	      <div class="doc_list">
-				<img class="doc_img" src="../images/${reservation.doc_photo}">
-				<p class="doc_name">${reservation.doc_name}</p>
+      <div class="res_date-">
+	      <div class="doc_get">
+				<img class="doc_img_get" src="../images/${reservation.doc_photo}">
+				<p class="doc_name_get">${reservation.doc_name}</p>
 				<input type="hidden" name="doc_name" value="${reservation.doc_name}">
-				<p class="doc_cont">
+				<p class="doc_cont_get">
 					${reservation.doc_content}
 				</p>
 		  </div>
-	     <ul>
+     	<div class="res_date_info">
+     	<ul>
 	     	<li>
 	     		<label for="res_date">예약 날짜</label>
-	     		<input type="date" name="res_date" id="res_date" min="2023-06-29" max="2023-07-05">
+	     		<input type="date" name="res_date" id="res_date" min="2023-07-03" max="2023-07-09"><br>
+	     		<p class="warn"> * 당일 예약 불가능</p>
 	     	</li>
 	     	<li>
 	     		<label for="res_time">예약 시간</label>
@@ -76,8 +78,10 @@
 				    <option value="19:00">19:00</option>
 				</select>
 	     	</li>
-	     </ul>
-		 <input type="submit" value="예약하기">
+	     	<input type="submit" value="다음 단계">
+	     	</ul>
+     	</div>
+		 </div>
       	</form>
       </div>
    </div>

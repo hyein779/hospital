@@ -277,20 +277,22 @@ public class ReservationDAO {
 	}
 	
 	//사용자 치료 예약 목록
-	public List<TReservationVO> getListTRes(int mem_num) throws Exception{
+	public List<TReservationVO> getListTRes(int start, int end, int mem_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<TReservationVO> list = null;
 		String sql = null;
+		int cnt = 0;
 		
 		try {
 			conn = DBUtil.getConnection();
 			
-			sql = "SELECT * FROM treservation r JOIN treat t ON r.treat_num=t.treat_num WHERE r.mem_num = ? ORDER BY r.res_num DESC";
-			
+			//sql = "SELECT * FROM treservation r JOIN treat t ON r.treat_num=t.treat_num WHERE r.mem_num = ? ORDER BY r.res_num DESC";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setInt(++cnt, start);
+			pstmt.setInt(++cnt, end);
 			
 			rs = pstmt.executeQuery();
 			list = new ArrayList<TReservationVO>();
@@ -408,7 +410,7 @@ public class ReservationDAO {
 					sub_sql += "WHERE doc_name LIKE ?";
 			}
 			
-			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM reservation r JOIN doc d USING(doc_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_date DESC)a) WHERE rnum >= ? AND rnum <= ?";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM reservation r JOIN doc d USING(doc_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			if (keyword != null && !"".equals(keyword)) {
@@ -460,7 +462,7 @@ public class ReservationDAO {
 						sub_sql += "WHERE doc_name LIKE ?";
 				}
 				
-				sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_date DESC)a) WHERE rnum >= ? AND rnum <= ?";
+				sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) LEFT OUTER JOIN member_detail d USING(mem_num) " + sub_sql + " ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 				
 				pstmt = conn.prepareStatement(sql);
 				if (keyword != null && !"".equals(keyword)) {

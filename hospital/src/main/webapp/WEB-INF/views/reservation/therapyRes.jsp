@@ -14,7 +14,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		$('#res_decide').submit(function(){
+		$('#res_decide_form').submit(function(){
 			if($('#res_date').val()==''){
 				alert('예약 날짜를 선택하세요.');
 				$('#res_date').focus();
@@ -27,6 +27,7 @@
 			}
 		})
 	})
+	
 </script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
@@ -55,7 +56,8 @@
 	     <ul>
 	     	<li>
 	     		<label for="res_date">예약 날짜</label>
-	     		<input type="date" name="res_date" id="res_date" min="2023-06-29" max="2023-07-05">
+	     		<input type="date" name="res_date" id="res_date" min="2023-07-03" max="2023-07-09">
+	     		<p class="warn"> * 당일 예약 불가능</p>
 	     	</li>
 	     	<li>
 	     		<label for="res_time">예약 시간</label>
@@ -73,8 +75,8 @@
 				    <option value="19:00">19:00</option>
 				</select>
 	     	</li>
+	     	<input type="submit" value="다음 단계">
 	     </ul>
-		 <input type="submit" value="예약하기">
       	</form>
       </div>
    </div>
