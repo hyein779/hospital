@@ -27,7 +27,7 @@ public class UserTherapyFormAction implements Action {
 		if(pageNum == null) pageNum = "1";
 		
 		ReservationDAO dao = ReservationDAO.getInstance();
-		int count = dao.getTResCount();
+		int count = dao.getTResCount(user_num);
 		
 		PageUtil page = new PageUtil(Integer.parseInt(pageNum),count,5,10,"userTherapyForm.do");
 		

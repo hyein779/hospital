@@ -191,7 +191,7 @@ public class ReservationDAO {
 	}	
 	
 	//사용자 진료 예약 목록
-	public int getResCount() throws Exception{
+	public int getResCount(int mem_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -201,8 +201,9 @@ public class ReservationDAO {
 		try {
 			conn = DBUtil.getConnection();
 			
-			sql = "SELECT COUNT(*) FROM reservation JOIN member USING(mem_num)";
+			sql = "SELECT COUNT(*) FROM reservation JOIN member USING(mem_num) WHERE mem_num = ?";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				count = rs.getInt(1);
@@ -216,7 +217,7 @@ public class ReservationDAO {
 	}
 	
 	//사용자 치료 예약 목록
-		public int getTResCount() throws Exception{
+		public int getTResCount(int mem_num) throws Exception{
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -226,8 +227,9 @@ public class ReservationDAO {
 			try {
 				conn = DBUtil.getConnection();
 				
-				sql = "SELECT COUNT(*) FROM treservation JOIN member USING(mem_num)";
+				sql = "SELECT COUNT(*) FROM treservation JOIN member USING(mem_num) WHERE mem_num = ?";
 				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, mem_num);
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
 					count = rs.getInt(1);
@@ -241,20 +243,24 @@ public class ReservationDAO {
 		}
 	
 	//사용자 진료 예약 목록
-	public List<ReservationVO> getListRes(int mem_num) throws Exception{
+	public List<ReservationVO> getListRes(int start, int end, int mem_num) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<ReservationVO> list = null;
 		String sql = null;
+		int cnt = 0;
 		
 		try {
 			conn = DBUtil.getConnection();
 			
-			sql = "SELECT * FROM reservation r JOIN doc d ON r.doc_num=d.doc_num WHERE r.mem_num = ? ORDER BY r.res_num DESC";
+			//sql = "SELECT * FROM reservation r JOIN doc d ON r.doc_num=d.doc_num WHERE r.mem_num = ? ORDER BY r.res_num DESC";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM reservation r JOIN doc d USING(doc_num) WHERE r.mem_num = ? ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mem_num);
+			pstmt.setInt(++cnt, mem_num);
+			pstmt.setInt(++cnt, start);
+			pstmt.setInt(++cnt, end);
 			
 			rs = pstmt.executeQuery();
 			list = new ArrayList<ReservationVO>();
@@ -288,9 +294,9 @@ public class ReservationDAO {
 		try {
 			conn = DBUtil.getConnection();
 			
-			//sql = "SELECT * FROM treservation r JOIN treat t ON r.treat_num=t.treat_num WHERE r.mem_num = ? ORDER BY r.res_num DESC";
-			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
+			sql = "SELECT * FROM (SELECT a.*, rownum rnum FROM (SELECT * FROM treservation r JOIN treat t USING(treat_num) WHERE r.mem_num = ? ORDER BY res_num DESC)a) WHERE rnum >= ? AND rnum <= ?";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(++cnt, mem_num);
 			pstmt.setInt(++cnt, start);
 			pstmt.setInt(++cnt, end);
 			

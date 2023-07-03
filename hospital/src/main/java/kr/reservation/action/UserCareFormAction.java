@@ -26,13 +26,13 @@ public class UserCareFormAction implements Action {
 		if(pageNum == null) pageNum = "1";
 		
 		ReservationDAO dao = ReservationDAO.getInstance();
-		int count = dao.getResCount();
+		int count = dao.getResCount(user_num);
 		
 		PageUtil page = new PageUtil(Integer.parseInt(pageNum),count,5,10,"userCareForm.do");
 		
 		List<ReservationVO> list = null;
 		if(count > 0) {
-			list = dao.getListRes(user_num);
+			list = dao.getListRes(page.getStartRow(), page.getEndRow(), user_num);
 		}
 		
 		request.setAttribute("count", count);
