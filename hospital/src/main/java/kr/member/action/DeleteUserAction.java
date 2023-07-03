@@ -40,6 +40,7 @@ public class DeleteUserAction implements Action{
 			check = db_member.isCheckedPassword(passwd);
 			if(check) {//인증성공
 				//회원탈퇴
+				
 				dao.deleteMember(user_num);
 				//탈퇴해도 프로필 사진은 남아있어서
 				//프로필 사진 삭제
