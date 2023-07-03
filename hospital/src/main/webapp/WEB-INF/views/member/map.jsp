@@ -16,7 +16,7 @@
 	<div class="page-main">
 		<jsp:include page="/WEB-INF/views/common/header.jsp" />
 		<!-- 내용 시작   -->
-		<div class="content-main">
+		<div class="content-lnbx">
 			<h3 class="subtitle">오시는 길</h3>
 			<div class="supyung">
 				<iframe

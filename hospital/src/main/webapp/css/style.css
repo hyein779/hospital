@@ -180,7 +180,7 @@ ul{
 
 /* notice 오류 메시지
 ---------------*/
-.content-main h3.subtitle{
+.content-main h3.subtitle, .content-lnbx h3.subtitle{
    font-size:30px;
    margin:20px 0 30px 0px;
 }
